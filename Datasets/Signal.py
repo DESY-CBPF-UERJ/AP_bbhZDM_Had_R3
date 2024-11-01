@@ -28,11 +28,8 @@ for period,path in zip(periods,paths):
     year = period[-2:]
         
     Signal = [
-        ["Signal_400_100_"+period]           + [year+'0100'+dti, path+"Signal_400_100.txt"],
-        ["Signal_400_200_"+period]           + [year+'0101'+dti, path+"Signal_400_200.txt"],
-        ["Signal_500_100_"+period]           + [year+'0102'+dti, path+"Signal_500_100.txt"],
-        ["Signal_500_200_"+period]           + [year+'0103'+dti, path+"Signal_500_200.txt"],
-        ["Signal_500_300_"+period]           + [year+'0104'+dti, path+"Signal_500_300.txt"],
+        ["Signal_400_100_"+period]           + [year+'9900'+dti, path+"Signal_400_100.txt"],
+        ["Signal_1000_100_"+period]           + [year+'9914'+dti, path+"Signal_1000_100.txt"],
     ]
 
         

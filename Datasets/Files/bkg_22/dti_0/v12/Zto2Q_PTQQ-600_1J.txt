@@ -1,0 +1,13 @@
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/9c0d16ee-842c-4745-8a35-4e896b0822f7.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/111fb97c-0541-440c-b100-395a43812986.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/86e196de-7b46-4bd3-972a-7c30e8bc5254.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/4e885de6-da27-45dd-81a9-376ee00251b4.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/e482537d-140f-4455-83d0-604c4f789482.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/c7d7e274-4c51-4453-ad65-74742c60b1db.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/663e63cd-114c-47d4-9d10-c896603967fa.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/d3d90ca6-15b4-4fa6-843f-256d906933bc.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/330999f3-2eb7-4c31-88dd-9016f86c23c2.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/c697379f-9cde-4445-a7ee-c99ef5a142f2.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/4d9daf41-ee13-4338-bf90-86e0a87595af.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/a06624e6-9ba8-4a0b-8bea-dc4ab779dd62.root
+/store/mc/Run3Summer22NanoAODv12/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/NANOAODSIM/130X_mcRun3_2022_realistic_v5-v2/60000/409964f2-0506-4f8b-a800-47668fd00869.root
