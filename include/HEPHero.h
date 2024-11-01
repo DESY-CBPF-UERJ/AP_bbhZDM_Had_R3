@@ -4,6 +4,8 @@
 #include "HEPBase.h"
 #include "CMS.h"
 #include "ML.h"
+#include <vector>
+#include "TLorentzVector.h"
 
 
 
@@ -39,11 +41,13 @@ class HEPHero : public HEPBase {
         void FinishAna();
 
 
-        void SetupTest();
-        bool TestRegion();
-        void TestSelection();
-        void TestSystematic();
-        void FinishTest();
+        void Setupweights();
+        bool weightsRegion();
+        void weightsSelection();
+        void weightsSystematic();
+        void Finishweights();
+
+        void JetSelection();
         // INSERT YOUR SELECTION HERE
 
 
@@ -52,7 +56,234 @@ class HEPHero : public HEPBase {
     // ANALYSIS SETUP
     //=============================================================================================
 
+        //=====CMS Tools===========================================================================
+        bool PileupJet(int iJet);
+        void HEMissue();
+        bool METFilters();
+        float GetElectronWeight( string sysID );
+        float GetMuonWeight( string sysID );
+        float GetJetPUIDWeight( string sysID );
+        float GetBTagWeight( string sysID, string sysFlavor = "", string sysType = "" );
+        float GetPileupWeight( float Pileup_nTrueInt, string sysType );
+        float GetTriggerWeight( string sysID );
+        float GetPrefiringWeight( string sysID );
+        float GetTopPtWeight();
+        float GetWPtWeight();
+        float GetVJetsHTWeight();
+        void JESvariation();
+        void JERvariation();
+        void PDFtype();
+        bool Jet_GenJet_match( int ijet, float deltaR_cut );
+        void Jet_lep_overlap(float deltaR_cut);
+        bool Lep_jet_overlap( int ilep, string type );
+        bool ElectronID( int iobj, int WP );
+        bool MuonID( int iobj, int WP );
+        bool MuonISO( int iobj, int WP );
+        bool JetBTAG( int iobj, int WP );
 
+
+    //----JET------------------------------------------
+        int Nbjets;
+        int Nbjets30;
+        int Nbjets_LepIso04;
+        int Nbjets30_LepIso04;
+        int Njets;
+        int Njets30;
+        int Njets40;
+        int Njets_LepIso04;
+        int Njets30_LepIso04;
+        int Njets40_LepIso04;
+        int Njets_forward;
+        int Njets30_forward;
+        int Njets_tight;
+        int Njets_ISR;
+        int NPUjets;
+        float HT;
+        float HT30;
+        float HT40;
+        float MHT;
+        float MHT30;
+        float MHT40;
+        float MHT_trig; 
+        float MDT; 
+        float Jet_abseta_max;
+        float OmegaMin;
+        float ChiMin;
+        float FMax;
+        float OmegaMin30;
+        float ChiMin30;
+        float FMax30;
+        float OmegaMin40;
+        float ChiMin40;
+        float FMax40;
+        float LeadingJet_pt;
+        float SubLeadingJet_pt;
+        float ThirdLeadingJet_pt;
+        float FourthLeadingJet_pt;
+        Float_t Jet_JES_pt[100];
+        
+        //----MET------------------------------------------
+        float MET_RAW_pt;
+        float MET_RAW_phi;
+        float MET_Unc_pt;
+        float MET_Unc_phi;
+        float MET_JES_pt;
+        float MET_JES_phi;
+        float MET_XY_pt;
+        float MET_XY_phi;
+        float MET_RECOIL_pt;
+        float MET_RECOIL_phi;
+        float MET_JER_pt;
+        float MET_JER_phi;
+        float MET_Emu_pt;
+        float MET_Emu_phi;
+        float MET_sig;
+        float Ux;
+        float Uy;
+        float U1;
+        float U2;
+        TRandom random_recoil_18;
+
+        //----SELECTION------------------------------------
+        float JET_ETA_CUT;
+        float JET_PT_CUT;
+        int   JET_ID_WP;
+        int   JET_PUID_WP;
+        int   JET_BTAG_WP;
+        float JET_LEP_DR_ISO_CUT;
+        
+        float ELECTRON_GAP_LOWER_CUT;
+        float ELECTRON_GAP_UPPER_CUT;
+        float ELECTRON_ETA_CUT;
+        float ELECTRON_PT_CUT;
+        float ELECTRON_LOW_PT_CUT;
+        int   ELECTRON_ID_WP;
+        
+        float MUON_ETA_CUT;
+        float MUON_PT_CUT;
+        float MUON_LOW_PT_CUT;
+        int   MUON_ID_WP;
+        int   MUON_ISO_WP;
+
+        float TAU_ETA_CUT;
+        float TAU_PT_CUT;
+        
+        float LEPTON_DR_ISO_CUT;
+        
+        float LEADING_LEP_PT_CUT;
+        float LEPLEP_PT_CUT;
+        float MET_CUT;
+        float MET_DY_UPPER_CUT;
+        float LEPLEP_DR_CUT;
+        float LEPLEP_DM_CUT;
+        float MET_LEPLEP_DPHI_CUT;
+        float MET_LEPLEP_MT_CUT;
+        
+        //----GENERAL--------------------------------------
+        vector<int> selectedEle;
+        vector<int> selectedEleLowPt;
+        vector<int> selectedMu;
+        vector<int> selectedMuLowPt;
+        vector<int> selectedTau;
+        vector<int> selectedJet;
+        vector<bool> Jet_LepOverlap;
+        int RecoLepID;  // 11 - reco electron event, 13- reco muon event
+        const float Z_pdg_mass = 91.1876; //GeV
+        const float Muon_pdg_mass = 0.105658; //GeV
+        const float Electron_pdg_mass = 0.000510999; //GeV
+        int IdxLeadingLep;
+        int IdxTrailingLep;
+        int IdxThirdLep;
+        int IdxFourthLep;
+        TLorentzVector lep_1;
+        TLorentzVector lep_2;
+        TLorentzVector lep_3;
+        TLorentzVector lep_4;
+        float LeadingLep_pt;
+        float LeadingLep_eta;
+        float TrailingLep_pt;
+        float TrailingLep_eta;
+        float VVCR_LeadingLep_pt;
+        float LepLep_mass;
+        float LepLep_pt;
+        float LepLep_deltaR;
+        float LepLep_phi;
+        float LepLep_eta;
+        float LepLep_deltaM;
+        float MET_LepLep_deltaPhi;
+        float MET_LepLep_Mt;
+        float MET_LepLep_deltaPt;
+        float Lep3Lep4_deltaM;
+        float Lep3Lep4_M;
+        float Lep3Lep4_pt;
+        float Lep3Lep4_phi;
+        float Lep3Lep4_deltaR;
+        float LepLep_Lep3_M;
+        float LepLep_Lep3_deltaR;
+        float LepLep_Lep3_deltaPhi;
+        float LepLep_Lep3_deltaPt;
+        float MET_Lep3_deltaPhi;
+        float MET_Lep3_Mt;
+        float Lep3_pt;
+        float Lep4_pt;
+        bool Lep1_tight;
+        bool Lep2_tight;
+        bool Lep3_tight;
+        bool Lep4_tight;
+        float Lep3_Jet_deltaR;
+        float Lep3_dxy;
+        float Lep3_dz;
+        float Min_dilep_deltaR;
+        int Nleptons;
+        int NleptonsLowPt;
+        int Nelectrons;
+        int Nmuons;
+        int Ntaus;
+        float Dijet_pt; 
+        float Dijet_M;
+        float Dijet_deltaEta;
+        float Dijet_H_deltaPhi;
+        float Dijet_H_pt;
+        float MT2LL;
+        int ttbar_reco;
+        float ttbar_mass;
+        float ttbar_score;
+        int ttbar_reco_v2;
+        float ttbar_mass_v2;
+        float ttbar_score_v2;
+        bool HEM_issue_ele;
+        bool HEM_issue_jet;
+        bool HEM_issue_ele_v2;
+        bool HEM_issue_jet_v2;
+        bool HEM_issue_met;
+        bool HEM_filter;
+
+        int IdxBestMu;
+        int IdxBestTau;
+        float TauH_pt;
+        float MuonL_pt;
+        float MuonL_MET_pt;
+        float MuonL_MET_dphi;
+        float MuonL_MET_Mt;
+        float TauH_TauL_pt;
+        float TauH_TauL_dphi;
+        float TauH_TauL_Mt;
+        float TauH_MuonL_M;
+        float TauH_MuonL_pt;
+        float TauH_MuonL_dr;
+        bool Has_2OC_muons;
+        float LeadingJet_MuonL_dr;
+        float LeadingJet_TauL_dphi;
+        float LeadingJet_TauH_dr;
+        float LeadingJet_TauHMuonL_dr;
+
+        
+        //float genHT;
+        //float genPt;
+        
+        TLorentzVector LepLep;
+        TLorentzVector Dijet;
+        TLorentzVector MET;
 
     
     //=============================================================================================
@@ -62,7 +293,7 @@ class HEPHero : public HEPBase {
 
         UInt_t run;
         UInt_t luminosityBlock;
-        ULong64_t event;
+        UInt_t event;
         UInt_t bunchCrossing;
 
         /*
@@ -187,6 +418,8 @@ class HEPHero : public HEPBase {
         Float_t Electron_sip3d[100];
         Float_t Electron_mvaTTH[100];
         */
+        Float_t Electron_eta[100];
+        Float_t Electron_phi[100];
 
         Int_t nFatJet;
         UChar_t FatJet_jetId[20];
@@ -355,6 +588,7 @@ class HEPHero : public HEPBase {
         Float_t Jet_PNetRegPtRawCorrNeutrino[100];
         Float_t Jet_PNetRegPtRawRes[100];
         Float_t Jet_area[100];
+        Float_t Jet_btagDeepB[100];
         Float_t Jet_btagDeepFlavB[100];
         Float_t Jet_btagDeepFlavCvB[100];
         Float_t Jet_btagDeepFlavCvL[100];
@@ -381,6 +615,10 @@ class HEPHero : public HEPBase {
         Float_t Jet_phi[100];
         Float_t Jet_pt[100];
         Float_t Jet_rawFactor[100];
+        Int_t   Jet_puId[100];
+
+        // Vector to store the four-moments of the selected jets
+        std::vector<TLorentzVector> jetMomenta;
 
         /*
         UChar_t LHE_Njets;

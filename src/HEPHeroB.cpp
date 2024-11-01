@@ -263,7 +263,7 @@ bool HEPHero::MC_processing(){
 //---------------------------------------------------------------------------------------------------------------
 void HEPHero::SetupAna(){
     if( false );
-    else if( _SELECTION == "Test" ) SetupTest();
+    else if( _SELECTION == "weights" ) Setupweights();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -273,24 +273,24 @@ void HEPHero::SetupAna(){
 
 bool HEPHero::AnaRegion(){
     bool Selected = true;
-    if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
+    if( _SELECTION == "weights" && !weightsRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
 }
 
 void HEPHero::AnaSelection(){
-    if( _SELECTION == "Test" ) TestSelection();
+    if( _SELECTION == "weights" ) weightsSelection();
     // CALL YOUR SELECTION HERE
 }
 
 void HEPHero::AnaSystematic(){
-    if( _SELECTION == "Test" ) TestSystematic();
+    if( _SELECTION == "weights" ) weightsSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
 void HEPHero::FinishAna(){
-    if( _SELECTION == "Test" ) FinishTest();
+    if( _SELECTION == "weights" ) Finishweights();
     // FINISH YOUR SELECTION HERE
 }
    
