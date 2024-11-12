@@ -8,9 +8,7 @@ def get_samples( basedir, period ):
 
     samples = {
         'Signal_400_100':           [i for i in list_basedir if 'Signal_400_100' == i.split("_"+periodTag)[0]],
-        'Signal_400_200':           [i for i in list_basedir if 'Signal_400_200' == i.split("_"+periodTag)[0]],
-        'Signal_500_100':           [i for i in list_basedir if 'Signal_500_100' == i.split("_"+periodTag)[0]],
-        'Signal_500_200':           [i for i in list_basedir if 'Signal_500_200' == i.split("_"+periodTag)[0]],
+        'Signal_1000_100':           [i for i in list_basedir if 'Signal_1000_100' == i.split("_"+periodTag)[0]],
         'DYJetsToLL_PtZ-0To50':     [i for i in list_basedir if 'DYJetsToLL_PtZ-0To50' == i.split("_"+periodTag)[0]],
         'DYJetsToLL_PtZ-3To50':     [i for i in list_basedir if 'DYJetsToLL_PtZ-3To50' == i.split("_"+periodTag)[0]],
         'DYJetsToLL_PtZ-50To100':   [i for i in list_basedir if 'DYJetsToLL_PtZ-50To100' == i.split("_"+periodTag)[0]],
@@ -38,5 +36,4 @@ def get_samples( basedir, period ):
         del samples[sample]
 
     return samples
-
 

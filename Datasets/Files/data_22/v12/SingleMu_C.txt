@@ -1,0 +1,2 @@
+/store/relval/CMSSW_13_2_0/SingleMuon/NANOAOD/130X_dataRun3_v2_RelVal_2022C-v1/2580000/de236ab8-82f1-4da3-ade0-760ae9d9f1f9.root
+/store/relval/CMSSW_13_2_0/SingleMuon/NANOAOD/130X_dataRun3_v2_RelVal_2022C-v1/2580000/ec50f4bf-3294-4d53-9c1e-e98acc57d4b2.root
