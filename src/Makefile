@@ -57,10 +57,17 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.26.2-0664a/x86_64-el9-gcc11-opt/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero
+=======
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/m/mlopescr/HEPHero
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /afs/cern.ch/user/m/mlopescr/HEPHero
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +139,24 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero/CMakeFiles /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero/AP_bbhZDM_Had_R3/src//CMakeFiles/progress.marks
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero/CMakeFiles 0
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/m/mlopescr/HEPHero/CMakeFiles /afs/cern.ch/user/m/mlopescr/HEPHero/AP_bbhZDM_Had_R3/src//CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/m/mlopescr/HEPHero/CMakeFiles 0
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : all
 
 # The main clean target
 clean:
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/clean
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/clean
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : clean
 
 # The main clean target
@@ -148,17 +165,29 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/preinstall
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/preinstall
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/preinstall
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AP_bbhZDM_Had_R3/src/preinstall
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : depend
 
 # Help Target
@@ -184,6 +213,10 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+<<<<<<< HEAD
 	cd /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+=======
+	cd /afs/cern.ch/user/m/mlopescr/HEPHero && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+>>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 .PHONY : cmake_check_build_system
 
