@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Install script for directory: /afs/cern.ch/work/r/ragomesd/DM_Project/HEPHero/AP_bbhZDM_Had_R3/src
-=======
-# Install script for directory: /afs/cern.ch/user/m/mlopescr/HEPHero/AP_bbhZDM_Had_R3/src
->>>>>>> d9f73e47426ab299ba605b021062daf6e7ffc903
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
