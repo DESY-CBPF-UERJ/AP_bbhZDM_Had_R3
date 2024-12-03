@@ -45,10 +45,11 @@ A partir daqui, todas as modificações que vier a fazer, vão estar relacionada
 ```bash
 git status
 ```
-* Provavelmente ele vai acusar que já existem arquivos modificados, como esses:
+* Ele não deve acusar nenhum arquivo de diferente
+## (Implemnetado) Utilizando o ```.gitignore```
+Quando se executava a etapa 1 (```git status````). Ele ausava que já existem arquivos modificados, como esses:
 ![image](https://github.com/user-attachments/assets/8299488d-aab9-4cc4-8d07-883e5ac62e0b)
-* Esses arquivos já estão modificados pois eles são parte da configuração que é feita no HepHero, e cada pessoa vai ter informações diferentes nesses arquivos. Você pode ignorar eles, visto que cada pessoa vai ter modificações diferentes nessa etapa, ou se quiser, pode apontar para o git, que esses arquivos podem ser ignorados, através do ```.gitignore```.
-## (OPCIONAL) Utilizando o ```.gitignore```
+* Esses arquivos já estavam modificados pois eles são parte da configuração que é feita no HepHero, e cada pessoa vai ter informações diferentes nesses arquivos. Para evitar confusão, foi utilizado o ```.gitignore```. Ele é responsável por indicar para o git que arquivos deve ignorar mudanças. A seguir estão os passso que foram utilizados
 1.1. Crie um arquivo, dentro da pasta AP_bbhZDM_Had_R3, chamado ```.gitignore``` indicando quais arquivos não devem ser considerados na hora de checar modificações, bem como enviar como atualização pra sua main. Crie o arquivo
 ```bash
 vi .gitignore
