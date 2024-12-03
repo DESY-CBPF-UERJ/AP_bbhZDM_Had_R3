@@ -66,7 +66,7 @@ git commit -m "{informação do que foi mudado}"
 git checkout main
 git pull origin main
 ```
-5.1 Caso exista algum tipo de conflito, então você deve resolver ele antes de prosseguir
+  5.1. Caso exista algum tipo de conflito, então você deve resolver ele antes de prosseguir
 
 6. Sem que tenha conflito, basta dar merge da sua branch com o main
 ```bash
@@ -76,7 +76,7 @@ git merge remove/mydiff.diff
 ```bash
 git branch -d remove/mydiff.diff     
 ```
-7.1 Para checar se há alguma branch ainda existente localmente
+  7.1. Para checar se há alguma branch ainda existente localmente
 ```bash
 git branch
 ```
@@ -91,11 +91,11 @@ git push origin
 Quando se executava a etapa 1 (```git status````). Ele ausava que já existem arquivos modificados, como esses:
 ![image](https://github.com/user-attachments/assets/8299488d-aab9-4cc4-8d07-883e5ac62e0b)
 * Esses arquivos já estavam modificados pois eles são parte da configuração que é feita no HepHero, e cada pessoa vai ter informações diferentes nesses arquivos. Para evitar confusão, foi utilizado o ```.gitignore```. Ele é responsável por indicar para o git que arquivos deve ignorar mudanças. A seguir estão os passso que foram utilizados
-1.1. Crie um arquivo, dentro da pasta AP_bbhZDM_Had_R3, chamado ```.gitignore``` indicando quais arquivos não devem ser considerados na hora de checar modificações, bem como enviar como atualização pra sua main. Crie o arquivo
+  1.1. Crie um arquivo, dentro da pasta AP_bbhZDM_Had_R3, chamado ```.gitignore``` indicando quais arquivos não devem ser considerados na hora de checar modificações, bem como enviar como atualização pra sua main. Crie o arquivo
 ```bash
 vi .gitignore
 ```
-1.2. Dentro dela já vão exitir diversos arquivos que são ignorados, inclua o nome dos arquivos, indicando o path, a partir do diretorio do ```.gitignore```, no meu caso
+  1.2. Dentro dela já vão exitir diversos arquivos que são ignorados, inclua o nome dos arquivos, indicando o path, a partir do diretorio do ```.gitignore```, no meu caso
 ```bash
 ana/CMakeFiles/CMakeDirectoryInformation.cmake
 ana/Makefile
