@@ -66,7 +66,7 @@ git commit -m "{informação do que foi mudado}"
 git checkout main
 git pull origin main
 ```
-  5.1. Caso exista algum tipo de conflito, então você deve resolver ele antes de prosseguir
+* Caso exista algum tipo de conflito, então você deve resolver ele antes de prosseguir
 
 6. Sem que tenha conflito, basta dar merge da sua branch com o main
 ```bash
@@ -76,7 +76,7 @@ git merge remove/mydiff.diff
 ```bash
 git branch -d remove/mydiff.diff     
 ```
-  7.1. Para checar se há alguma branch ainda existente localmente
+* Para checar se há alguma branch ainda existente localmente
 ```bash
 git branch
 ```
