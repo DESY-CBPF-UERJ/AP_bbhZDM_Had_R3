@@ -27,18 +27,21 @@ Dentro da pasta do HepHero, mude o setup do projeto que está trabalhando, no no
 ```bash
 python setAnalysis.py -a AP_bbhZDM_Had_R3
 ```
-* Lembre-se de ter dado ```bash hepenv ```!
+* Lembre-se de ter dado ```hepenv```!
 
 A partir daqui, você executa o projeto como um projeto padrão do HepHero (veja o readme do HepHero para mais informações)
 
 
-# Modificando o projeto
+# Modificando o projeto (Trunk Based method)
 
 Acesse a pasta do seu projeto, no nosso caso AP_bbhZDM_Had_R3
 
 ```bash
 cd AP_bbhZDM_Had_R3
 ```
+A partir daqui, todas as modificações que fizer, vão estar relacionadas ao git do seu projeto, por isso, é aconselhavel fazer uma branch, que indique o problema/feature que vai ser feita. Para exemplificar, os passos seguintes vão ser feitos, supondo que eu queira alterar o Readme do projeto (mas os passos são os mesmos para qualquer alteração!)
+
+
 
 
 
