@@ -5,7 +5,7 @@ ana/cmake_install.cmake
 src/CMakeFiles/CMakeDirectoryInformation.cmake
 src/Makefile
 src/cmake_install.cmake
-
+ana/local_output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
