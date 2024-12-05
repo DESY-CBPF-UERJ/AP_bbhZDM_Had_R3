@@ -59,11 +59,6 @@ class HEPHero : public HEPBase {
         void Test_Electron_IDSelection();
         void Test_Electron_IDSystematic();
         void FinishTest_Electron_ID();
-        void Setuptestando();
-        bool testandoRegion();
-        void testandoSelection();
-        void testandoSystematic();
-        void Finishtestando();
         // INSERT YOUR SELECTION HERE
 
 

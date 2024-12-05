@@ -329,7 +329,6 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "weights" ) Setupweights();
     else if( _SELECTION == "Test" ) SetupTest();
     else if( _SELECTION == "Test_Electron_ID" ) SetupTest_Electron_ID();
-    else if( _SELECTION == "testando" ) Setuptestando();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -342,7 +341,6 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "weights" && !weightsRegion() ) Selected = false;
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
     if( _SELECTION == "Test_Electron_ID" && !Test_Electron_IDRegion() ) Selected = false;
-    if( _SELECTION == "testando" && !testandoRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -352,7 +350,6 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "weights" ) weightsSelection();
     if( _SELECTION == "Test" ) TestSelection();
     if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSelection();
-    if( _SELECTION == "testando" ) testandoSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -360,7 +357,6 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "weights" ) weightsSystematic();
     if( _SELECTION == "Test" ) TestSystematic();
     if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSystematic();
-    if( _SELECTION == "testando" ) testandoSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -368,7 +364,6 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "weights" ) Finishweights();
     if( _SELECTION == "Test" ) FinishTest();
     if( _SELECTION == "Test_Electron_ID" ) FinishTest_Electron_ID();
-    if( _SELECTION == "testando" ) Finishtestando();
     // FINISH YOUR SELECTION HERE
 }
    
