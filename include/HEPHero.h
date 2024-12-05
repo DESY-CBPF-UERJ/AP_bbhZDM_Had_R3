@@ -48,11 +48,22 @@ class HEPHero : public HEPBase {
         void Finishweights();
 
         void JetSelection();
+        void LeptonSelection();
         void SetupTest();
         bool TestRegion();
         void TestSelection();
         void TestSystematic();
         void FinishTest();
+        void SetupTest_Electron_ID();
+        bool Test_Electron_IDRegion();
+        void Test_Electron_IDSelection();
+        void Test_Electron_IDSystematic();
+        void FinishTest_Electron_ID();
+        void Setuptestando();
+        bool testandoRegion();
+        void testandoSelection();
+        void testandoSystematic();
+        void Finishtestando();
         // INSERT YOUR SELECTION HERE
 
 
@@ -367,7 +378,7 @@ class HEPHero : public HEPBase {
         Float_t DeepMETResolutionTune_pt;
         Float_t DeepMETResponseTune_phi;
         Float_t DeepMETResponseTune_pt;
-
+*/
         Int_t nElectron;
         Char_t Electron_seediEtaOriX[100];
         Bool_t Electron_convVeto[100];
@@ -422,9 +433,6 @@ class HEPHero : public HEPBase {
         Float_t Electron_sieie[100];
         Float_t Electron_sip3d[100];
         Float_t Electron_mvaTTH[100];
-        */
-        Float_t Electron_eta[100];
-        Float_t Electron_phi[100];
 
         Int_t nFatJet;
         UChar_t FatJet_jetId[20];
@@ -625,58 +633,7 @@ class HEPHero : public HEPBase {
         // Vector to store the four-moments of the selected jets
         std::vector<TLorentzVector> jetMomenta;
 
-        
-        // UChar_t LHE_Njets;
-        // UChar_t LHE_Nb;
-        // UChar_t LHE_Nc;
-        // UChar_t LHE_Nuds;
-        // UChar_t LHE_Nglu;
-        // UChar_t LHE_NpNLO;
-        // UChar_t LHE_NpLO;
-        // Float_t LHE_HT;
-        // Float_t LHE_HTIncoming;
-        // Float_t LHE_Vpt;
-        // Float_t LHE_AlphaS;
-
-        // Int_t nLHEPart;
-        // Int_t LHEPart_pdgId[100];
-        // Int_t LHEPart_status[100];
-        // Int_t LHEPart_spin[100];
-        // Float_t LHEPart_pt[100];
-        // Float_t LHEPart_eta[100];
-        // Float_t LHEPart_phi[100];
-        // Float_t LHEPart_mass[100];
-        // Float_t LHEPart_incomingpz[100];
-
-        // Int_t nLowPtElectron;
-        // Bool_t LowPtElectron_convVeto[100];
-        // UChar_t LowPtElectron_convWP[100];
-        // UChar_t LowPtElectron_lostHits[100];
-        // Short_t LowPtElectron_electronIdx[100];
-        // Short_t LowPtElectron_photonIdx[100];
-        // Int_t LowPtElectron_charge[100];
-        // Int_t LowPtElectron_pdgId[100];
-        // Float_t LowPtElectron_ID[100];
-        // Float_t LowPtElectron_convVtxRadius[100];
-        // Float_t LowPtElectron_deltaEtaSC[100];
-        // Float_t LowPtElectron_dxy[100];
-        // Float_t LowPtElectron_dxyErr[100];
-        // Float_t LowPtElectron_dz[100];
-        // Float_t LowPtElectron_dzErr[100];
-        // Float_t LowPtElectron_eInvMinusPInv[100];
-        // Float_t LowPtElectron_energyErr[100];
-        // Float_t LowPtElectron_eta[100];
-        // Float_t LowPtElectron_hoe[100];
-        // Float_t LowPtElectron_mass[100];
-        // Float_t LowPtElectron_miniPFRelIso_all[100];
-        // Float_t LowPtElectron_miniPFRelIso_chg[100];
-        // Float_t LowPtElectron_phi[100];
-        // Float_t LowPtElectron_pt[100];
-        // Float_t LowPtElectron_ptbiased[100];
-        // Float_t LowPtElectron_r9[100];
-        // Float_t LowPtElectron_scEtOverPt[100];
-        // Float_t LowPtElectron_sieie[100];
-        // Float_t LowPtElectron_unbiased[100];
+       
 
         Float_t GenMET_phi;
         Float_t GenMET_pt;
@@ -1640,3 +1597,4 @@ class HEPHero : public HEPBase {
 };
 
 #endif
+

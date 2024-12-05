@@ -1,5 +1,83 @@
 #include "HEPHero.h"
 
+
+
+//---------------------------------------------------------------------------------------------------------------
+// Lepton selection
+//---------------------------------------------------------------------------------------------------------------
+void HEPHero::LeptonSelection(){
+
+    selectedEle.clear();
+    selectedMu.clear();
+    //std::cout<<"Numero de eletrons:"<<nElectron<<endl;
+    for( unsigned int iele = 0; iele < nElectron; ++iele ) {
+        if( abs(Electron_eta[iele]) >= ELECTRON_ETA_CUT ) continue;
+        if( !ElectronID( iele, ELECTRON_ID_WP ) ) continue;
+        if( (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) > ELECTRON_GAP_LOWER_CUT) &&
+            (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) < ELECTRON_GAP_UPPER_CUT) ) continue;
+        if( Electron_pt[iele] <= ELECTRON_PT_CUT ) continue;
+
+/*
+        TLorentzVector Ele_test;
+        Ele_test.SetPtEtaPhiM(Electron_pt[iele], Electron_eta[iele], Electron_phi[iele], Electron_pdg_mass);
+        for( unsigned int iselele = 0; iselele < selectedEle.size(); ++iselele ) {
+            int iele_sel = selectedEle[iselele];
+            TLorentzVector Ele_sel;
+            Ele_sel.SetPtEtaPhiM(Electron_pt[iele_sel], Electron_eta[iele_sel], Electron_phi[iele_sel], Electron_pdg_mass);
+            float dilep_deltaR = Ele_test.DeltaR( Ele_sel );
+            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
+        }
+*/
+        selectedEle.push_back(iele);
+    }
+/*
+    for( unsigned int imu = 0; imu < nMuon; ++imu ) {
+        Muon_raw_pt[imu] = Muon_pt[imu];
+        if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
+        if( !MuonID( imu, MUON_ID_WP ) ) continue;
+        if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
+
+        if( apply_muon_roc_corr ) Muon_pt[imu] = Muon_pt[imu]*muon_roc_corr.GetCorrection( Muon_charge[imu], Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], (Muon_genPartIdx[imu]>=0) ? true : false, (Muon_genPartIdx[imu]>=0) ? GenPart_pt[Muon_genPartIdx[imu]] : 0., Muon_nTrackerLayers[imu], (dataset_group=="Data") );
+
+        if( Muon_pt[imu] > MUON_LOW_PT_CUT ) selectedMuLowPt.push_back(imu);
+        if( Muon_pt[imu] <= MUON_PT_CUT ) continue;
+
+        TLorentzVector Mu_test;
+        Mu_test.SetPtEtaPhiM(Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], Muon_pdg_mass);
+        for( unsigned int iselmu = 0; iselmu < selectedMu.size(); ++iselmu ) {
+            int imu_sel = selectedMu[iselmu];
+            TLorentzVector Mu_sel;
+            Mu_sel.SetPtEtaPhiM(Muon_pt[imu_sel], Muon_eta[imu_sel], Muon_phi[imu_sel], Muon_pdg_mass);
+            float dilep_deltaR = Mu_test.DeltaR( Mu_sel );
+            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
+        }
+        for( unsigned int iselele = 0; iselele < selectedEle.size(); ++iselele ) {
+            int iele_sel = selectedEle[iselele];
+            TLorentzVector Ele_sel;
+            Ele_sel.SetPtEtaPhiM(Electron_pt[iele_sel], Electron_eta[iele_sel], Electron_phi[iele_sel], Electron_pdg_mass);
+            float dilep_deltaR = Mu_test.DeltaR( Ele_sel );
+            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
+        }
+
+        selectedMu.push_back(imu);
+  
+    }
+*/
+    Nelectrons = selectedEle.size();
+    //Nmuons = selectedMu.size();
+    //Nleptons = Nelectrons + Nmuons;
+
+    //int NelectronsLowPt = selectedEleLowPt.size();
+    //int NmuonsLowPt = selectedMuLowPt.size();
+    //NleptonsLowPt = NelectronsLowPt + NmuonsLowPt;
+
+}
+
+
+
+
+
+
 void HEPHero::Jet_lep_overlap( float deltaR_cut ){
 
     Jet_LepOverlap.clear();
