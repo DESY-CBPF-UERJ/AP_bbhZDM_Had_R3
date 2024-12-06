@@ -41,11 +41,6 @@ class HEPHero : public HEPBase {
         void FinishAna();
 
 
-        void Setupweights();
-        bool weightsRegion();
-        void weightsSelection();
-        void weightsSystematic();
-        void Finishweights();
 
         void JetSelection();
         void LeptonSelection();
@@ -59,6 +54,11 @@ class HEPHero : public HEPBase {
         void Test_Electron_IDSelection();
         void Test_Electron_IDSystematic();
         void FinishTest_Electron_ID();
+        void SetupmassParticlesWeights();
+        bool massParticlesWeightsRegion();
+        void massParticlesWeightsSelection();
+        void massParticlesWeightsSystematic();
+        void FinishmassParticlesWeights();
         // INSERT YOUR SELECTION HERE
 
 
