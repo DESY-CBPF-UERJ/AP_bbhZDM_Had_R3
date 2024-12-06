@@ -6,6 +6,8 @@ src/CMakeFiles/CMakeDirectoryInformation.cmake
 src/Makefile
 src/cmake_install.cmake
 ana/local_output/
+Metadata/ConfigFile_*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
