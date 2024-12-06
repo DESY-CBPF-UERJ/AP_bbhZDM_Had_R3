@@ -33,6 +33,11 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("event", &event);
         _inputTree->SetBranchAddress("bunchCrossing", &bunchCrossing);
 
+        _inputTree->SetBranchAddress("GenMET_phi", &GenMET_phi);
+        
+        _inputTree->SetBranchAddress("MET_phi", &MET_phi);
+        _inputTree->SetBranchAddress("MET_pt", &MET_pt);
+
         _inputTree->SetBranchAddress("nFatJet", &nFatJet);
         _inputTree->SetBranchAddress("FatJet_jetId", &FatJet_jetId);
         _inputTree->SetBranchAddress("FatJet_nConstituents", &FatJet_nConstituents);

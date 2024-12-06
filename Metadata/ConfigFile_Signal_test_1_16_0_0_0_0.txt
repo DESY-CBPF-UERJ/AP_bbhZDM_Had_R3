@@ -9,7 +9,7 @@ Redirector           None
 Machines             CERN
 Check                1
 InputFile            AP_bbhZDM_Had_R3/Datasets/signal.root
-NumMaxEvents         50000
+NumMaxEvents         1000
 LumiWeights          1
 Universe             0
 SysID_lateral        0

@@ -61,6 +61,7 @@ void HEPHero::SetupTest() {
     // HDF_insert("FatJet_subJetIdx2", FatJet_subJetIdx2);
     HDF_insert("FatJet_phi", FatJet_phi);
     HDF_insert("FatJet_pt", FatJet_pt);
+    HDF_insert("FatJet_mass", FatJet_mass);
     HDF_insert("FatJet_particleNet_QCD", FatJet_particleNet_QCD);
     HDF_insert("FatJet_particleNet_QCD0HF", FatJet_particleNet_QCD0HF);
     HDF_insert("FatJet_particleNet_QCD1HF", FatJet_particleNet_QCD1HF);
@@ -84,6 +85,7 @@ void HEPHero::SetupTest() {
     HDF_insert("LHEScaleWeight", LHEScaleWeight);
     HDF_insert("nPSWeight", &nPSWeight);
     HDF_insert("PSWeight", PSWeight);
+    
     HDF_insert("nJet", &nJet);
     HDF_insert("Jet_jetId", Jet_jetId);
     HDF_insert("Jet_nElectrons", Jet_nElectrons);
@@ -93,17 +95,23 @@ void HEPHero::SetupTest() {
     HDF_insert("Jet_phi", Jet_phi);
     HDF_insert("Jet_pt", Jet_pt);
     HDF_insert("Jet_mass", Jet_mass);
+
     HDF_insert("GenMET_phi", &GenMET_phi);
     HDF_insert("GenMET_pt", &GenMET_pt);
+
     HDF_insert("MET_phi", &MET_phi);
     HDF_insert("MET_pt", &MET_pt);
+
     HDF_insert("Pileup_sumEOOT", &Pileup_sumEOOT);
     HDF_insert("Pileup_sumLOOT", &Pileup_sumLOOT);
     HDF_insert("Pileup_nTrueInt", &Pileup_nTrueInt);
+
     HDF_insert("PuppiMET_phi", &PuppiMET_phi);
     HDF_insert("PuppiMET_pt", &PuppiMET_pt);
+
     HDF_insert("RawMET_phi", &RawMET_phi);
     HDF_insert("RawMET_pt", &RawMET_pt);
+
     HDF_insert("PV_x", &PV_x);
     HDF_insert("PV_y", &PV_y);
     HDF_insert("PV_z", &PV_z);
