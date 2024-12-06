@@ -34,10 +34,72 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("bunchCrossing", &bunchCrossing);
 
         _inputTree->SetBranchAddress("GenMET_phi", &GenMET_phi);
-        
         _inputTree->SetBranchAddress("MET_phi", &MET_phi);
         _inputTree->SetBranchAddress("MET_pt", &MET_pt);
 
+        
+        //-----------------------------------------------------------------------------------------
+
+        _inputTree->SetBranchAddress("nElectron", &nElectron);
+        _inputTree->SetBranchAddress("Electron_seediEtaOriX", &Electron_seediEtaOriX);
+        _inputTree->SetBranchAddress("Electron_convVeto", &Electron_convVeto);
+        _inputTree->SetBranchAddress("Electron_cutBased", &Electron_cutBased);
+        _inputTree->SetBranchAddress("Electron_cutBased_HEEP", &Electron_cutBased_HEEP);
+        _inputTree->SetBranchAddress("Electron_isPFcand", &Electron_isPFcand);
+        _inputTree->SetBranchAddress("Electron_jetNDauCharged", &Electron_jetNDauCharged);
+        _inputTree->SetBranchAddress("Electron_lostHits", &Electron_lostHits);
+        _inputTree->SetBranchAddress("Electron_mvaIso_WP80", &Electron_mvaIso_WP80);
+        _inputTree->SetBranchAddress("Electron_mvaIso_WP90", &Electron_mvaIso_WP90);
+        _inputTree->SetBranchAddress("Electron_mvaNoIso_WP80", &Electron_mvaNoIso_WP80);
+        _inputTree->SetBranchAddress("Electron_mvaNoIso_WP90", &Electron_mvaNoIso_WP90);
+        _inputTree->SetBranchAddress("Electron_seedGain", &Electron_seedGain);
+        _inputTree->SetBranchAddress("Electron_tightCharge", &Electron_tightCharge);
+        _inputTree->SetBranchAddress("Electron_jetIdx", &Electron_jetIdx);
+        _inputTree->SetBranchAddress("Electron_photonIdx", &Electron_photonIdx);
+        _inputTree->SetBranchAddress("Electron_svIdx", &Electron_svIdx);
+        _inputTree->SetBranchAddress("Electron_fsrPhotonIdx", &Electron_fsrPhotonIdx);
+        _inputTree->SetBranchAddress("Electron_charge", &Electron_charge);
+        _inputTree->SetBranchAddress("Electron_pdgId", &Electron_pdgId);
+        _inputTree->SetBranchAddress("Electron_seediPhiOriY", &Electron_seediPhiOriY);
+        _inputTree->SetBranchAddress("Electron_vidNestedWPBitmap", &Electron_vidNestedWPBitmap);
+        _inputTree->SetBranchAddress("Electron_vidNestedWPBitmapHEEP", &Electron_vidNestedWPBitmapHEEP);
+        _inputTree->SetBranchAddress("Electron_deltaEtaSC", &Electron_deltaEtaSC);
+        _inputTree->SetBranchAddress("Electron_dr03EcalRecHitSumEt", &Electron_dr03EcalRecHitSumEt);
+        _inputTree->SetBranchAddress("Electron_dr03HcalDepth1TowerSumEt", &Electron_dr03HcalDepth1TowerSumEt);
+        _inputTree->SetBranchAddress("Electron_dr03TkSumPt", &Electron_dr03TkSumPt);
+        _inputTree->SetBranchAddress("Electron_dr03TkSumPtHEEP", &Electron_dr03TkSumPtHEEP);
+        _inputTree->SetBranchAddress("Electron_dxy", &Electron_dxy);
+        _inputTree->SetBranchAddress("Electron_dxyErr", &Electron_dxyErr);
+        _inputTree->SetBranchAddress("Electron_dz", &Electron_dz);
+        _inputTree->SetBranchAddress("Electron_dzErr", &Electron_dzErr);
+        _inputTree->SetBranchAddress("Electron_eInvMinusPInv", &Electron_eInvMinusPInv);
+        _inputTree->SetBranchAddress("Electron_energyErr", &Electron_energyErr);
+        _inputTree->SetBranchAddress("Electron_eta", &Electron_eta);
+        _inputTree->SetBranchAddress("Electron_hoe", &Electron_hoe);
+        _inputTree->SetBranchAddress("Electron_ip3d", &Electron_ip3d);
+        _inputTree->SetBranchAddress("Electron_jetPtRelv2", &Electron_jetPtRelv2);
+        _inputTree->SetBranchAddress("Electron_jetRelIso", &Electron_jetRelIso);
+        _inputTree->SetBranchAddress("Electron_mass", &Electron_mass);
+        _inputTree->SetBranchAddress("Electron_miniPFRelIso_all", &Electron_miniPFRelIso_all);
+        _inputTree->SetBranchAddress("Electron_miniPFRelIso_chg", &Electron_miniPFRelIso_chg);
+        _inputTree->SetBranchAddress("Electron_mvaHZZIso", &Electron_mvaHZZIso);
+        _inputTree->SetBranchAddress("Electron_mvaIso", &Electron_mvaIso);
+        _inputTree->SetBranchAddress("Electron_mvaNoIso", &Electron_mvaNoIso);
+        _inputTree->SetBranchAddress("Electron_pfRelIso03_all", &Electron_pfRelIso03_all);
+        _inputTree->SetBranchAddress("Electron_pfRelIso03_chg", &Electron_pfRelIso03_chg);
+        _inputTree->SetBranchAddress("Electron_phi", &Electron_phi);
+        _inputTree->SetBranchAddress("Electron_pt", &Electron_pt);
+        _inputTree->SetBranchAddress("Electron_r9", &Electron_r9);
+        _inputTree->SetBranchAddress("Electron_scEtOverPt", &Electron_scEtOverPt);
+        _inputTree->SetBranchAddress("Electron_sieie", &Electron_sieie);
+        _inputTree->SetBranchAddress("Electron_sip3d", &Electron_sip3d);
+        _inputTree->SetBranchAddress("Electron_mvaTTH", &Electron_mvaTTH);
+        
+        
+        
+        
+        
+        //-----------------------------------------------------------------------------------------
         _inputTree->SetBranchAddress("nFatJet", &nFatJet);
         _inputTree->SetBranchAddress("FatJet_jetId", &FatJet_jetId);
         _inputTree->SetBranchAddress("FatJet_nConstituents", &FatJet_nConstituents);
@@ -268,8 +330,9 @@ bool HEPHero::MC_processing(){
 //---------------------------------------------------------------------------------------------------------------
 void HEPHero::SetupAna(){
     if( false );
-    else if( _SELECTION == "weights" ) Setupweights();
     else if( _SELECTION == "Test" ) SetupTest();
+    else if( _SELECTION == "Test_Electron_ID" ) SetupTest_Electron_ID();
+    else if( _SELECTION == "massParticlesWeights" ) SetupmassParticlesWeights();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -279,31 +342,36 @@ void HEPHero::SetupAna(){
 
 bool HEPHero::AnaRegion(){
     bool Selected = true;
-    if( _SELECTION == "weights" && !weightsRegion() ) Selected = false;
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
+    if( _SELECTION == "Test_Electron_ID" && !Test_Electron_IDRegion() ) Selected = false;
+    if( _SELECTION == "massParticlesWeights" && !massParticlesWeightsRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
 }
 
 void HEPHero::AnaSelection(){
-    if( _SELECTION == "weights" ) weightsSelection();
     if( _SELECTION == "Test" ) TestSelection();
+    if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSelection();
+    if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSelection();
     // CALL YOUR SELECTION HERE
 }
 
 void HEPHero::AnaSystematic(){
-    if( _SELECTION == "weights" ) weightsSystematic();
     if( _SELECTION == "Test" ) TestSystematic();
+    if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSystematic();
+    if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
 void HEPHero::FinishAna(){
-    if( _SELECTION == "weights" ) Finishweights();
     if( _SELECTION == "Test" ) FinishTest();
+    if( _SELECTION == "Test_Electron_ID" ) FinishTest_Electron_ID();
+    if( _SELECTION == "massParticlesWeights" ) FinishmassParticlesWeights();
     // FINISH YOUR SELECTION HERE
 }
    
+
 
 
 

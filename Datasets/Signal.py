@@ -18,10 +18,8 @@ path_1_23 = analysis+'/Datasets/Files/signal_23/dti_1/'+nano_version+'/'
 # 2023 DTIs = 0(preBPix), 1(postBPix)
 #--------------------------------------------------------------------------------------------------
 
-
 periods = ["0_22", "1_22", "0_23", "1_23"]
 paths = [path_0_22, path_1_22, path_0_23, path_1_23]
-
 for period,path in zip(periods,paths):
     
     dti = period[0]
@@ -29,6 +27,7 @@ for period,path in zip(periods,paths):
         
     Signal = [
         ["Signal_400_100_"+period]           + [year+'9900'+dti, path+"Signal_400_100.txt"],
+        ["Signal_800_400_"+period]           + [year+'9912'+dti, path+"Signal_800_400.txt"],
         ["Signal_1000_100_"+period]           + [year+'9914'+dti, path+"Signal_1000_100.txt"],
     ]
 
