@@ -6,6 +6,7 @@ analysis = "AP_bbhZDM_Had_R3"
 treeName = "Events"
 LumiWeights = 1
 
+# Comented means not implemented
 analysis_parameters = {
 "JET_ETA_CUT                ": 2.4,
 "JET_PT_CUT                 ": 20,      # GeV
@@ -16,23 +17,23 @@ analysis_parameters = {
 "ELECTRON_GAP_LOWER_CUT     ": 1.444,   # Lower absolute limit of barrel-endcap gap
 "ELECTRON_GAP_UPPER_CUT     ": 1.566,   # Upper absolute limit of barrel-endcap gap
 "ELECTRON_ETA_CUT           ": 2.5,
-"ELECTRON_PT_CUT            ": 20,      # GeV  
-"ELECTRON_LOW_PT_CUT        ": 15,      # GeV
-"ELECTRON_ID_WP             ": 4,       # 0-veto, 1-loose, 2-medium, 3-tight, 4-WP90iso, 5-WP80iso
+"ELECTRON_PT_CUT            ": 20,      # GeV
+#"ELECTRON_LOW_PT_CUT        ": 15,      # 
+"ELECTRON_ID_WP             ": 1,       # 0-veto, 1-loose, 2-medium, 3-tight, 4-WP80iso, 5-WP90iso
 "MUON_ETA_CUT               ": 2.4, 
 "MUON_PT_CUT                ": 20,      # GeV
-"MUON_LOW_PT_CUT            ": 15,      # GeV
-"MUON_ID_WP                 ": 1,       # 0-loose, 1-medium, 2-tight
-"MUON_ISO_WP                ": 3,       # 0-none, 1-loose/looseID, 2-loose/mediumID, 3-tight/mediumID
+#"MUON_LOW_PT_CUT            ": 15,      # 
+"MUON_ID_WP                 ": 0,       # 0=Loose, 1=Medium, 2=mediumPromptID, 3=tight, 4=soft, 5=highPt
+"MUON_ISO_WP                ": 2,       # 0=none, 1=PFIsoVeryLoose, 2=PFIsoLoose,3=PFIsoMedium, 4=PFIsoTight, 5=PFIsoVeryTight, 6=PFIsoVeryVeryTight
 #"LEPTON_DR_ISO_CUT          ": 0.3,
-"LEADING_LEP_PT_CUT         ": 40,      # GeV
-"LEPLEP_PT_CUT              ": 40,      # GeV
-"LEPLEP_DR_CUT              ": 3.2,
-"LEPLEP_DM_CUT              ": 25,      # GeV
-"MET_CUT                    ": 65,      # GeV
-"MET_DY_UPPER_CUT           ": 100,     # GeV
+#"LEADING_LEP_PT_CUT         ": 40,      # 
+#"LEPLEP_PT_CUT              ": 40,      # 
+#"LEPLEP_DR_CUT              ": 3.2,
+#"LEPLEP_DM_CUT              ": 25,      # 
+"MET_CUT                    ": 65,      # 
+"MET_DY_UPPER_CUT           ": 100,     # 
 "MET_LEPLEP_DPHI_CUT        ": 0.8,
-"MET_LEPLEP_MT_CUT          ": 90,      # GeV     
+"MET_LEPLEP_MT_CUT          ": 90,      #      
 }
 
 corrections = {  # 0-don't apply, 1-apply

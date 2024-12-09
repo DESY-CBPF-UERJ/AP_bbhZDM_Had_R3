@@ -56,10 +56,10 @@ bool HEPHero::ElectronID( int iobj, int WP ){
 
     bool obj_selected = false;
 
-    if(      WP == 0 ) obj_selected = (Electron_cutBased[iobj] >= 1);
-    else if( WP == 1 ) obj_selected = (Electron_cutBased[iobj] >= 2);
-    else if( WP == 2 ) obj_selected = (Electron_cutBased[iobj] >= 3);
-    else if( WP == 3 ) obj_selected = (Electron_cutBased[iobj] >= 4);
+    if(      WP == 0 ) obj_selected = (Electron_cutBased[iobj] >= 0);
+    else if( WP == 1 ) obj_selected = (Electron_cutBased[iobj] >= 1);
+    else if( WP == 2 ) obj_selected = (Electron_cutBased[iobj] >= 2);
+    else if( WP == 3 ) obj_selected = (Electron_cutBased[iobj] >= 3);
     else if( WP == 4 ) obj_selected = Electron_mvaIso_WP80[iobj];
     else if( WP == 5 ) obj_selected = Electron_mvaIso_WP90[iobj];
 
