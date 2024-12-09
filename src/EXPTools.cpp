@@ -30,6 +30,26 @@ bool HEPHero::MuonID( int iobj, int WP ){
 
 
 //---------------------------------------------------------------------------------------------------------------
+// Muon ISO
+//---------------------------------------------------------------------------------------------------------------
+bool HEPHero::MuonISO( int iobj, int WP ){
+
+    bool obj_selected = false;
+
+    if(      WP == 0 ) obj_selected = true;                         // No need Isolation
+    else if( WP == 1 ) obj_selected = (Muon_pfIsoId[iobj] >= 1);    // PFIsoVeryLoose,
+    else if( WP == 2 ) obj_selected = (Muon_pfIsoId[iobj] >= 2);    // PFIsoLoose
+    else if( WP == 3 ) obj_selected = (Muon_pfIsoId[iobj] >= 3);    // PFIsoMedium
+    else if( WP == 4 ) obj_selected = (Muon_pfIsoId[iobj] >= 4);    // PFIsoTight
+    else if( WP == 5 ) obj_selected = (Muon_pfIsoId[iobj] >= 5);    // PFIsoVeryTight
+    else if( WP == 6 ) obj_selected = (Muon_pfIsoId[iobj] >= 6);    // PFIsoVeryVeryTight
+
+    return obj_selected;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------
 // Electron ID
 //---------------------------------------------------------------------------------------------------------------
 bool HEPHero::ElectronID( int iobj, int WP ){

@@ -35,7 +35,7 @@ void HEPHero::LeptonSelection(){
         //Muon_raw_pt[imu] = Muon_pt[imu];
         if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
         if( !MuonID( imu, MUON_ID_WP ) ) continue;
-        //if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
+        if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
 
         //if( apply_muon_roc_corr ) Muon_pt[imu] = Muon_pt[imu]*muon_roc_corr.GetCorrection( Muon_charge[imu], Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], (Muon_genPartIdx[imu]>=0) ? true : false, (Muon_genPartIdx[imu]>=0) ? GenPart_pt[Muon_genPartIdx[imu]] : 0., Muon_nTrackerLayers[imu], (dataset_group=="Data") );
 
