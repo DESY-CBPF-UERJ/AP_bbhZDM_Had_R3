@@ -42,8 +42,8 @@ void HEPHero::SetupTest_Electron_ID() {
     HDF_insert("nJet", &nJet);
     HDF_insert("nElectron",&nElectron);
     HDF_insert("Nelectrons_cutted",&Nelectrons);
-
-
+    HDF_insert("Nmuons_cutted",&Nmuons);
+    HDF_insert("nMuon",&nMuon);
 
     return;
 }

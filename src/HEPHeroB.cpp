@@ -34,6 +34,69 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("bunchCrossing", &bunchCrossing);
 
         
+
+        //-----------------------------------------------------------------------------------------
+
+        _inputTree->SetBranchAddress("nMuon", &nMuon);
+        _inputTree->SetBranchAddress("Muon_highPtId", &Muon_highPtId);
+        _inputTree->SetBranchAddress("Muon_highPurity", &Muon_highPurity);
+        _inputTree->SetBranchAddress("Muon_inTimeMuon", &Muon_inTimeMuon);
+        _inputTree->SetBranchAddress("Muon_isGlobal", &Muon_isGlobal);
+        _inputTree->SetBranchAddress("Muon_isPFcand", &Muon_isPFcand);
+        _inputTree->SetBranchAddress("Muon_isStandalone", &Muon_isStandalone);
+        _inputTree->SetBranchAddress("Muon_isTracker", &Muon_isTracker);
+        _inputTree->SetBranchAddress("Muon_jetNDauCharged", &Muon_jetNDauCharged);
+        _inputTree->SetBranchAddress("Muon_looseId", &Muon_looseId);
+        _inputTree->SetBranchAddress("Muon_mediumId", &Muon_mediumId);
+        _inputTree->SetBranchAddress("Muon_mediumPromptId", &Muon_mediumPromptId);
+        _inputTree->SetBranchAddress("Muon_miniIsoId", &Muon_miniIsoId);
+        _inputTree->SetBranchAddress("Muon_multiIsoId", &Muon_multiIsoId);
+        _inputTree->SetBranchAddress("Muon_mvaMuID_WP", &Muon_mvaMuID_WP);
+        _inputTree->SetBranchAddress("Muon_nStations", &Muon_nStations);
+        _inputTree->SetBranchAddress("Muon_nTrackerLayers", &Muon_nTrackerLayers);
+        _inputTree->SetBranchAddress("Muon_pfIsoId", &Muon_pfIsoId);
+        _inputTree->SetBranchAddress("Muon_puppiIsoId", &Muon_puppiIsoId);
+        _inputTree->SetBranchAddress("Muon_softId", &Muon_softId);
+        _inputTree->SetBranchAddress("Muon_softMvaId", &Muon_softMvaId);
+        _inputTree->SetBranchAddress("Muon_tightCharge", &Muon_tightCharge);
+        _inputTree->SetBranchAddress("Muon_tightId", &Muon_tightId);
+        _inputTree->SetBranchAddress("Muon_tkIsoId", &Muon_tkIsoId);
+        _inputTree->SetBranchAddress("Muon_triggerIdLoose", &Muon_triggerIdLoose);
+        _inputTree->SetBranchAddress("Muon_jetIdx", &Muon_jetIdx);
+        _inputTree->SetBranchAddress("Muon_svIdx", &Muon_svIdx);
+        _inputTree->SetBranchAddress("Muon_fsrPhotonIdx", &Muon_fsrPhotonIdx);
+        _inputTree->SetBranchAddress("Muon_charge", &Muon_charge);
+        _inputTree->SetBranchAddress("Muon_pdgId", &Muon_pdgId);
+        _inputTree->SetBranchAddress("Muon_dxy", &Muon_dxy);
+        _inputTree->SetBranchAddress("Muon_dxyErr", &Muon_dxyErr);
+        _inputTree->SetBranchAddress("Muon_dxybs", &Muon_dxybs);
+        _inputTree->SetBranchAddress("Muon_dz", &Muon_dz);
+        _inputTree->SetBranchAddress("Muon_dzErr", &Muon_dzErr);
+        _inputTree->SetBranchAddress("Muon_eta", &Muon_eta);
+        _inputTree->SetBranchAddress("Muon_ip3d", &Muon_ip3d);
+        _inputTree->SetBranchAddress("Muon_jetPtRelv2", &Muon_jetPtRelv2);
+        _inputTree->SetBranchAddress("Muon_jetRelIso", &Muon_jetRelIso);
+        _inputTree->SetBranchAddress("Muon_mass", &Muon_mass);
+        _inputTree->SetBranchAddress("Muon_miniPFRelIso_all", &Muon_miniPFRelIso_all);
+        _inputTree->SetBranchAddress("Muon_miniPFRelIso_chg", &Muon_miniPFRelIso_chg);
+        _inputTree->SetBranchAddress("Muon_mvaMuID", &Muon_mvaMuID);
+        _inputTree->SetBranchAddress("Muon_pfRelIso03_all", &Muon_pfRelIso03_all);
+        _inputTree->SetBranchAddress("Muon_pfRelIso03_chg", &Muon_pfRelIso03_chg);
+        _inputTree->SetBranchAddress("Muon_pfRelIso04_all", &Muon_pfRelIso04_all);
+        _inputTree->SetBranchAddress("Muon_phi", &Muon_phi);
+        _inputTree->SetBranchAddress("Muon_pt", &Muon_pt);
+        _inputTree->SetBranchAddress("Muon_ptErr", &Muon_ptErr);
+        _inputTree->SetBranchAddress("Muon_segmentComp", &Muon_segmentComp);
+        _inputTree->SetBranchAddress("Muon_sip3d", &Muon_sip3d);
+        _inputTree->SetBranchAddress("Muon_softMva", &Muon_softMva);
+        _inputTree->SetBranchAddress("Muon_tkRelIso", &Muon_tkRelIso);
+        _inputTree->SetBranchAddress("Muon_tunepRelPt", &Muon_tunepRelPt);
+        _inputTree->SetBranchAddress("Muon_bsConstrainedChi2", &Muon_bsConstrainedChi2);
+        _inputTree->SetBranchAddress("Muon_bsConstrainedPt", &Muon_bsConstrainedPt);
+        _inputTree->SetBranchAddress("Muon_bsConstrainedPtErr", &Muon_bsConstrainedPtErr);
+        _inputTree->SetBranchAddress("Muon_mvaLowPt", &Muon_mvaLowPt);
+        _inputTree->SetBranchAddress("Muon_mvaTTH", &Muon_mvaTTH);
+
         //-----------------------------------------------------------------------------------------
 
         _inputTree->SetBranchAddress("nElectron", &nElectron);
@@ -367,6 +430,7 @@ void HEPHero::FinishAna(){
     // FINISH YOUR SELECTION HERE
 }
    
+
 
 
 

@@ -30,18 +30,18 @@ void HEPHero::LeptonSelection(){
 */
         selectedEle.push_back(iele);
     }
-/*
+
     for( unsigned int imu = 0; imu < nMuon; ++imu ) {
-        Muon_raw_pt[imu] = Muon_pt[imu];
+        //Muon_raw_pt[imu] = Muon_pt[imu];
         if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
         if( !MuonID( imu, MUON_ID_WP ) ) continue;
-        if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
+        //if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
 
-        if( apply_muon_roc_corr ) Muon_pt[imu] = Muon_pt[imu]*muon_roc_corr.GetCorrection( Muon_charge[imu], Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], (Muon_genPartIdx[imu]>=0) ? true : false, (Muon_genPartIdx[imu]>=0) ? GenPart_pt[Muon_genPartIdx[imu]] : 0., Muon_nTrackerLayers[imu], (dataset_group=="Data") );
+        //if( apply_muon_roc_corr ) Muon_pt[imu] = Muon_pt[imu]*muon_roc_corr.GetCorrection( Muon_charge[imu], Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], (Muon_genPartIdx[imu]>=0) ? true : false, (Muon_genPartIdx[imu]>=0) ? GenPart_pt[Muon_genPartIdx[imu]] : 0., Muon_nTrackerLayers[imu], (dataset_group=="Data") );
 
-        if( Muon_pt[imu] > MUON_LOW_PT_CUT ) selectedMuLowPt.push_back(imu);
+        //if( Muon_pt[imu] > MUON_LOW_PT_CUT ) selectedMuLowPt.push_back(imu);
         if( Muon_pt[imu] <= MUON_PT_CUT ) continue;
-
+/*
         TLorentzVector Mu_test;
         Mu_test.SetPtEtaPhiM(Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], Muon_pdg_mass);
         for( unsigned int iselmu = 0; iselmu < selectedMu.size(); ++iselmu ) {
@@ -58,13 +58,13 @@ void HEPHero::LeptonSelection(){
             float dilep_deltaR = Mu_test.DeltaR( Ele_sel );
             if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
         }
-
+*/
         selectedMu.push_back(imu);
   
     }
-*/
+
     Nelectrons = selectedEle.size();
-    //Nmuons = selectedMu.size();
+    Nmuons = selectedMu.size();
     //Nleptons = Nelectrons + Nmuons;
 
     //int NelectronsLowPt = selectedEleLowPt.size();
@@ -247,3 +247,4 @@ void HEPHero::JetSelection(){
 
 
 }
+

@@ -6,6 +6,29 @@
 
 
 
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------
+// Muon ID
+//---------------------------------------------------------------------------------------------------------------
+bool HEPHero::MuonID( int iobj, int WP ){
+
+    bool obj_selected = false;
+
+    if(      WP == 0 ) obj_selected = Muon_looseId[iobj];
+    else if( WP == 1 ) obj_selected = Muon_mediumId[iobj];
+    else if( WP == 2 ) obj_selected = Muon_mediumPromptId[iobj];
+    else if( WP == 3 ) obj_selected = Muon_tightId[iobj];
+    else if( WP == 4 ) obj_selected = Muon_softId[iobj];
+    else if( WP == 5 ) obj_selected = (Muon_highPtId[iobj] >= 1);             //Recommended to muon with pt > 200
+
+    return obj_selected;
+}
+
+
 //---------------------------------------------------------------------------------------------------------------
 // Electron ID
 //---------------------------------------------------------------------------------------------------------------
@@ -98,6 +121,7 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
 
     return obj_selected;
 }
+
 
 
 

@@ -1,4 +1,4 @@
-Selection            weights
+Selection            Test_Electron_ID
 Analysis             AP_bbhZDM_Had_R3
 Outpath              /eos/user/m/mcostare/Run3_output/AP_bbhZDM_Had_R3
 InputTree            Events
