@@ -1,4 +1,4 @@
-Selection            weights
+Selection            Test
 Analysis             AP_bbhZDM_Had_R3
 Outpath              AP_bbhZDM_Had_R3/ana/local_output
 InputTree            Events
@@ -9,7 +9,7 @@ Redirector           None
 Machines             CERN
 Check                1
 InputFile            AP_bbhZDM_Had_R3/Datasets/bkg.root
-NumMaxEvents         -1
+NumMaxEvents         1000
 LumiWeights          1
 Universe             0
 SysID_lateral        0
@@ -21,10 +21,7 @@ Get_Image_in_PNG     1
 Get_Image_in_PDF     0
 JET_ETA_CUT                2.4
 JET_PT_CUT                 20
-JET_ID_WP                  6
-JET_PUID_WP                7
-JET_BTAG_WP                3
-JET_LEP_DR_ISO_CUT         0.4
+JET_ID_WP                  0
 ELECTRON_GAP_LOWER_CUT     1.444
 ELECTRON_GAP_UPPER_CUT     1.566
 ELECTRON_ETA_CUT           2.5

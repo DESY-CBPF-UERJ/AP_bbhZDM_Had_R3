@@ -176,7 +176,7 @@ void HEPHero::JetSelection(){
 
     // Main loop to process each jet
     for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
-
+        
         if( Jet_pt[ijet] <= JET_PT_CUT ) continue;
         if( Jet_jetId[ijet] >= 2 ){
             TLorentzVector Jet_trig;
@@ -186,7 +186,7 @@ void HEPHero::JetSelection(){
         }
         if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
         if( Jet_jetId[ijet] < JET_ID_WP ) continue;
-
+        
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
         if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
@@ -227,6 +227,7 @@ void HEPHero::JetSelection(){
             //}
         }
         if( Jet_pt[ijet] > 26 ) Njets_ISR += 1;
+        // std::cout << "Jet_pt[ijet]: " << Jet_pt[ijet] << std::endl;
     }
     MHT = sqrt(HPx*HPx + HPy*HPy);
     MHT30 = sqrt(HPx30*HPx30 + HPy30*HPy30);
@@ -234,7 +235,7 @@ void HEPHero::JetSelection(){
     MHT_trig = sqrt(HPx_trig*HPx_trig + HPy_trig*HPy_trig);
 
     MDT = abs(MHT_trig - MET_pt);
-
+    // std::cout << "Jet_pt[selectedJet.at(0)] " << Jet_pt[selectedJet.at(0)] << std::endl;
     LeadingJet_pt = 0;
     SubLeadingJet_pt = 0;
     ThirdLeadingJet_pt = 0;

@@ -96,6 +96,11 @@ void HEPHero::SetupTest() {
     HDF_insert("Jet_pt", Jet_pt);
     HDF_insert("Jet_mass", Jet_mass);
 
+    HDF_insert("LeadingJet_pt", &LeadingJet_pt);
+    HDF_insert("SubLeadingJet_pt", &SubLeadingJet_pt);
+    HDF_insert("ThirdLeadingJet_pt", &ThirdLeadingJet_pt);
+    HDF_insert("FourthLeadingJet_pt", &FourthLeadingJet_pt);
+
     HDF_insert("GenMET_phi", &GenMET_phi);
     HDF_insert("GenMET_pt", &GenMET_pt);
 
@@ -124,6 +129,9 @@ void HEPHero::SetupTest() {
 // Define the selection region
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::TestRegion() {
+
+
+    JetSelection();
 
     //-------------------------------------------------------------------------
     // Cut description
