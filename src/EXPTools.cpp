@@ -6,6 +6,49 @@
 
 
 
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------
+// Muon ID
+//---------------------------------------------------------------------------------------------------------------
+bool HEPHero::MuonID( int iobj, int WP ){
+
+    bool obj_selected = false;
+
+    if(      WP == 0 ) obj_selected = Muon_looseId[iobj];
+    else if( WP == 1 ) obj_selected = Muon_mediumId[iobj];
+    else if( WP == 2 ) obj_selected = Muon_mediumPromptId[iobj];
+    else if( WP == 3 ) obj_selected = Muon_tightId[iobj];
+    else if( WP == 4 ) obj_selected = Muon_softId[iobj];
+    else if( WP == 5 ) obj_selected = (Muon_highPtId[iobj] >= 1);             //Recommended to muon with pt > 200
+
+    return obj_selected;
+}
+
+
+//---------------------------------------------------------------------------------------------------------------
+// Muon ISO
+//---------------------------------------------------------------------------------------------------------------
+bool HEPHero::MuonISO( int iobj, int WP ){
+
+    bool obj_selected = false;
+
+    if(      WP == 0 ) obj_selected = true;                         // No need Isolation
+    else if( WP == 1 ) obj_selected = (Muon_pfIsoId[iobj] >= 1);    // PFIsoVeryLoose,
+    else if( WP == 2 ) obj_selected = (Muon_pfIsoId[iobj] >= 2);    // PFIsoLoose
+    else if( WP == 3 ) obj_selected = (Muon_pfIsoId[iobj] >= 3);    // PFIsoMedium
+    else if( WP == 4 ) obj_selected = (Muon_pfIsoId[iobj] >= 4);    // PFIsoTight
+    else if( WP == 5 ) obj_selected = (Muon_pfIsoId[iobj] >= 5);    // PFIsoVeryTight
+    else if( WP == 6 ) obj_selected = (Muon_pfIsoId[iobj] >= 6);    // PFIsoVeryVeryTight
+
+    return obj_selected;
+}
+
+
+
 //---------------------------------------------------------------------------------------------------------------
 // Electron ID
 //---------------------------------------------------------------------------------------------------------------
@@ -13,10 +56,10 @@ bool HEPHero::ElectronID( int iobj, int WP ){
 
     bool obj_selected = false;
 
-    if(      WP == 0 ) obj_selected = (Electron_cutBased[iobj] >= 1);
-    else if( WP == 1 ) obj_selected = (Electron_cutBased[iobj] >= 2);
-    else if( WP == 2 ) obj_selected = (Electron_cutBased[iobj] >= 3);
-    else if( WP == 3 ) obj_selected = (Electron_cutBased[iobj] >= 4);
+    if(      WP == 0 ) obj_selected = (Electron_cutBased[iobj] >= 0);
+    else if( WP == 1 ) obj_selected = (Electron_cutBased[iobj] >= 1);
+    else if( WP == 2 ) obj_selected = (Electron_cutBased[iobj] >= 2);
+    else if( WP == 3 ) obj_selected = (Electron_cutBased[iobj] >= 3);
     else if( WP == 4 ) obj_selected = Electron_mvaIso_WP80[iobj];
     else if( WP == 5 ) obj_selected = Electron_mvaIso_WP90[iobj];
 
@@ -98,6 +141,7 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
 
     return obj_selected;
 }
+
 
 
 
