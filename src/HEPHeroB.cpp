@@ -70,6 +70,9 @@ void HEPHero::FillControlVariables( string key, string value){
     if( key == "TAU_VS_ELE_ISO_WP"          )   TAU_VS_ELE_ISO_WP = atoi(value.c_str());
     if( key == "TAU_VS_JET_ISO_WP"          )   TAU_VS_JET_ISO_WP = atoi(value.c_str());
     if( key == "TAU_VS_MU_ISO_WP"           )   TAU_VS_MU_ISO_WP = atoi(value.c_str());
+    if( key == "TAU_PT_CUT"                 )   TAU_PT_CUT = atoi(value.c_str());
+    if( key == "TAU_ETA_CUT"                )   TAU_ETA_CUT = atoi(value.c_str());
+
 
 
     // if( key == "LEPTON_DR_ISO_CUT"          )   LEPTON_DR_ISO_CUT = atof(value.c_str());
@@ -558,6 +561,7 @@ void HEPHero::FinishAna(){
     // FINISH YOUR SELECTION HERE
 }
    
+
 
 
 

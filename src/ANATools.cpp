@@ -28,7 +28,7 @@ void HEPHero::LeptonSelection(){
 
     //LOOP MUON
     for( unsigned int imu = 0; imu < nMuon; ++imu ) {
-        std::cout<<"MUON_ID_WP"<<MUON_ID_WP<<endl;
+        //std::cout<<"MUON_ID_WP"<<MUON_ID_WP<<endl;
         if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
         if( !MuonID( imu, MUON_ID_WP ) ) continue;
         if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
@@ -41,6 +41,10 @@ void HEPHero::LeptonSelection(){
 
     //LOOP TAU
     for( unsigned int itau = 0; itau < nTau; ++itau ) {
+
+        if( Tau_pt[itau] <= TAU_PT_CUT ) continue;
+        if( abs(Tau_eta[itau]) >= TAU_ETA_CUT ) continue;
+
         if( !TauVSMuonID( itau, TAU_VS_MU_ISO_WP ) ) continue;
         if( !TauVSEletronID( itau, TAU_VS_ELE_ISO_WP ) ) continue;
         if( !TauVSJetID( itau, TAU_VS_JET_ISO_WP ) ) continue;
@@ -291,5 +295,6 @@ void HEPHero::FatjetSelection(){
 
 
 }
+
 
 

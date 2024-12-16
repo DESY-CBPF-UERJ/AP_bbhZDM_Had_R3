@@ -40,7 +40,8 @@ analysis_parameters = {
 "TAU_VS_ELE_ISO_WP          ": 4,       #  0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
 "TAU_VS_JET_ISO_WP          ": 4,        #   0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
 "TAU_VS_MU_ISO_WP           ": 2,       #    0=No Apply, 1 = VLoose, 2 = Loose, 3 = Medium, 4 = Tight
-
+"TAU_PT_CUT                 ": 10,
+"TAU_ETA_CUT                ": 2.5,
 }
 
 corrections = {  # 0-don't apply, 1-apply
@@ -85,4 +86,5 @@ metadata = {
 Get_Image_in_EPS = 0
 Get_Image_in_PNG = 1
 Get_Image_in_PDF = 0
+
 
