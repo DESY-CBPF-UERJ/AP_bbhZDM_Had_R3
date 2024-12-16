@@ -54,6 +54,7 @@ void HEPHero::SetupTest() {
     HDF_insert("GenPart_pt", GenPart_pt);
     HDF_insert("genWeight", &genWeight);
 
+
     HDF_insert("nFatJet", &nFatJet);
     HDF_insert("FatJet_jetId", FatJet_jetId);
     HDF_insert("FatJet_nConstituents", FatJet_nConstituents);
@@ -61,7 +62,8 @@ void HEPHero::SetupTest() {
     // HDF_insert("FatJet_subJetIdx2", FatJet_subJetIdx2);
     HDF_insert("FatJet_phi", FatJet_phi);
     HDF_insert("FatJet_pt", FatJet_pt);
-    HDF_insert("FatJet_mass", FatJet_mass);
+    HDF_insert("FatJet_mass", FatJet_mass); 
+    HDF_insert("FatJet_msoftdrop", FatJet_msoftdrop);
     HDF_insert("FatJet_particleNet_QCD", FatJet_particleNet_QCD);
     HDF_insert("FatJet_particleNet_QCD0HF", FatJet_particleNet_QCD0HF);
     HDF_insert("FatJet_particleNet_QCD1HF", FatJet_particleNet_QCD1HF);
@@ -76,6 +78,16 @@ void HEPHero::SetupTest() {
     HDF_insert("FatJet_hadronFlavour", FatJet_hadronFlavour);
     HDF_insert("FatJet_nBHadrons", FatJet_nBHadrons);
 
+    HDF_insert("NfatJets", &NfatJets);
+    HDF_insert("LeadingFatJet_pt", &LeadingFatJet_pt);
+    HDF_insert("SubLeadingFatJet_pt", &SubLeadingFatJet_pt);
+    HDF_insert("ThirdLeadingFatJet_pt", &ThirdLeadingFatJet_pt);
+    HDF_insert("FourthLeadingFatJet_pt", &FourthLeadingFatJet_pt);
+    HDF_insert("LeadingFatJet_mass", &LeadingFatJet_mass);
+    HDF_insert("SubLeadingFatJet_mass", &SubLeadingFatJet_mass);
+    HDF_insert("ThirdLeadingFatJet_mass", &ThirdLeadingFatJet_mass);
+    HDF_insert("FourthLeadingFatJet_mass", &FourthLeadingFatJet_mass);
+
     HDF_insert("LHEWeight_originalXWGTUP", &LHEWeight_originalXWGTUP);
     HDF_insert("nLHEPdfWeight", &nLHEPdfWeight);
     HDF_insert("LHEPdfWeight", LHEPdfWeight);
@@ -86,6 +98,8 @@ void HEPHero::SetupTest() {
     HDF_insert("nPSWeight", &nPSWeight);
     HDF_insert("PSWeight", PSWeight);
     
+    HDF_insert("Njets", &Njets);
+
     HDF_insert("nJet", &nJet);
     HDF_insert("Jet_jetId", Jet_jetId);
     HDF_insert("Jet_nElectrons", Jet_nElectrons);
@@ -100,6 +114,7 @@ void HEPHero::SetupTest() {
     HDF_insert("SubLeadingJet_pt", &SubLeadingJet_pt);
     HDF_insert("ThirdLeadingJet_pt", &ThirdLeadingJet_pt);
     HDF_insert("FourthLeadingJet_pt", &FourthLeadingJet_pt);
+    
 
     HDF_insert("GenMET_phi", &GenMET_phi);
     HDF_insert("GenMET_pt", &GenMET_pt);
@@ -132,6 +147,7 @@ bool HEPHero::TestRegion() {
 
 
     JetSelection();
+    FatjetSelection();
 
     //-------------------------------------------------------------------------
     // Cut description

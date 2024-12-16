@@ -11,9 +11,12 @@ analysis_parameters = {
 "JET_ETA_CUT                ": 2.4,
 "JET_PT_CUT                 ": 20,      # GeV
 "JET_ID_WP                  ": 6,       # 0-loose, 2-tight, 6-tightlepveto 
-"JET_PUID_WP                ": 7,       # 0-fail, 1-loose, 3-medium, 7-tight (tight is the only correct WP in v9)
+"JET_PUID_WP                ": 3,       # 0-fail, 1-loose, 3-medium, 7-tight (tight is the only correct WP in v9)
 "JET_BTAG_WP                ": 3,       # DeepJet: 0-loose, 1-medium, 2-tight; DeepCSV: 3-loose, 4-medium, 5-tight; [Set up the efficiency maps as well]
 "JET_LEP_DR_ISO_CUT         ": 0.4,
+"FAT_JET_PT_CUT             ": 0,
+"FAT_JET_ETA_CUT            ": 3,
+"FAT_JET_ID_WP              ": 0,       # 0-loose, 2-medium, 4-tight, 6-tightLepVeto  !!!!!!TO CONFIRM!!!!!!!
 "ELECTRON_GAP_LOWER_CUT     ": 1.444,   # Lower absolute limit of barrel-endcap gap
 "ELECTRON_GAP_UPPER_CUT     ": 1.566,   # Upper absolute limit of barrel-endcap gap
 "ELECTRON_ETA_CUT           ": 2.5,

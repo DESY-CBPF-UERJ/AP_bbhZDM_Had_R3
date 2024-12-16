@@ -43,6 +43,7 @@ class HEPHero : public HEPBase {
 
 
         void JetSelection();
+        void FatjetSelection();
         void LeptonSelection();
         void SetupTest();
         bool TestRegion();
@@ -132,6 +133,17 @@ class HEPHero : public HEPBase {
         float ThirdLeadingJet_pt;
         float FourthLeadingJet_pt;
         Float_t Jet_JES_pt[100];
+
+        int NfatJets;
+        float LeadingFatJet_pt;
+        float SubLeadingFatJet_pt;
+        float ThirdLeadingFatJet_pt;
+        float FourthLeadingFatJet_pt;
+        float LeadingFatJet_mass;
+        float SubLeadingFatJet_mass;
+        float ThirdLeadingFatJet_mass;
+        float FourthLeadingFatJet_mass;
+
         
         //----MET------------------------------------------
         float MET_RAW_pt;
@@ -162,6 +174,10 @@ class HEPHero : public HEPBase {
         int   JET_PUID_WP;
         int   JET_BTAG_WP;
         float JET_LEP_DR_ISO_CUT;
+
+        float FAT_JET_PT_CUT;
+        float FAT_JET_ETA_CUT;
+        int   FAT_JET_ID_WP;
         
         float ELECTRON_GAP_LOWER_CUT;
         float ELECTRON_GAP_UPPER_CUT;
@@ -197,6 +213,7 @@ class HEPHero : public HEPBase {
         vector<int> selectedMuLowPt;
         vector<int> selectedTau;
         vector<int> selectedJet;
+        vector<int> selectedFatJet;
         vector<bool> Jet_LepOverlap;
         int RecoLepID;  // 11 - reco electron event, 13- reco muon event
         const float Z_pdg_mass = 91.1876; //GeV

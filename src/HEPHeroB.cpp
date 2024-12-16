@@ -7,13 +7,76 @@
 void HEPHero::FillControlVariables( string key, string value){
 
     //----CORRECTIONS------------------------------------------------------------------------------------
-
+    // if( key == "PILEUP_WGT"                 )   apply_pileup_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "ELECTRON_ID_WGT"            )   apply_electron_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "JET_PUID_WGT"               )   apply_jet_puid_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "BTAG_WGT"                   )   apply_btag_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "TRIGGER_WGT"                )   apply_trigger_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "PREFIRING_WGT"              )   apply_prefiring_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "JER_CORR"                   )   apply_jer_corr = ( atoi(value.c_str()) == 1 );
+    // if( key == "MET_XY_CORR"                )   apply_met_xy_corr = ( atoi(value.c_str()) == 1 );
+    // if( key == "MET_RECOIL_CORR"            )   apply_met_recoil_corr = ( atoi(value.c_str()) == 1 );
+    // if( key == "TOP_PT_WGT"                 )   apply_top_pt_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "W_PT_WGT"                   )   apply_w_pt_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "VJETS_HT_WGT"               )   apply_vjets_HT_wgt = ( atoi(value.c_str()) == 1 );
+    // if( key == "MUON_ROC_CORR"              )   apply_muon_roc_corr = ( atoi(value.c_str()) == 1 );
 
     //----METADATA FILES---------------------------------------------------------------------------------
-
+    // if( key == "lumi_certificate"           )   certificate_file = value;
+    // if( key == "pdf_type"                   )   PDF_file = value;
+    // if( key == "pileup"                     )   pileup_file = value;
+    // if( key == "electron"                   )   electron_file = value;
+    // if( key == "muon"                       )   muon_file = value;
+    // if( key == "JES_MC"                     )   JES_MC_file = value;
+    // if( key == "jet_puID"                   )   jet_puid_file = value;
+    // if( key == "btag_SF"                    )   btag_SF_file = value;
+    // if( key == "btag_eff"                   )   btag_eff_file = value;
+    // if( key == "trigger"                    )   trigger_SF_file = value;
+    // //if( key == "JER_MC"                     )   JER_file = value;
+    // //if( key == "JER_SF_MC"                  )   JER_SF_file = value;
+    // if( key == "JERC"                       )   jet_jerc_file = value;
+    // if( key == "mu_RoccoR"                  )   muon_roc_file = value;
+    // if( key == "Z_recoil"                   )   Z_recoil_file = value;
+    // if( key == "NN_prep_keras"              )   preprocessing_keras_file = value;
+    // if( key == "NN_model_keras"             )   model_keras_file = value;
+    // if( key == "NN_model_torch"             )   model_torch_file = value;
 
     //----SELECTION--------------------------------------------------------------------------------------
+    if( key == "JET_ETA_CUT"                )   JET_ETA_CUT = atof(value.c_str());
+    if( key == "JET_PT_CUT"                 )   JET_PT_CUT = atof(value.c_str());
+    if( key == "JET_ID_WP"                  )   JET_ID_WP = atoi(value.c_str());
+    if( key == "JET_PUID_WP"                )   JET_PUID_WP = atoi(value.c_str());
+    if( key == "JET_BTAG_WP"                )   JET_BTAG_WP = atoi(value.c_str());
+    if( key == "JET_LEP_DR_ISO_CUT"         )   JET_LEP_DR_ISO_CUT = atof(value.c_str());
 
+    if( key == "FAT_JET_PT_CUT"             )   FAT_JET_PT_CUT = atof(value.c_str());
+    if( key == "FAT_JET_ETA_CUT"            )   FAT_JET_ETA_CUT = atof(value.c_str());
+    if( key == "FAT_JET_ID_WP"              )   FAT_JET_ID_WP = atoi(value.c_str());
+
+    if( key == "ELECTRON_GAP_LOWER_CUT"     )   ELECTRON_GAP_LOWER_CUT = atof(value.c_str());
+    if( key == "ELECTRON_GAP_UPPER_CUT"     )   ELECTRON_GAP_UPPER_CUT = atof(value.c_str());
+    if( key == "ELECTRON_ETA_CUT"           )   ELECTRON_ETA_CUT = atof(value.c_str());
+    if( key == "ELECTRON_PT_CUT"            )   ELECTRON_PT_CUT = atof(value.c_str());
+    if( key == "ELECTRON_LOW_PT_CUT"        )   ELECTRON_LOW_PT_CUT = atof(value.c_str());
+    if( key == "ELECTRON_ID_WP"             )   ELECTRON_ID_WP = atoi(value.c_str());
+
+    if( key == "MUON_ETA_CUT"               )   MUON_ETA_CUT = atof(value.c_str());
+    if( key == "MUON_PT_CUT"                )   MUON_PT_CUT = atof(value.c_str());
+    if( key == "MUON_LOW_PT_CUT"            )   MUON_LOW_PT_CUT = atof(value.c_str());
+    if( key == "MUON_ID_WP"                 )   MUON_ID_WP = atoi(value.c_str());
+    if( key == "MUON_ISO_WP"                )   MUON_ISO_WP = atoi(value.c_str());
+
+    // if( key == "LEPTON_DR_ISO_CUT"          )   LEPTON_DR_ISO_CUT = atof(value.c_str());
+
+    // if( key == "LEADING_LEP_PT_CUT"         )   LEADING_LEP_PT_CUT = atof(value.c_str());
+    // if( key == "LEPLEP_PT_CUT"              )   LEPLEP_PT_CUT = atof(value.c_str());
+    // if( key == "MET_CUT"                    )   MET_CUT = atof(value.c_str());
+    // if( key == "MET_DY_UPPER_CUT"           )   MET_DY_UPPER_CUT = atof(value.c_str());
+    // if( key == "LEPLEP_DR_CUT"              )   LEPLEP_DR_CUT = atof(value.c_str());
+    // if( key == "LEPLEP_DM_CUT"              )   LEPLEP_DM_CUT = atof(value.c_str());
+    // if( key == "MET_LEPLEP_DPHI_CUT"        )   MET_LEPLEP_DPHI_CUT = atof(value.c_str());
+    // if( key == "MET_LEPLEP_MT_CUT"          )   MET_LEPLEP_MT_CUT = atof(value.c_str());
 
 }
 

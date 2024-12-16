@@ -227,7 +227,7 @@ void HEPHero::JetSelection(){
             //}
         }
         if( Jet_pt[ijet] > 26 ) Njets_ISR += 1;
-        // std::cout << "Jet_pt[ijet]: " << Jet_pt[ijet] << std::endl;
+        
     }
     MHT = sqrt(HPx*HPx + HPy*HPy);
     MHT30 = sqrt(HPx30*HPx30 + HPy30*HPy30);
@@ -235,7 +235,7 @@ void HEPHero::JetSelection(){
     MHT_trig = sqrt(HPx_trig*HPx_trig + HPy_trig*HPy_trig);
 
     MDT = abs(MHT_trig - MET_pt);
-    // std::cout << "Jet_pt[selectedJet.at(0)] " << Jet_pt[selectedJet.at(0)] << std::endl;
+    
     LeadingJet_pt = 0;
     SubLeadingJet_pt = 0;
     ThirdLeadingJet_pt = 0;
@@ -245,6 +245,64 @@ void HEPHero::JetSelection(){
     if( Njets >= 3 ) ThirdLeadingJet_pt = Jet_pt[selectedJet.at(2)];
     if( Njets >= 4 ) FourthLeadingJet_pt = Jet_pt[selectedJet.at(3)];
 
+}
+
+// Main loop to process each fat jet
+void HEPHero::FatjetSelection(){
+
+    selectedFatJet.clear();
+
+    NfatJets = 0;
+
+    for( unsigned int ijet = 0; ijet < nFatJet; ++ijet ) {
+
+        // std::cout << "FAT_JET_PT_CUT: " << FAT_JET_PT_CUT << "| FAT_JET_ETA_CUT: " << FAT_JET_ETA_CUT << std::endl;
+        // std::cout << "FatJet_pt: " << FatJet_pt[ijet] << " | FatJet_eta: " << FatJet_eta[ijet] << " | FatJet_mass: " << FatJet_mass[ijet] << std::endl;
+
+        if( FatJet_pt[ijet] <= FAT_JET_PT_CUT ) continue;
+        if( abs(FatJet_eta[ijet]) >= FAT_JET_ETA_CUT ) continue;
+        if( FatJet_jetId[ijet] < FAT_JET_ID_WP ) continue;
+
+        selectedFatJet.push_back(ijet);
+
+        // TLorentzVector FatJet;
+        // FatJet.SetPtEtaPhiE(FatJet_pt[ijet], FatJet_eta[ijet], FatJet_phi[ijet], 0);
+        NfatJets += 1;
+
+    }
+   
+    LeadingFatJet_pt = 0;
+    SubLeadingFatJet_pt = 0;
+    ThirdLeadingFatJet_pt = 0;
+    FourthLeadingFatJet_pt = 0;
+
+    LeadingFatJet_mass = 0;
+    SubLeadingFatJet_mass = 0;
+    ThirdLeadingFatJet_mass = 0;
+    FourthLeadingFatJet_mass = 0;
+
+    if( NfatJets >= 1 ) {
+        LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
+        LeadingFatJet_mass = FatJet_mass[selectedFatJet.at(0)];
+    }
+    if( NfatJets >= 2 ) {
+        SubLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(1)];
+        SubLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(1)];
+    }
+    if( NfatJets >= 3 ) {
+        ThirdLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(2)];
+    }
+    if( NfatJets >= 4 ) {
+        FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
+        FourthLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(3)];
+    }
+
+
+    // if( NfatJets >= 1 ) LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
+    // if( NfatJets >= 2 ) SubLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(1)];
+    // if( NfatJets >= 3 ) ThirdLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(2)];
+    // if( NfatJets >= 4 ) FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
 
 
 }
