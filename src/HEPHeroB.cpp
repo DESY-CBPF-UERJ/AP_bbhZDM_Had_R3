@@ -67,6 +67,11 @@ void HEPHero::FillControlVariables( string key, string value){
     if( key == "MUON_ID_WP"                 )   MUON_ID_WP = atoi(value.c_str());
     if( key == "MUON_ISO_WP"                )   MUON_ISO_WP = atoi(value.c_str());
 
+    if( key == "TAU_VS_ELE_ISO_WP"          )   TAU_VS_ELE_ISO_WP = atoi(value.c_str());
+    if( key == "TAU_VS_JET_ISO_WP"          )   TAU_VS_JET_ISO_WP = atoi(value.c_str());
+    if( key == "TAU_VS_MU_ISO_WP"           )   TAU_VS_MU_ISO_WP = atoi(value.c_str());
+
+
     // if( key == "LEPTON_DR_ISO_CUT"          )   LEPTON_DR_ISO_CUT = atof(value.c_str());
 
     // if( key == "LEADING_LEP_PT_CUT"         )   LEADING_LEP_PT_CUT = atof(value.c_str());
@@ -101,6 +106,62 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("MET_pt", &MET_pt);
 
         
+
+        //-----------------------------------------------------------------------------------------
+
+        _inputTree->SetBranchAddress("nTau", &nTau);
+        _inputTree->SetBranchAddress("Tau_decayMode", Tau_decayMode);
+        _inputTree->SetBranchAddress("Tau_idAntiEleDeadECal", Tau_idAntiEleDeadECal);
+        _inputTree->SetBranchAddress("Tau_idAntiMu", Tau_idAntiMu);
+        _inputTree->SetBranchAddress("Tau_idDecayModeNewDMs", Tau_idDecayModeNewDMs);
+        _inputTree->SetBranchAddress("Tau_idDecayModeOldDMs", Tau_idDecayModeOldDMs);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2017v2p1VSe", Tau_idDeepTau2017v2p1VSe);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2017v2p1VSjet", Tau_idDeepTau2017v2p1VSjet);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2017v2p1VSmu", Tau_idDeepTau2017v2p1VSmu);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2018v2p5VSe", Tau_idDeepTau2018v2p5VSe);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2018v2p5VSjet", Tau_idDeepTau2018v2p5VSjet);
+        _inputTree->SetBranchAddress("Tau_idDeepTau2018v2p5VSmu", Tau_idDeepTau2018v2p5VSmu);
+        _inputTree->SetBranchAddress("Tau_nSVs", Tau_nSVs);
+        _inputTree->SetBranchAddress("Tau_charge", Tau_charge);
+        _inputTree->SetBranchAddress("Tau_decayModePNet", Tau_decayModePNet);
+        _inputTree->SetBranchAddress("Tau_eleIdx", Tau_eleIdx);
+        _inputTree->SetBranchAddress("Tau_jetIdx", Tau_jetIdx);
+        _inputTree->SetBranchAddress("Tau_muIdx", Tau_muIdx);
+        _inputTree->SetBranchAddress("Tau_svIdx1", Tau_svIdx1);
+        _inputTree->SetBranchAddress("Tau_svIdx2", Tau_svIdx2);
+        _inputTree->SetBranchAddress("Tau_chargedIso", Tau_chargedIso);
+        _inputTree->SetBranchAddress("Tau_dxy", Tau_dxy);
+        _inputTree->SetBranchAddress("Tau_dz", Tau_dz);
+        _inputTree->SetBranchAddress("Tau_eta", Tau_eta);
+        _inputTree->SetBranchAddress("Tau_leadTkDeltaEta", Tau_leadTkDeltaEta);
+        _inputTree->SetBranchAddress("Tau_leadTkDeltaPhi", Tau_leadTkDeltaPhi);
+        _inputTree->SetBranchAddress("Tau_leadTkPtOverTauPt", Tau_leadTkPtOverTauPt);
+        _inputTree->SetBranchAddress("Tau_mass", Tau_mass);
+        _inputTree->SetBranchAddress("Tau_neutralIso", Tau_neutralIso);
+        _inputTree->SetBranchAddress("Tau_phi", Tau_phi);
+        _inputTree->SetBranchAddress("Tau_photonsOutsideSignalCone", Tau_photonsOutsideSignalCone);
+        _inputTree->SetBranchAddress("Tau_probDM0PNet", Tau_probDM0PNet);
+        _inputTree->SetBranchAddress("Tau_probDM10PNet", Tau_probDM10PNet);
+        _inputTree->SetBranchAddress("Tau_probDM11PNet", Tau_probDM11PNet);
+        _inputTree->SetBranchAddress("Tau_probDM1PNet", Tau_probDM1PNet);
+        _inputTree->SetBranchAddress("Tau_probDM2PNet", Tau_probDM2PNet);
+        _inputTree->SetBranchAddress("Tau_pt", Tau_pt);
+        _inputTree->SetBranchAddress("Tau_ptCorrPNet", Tau_ptCorrPNet);
+        _inputTree->SetBranchAddress("Tau_puCorr", Tau_puCorr);
+        _inputTree->SetBranchAddress("Tau_qConfPNet", Tau_qConfPNet);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2017v2p1VSe", Tau_rawDeepTau2017v2p1VSe);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2017v2p1VSjet", Tau_rawDeepTau2017v2p1VSjet);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2017v2p1VSmu", Tau_rawDeepTau2017v2p1VSmu);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2018v2p5VSe", Tau_rawDeepTau2018v2p5VSe);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2018v2p5VSjet", Tau_rawDeepTau2018v2p5VSjet);
+        _inputTree->SetBranchAddress("Tau_rawDeepTau2018v2p5VSmu", Tau_rawDeepTau2018v2p5VSmu);
+        _inputTree->SetBranchAddress("Tau_rawIso", Tau_rawIso);
+        _inputTree->SetBranchAddress("Tau_rawIsodR03", Tau_rawIsodR03);
+        _inputTree->SetBranchAddress("Tau_rawPNetVSe", Tau_rawPNetVSe);
+        _inputTree->SetBranchAddress("Tau_rawPNetVSjet", Tau_rawPNetVSjet);
+        _inputTree->SetBranchAddress("Tau_rawPNetVSmu", Tau_rawPNetVSmu);
+
+
 
         //-----------------------------------------------------------------------------------------
 
@@ -497,6 +558,7 @@ void HEPHero::FinishAna(){
     // FINISH YOUR SELECTION HERE
 }
    
+
 
 
 

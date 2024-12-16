@@ -37,6 +37,10 @@ analysis_parameters = {
 "MET_DY_UPPER_CUT           ": 100,     # 
 "MET_LEPLEP_DPHI_CUT        ": 0.8,
 "MET_LEPLEP_MT_CUT          ": 90,      #      
+"TAU_VS_ELE_ISO_WP          ": 4,       #  0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
+"TAU_VS_JET_ISO_WP          ": 4,        #   0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
+"TAU_VS_MU_ISO_WP           ": 2,       #    0=No Apply, 1 = VLoose, 2 = Loose, 3 = Medium, 4 = Tight
+
 }
 
 corrections = {  # 0-don't apply, 1-apply
@@ -81,3 +85,4 @@ metadata = {
 Get_Image_in_EPS = 0
 Get_Image_in_PNG = 1
 Get_Image_in_PDF = 0
+

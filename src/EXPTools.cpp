@@ -1,14 +1,61 @@
 #include "HEPHero.h"
 
 
+//---------------------------------------------------------------------------------------------------------------
+// Tau ID
+//---------------------------------------------------------------------------------------------------------------
+// https://cds.cern.ch/record/2904699/files/DP2024_063.pdf -> DeepTau v2.5 is the recommended tools for Run3
+
+bool HEPHero::TauVSEletronID( int iobj, int WP ){
+
+    bool obj_selected = false;
+//    std::cout<<"Testando WP:"<<WP<<endl;
+//    std::cout<<"Tau_idDeepTau2018v2p5VSe: "<<(Tau_idDeepTau2018v2p5VSe[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;    //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 4);    //VLoose
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 8);    //Loose
+    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 16);    //Medium
+    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 32);    //Tight             
+    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 64);    //VTight
+    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 128);    //VVTight
 
 
+    return obj_selected;
+}
 
+bool HEPHero::TauVSJetID( int iobj, int WP ){
 
+    bool obj_selected = false;
+ //   std::cout<<"Testando WP:"<<WP<<endl;
+ //   std::cout<<"Tau_idDeepTau2018v2p5VSjet: "<<(Tau_idDeepTau2018v2p5VSjet[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;    //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 4);    //VLoose
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 8);    //Loose
+    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 16);    //Medium
+    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 32);    //Tight             
+    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 64);    //VTight
+    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 128);    //VVTight
 
+    return obj_selected;
+}
 
+bool HEPHero::TauVSMuonID( int iobj, int WP ){
 
+    bool obj_selected = false;
+ //   std::cout<<"Testando WP:"<<WP<<endl;
+ //   std::cout<<"Tau_idDeepTau2018v2p5VSmu: "<<(Tau_idDeepTau2018v2p5VSmu[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;                                     //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 1);    //VVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 2);    //VLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 4);    //Medium
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 8);    //Tight
 
+    return obj_selected;
+}
 
 
 //---------------------------------------------------------------------------------------------------------------
@@ -141,6 +188,7 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
 
     return obj_selected;
 }
+
 
 
 
