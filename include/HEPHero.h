@@ -61,6 +61,7 @@ class HEPHero : public HEPBase {
         void massParticlesWeightsSystematic();
         void FinishmassParticlesWeights();
         // INSERT YOUR SELECTION HERE
+        bool Trigger();
 
 
 
@@ -996,7 +997,7 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_AK8PFJet360_TrimMass30;
         // Bool_t HLT_AK8PFJet380_TrimMass30;
         // Bool_t HLT_AK8PFJet400_TrimMass30;
-        // Bool_t HLT_AK8PFJet420_TrimMass30;
+        Bool_t HLT_AK8PFJet420_TrimMass30;
         // Bool_t HLT_AK8PFJet400_MassSD30;
         // Bool_t HLT_AK8PFJet420_MassSD30;
         // Bool_t HLT_AK8PFJet450_MassSD30;
@@ -1005,9 +1006,9 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_AK8DiPFJet260_260_MassSD30;
         // Bool_t HLT_AK8DiPFJet270_270_MassSD30;
         // Bool_t HLT_AK8PFHT750_TrimMass50;
-        // Bool_t HLT_AK8PFHT800_TrimMass50;
-        // Bool_t HLT_AK8PFHT850_TrimMass50;
-        // Bool_t HLT_AK8PFHT900_TrimMass50;
+        Bool_t HLT_AK8PFHT800_TrimMass50;
+        Bool_t HLT_AK8PFHT850_TrimMass50;
+        Bool_t HLT_AK8PFHT900_TrimMass50;
         // Bool_t HLT_CaloJet500_NoJetID;
         // Bool_t HLT_CaloJet550_NoJetID;
         // Bool_t HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL;
@@ -1131,8 +1132,8 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_AK8PFJet320;
         // Bool_t HLT_AK8PFJet400;
         // Bool_t HLT_AK8PFJet450;
-        // Bool_t HLT_AK8PFJet500;
-        // Bool_t HLT_AK8PFJet550;
+        Bool_t HLT_AK8PFJet500;
+        Bool_t HLT_AK8PFJet550;
         // Bool_t HLT_PFJet40;
         // Bool_t HLT_PFJet60;
         // Bool_t HLT_PFJet80;
@@ -1166,9 +1167,9 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_AK8PFJetFwd200;
         // Bool_t HLT_AK8PFJetFwd260;
         // Bool_t HLT_AK8PFJetFwd320;
-        // Bool_t HLT_AK8PFJetFwd400;
-        // Bool_t HLT_AK8PFJetFwd450;
-        // Bool_t HLT_AK8PFJetFwd500;
+        Bool_t HLT_AK8PFJetFwd400;
+        Bool_t HLT_AK8PFJetFwd450;
+        Bool_t HLT_AK8PFJetFwd500;
         // Bool_t HLT_PFHT180;
         // Bool_t HLT_PFHT250;
         // Bool_t HLT_PFHT370;
@@ -1184,7 +1185,7 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_PFHT700_PFMET85_PFMHT85_IDTight;
         // Bool_t HLT_PFHT800_PFMET75_PFMHT75_IDTight;
         // Bool_t HLT_PFMET110_PFMHT110_IDTight;
-        // Bool_t HLT_PFMET120_PFMHT120_IDTight;
+        Bool_t HLT_PFMET120_PFMHT120_IDTight;
         // Bool_t HLT_PFMET130_PFMHT130_IDTight;
         // Bool_t HLT_PFMET140_PFMHT140_IDTight;
         // Bool_t HLT_PFMET120_PFMHT120_IDTight_PFHT60;
@@ -1211,7 +1212,7 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_PFMET300_NotCleaned;
         // Bool_t HLT_PFMET200_BeamHaloCleaned;
         // Bool_t HLT_PFMETTypeOne200_BeamHaloCleaned;
-        // Bool_t HLT_MET105_IsoTrk50;
+        Bool_t HLT_MET105_IsoTrk50;
         // Bool_t HLT_MET120_IsoTrk50;
         // Bool_t HLT_SingleJet30_Mu12_SinglePFJet40;
         // Bool_t HLT_Mu12eta2p3;
@@ -1261,7 +1262,7 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_BTagMu_AK4DiJet170_Mu5;
         // Bool_t HLT_BTagMu_AK4Jet300_Mu5;
         // Bool_t HLT_BTagMu_AK8DiJet170_Mu5;
-        // Bool_t HLT_BTagMu_AK8Jet170_DoubleMu5;
+        Bool_t HLT_BTagMu_AK8Jet170_DoubleMu5;
         // Bool_t HLT_BTagMu_AK8Jet300_Mu5;
         // Bool_t HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ;
         // Bool_t HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL;
@@ -1495,14 +1496,14 @@ class HEPHero : public HEPBase {
         // Bool_t HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65;
         // Bool_t HLT_AK8PFJet230_SoftDropMass40;
         // Bool_t HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35;
-        // Bool_t HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35;
-        // Bool_t HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35;
+        Bool_t HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35;
+        Bool_t HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35;
         // Bool_t HLT_AK8PFJet400_SoftDropMass40;
-        // Bool_t HLT_AK8PFJet425_SoftDropMass40;
-        // Bool_t HLT_AK8PFJet450_SoftDropMass40;
-        // Bool_t HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
-        // Bool_t HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
-        // Bool_t HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
+        Bool_t HLT_AK8PFJet425_SoftDropMass40;
+        Bool_t HLT_AK8PFJet450_SoftDropMass40;
+        Bool_t HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
+        Bool_t HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
+        Bool_t HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30;
         // Bool_t HLT_IsoMu50_AK8PFJet230_SoftDropMass40;
         // Bool_t HLT_IsoMu50_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35;
         // Bool_t HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40;

@@ -382,7 +382,58 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_rawFactor", &Jet_rawFactor);
         
 
-        
+        //----------------------------------------------------------------------------------------------------------------------
+
+        if( dataset_year == "22" ){
+            HLT_AK8PFJet500 = false;
+            HLT_AK8PFJet550 = false;
+            HLT_AK8PFJet420_TrimMass30 = false;
+            HLT_AK8PFHT800_TrimMass50 = false;
+            HLT_AK8PFHT850_TrimMass50 = false;
+            HLT_AK8PFHT900_TrimMass50 = false;
+            HLT_AK8PFJetFwd400 = false;
+            HLT_AK8PFJetFwd450 = false;
+            HLT_AK8PFJetFwd500 = false;
+            HLT_PFMET120_PFMHT120_IDTight = false;
+            HLT_MET105_IsoTrk50 = false;
+            HLT_BTagMu_AK8Jet170_DoubleMu5 = false;
+            HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35 = false;
+            HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35 = false;
+            HLT_AK8PFJet425_SoftDropMass40 = false;
+            HLT_AK8PFJet450_SoftDropMass40 = false;
+            HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
+            HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
+            HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
+
+
+            _inputTree->SetBranchAddress("HLT_AK8PFJet500", &HLT_AK8PFJet500 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet550", &HLT_AK8PFJet550 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet420_TrimMass30", &HLT_AK8PFJet420_TrimMass30 );
+            _inputTree->SetBranchAddress("HLT_AK8PFHT800_TrimMass50", &HLT_AK8PFHT800_TrimMass50 );
+            _inputTree->SetBranchAddress("HLT_AK8PFHT850_TrimMass50", &HLT_AK8PFHT850_TrimMass50 );
+            _inputTree->SetBranchAddress("HLT_AK8PFHT900_TrimMass50", &HLT_AK8PFHT900_TrimMass50 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd400", &HLT_AK8PFJetFwd400 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd450", &HLT_AK8PFJetFwd450 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd500", &HLT_AK8PFJetFwd500 );
+            _inputTree->SetBranchAddress("HLT_PFMET120_PFMHT120_IDTight", &HLT_PFMET120_PFMHT120_IDTight );
+            _inputTree->SetBranchAddress("HLT_MET105_IsoTrk50", &HLT_MET105_IsoTrk50 );
+            _inputTree->SetBranchAddress("HLT_BTagMu_AK8Jet170_DoubleMu5", &HLT_BTagMu_AK8Jet170_DoubleMu5 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet425_SoftDropMass40", &HLT_AK8PFJet425_SoftDropMass40 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet450_SoftDropMass40", &HLT_AK8PFJet450_SoftDropMass40 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+            _inputTree->SetBranchAddress("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+
+
+
+        }
+
+
+
+
+
         //-----------------------------------------------------------------------------------------------------------------------
         if( dataset_group != "Data" ) {
             _inputTree->SetBranchAddress("nGenJetAK8", &nGenJetAK8);

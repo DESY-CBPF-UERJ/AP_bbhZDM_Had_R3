@@ -297,4 +297,28 @@ void HEPHero::FatjetSelection(){
 }
 
 
+bool HEPHero::Trigger(){
+    bool triggered = false;
+    // https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgHLTRunIISummary (electron triggers recommendation)
+
+    //=====TRIGGERS FOR 2022=====================================================================
+    if( dataset_year == "22" ){
+
+        triggered = true; 
+
+    }
+
+    //=====TRIGGERS FOR 2023=====================================================================
+    if( dataset_year == "23" ){
+
+    }
+
+    //=====TRIGGERS FOR 2024=====================================================================
+    if( dataset_year == "24" ){
+
+    }
+
+
+    return triggered;
+}
 

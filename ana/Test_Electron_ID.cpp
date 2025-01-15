@@ -17,6 +17,9 @@ namespace Test_Electron_ID{
 // Define output derivatives
 //-------------------------------------------------------------------------------------------------
 void HEPHero::SetupTest_Electron_ID() {
+    //======SETUP CUTFLOW==========================================================================
+    _cutFlow.insert(pair<string,double>("00_BEFORE_ELE_ID", 0) );
+    _cutFlow.insert(pair<string,double>("01_Selected", 0) );
 
 //    _cutFlow.insert(pair<string,double>("00_BEFORE_ELE_ID", 0) );
 //   _cutFlow.insert(pair<string,double>("01_AFTER_ELE_ID", 0) );
@@ -48,6 +51,48 @@ void HEPHero::SetupTest_Electron_ID() {
     HDF_insert("Ntaus_cutted", &Ntaus);
 
 
+    HDF_insert("FatJet_phi", FatJet_phi);
+    HDF_insert("FatJet_pt", FatJet_pt);
+    HDF_insert("nFatJet", &nFatJet);
+    HDF_insert("FatJet_mass", FatJet_mass); 
+
+    HDF_insert("NfatJets", &NfatJets);
+    HDF_insert("LeadingFatJet_pt", &LeadingFatJet_pt);
+    HDF_insert("SubLeadingFatJet_pt", &SubLeadingFatJet_pt);
+    HDF_insert("ThirdLeadingFatJet_pt", &ThirdLeadingFatJet_pt);
+    HDF_insert("FourthLeadingFatJet_pt", &FourthLeadingFatJet_pt);
+    HDF_insert("LeadingFatJet_mass", &LeadingFatJet_mass);
+    HDF_insert("SubLeadingFatJet_mass", &SubLeadingFatJet_mass);
+    HDF_insert("ThirdLeadingFatJet_mass", &ThirdLeadingFatJet_mass);
+    HDF_insert("FourthLeadingFatJet_mass", &FourthLeadingFatJet_mass);
+
+
+    HDF_insert("HLT_AK8PFJet500", &HLT_AK8PFJet500 );
+    HDF_insert("HLT_AK8PFJet550", &HLT_AK8PFJet550 );
+    HDF_insert("HLT_AK8PFJet420_TrimMass30", &HLT_AK8PFJet420_TrimMass30 );
+    HDF_insert("HLT_AK8PFHT800_TrimMass50", &HLT_AK8PFHT800_TrimMass50 );
+    HDF_insert("HLT_AK8PFHT850_TrimMass50", &HLT_AK8PFHT850_TrimMass50 );
+    HDF_insert("HLT_AK8PFHT900_TrimMass50", &HLT_AK8PFHT900_TrimMass50 );
+    HDF_insert("HLT_AK8PFJetFwd400", &HLT_AK8PFJetFwd400 );
+    HDF_insert("HLT_AK8PFJetFwd450", &HLT_AK8PFJetFwd450 );
+    HDF_insert("HLT_AK8PFJetFwd500", &HLT_AK8PFJetFwd500 );
+    HDF_insert("HLT_PFMET120_PFMHT120_IDTight", &HLT_PFMET120_PFMHT120_IDTight );
+    HDF_insert("HLT_MET105_IsoTrk50", &HLT_MET105_IsoTrk50 );
+    HDF_insert("HLT_BTagMu_AK8Jet170_DoubleMu5", &HLT_BTagMu_AK8Jet170_DoubleMu5 );
+    HDF_insert("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35 );
+    HDF_insert("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35 );
+    HDF_insert("HLT_AK8PFJet425_SoftDropMass40", &HLT_AK8PFJet425_SoftDropMass40 );
+    HDF_insert("HLT_AK8PFJet450_SoftDropMass40", &HLT_AK8PFJet450_SoftDropMass40 );
+    HDF_insert("HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+    HDF_insert("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+    HDF_insert("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
+
+
+
+
+
+
+
     return;
 }
 
@@ -57,15 +102,12 @@ void HEPHero::SetupTest_Electron_ID() {
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::Test_Electron_IDRegion() {
 
-//    _cutFlow.at("00_BEFORE_ELE_ID") += evtWeight;
-
+    _cutFlow.at("00_BEFORE_ELE_ID") += evtWeight;
     LeptonSelection();
-//    _cutFlow.at("01_AFTER_ELE_ID") += evtWeight;
-    //-------------------------------------------------------------------------
-    // Cut description
-    //-------------------------------------------------------------------------
-    //if( !(CutCondition) ) return false;           [Example]
-    //_cutFlow.at("CutName") += evtWeight;          [Example]
+
+    if( !Trigger() ) return false;                                              // Selected by triggers
+    _cutFlow.at("01_Selected") += evtWeight;
+
 
     return true;
 }
