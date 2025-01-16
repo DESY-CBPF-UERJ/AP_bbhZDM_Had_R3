@@ -110,7 +110,9 @@ bool HEPHero::TestMatheusRegion() {
 
     _cutFlow.at("00_BEFORE_ELE_ID") += evtWeight;
     LeptonSelection();
-
+    JetSelection();
+    FatjetSelection();
+    
     if( !Trigger() ) return false;                                              // Selected by triggers
     _cutFlow.at("01_Selected") += evtWeight;
 
