@@ -1,4 +1,4 @@
-Selection            Test_Electron_ID
+Selection            TestMatheus
 Analysis             AP_bbhZDM_Had_R3
 Outpath              /eos/user/m/mcostare/Run3_output/AP_bbhZDM_Had_R3
 InputTree            Events
@@ -96,8 +96,8 @@ MET_CUT                    65
 MET_DY_UPPER_CUT           100
 MET_LEPLEP_DPHI_CUT        0.8
 MET_LEPLEP_MT_CUT          90
-TAU_VS_ELE_ISO_WP          1
-TAU_VS_JET_ISO_WP          1
-TAU_VS_MU_ISO_WP           1
-TAU_PT_CUT                 0
-TAU_ETA_CUT                4
+TAU_VS_ELE_ISO_WP          4
+TAU_VS_JET_ISO_WP          4
+TAU_VS_MU_ISO_WP           2
+TAU_PT_CUT                 10
+TAU_ETA_CUT                2.5

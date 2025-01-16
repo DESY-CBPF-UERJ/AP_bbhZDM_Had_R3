@@ -60,6 +60,11 @@ class HEPHero : public HEPBase {
         void massParticlesWeightsSelection();
         void massParticlesWeightsSystematic();
         void FinishmassParticlesWeights();
+        void SetupTestMatheus();
+        bool TestMatheusRegion();
+        void TestMatheusSelection();
+        void TestMatheusSystematic();
+        void FinishTestMatheus();
         // INSERT YOUR SELECTION HERE
         bool Trigger();
 
