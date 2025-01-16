@@ -7,7 +7,7 @@
 //-------------------------------------------------------------------------------------------------
 // Define output variables
 //-------------------------------------------------------------------------------------------------
-namespace Test_TestMatheus{
+namespace TestMatheus{
 	
     //int variable1Name;   [example]
 }
@@ -16,7 +16,7 @@ namespace Test_TestMatheus{
 //-------------------------------------------------------------------------------------------------
 // Define output derivatives
 //-------------------------------------------------------------------------------------------------
-void HEPHero::SetupTest_TestMatheus() {
+void HEPHero::SetupTestMatheus() {
     //======SETUP CUTFLOW==========================================================================
     _cutFlow.insert(pair<string,double>("00_BEFORE_ELE_ID", 0) );
     _cutFlow.insert(pair<string,double>("01_Selected", 0) );
@@ -36,10 +36,10 @@ void HEPHero::SetupTest_TestMatheus() {
     //makeSysHist( "histogram2DSysName", 40, 0., 40., 100, 0., 50., "xlabel",  "ylabel", "zlabel", "COLZ" );   [example]
 
     //======SETUP OUTPUT BRANCHES==================================================================
-    //_outputTree->Branch("variable1NameInTheTree", &Test_TestMatheus::variable1Name );  [example]
+    //_outputTree->Branch("variable1NameInTheTree", &TestMatheus::variable1Name );  [example]
 
     //======SETUP INFORMATION IN OUTPUT HDF5 FILE==================================================
-    //HDF_insert("variable1NameInTheTree", &Test_TestMatheus::variable1Name );  [example]
+    //HDF_insert("variable1NameInTheTree", &TestMatheus::variable1Name );  [example]
 
 
     HDF_insert("nJet", &nJet);
@@ -106,7 +106,7 @@ void HEPHero::SetupTest_TestMatheus() {
 //-------------------------------------------------------------------------------------------------
 // Define the selection region
 //-------------------------------------------------------------------------------------------------
-bool HEPHero::Test_TestMatheusRegion() {
+bool HEPHero::TestMatheusRegion() {
 
     _cutFlow.at("00_BEFORE_ELE_ID") += evtWeight;
     LeptonSelection();
@@ -122,7 +122,7 @@ bool HEPHero::Test_TestMatheusRegion() {
 //-------------------------------------------------------------------------------------------------
 // Write your analysis code here
 //-------------------------------------------------------------------------------------------------
-void HEPHero::Test_TestMatheusSelection() {
+void HEPHero::TestMatheusSelection() {
 
 
 
@@ -137,7 +137,7 @@ void HEPHero::Test_TestMatheusSelection() {
 
 
     //======ASSIGN VALUES TO THE OUTPUT VARIABLES==================================================
-    //Test_TestMatheus::variable1Name = 100;      [Example]
+    //TestMatheus::variable1Name = 100;      [Example]
 
     //======FILL THE HISTOGRAMS====================================================================
     //_histograms1D.at("histogram1DName").Fill( var, evtWeight );               [Example]
@@ -156,7 +156,7 @@ void HEPHero::Test_TestMatheusSelection() {
 //-------------------------------------------------------------------------------------------------
 // Produce systematic histograms
 //-------------------------------------------------------------------------------------------------
-void HEPHero::Test_TestMatheusSystematic() {
+void HEPHero::TestMatheusSystematic() {
 
     //FillSystematic( "histogram1DSysName", var, evtWeight );  [Example]
     //FillSystematic( "histogram2DSysName", var1, var2, evtWeight );  [Example]
@@ -166,7 +166,7 @@ void HEPHero::Test_TestMatheusSystematic() {
 //-------------------------------------------------------------------------------------------------
 // Make efficiency plots
 //-------------------------------------------------------------------------------------------------
-void HEPHero::FinishTest_TestMatheus() {
+void HEPHero::FinishTestMatheus() {
 
     //MakeEfficiencyPlot( _histograms1D.at("Matched_pt"), _histograms1D.at("all_pt"), "Match_pt" );   [example]
 
