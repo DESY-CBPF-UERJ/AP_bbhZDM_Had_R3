@@ -173,16 +173,18 @@ void HEPHero::JetSelection(){
             HPx_trig += Jet_trig.Px();
             HPy_trig += Jet_trig.Py();
         }
-        if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
+        //if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
         if( Jet_jetId[ijet] < JET_ID_WP ) continue;
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
-        if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
+        //if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
+        if ( (Jet_pt[ijet] < 50) && ( 2.5 < abs(Jet_eta[ijet]) && 3 > abs(Jet_eta[ijet]) ) ) continue;   // due to eta spikes (since we apply a cut in jet with more than 2.5 eta, this cut is not necessary, but I will leave this here for the future)
+
 
         if( abs(Jet_eta[ijet]) >= 5.0 ) continue;
-        if( abs(Jet_eta[ijet]) > 1.4 ) Njets_forward += 1;
-        if( abs(Jet_eta[ijet]) > Jet_abseta_max ) Jet_abseta_max = abs(Jet_eta[ijet]);
+        //if( abs(Jet_eta[ijet]) > 1.4 ) Njets_forward += 1;
+        //if( abs(Jet_eta[ijet]) > Jet_abseta_max ) Jet_abseta_max = abs(Jet_eta[ijet]);
         if( abs(Jet_eta[ijet]) >= JET_ETA_CUT ) continue;
         selectedJet.push_back(ijet);
         TLorentzVector Jet;
