@@ -10,6 +10,7 @@
 namespace TestMatheus{
 	
     //int variable1Name;   [example]
+    int BJet_DeepJetLoose,BJet_robustParticleTransformerLoose,BJet_particleNETLoose;
 }
 
 
@@ -102,9 +103,9 @@ void HEPHero::SetupTestMatheus() {
     HDF_insert("HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5", &HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5);
     HDF_insert("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight", &HLT_PFMETNoMu120_PFMHTNoMu120_IDTight);
 
-
-
-
+    HDF_insert("BJet_DeepJetLoose",&TestMatheus::BJet_DeepJetLoose);
+    HDF_insert("BJet_robustParticleTransformerLoose",&TestMatheus::BJet_robustParticleTransformerLoose);
+    HDF_insert("BJet_particleNETLoose",&TestMatheus::BJet_particleNETLoose);
 
     return;
 }
@@ -133,7 +134,37 @@ bool HEPHero::TestMatheusRegion() {
 //-------------------------------------------------------------------------------------------------
 void HEPHero::TestMatheusSelection() {
 
+    TestMatheus::BJet_DeepJetLoose = 0;
+    TestMatheus::BJet_robustParticleTransformerLoose = 0;
+    TestMatheus::BJet_particleNETLoose = 0;
 
+
+    for(int ijet = 0; ijet < nJet; ++ijet){
+
+        if( Jet_pt[ijet] <= JET_PT_CUT ) continue;
+        if( Jet_jetId[ijet] < JET_ID_WP ) continue;
+        if( Jet_LepOverlap[ijet] ) continue;
+        //if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
+        if ( (Jet_pt[ijet] < 50) && ( 2.5 < abs(Jet_eta[ijet]) && 3 > abs(Jet_eta[ijet]) ) ) continue;   // due to eta spikes (since we apply a cut in jet with more than 2.5 eta, this cut is not necessary, but I will leave this here for the future)
+
+
+        //DeepJet
+        if( JetBTAG( ijet, 0 ) ){
+            TestMatheus::BJet_DeepJetLoose += 1;  
+        }
+        //robustParticleTransformer
+        if( JetBTAG( ijet, 10 ) ){
+            TestMatheus::BJet_robustParticleTransformerLoose += 1;  
+        }
+        //particleNET
+        if( JetBTAG( ijet, 5 ) ){
+            TestMatheus::BJet_particleNETLoose += 1;  
+        }
+  
+
+
+    }
+    
 
 
 
