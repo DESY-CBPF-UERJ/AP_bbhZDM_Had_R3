@@ -22,7 +22,7 @@ Get_Image_in_PDF     0
 JET_ETA_CUT                2.4
 JET_PT_CUT                 20
 JET_ID_WP                  0
-JET_PUID_WP                3
+JET_PUID_WP                7
 JET_BTAG_WP                3
 FAT_JET_PT_CUT             0
 FAT_JET_ETA_CUT            3

@@ -135,6 +135,10 @@ class HEPHero : public HEPBase {
         Float_t Jet_JES_pt[100];
 
         int NfatJets;
+        float LeadingFatJet_jetId;
+        float SubLeadingFatJet_jetId;
+        float ThirdLeadingFatJet_jetId;
+        float FourthLeadingFatJet_jetId;
         float LeadingFatJet_pt;
         float SubLeadingFatJet_pt;
         float ThirdLeadingFatJet_pt;
@@ -143,8 +147,32 @@ class HEPHero : public HEPBase {
         float SubLeadingFatJet_mass;
         float ThirdLeadingFatJet_mass;
         float FourthLeadingFatJet_mass;
+        float LeadingFatJet_XbbVsQCD;
+        float SubLeadingFatJet_XbbVsQCD;
+        float ThirdLeadingFatJet_XbbVsQCD;
+        float FourthLeadingFatJet_XbbVsQCD;
+        float LeadingFatJet_XccVsQCD;
+        float SubLeadingFatJet_XccVsQCD;
+        float ThirdLeadingFatJet_XccVsQCD;
+        float FourthLeadingFatJet_XccVsQCD;
+        float LeadingFatJet_XggVsQCD;
+        float SubLeadingFatJet_XggVsQCD;
+        float ThirdLeadingFatJet_XggVsQCD;
+        float FourthLeadingFatJet_XggVsQCD;
+        float LeadingFatJet_XqqVsQCD;
+        float SubLeadingFatJet_XqqVsQCD;
+        float ThirdLeadingFatJet_XqqVsQCD;
+        float FourthLeadingFatJet_XqqVsQCD;
+        float LeadingFatJet_msoftdrop;
+        float SubLeadingFatJet_msoftdrop;
+        float ThirdLeadingFatJet_msoftdrop;
+        float FourthLeadingFatJet_msoftdrop;
+        float LeadingFatJet_massCorr;
+        float SubLeadingFatJet_massCorr;
+        float ThirdLeadingFatJet_massCorr;
+        float FourthLeadingFatJet_massCorr;
 
-        
+
         //----MET------------------------------------------
         float MET_RAW_pt;
         float MET_RAW_phi;

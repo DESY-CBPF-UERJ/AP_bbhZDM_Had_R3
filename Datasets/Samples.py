@@ -11,6 +11,8 @@ def get_samples( basedir, period ):
         'Signal_800_400':           [i for i in list_basedir if 'Signal_800_400' == i.split("_"+periodTag)[0]],
         'Signal_1000_100':           [i for i in list_basedir if 'Signal_1000_100' == i.split("_"+periodTag)[0]],
 
+        # TODO: Samples DR - SingleTop - TTbar fullyleptonnic
+
         # 'DYJetsToLL_PtZ-0To50':     [i for i in list_basedir if 'DYJetsToLL_PtZ-0To50' == i.split("_"+periodTag)[0]],
         # 'DYJetsToLL_PtZ-3To50':     [i for i in list_basedir if 'DYJetsToLL_PtZ-3To50' == i.split("_"+periodTag)[0]],
         # 'DYJetsToLL_PtZ-50To100':   [i for i in list_basedir if 'DYJetsToLL_PtZ-50To100' == i.split("_"+periodTag)[0]],

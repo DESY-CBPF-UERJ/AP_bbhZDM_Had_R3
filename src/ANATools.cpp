@@ -9,6 +9,7 @@ void HEPHero::LeptonSelection(){
 
     selectedEle.clear();
     selectedMu.clear();
+    
     //std::cout<<"Numero de eletrons:"<<nElectron<<endl;
     for( unsigned int iele = 0; iele < nElectron; ++iele ) {
         if( abs(Electron_eta[iele]) >= ELECTRON_ETA_CUT ) continue;
@@ -65,7 +66,7 @@ void HEPHero::LeptonSelection(){
 
     Nelectrons = selectedEle.size();
     Nmuons = selectedMu.size();
-    //Nleptons = Nelectrons + Nmuons;
+    Nleptons = Nelectrons + Nmuons;
 
     //int NelectronsLowPt = selectedEleLowPt.size();
     //int NmuonsLowPt = selectedMuLowPt.size();
@@ -141,6 +142,7 @@ void HEPHero::JetSelection(){
         Jet_JES_pt[ijet] = Jet_pt[ijet];
     }
 
+    // // TODO: TO BE IMPLEMENTED
     // JESvariation();
     // JERvariation();
 
@@ -173,7 +175,6 @@ void HEPHero::JetSelection(){
     float HPx_trig = 0;
     float HPy_trig = 0;
 
-
     // Main loop to process each jet
     for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
         
@@ -189,7 +190,9 @@ void HEPHero::JetSelection(){
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
-        if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
+        
+        // TODO: Verify values for that implementation
+        // if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;  
 
         if( abs(Jet_eta[ijet]) >= 5.0 ) continue;
         if( abs(Jet_eta[ijet]) > 1.4 ) Njets_forward += 1;
@@ -271,33 +274,88 @@ void HEPHero::FatjetSelection(){
 
     }
    
+    LeadingFatJet_jetId = 0;
+    SubLeadingFatJet_jetId = 0;
+    ThirdLeadingFatJet_jetId = 0;
+    FourthLeadingFatJet_jetId = 0;
     LeadingFatJet_pt = 0;
     SubLeadingFatJet_pt = 0;
     ThirdLeadingFatJet_pt = 0;
     FourthLeadingFatJet_pt = 0;
-
     LeadingFatJet_mass = 0;
     SubLeadingFatJet_mass = 0;
     ThirdLeadingFatJet_mass = 0;
     FourthLeadingFatJet_mass = 0;
+    LeadingFatJet_XbbVsQCD = 0;
+    SubLeadingFatJet_XbbVsQCD = 0;
+    ThirdLeadingFatJet_XbbVsQCD = 0;
+    FourthLeadingFatJet_XbbVsQCD = 0;
+    LeadingFatJet_XccVsQCD = 0;
+    SubLeadingFatJet_XccVsQCD = 0;
+    ThirdLeadingFatJet_XccVsQCD = 0;
+    FourthLeadingFatJet_XccVsQCD = 0;
+    LeadingFatJet_XggVsQCD = 0;
+    SubLeadingFatJet_XggVsQCD = 0;
+    ThirdLeadingFatJet_XggVsQCD = 0;
+    FourthLeadingFatJet_XggVsQCD = 0;
+    LeadingFatJet_XqqVsQCD = 0;
+    SubLeadingFatJet_XqqVsQCD = 0;
+    ThirdLeadingFatJet_XqqVsQCD = 0;
+    FourthLeadingFatJet_XqqVsQCD = 0;
+    LeadingFatJet_msoftdrop = 0;
+    SubLeadingFatJet_msoftdrop = 0;
+    ThirdLeadingFatJet_msoftdrop = 0;
+    FourthLeadingFatJet_msoftdrop = 0;
+    LeadingFatJet_massCorr = 0;
+    SubLeadingFatJet_massCorr = 0;
+    ThirdLeadingFatJet_massCorr = 0;
+    FourthLeadingFatJet_massCorr = 0;
+
 
     if( NfatJets >= 1 ) {
+        LeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(0)];
         LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
         LeadingFatJet_mass = FatJet_mass[selectedFatJet.at(0)];
+        LeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(0)];
+        LeadingFatJet_XccVsQCD = FatJet_particleNet_XccVsQCD[selectedFatJet.at(0)];
+        LeadingFatJet_XggVsQCD = FatJet_particleNet_XggVsQCD[selectedFatJet.at(0)];
+        LeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(0)];
+        LeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(0)];
+        LeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
     }
     if( NfatJets >= 2 ) {
+        SubLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(1)];
         SubLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(1)];
         SubLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(1)];
+        SubLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(1)];
+        SubLeadingFatJet_XccVsQCD = FatJet_particleNet_XccVsQCD[selectedFatJet.at(1)];
+        SubLeadingFatJet_XggVsQCD = FatJet_particleNet_XggVsQCD[selectedFatJet.at(1)];
+        SubLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(1)];
+        SubLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(1)];
+        SubLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(1)];
     }
     if( NfatJets >= 3 ) {
+        ThirdLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(2)];
         ThirdLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(2)];
         ThirdLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_XccVsQCD = FatJet_particleNet_XccVsQCD[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_XggVsQCD = FatJet_particleNet_XggVsQCD[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(2)];
     }
     if( NfatJets >= 4 ) {
+        FourthLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(3)];
         FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
         FourthLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(3)];
+        FourthLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(3)];
+        FourthLeadingFatJet_XccVsQCD = FatJet_particleNet_XccVsQCD[selectedFatJet.at(3)];
+        FourthLeadingFatJet_XggVsQCD = FatJet_particleNet_XggVsQCD[selectedFatJet.at(3)];
+        FourthLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(3)];
+        FourthLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(3)];
+        FourthLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(3)];
     }
-
 
     // if( NfatJets >= 1 ) LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
     // if( NfatJets >= 2 ) SubLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(1)];
