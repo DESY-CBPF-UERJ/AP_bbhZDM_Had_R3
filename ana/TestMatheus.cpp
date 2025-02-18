@@ -19,28 +19,12 @@ namespace TestMatheus{
 //-------------------------------------------------------------------------------------------------
 void HEPHero::SetupTestMatheus() {
     //======SETUP CUTFLOW==========================================================================
-    _cutFlow.insert(pair<string,double>("00_BEFORE_ELE_ID", 0) );
-    _cutFlow.insert(pair<string,double>("01_Selected", 0) );
-
-//    _cutFlow.insert(pair<string,double>("00_BEFORE_ELE_ID", 0) );
-//   _cutFlow.insert(pair<string,double>("01_AFTER_ELE_ID", 0) );
-    //======SETUP CUTFLOW==========================================================================
-    //_cutFlow.insert(pair<string,double>("CutName", 0) );   [example]
-
-    //======SETUP HISTOGRAMS=======================================================================
-    //makeHist( "histogram1DName", 40, 0., 40., "xlabel", "ylabel" );   [example]
-    //makeHist( "histogram2DName", 40, 0., 40., 100, 0., 50., "xlabel",  "ylabel", "zlabel", "COLZ" );   [example]
-
-    //======SETUP SYSTEMATIC HISTOGRAMS============================================================
-    //sys_regions = { 0, 1, 2 }; [example] // Choose regions as defined in RegionID. Empty vector means that all events will be used.
-    //makeSysHist( "histogram1DSysName", 40, 0., 40., "xlabel", "ylabel" );   [example]
-    //makeSysHist( "histogram2DSysName", 40, 0., 40., 100, 0., 50., "xlabel",  "ylabel", "zlabel", "COLZ" );   [example]
-
-    //======SETUP OUTPUT BRANCHES==================================================================
-    //_outputTree->Branch("variable1NameInTheTree", &TestMatheus::variable1Name );  [example]
-
-    //======SETUP INFORMATION IN OUTPUT HDF5 FILE==================================================
-    //HDF_insert("variable1NameInTheTree", &TestMatheus::variable1Name );  [example]
+    _cutFlow.insert(pair<string,double>("00_MET_PT_more_200_and_MHT_more_200", 0) );
+    _cutFlow.insert(pair<string,double>("01_NfatJets_more_0", 0) );
+    _cutFlow.insert(pair<string,double>("02_LeadingFatPt_more_200", 0) );
+    _cutFlow.insert(pair<string,double>("03_NbJets_more_0", 0) );
+    _cutFlow.insert(pair<string,double>("04_Leptons_equal_0", 0) );
+//==================================================================================================
 
 
     HDF_insert("nJet", &nJet);
@@ -107,6 +91,14 @@ void HEPHero::SetupTestMatheus() {
     HDF_insert("BJet_robustParticleTransformerLoose",&TestMatheus::BJet_robustParticleTransformerLoose);
     HDF_insert("BJet_particleNETLoose",&TestMatheus::BJet_particleNETLoose);
 
+
+    HDF_insert("MHT",&MHT);
+
+    HDF_insert("LeadingFatJet_pt",&LeadingFatJet_pt);
+    HDF_insert("SubLeadingFatJet_pt",&SubLeadingFatJet_pt);
+
+
+
     return;
 }
 
@@ -116,13 +108,28 @@ void HEPHero::SetupTestMatheus() {
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::TestMatheusRegion() {
 
-    _cutFlow.at("00_BEFORE_ELE_ID") += evtWeight;
+    if( !Trigger() ) return false;
     LeptonSelection();
     JetSelection();
     FatjetSelection();
+    
+    if (!(MET_pt > 200 && MHT > 200) ) return false;
+    _cutFlow.at("00_MET_PT_more_200_and_MHT_more_200") += evtWeight;
+  
+    if ( !(NfatJets>0) ) return false;
+    _cutFlow.at("01_NfatJets_more_0") += evtWeight;
+    
+    if ( !(LeadingFatJet_pt>200) ) return false;
+    _cutFlow.at("02_LeadingFatPt_more_200") += evtWeight;
+      
+    if ( !(Nbjets>0) ) return false;
+    _cutFlow.at("03_NbJets_more_0") += evtWeight;
+  
+    if (!(Nelectrons==0 && Nmuons==0) ) return false;
+    _cutFlow.at("04_Leptons_equal_0") += evtWeight;
+  
+  
 
-    if( !Trigger() ) return false;                                              // Selected by triggers
-    _cutFlow.at("01_Selected") += evtWeight;
 
 
     return true;
