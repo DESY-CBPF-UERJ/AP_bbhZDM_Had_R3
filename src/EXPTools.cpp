@@ -1,14 +1,61 @@
 #include "HEPHero.h"
 
 
+//---------------------------------------------------------------------------------------------------------------
+// Tau ID
+//---------------------------------------------------------------------------------------------------------------
+// https://cds.cern.ch/record/2904699/files/DP2024_063.pdf -> DeepTau v2.5 is the recommended tools for Run3
+
+bool HEPHero::TauVSEletronID( int iobj, int WP ){
+
+    bool obj_selected = false;
+//    std::cout<<"Testando WP:"<<WP<<endl;
+//    std::cout<<"Tau_idDeepTau2018v2p5VSe: "<<(Tau_idDeepTau2018v2p5VSe[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;    //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 4);    //VLoose
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 8);    //Loose
+    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 16);    //Medium
+    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 32);    //Tight             
+    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 64);    //VTight
+    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] & 128);    //VVTight
 
 
+    return obj_selected;
+}
 
+bool HEPHero::TauVSJetID( int iobj, int WP ){
 
+    bool obj_selected = false;
+ //   std::cout<<"Testando WP:"<<WP<<endl;
+ //   std::cout<<"Tau_idDeepTau2018v2p5VSjet: "<<(Tau_idDeepTau2018v2p5VSjet[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;    //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 4);    //VLoose
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 8);    //Loose
+    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 16);    //Medium
+    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 32);    //Tight             
+    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 64);    //VTight
+    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] & 128);    //VVTight
 
+    return obj_selected;
+}
 
+bool HEPHero::TauVSMuonID( int iobj, int WP ){
 
+    bool obj_selected = false;
+ //   std::cout<<"Testando WP:"<<WP<<endl;
+ //   std::cout<<"Tau_idDeepTau2018v2p5VSmu: "<<(Tau_idDeepTau2018v2p5VSmu[iobj] & WP) <<endl;
+    if(      WP == 0 ) obj_selected = true;                                     //No Identification
+    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 1);    //VVLoose
+    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 2);    //VLoose
+    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 4);    //Medium
+    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] & 8);    //Tight
 
+    return obj_selected;
+}
 
 
 //---------------------------------------------------------------------------------------------------------------
@@ -90,57 +137,71 @@ bool HEPHero::PileupJet( int iJet ){
 // Jet BTAG
 //---------------------------------------------------------------------------------------------------------------
 bool HEPHero::JetBTAG( int iobj, int WP ){
-
+    // Source: https://btv-wiki.docs.cern.ch/ScaleFactors/Run3Summer22/#general-remarks
     bool obj_selected = false;
     float BTAG_CUT;
 
     // DeepJet
-    if( dataset_year == "16"){
-        if( dataset_dti == 0 ){
-            if(      WP == 0 ) BTAG_CUT = 0.0508;   // loose
-            else if( WP == 1 ) BTAG_CUT = 0.2598;   // medium
-            else if( WP == 2 ) BTAG_CUT = 0.6502;   // tight
-        }else{
-            if(      WP == 0 ) BTAG_CUT = 0.0480;   // loose
-            else if( WP == 1 ) BTAG_CUT = 0.2489;   // medium
-            else if( WP == 2 ) BTAG_CUT = 0.6377;   // tight
+    if( dataset_year == "22"){
+        if( dataset_dti == 0 ){     //SUMMER2022
+            if(      WP == 0 ) BTAG_CUT = 0.0583;   // loose
+            else if( WP == 1 ) BTAG_CUT = 0.3086;   // medium
+            else if( WP == 2 ) BTAG_CUT = 0.7183;   // tight
+            else if( WP == 3 ) BTAG_CUT = 0.8111;   // very tight
+            else if( WP == 4 ) BTAG_CUT = 0.9512;   // very very tight
+        }else{                      //SUMMMER2022EE
+            if(      WP == 0 ) BTAG_CUT = 0.0614;   // loose
+            else if( WP == 1 ) BTAG_CUT = 0.3196;   // medium
+            else if( WP == 2 ) BTAG_CUT = 0.73;   // tight
+            else if( WP == 3 ) BTAG_CUT = 0.8184;   // very tight
+            else if( WP == 4 ) BTAG_CUT = 0.9542;   // very very tight
         }
-    }else if( dataset_year == "17" ){
-        if(      WP == 0 ) BTAG_CUT = 0.0532;   // loose
-        else if( WP == 1 ) BTAG_CUT = 0.3040;   // medium
-        else if( WP == 2 ) BTAG_CUT = 0.7476;   // tight
-    }else if( dataset_year == "18" ){
-        if(      WP == 0 ) BTAG_CUT = 0.0490;   // loose
-        else if( WP == 1 ) BTAG_CUT = 0.2783;   // medium
-        else if( WP == 2 ) BTAG_CUT = 0.7100;   // tight
     }
 
-    // DeepCSV
-    if( dataset_year == "16" ){
-        if( dataset_dti == 0 ){
-            if(      WP == 3 ) BTAG_CUT = 0.2027;   // loose
-            else if( WP == 4 ) BTAG_CUT = 0.6001;   // medium
-            else if( WP == 5 ) BTAG_CUT = 0.8819;   // tight
-        }else{
-            if(      WP == 3 ) BTAG_CUT = 0.1918;   // loose
-            else if( WP == 4 ) BTAG_CUT = 0.5847;   // medium
-            else if( WP == 5 ) BTAG_CUT = 0.8767;   // tight
+    // particleNET
+    if( dataset_year == "22"){
+        if( dataset_dti == 0 ){     //SUMMER2022
+            if(      WP == 5 ) BTAG_CUT = 0.047;   // loose
+            else if( WP == 6 ) BTAG_CUT = 0.245;   // medium
+            else if( WP == 7 ) BTAG_CUT = 0.6734;   // tight
+            else if( WP == 8 ) BTAG_CUT = 0.7862;   // very tight
+            else if( WP == 9 ) BTAG_CUT = 0.961;   // very very tight
+        }else{                      //SUMMMER2022EE
+            if(      WP == 5 ) BTAG_CUT = 0.0499;   // loose
+            else if( WP == 6 ) BTAG_CUT = 0.2605;   // medium
+            else if( WP == 7 ) BTAG_CUT = 0.6915;   // tight
+            else if( WP == 8 ) BTAG_CUT = 0.8033;   // very tight
+            else if( WP == 9 ) BTAG_CUT = 0.9664;   // very very tight
         }
-    }else if( dataset_year == "17" ){
-        if(      WP == 3 ) BTAG_CUT = 0.1355;   // loose
-        else if( WP == 4 ) BTAG_CUT = 0.4506;   // medium
-        else if( WP == 5 ) BTAG_CUT = 0.7738;   // tight
-    }else if( dataset_year == "18" ){
-        if(      WP == 3 ) BTAG_CUT = 0.1208;   // loose
-        else if( WP == 4 ) BTAG_CUT = 0.4168;   // medium
-        else if( WP == 5 ) BTAG_CUT = 0.7665;   // tight
     }
 
-    if(      WP >= 0 and WP <=2 ) obj_selected = (Jet_btagDeepFlavB[iobj] > BTAG_CUT);    // DeepJet
-    else if( WP >= 3 and WP <=5 ) obj_selected = (Jet_btagDeepB[iobj] > BTAG_CUT);        // DeepCSV
+    // robustParticleTransformer
+    if( dataset_year == "22"){
+        if( dataset_dti == 0 ){     //SUMMER2022
+            if(      WP == 10 ) BTAG_CUT = 0.0849;   // loose
+            else if( WP == 11 ) BTAG_CUT = 0.4319;   // medium
+            else if( WP == 12 ) BTAG_CUT = 0.8482;   // tight
+            else if( WP == 13 ) BTAG_CUT = 0.9151;   // very tight
+            else if( WP == 14 ) BTAG_CUT = 0.9874;   // very very tight
+        }else{                      //SUMMMER2022EE
+            if(      WP == 10 ) BTAG_CUT = 0.0897;   // loose
+            else if( WP == 11 ) BTAG_CUT = 0.451;   // medium
+            else if( WP == 12 ) BTAG_CUT = 0.8604;   // tight
+            else if( WP == 13 ) BTAG_CUT = 0.9234;   // very tight
+            else if( WP == 14 ) BTAG_CUT = 0.9893;   // very very tight
+        }
+    }
+
+    if(      WP >= 0 and WP <=4 ) obj_selected = (Jet_btagDeepFlavB[iobj] > BTAG_CUT);    // DeepJet
+    else if( WP >= 5 and WP <=9 ) obj_selected = (Jet_btagPNetB[iobj] > BTAG_CUT);        // particleNET
+    else if( WP >= 10 and WP <=14 ) obj_selected = (Jet_btagRobustParTAK4B[iobj] > BTAG_CUT);        // robustParticleTransformer
+
+
+
 
     return obj_selected;
 }
+
 
 
 

@@ -27,29 +27,70 @@ for period,path in zip(periods,paths):
     dti = period[0]
     year = period[-2:]
     
-    DYPt50ToInf = [
-        ["DYJetsToLL_PtZ-50To100_"+period]           + [year+'0202'+dti, path+"DYJetsToLL_PtZ-50To100.txt"],
-        ["DYJetsToLL_PtZ-100To250_"+period]          + [year+'0203'+dti, path+"DYJetsToLL_PtZ-100To250.txt"],
-        ["DYJetsToLL_PtZ-250To400_"+period]          + [year+'0204'+dti, path+"DYJetsToLL_PtZ-250To400.txt"],
-        ["DYJetsToLL_PtZ-400To650_"+period]          + [year+'0205'+dti, path+"DYJetsToLL_PtZ-400To650.txt"],
-        ["DYJetsToLL_PtZ-650ToInf_"+period]          + [year+'0206'+dti, path+"DYJetsToLL_PtZ-650ToInf.txt"],
-    ]
-    
-    TTFullLep = [
-        ["TTTo2L2Nu_"+period]                        + [year+'0300'+dti, path+"TTTo2L2Nu.txt"],
+    # DYPt50ToInf = [
+    #     ["DYJetsToLL_PtZ-50To100_"+period]           + [year+'0202'+dti, path+"DYJetsToLL_PtZ-50To100.txt"],
+    #     ["DYJetsToLL_PtZ-100To250_"+period]          + [year+'0203'+dti, path+"DYJetsToLL_PtZ-100To250.txt"],
+    #     ["DYJetsToLL_PtZ-250To400_"+period]          + [year+'0204'+dti, path+"DYJetsToLL_PtZ-250To400.txt"],
+    #     ["DYJetsToLL_PtZ-400To650_"+period]          + [year+'0205'+dti, path+"DYJetsToLL_PtZ-400To650.txt"],
+    #     ["DYJetsToLL_PtZ-650ToInf_"+period]          + [year+'0206'+dti, path+"DYJetsToLL_PtZ-650ToInf.txt"],
+    # ]
+
+
+    # DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8
+    # DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8
+    # DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8
+
+    DY = [
+
+        ["DYto2L-2Jets_MLL-4to10_"+period]          + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-4to10.txt"],
+        ["DYto2L-2Jets_MLL-10to50_"+period]         + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-10to50.txt"],
+        ["DYto2L-2Jets_MLL-50_"+period]             + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-50.txt"],
+
+        # ["DYto2E_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2E_MLL-10to50.txt"],
+        # ["DYto2E_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2E_MLL-50to120.txt"],
+        # ["DYto2E_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-120to200.txt"],
+        # ["DYto2E_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-200to400.txt"],
+        # ["DYto2E_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-400to800.txt"], 
+        # ["DYto2E_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2E_MLL-800to1500.txt"], 
+        # ["DYto2E_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-1500to2500.txt"],
+        # ["DYto2E_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-2500to4000.txt"],
+        # ["DYto2E_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-4000to6000.txt"],
+        # ["DYto2E_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2E_MLL-6000.txt"],
+
+        # ["DYto2Mu_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Mu_MLL-10to50.txt"],
+        # ["DYto2Mu_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Mu_MLL-50to120.txt"],
+        # ["DYto2Mu_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-120to200.txt"],
+        # ["DYto2Mu_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-200to400.txt"],
+        # ["DYto2Mu_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-400to800.txt"],
+        # ["DYto2Mu_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Mu_MLL-800to1500.txt"],
+        # ["DYto2Mu_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-1500to2500.txt"],
+        # ["DYto2Mu_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-2500to4000.txt"],
+        # ["DYto2Mu_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-4000to6000.txt"],
+        # ["DYto2Mu_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Mu_MLL-6000.txt"],
+
+        # ["DYto2Tau_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Tau_MLL-10to50.txt"],
+        # ["DYto2Tau_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Tau_MLL-50to120.txt"],
+        # ["DYto2Tau_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-120to200.txt"],
+        # ["DYto2Tau_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-200to400.txt"],
+        # ["DYto2Tau_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-400to800.txt"],
+        # ["DYto2Tau_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Tau_MLL-800to1500.txt"],
+        # ["DYto2Tau_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-1500to2500.txt"],
+        # ["DYto2Tau_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-2500to4000.txt"],
+        # ["DYto2Tau_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-4000to6000.txt"],
+        # ["DYto2Tau_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Tau_MLL-6000.txt"],
+
     ]
 
-    # Do we need this in the hadronic studies ?
-    # TTSemiLep = [
-    #     ["TTToSemiLeptonic_"+period]                 + [year+'0301'+dti, path+"TTToSemiLeptonic.txt"],
-    # ]
+    TT = [
+        ["TTto4Q_"+period]          + [year+'1800'+dti, path+"TTto4Q.txt"],       # TT To Hadronic
+        ["TTtoLNu2Q_"+period]       + [year+'1800'+dti, path+"TTtoLNu2Q.txt"],    # TT To SemiLeptonic
+        ["TTTo2L2Nu_"+period]       + [year+'0300'+dti, path+"TTTo2L2Nu.txt"],    # TT To fullyLeptonic
+    ]
 
     ResidualSM = [
         ["WtoLNu_0J_"+period]              + [year+'1800'+dti, path+"WtoLNu_0J.txt"],
         ["WtoLNu_1J_"+period]              + [year+'1800'+dti, path+"WtoLNu_1J.txt"],
         ["WtoLNu_2J_"+period]              + [year+'1800'+dti, path+"WtoLNu_2J.txt"],
-        ["TWminusto4Q_"+period]            + [year+'1800'+dti, path+"TWminusto4Q.txt"],
-        ["TWminustoLNu2Q_"+period]         + [year+'1800'+dti, path+"TWminustoLNu2Q.txt"],
         ["WplusH_Hto2B_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2B_Wto2Q.txt"],
         ["WplusH_Hto2B_WtoLNu_"+period]    + [year+'1800'+dti, path+"WplusH_Hto2B_WtoLNu.txt"],
         ["WplusH_Hto2C_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2C_Wto2Q.txt"],
@@ -70,6 +111,18 @@ for period,path in zip(periods,paths):
         ["ZH_Hto2C_Zto2Q_"+period]         + [year+'1800'+dti, path+"ZH_Hto2C_Zto2Q.txt"],
         ["ZHtoInv_Zto2Q_"+period]          + [year+'1800'+dti, path+"ZHtoInv_Zto2Q.txt"],
     ]    
+
+    ST = [
+        ["TQbarto2Q-t-channel_"+period]      + [year+'1800'+dti, path+"TQbarto2Q-t-channel.txt"],
+        ["TbarQto2Q-t-channel_"+period]      + [year+'1800'+dti, path+"TbarQto2Q-t-channel.txt"],
+        ["TQbartoLNu-t-channel_"+period]     + [year+'1800'+dti, path+"TQbartoLNu-t-channel.txt"],
+        ["TbarWplusto2L2Nu_"+period]         + [year+'1800'+dti, path+"TbarWplusto2L2Nu.txt"],
+        ["TWminusto2L2Nu_"+period]           + [year+'1800'+dti, path+"TWminusto2L2Nu.txt"],
+        ["TWminusto4Q_"+period]              + [year+'1800'+dti, path+"TWminusto4Q.txt"],
+        ["TWminustoLNu2Q_"+period]           + [year+'1800'+dti, path+"TWminustoLNu2Q.txt"],
+        ["TbarWplusto4Q_"+period]            + [year+'1800'+dti, path+"TbarWplusto4Q.txt"],
+        ["TbarWplustoLNu2Q_"+period]         + [year+'1800'+dti, path+"TbarWplustoLNu2Q.txt"],
+    ]
 
     Bkg_4b = [
         ["QCD_PT-15to30_"+period]          + [year+'1800'+dti, path+"QCD_PT-15to30.txt"],
@@ -92,10 +145,6 @@ for period,path in zip(periods,paths):
 
     ]
 
-    TT = [
-        ["TTto4Q_"+period]          + [year+'1800'+dti, path+"TTto4Q.txt"],
-        ["TTtoLNu2Q_"+period]       + [year+'1800'+dti, path+"TTtoLNu2Q.txt"],
-    ]
 
     Wto2Q = [
         ["Wto2Q_PTQQ-100to200_1J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-100to200_1J.txt"],
@@ -130,7 +179,6 @@ for period,path in zip(periods,paths):
         ["ZZto2Nu2Q_"+period]    + [year+'1800'+dti, path+"ZZto2Nu2Q.txt"],
     ]
 
-    # Maybe merge the "Zto2Nu" and "Zto2Q" ??
     Zto2Nu = [
         ["Zto2Nu_PTNuNu-100to200_1J_"+period]   + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-100to200_1J.txt"],
         ["Zto2Nu_PTNuNu-100to200_2J_"+period]   + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-100to200_2J.txt"],
@@ -156,8 +204,7 @@ for period,path in zip(periods,paths):
     ]
 
     if period == "0_22":
-        TTFullLep_0_22 = TTFullLep
-        DYPt50ToInf_0_22 = DYPt50ToInf
+        # DYPt50ToInf_0_22 = DYPt50ToInf
         Bkg_4b_0_22 = Bkg_4b
         ResidualSM_0_22 = ResidualSM
         TT_0_22 = TT
@@ -166,13 +213,15 @@ for period,path in zip(periods,paths):
         VZ_0_22 = VZ
         Zto2Nu_0_22 = Zto2Nu
         Zto2Q_0_22 = Zto2Q
+        ST_0_22 = ST
+        DY_0_22 = DY
     elif period == "1_22":
-        TTFullLep_1_22 = TTFullLep
-        DYPt50ToInf_1_22 = DYPt50ToInf
+        TT_1_22 = TT
+        # DYPt50ToInf_1_22 = DYPt50ToInf
     elif period == "0_23":
-        TTFullLep_0_23 = TTFullLep
-        DYPt50ToInf_0_23 = DYPt50ToInf
+        TT_0_23 = TT
+        # DYPt50ToInf_0_23 = DYPt50ToInf
     elif period == "1_23":
-        TTFullLep_1_23 = TTFullLep
-        DYPt50ToInf_1_23 = DYPt50ToInf
+        TT_1_23 = TT
+        # DYPt50ToInf_1_23 = DYPt50ToInf
 

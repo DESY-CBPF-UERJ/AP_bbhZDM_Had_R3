@@ -1,84 +1,5 @@
 #include "HEPHero.h"
 
-
-
-//---------------------------------------------------------------------------------------------------------------
-// Lepton selection
-//---------------------------------------------------------------------------------------------------------------
-void HEPHero::LeptonSelection(){
-
-    selectedEle.clear();
-    selectedMu.clear();
-    
-    //std::cout<<"Numero de eletrons:"<<nElectron<<endl;
-    for( unsigned int iele = 0; iele < nElectron; ++iele ) {
-        if( abs(Electron_eta[iele]) >= ELECTRON_ETA_CUT ) continue;
-        if( !ElectronID( iele, ELECTRON_ID_WP ) ) continue;
-        if( (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) > ELECTRON_GAP_LOWER_CUT) &&
-            (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) < ELECTRON_GAP_UPPER_CUT) ) continue;
-        if( Electron_pt[iele] <= ELECTRON_PT_CUT ) continue;
-
-/*
-        TLorentzVector Ele_test;
-        Ele_test.SetPtEtaPhiM(Electron_pt[iele], Electron_eta[iele], Electron_phi[iele], Electron_pdg_mass);
-        for( unsigned int iselele = 0; iselele < selectedEle.size(); ++iselele ) {
-            int iele_sel = selectedEle[iselele];
-            TLorentzVector Ele_sel;
-            Ele_sel.SetPtEtaPhiM(Electron_pt[iele_sel], Electron_eta[iele_sel], Electron_phi[iele_sel], Electron_pdg_mass);
-            float dilep_deltaR = Ele_test.DeltaR( Ele_sel );
-            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
-        }
-*/
-        selectedEle.push_back(iele);
-    }
-
-    for( unsigned int imu = 0; imu < nMuon; ++imu ) {
-        //Muon_raw_pt[imu] = Muon_pt[imu];
-        if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
-        if( !MuonID( imu, MUON_ID_WP ) ) continue;
-        if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
-
-        //if( apply_muon_roc_corr ) Muon_pt[imu] = Muon_pt[imu]*muon_roc_corr.GetCorrection( Muon_charge[imu], Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], (Muon_genPartIdx[imu]>=0) ? true : false, (Muon_genPartIdx[imu]>=0) ? GenPart_pt[Muon_genPartIdx[imu]] : 0., Muon_nTrackerLayers[imu], (dataset_group=="Data") );
-
-        //if( Muon_pt[imu] > MUON_LOW_PT_CUT ) selectedMuLowPt.push_back(imu);
-        if( Muon_pt[imu] <= MUON_PT_CUT ) continue;
-/*
-        TLorentzVector Mu_test;
-        Mu_test.SetPtEtaPhiM(Muon_pt[imu], Muon_eta[imu], Muon_phi[imu], Muon_pdg_mass);
-        for( unsigned int iselmu = 0; iselmu < selectedMu.size(); ++iselmu ) {
-            int imu_sel = selectedMu[iselmu];
-            TLorentzVector Mu_sel;
-            Mu_sel.SetPtEtaPhiM(Muon_pt[imu_sel], Muon_eta[imu_sel], Muon_phi[imu_sel], Muon_pdg_mass);
-            float dilep_deltaR = Mu_test.DeltaR( Mu_sel );
-            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
-        }
-        for( unsigned int iselele = 0; iselele < selectedEle.size(); ++iselele ) {
-            int iele_sel = selectedEle[iselele];
-            TLorentzVector Ele_sel;
-            Ele_sel.SetPtEtaPhiM(Electron_pt[iele_sel], Electron_eta[iele_sel], Electron_phi[iele_sel], Electron_pdg_mass);
-            float dilep_deltaR = Mu_test.DeltaR( Ele_sel );
-            if( dilep_deltaR < Min_dilep_deltaR ) Min_dilep_deltaR = dilep_deltaR;
-        }
-*/
-        selectedMu.push_back(imu);
-  
-    }
-
-    Nelectrons = selectedEle.size();
-    Nmuons = selectedMu.size();
-    Nleptons = Nelectrons + Nmuons;
-
-    //int NelectronsLowPt = selectedEleLowPt.size();
-    //int NmuonsLowPt = selectedMuLowPt.size();
-    //NleptonsLowPt = NelectronsLowPt + NmuonsLowPt;
-
-}
-
-
-
-
-
-
 void HEPHero::Jet_lep_overlap( float deltaR_cut ){
 
     Jet_LepOverlap.clear();
@@ -132,8 +53,67 @@ void HEPHero::Jet_lep_overlap( float deltaR_cut ){
 
 }
 
+//---------------------------------------------------------------------------------------------------------------
+// Lepton selection
+//---------------------------------------------------------------------------------------------------------------
+void HEPHero::LeptonSelection(){
+
+    selectedEle.clear();
+    selectedMu.clear();
+    selectedTau.clear();
+
+    //LOOP ELETRON
+    for( unsigned int iele = 0; iele < nElectron; ++iele ) {
+        
+        if( abs(Electron_eta[iele]) >= ELECTRON_ETA_CUT ) continue;
+        if( !ElectronID( iele, ELECTRON_ID_WP ) ) continue;
+        if( (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) > ELECTRON_GAP_LOWER_CUT) &&
+            (abs(Electron_eta[iele] + Electron_deltaEtaSC[iele]) < ELECTRON_GAP_UPPER_CUT) ) continue;
+        if( Electron_pt[iele] <= ELECTRON_PT_CUT ) continue;
+
+        selectedEle.push_back(iele);
+    }
+
+    //LOOP MUON
+    for( unsigned int imu = 0; imu < nMuon; ++imu ) {
+        //std::cout<<"MUON_ID_WP"<<MUON_ID_WP<<endl;
+        if( abs(Muon_eta[imu]) >= MUON_ETA_CUT ) continue;
+        if( !MuonID( imu, MUON_ID_WP ) ) continue;
+        if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
+
+        if( Muon_pt[imu] <= MUON_PT_CUT ) continue;
+
+        selectedMu.push_back(imu);
+  
+    }
+
+    //LOOP TAU
+    for( unsigned int itau = 0; itau < nTau; ++itau ) {
+
+        if( Tau_pt[itau] <= TAU_PT_CUT ) continue;
+        if( abs(Tau_eta[itau]) >= TAU_ETA_CUT ) continue;
+
+        if( !TauVSMuonID( itau, TAU_VS_MU_ISO_WP ) ) continue;
+        if( !TauVSEletronID( itau, TAU_VS_ELE_ISO_WP ) ) continue;
+        if( !TauVSJetID( itau, TAU_VS_JET_ISO_WP ) ) continue;
+
+        selectedTau.push_back(itau);
+    }
+
+
+    Nelectrons = selectedEle.size();
+    Nmuons = selectedMu.size();
+    Ntaus = selectedTau.size();
+    Nleptons = Nelectrons + Nmuons;
+
+    
+}
+
 
 void HEPHero::JetSelection(){
+    // ------------------------
+    // Recommendations for Run3 here: https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetMET#Run3_recommendations
+    // ------------------------
 
     selectedJet.clear();
     //jetMomenta.clear();
@@ -185,18 +165,21 @@ void HEPHero::JetSelection(){
             HPx_trig += Jet_trig.Px();
             HPy_trig += Jet_trig.Py();
         }
-        if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
+        //if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
         if( Jet_jetId[ijet] < JET_ID_WP ) continue;
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
         
-        // TODO: Verify values for that implementation
-        // if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;  
+        // TODO: Verify values for that implementation. This line was implemented for Run2, but we do not know if is the same for Run3. Try to check in https://twiki.cern.ch/twiki/bin/view/CMS/EgammaRunIIIRecommendations
+        //if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
+
+        if ( (Jet_pt[ijet] < 50) && ( 2.5 < abs(Jet_eta[ijet]) && 3 > abs(Jet_eta[ijet]) ) ) continue;   // due to eta spikes (since we apply a cut in jet with more than 2.5 eta, this cut is not necessary, but I will leave this here for the future)
+
 
         if( abs(Jet_eta[ijet]) >= 5.0 ) continue;
-        if( abs(Jet_eta[ijet]) > 1.4 ) Njets_forward += 1;
-        if( abs(Jet_eta[ijet]) > Jet_abseta_max ) Jet_abseta_max = abs(Jet_eta[ijet]);
+        //if( abs(Jet_eta[ijet]) > 1.4 ) Njets_forward += 1;
+        //if( abs(Jet_eta[ijet]) > Jet_abseta_max ) Jet_abseta_max = abs(Jet_eta[ijet]);
         if( abs(Jet_eta[ijet]) >= JET_ETA_CUT ) continue;
         selectedJet.push_back(ijet);
         TLorentzVector Jet;
@@ -243,15 +226,44 @@ void HEPHero::JetSelection(){
     SubLeadingJet_pt = 0;
     ThirdLeadingJet_pt = 0;
     FourthLeadingJet_pt = 0;
-    if( Njets >= 1 ) LeadingJet_pt = Jet_pt[selectedJet.at(0)];
-    if( Njets >= 2 ) SubLeadingJet_pt = Jet_pt[selectedJet.at(1)];
-    if( Njets >= 3 ) ThirdLeadingJet_pt = Jet_pt[selectedJet.at(2)];
-    if( Njets >= 4 ) FourthLeadingJet_pt = Jet_pt[selectedJet.at(3)];
 
+    LeadingJet_jetId = 0;
+    SubLeadingJet_jetId = 0;
+    ThirdLeadingJet_jetId = 0;
+    FourthLeadingJet_jetId = 0;
+
+    LeadingJet_mass = 0;
+    SubLeadingJet_mass = 0;
+    ThirdLeadingJet_mass = 0;
+    FourthLeadingJet_mass = 0;
+
+
+    if( Njets >= 1 ) { 
+        LeadingJet_pt = Jet_pt[selectedJet.at(0)];
+        LeadingJet_jetId = Jet_jetId[selectedJet.at(0)];
+        LeadingJet_mass = Jet_mass[selectedJet.at(0)];
+    }
+    if( Njets >= 2 ) { 
+        SubLeadingJet_pt = Jet_pt[selectedJet.at(1)];
+        SubLeadingJet_jetId = Jet_jetId[selectedJet.at(1)];
+        SubLeadingJet_mass = Jet_mass[selectedJet.at(1)];
+    }
+    if( Njets >= 3 ) { 
+        ThirdLeadingJet_pt = Jet_pt[selectedJet.at(2)];
+        ThirdLeadingJet_jetId = Jet_jetId[selectedJet.at(2)];
+        ThirdLeadingJet_mass = Jet_mass[selectedJet.at(2)];
+    }
+    if( Njets >= 4 ) {
+        FourthLeadingJet_pt = Jet_pt[selectedJet.at(3)];
+        FourthLeadingJet_jetId = Jet_jetId[selectedJet.at(3)];
+        FourthLeadingJet_mass = Jet_mass[selectedJet.at(3)];
+    }    
 }
 
 // Main loop to process each fat jet
 void HEPHero::FatjetSelection(){
+
+    //TODO: Check if there is a recommendation about the Fat JET (AK8) ID. We could not find any information in the twiki. 
 
     selectedFatJet.clear();
 
@@ -310,6 +322,10 @@ void HEPHero::FatjetSelection(){
     SubLeadingFatJet_massCorr = 0;
     ThirdLeadingFatJet_massCorr = 0;
     FourthLeadingFatJet_massCorr = 0;
+    LeadingFatJet_ZvsQCD = 0;
+    SubLeadingFatJet_ZvsQCD = 0;
+    ThirdLeadingFatJet_ZvsQCD = 0;
+    FourthLeadingFatJet_ZvsQCD = 0;
 
 
     if( NfatJets >= 1 ) {
@@ -322,6 +338,8 @@ void HEPHero::FatjetSelection(){
         LeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(0)];
         LeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(0)];
         LeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
+        LeadingFatJet_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(0)];
+        
     }
     if( NfatJets >= 2 ) {
         SubLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(1)];
@@ -333,6 +351,8 @@ void HEPHero::FatjetSelection(){
         SubLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(1)];
         SubLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(1)];
         SubLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(1)];
+        SubLeadingFatJet_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(1)];
+        
     }
     if( NfatJets >= 3 ) {
         ThirdLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(2)];
@@ -344,6 +364,8 @@ void HEPHero::FatjetSelection(){
         ThirdLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(2)];
         ThirdLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(2)];
         ThirdLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(2)];
+        
     }
     if( NfatJets >= 4 ) {
         FourthLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(3)];
@@ -355,6 +377,7 @@ void HEPHero::FatjetSelection(){
         FourthLeadingFatJet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(3)];
         FourthLeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(3)];
         FourthLeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(3)];
+        FourthLeadingFatJet_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(3)];
     }
 
     // if( NfatJets >= 1 ) LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
@@ -363,5 +386,31 @@ void HEPHero::FatjetSelection(){
     // if( NfatJets >= 4 ) FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
 
 
+}
+
+
+bool HEPHero::Trigger(){
+    bool triggered = false;
+    // https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgHLTRunIISummary (electron triggers recommendation)
+
+    //=====TRIGGERS FOR 2022=====================================================================
+    if( dataset_year == "22" ){
+
+        triggered = true; 
+
+    }
+
+    //=====TRIGGERS FOR 2023=====================================================================
+    if( dataset_year == "23" ){
+
+    }
+
+    //=====TRIGGERS FOR 2024=====================================================================
+    if( dataset_year == "24" ){
+
+    }
+
+
+    return triggered;
 }
 
