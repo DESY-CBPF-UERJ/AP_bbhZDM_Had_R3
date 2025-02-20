@@ -136,6 +136,9 @@ bool HEPHero::TestRegion() {
     JetSelection();
     FatjetSelection();
 
+
+    Get_Jet_Angular_Variables( 30 );
+
     //-------------------------------------------------------------------------
     // Cut description
     //-------------------------------------------------------------------------

@@ -69,6 +69,7 @@ class HEPHero : public HEPBase {
         bool Trigger();
 
 
+        void Get_Jet_Angular_Variables( int pt_cut = 20 );
 
     //=============================================================================================
     // ANALYSIS SETUP
