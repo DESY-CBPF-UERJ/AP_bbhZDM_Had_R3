@@ -58,7 +58,7 @@ InputFile            /eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22/H
 InputFile            /eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22/H400_a100/EXO-Run3Summer22NanoAODv12-private_113.root
 InputFile            /eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22/H400_a100/EXO-Run3Summer22NanoAODv12-private_1130.root
 InputFile            /eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22/H400_a100/EXO-Run3Summer22NanoAODv12-private_1131.root
-NumMaxEvents         1000
+NumMaxEvents         -1
 LumiWeights          1
 Universe             0
 SysID_lateral        0

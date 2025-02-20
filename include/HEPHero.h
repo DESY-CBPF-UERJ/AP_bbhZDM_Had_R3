@@ -101,7 +101,7 @@ class HEPHero : public HEPBase {
         bool MuonID( int iobj, int WP );
         bool MuonISO( int iobj, int WP );
         bool JetBTAG( int iobj, int WP );
-
+	void Get_Jet_Angular_Variables( int pt_cut = 20 );
 
     //----JET------------------------------------------
         int Nbjets;
@@ -193,7 +193,10 @@ class HEPHero : public HEPBase {
         float ThirdLeadingFatJet_ZvsQCD;
         float FourthLeadingFatJet_ZvsQCD;
 
-     
+
+
+        float MET_FatJet_Mt;
+        float MET_FatJet_deltaPhi;
         //----MET------------------------------------------
         float MET_RAW_pt;
         float MET_RAW_phi;
@@ -1661,6 +1664,7 @@ class HEPHero : public HEPBase {
 };
 
 #endif
+
 
 
 
