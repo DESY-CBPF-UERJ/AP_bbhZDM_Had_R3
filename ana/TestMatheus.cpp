@@ -97,7 +97,11 @@ void HEPHero::SetupTestMatheus() {
     HDF_insert("LeadingFatJet_pt",&LeadingFatJet_pt);
     HDF_insert("SubLeadingFatJet_pt",&SubLeadingFatJet_pt);
 
+    HDF_insert("LeadingFatJet_mass",&LeadingFatJet_mass);
+    HDF_insert("LeadingFatJet_msoftdrop",&LeadingFatJet_msoftdrop);
+    HDF_insert("MET_FatJet_Mt",&MET_FatJet_Mt);
 
+    HDF_insert("OmegaMin",&OmegaMin);
 
     return;
 }
@@ -112,6 +116,7 @@ bool HEPHero::TestMatheusRegion() {
     LeptonSelection();
     JetSelection();
     FatjetSelection();
+    Get_Jet_Angular_Variables();
     
     if (!(MET_pt > 200 && MHT > 200) ) return false;
     _cutFlow.at("00_MET_PT_more_200_and_MHT_more_200") += evtWeight;
@@ -219,3 +224,4 @@ void HEPHero::FinishTestMatheus() {
 
     return;
 }
+
