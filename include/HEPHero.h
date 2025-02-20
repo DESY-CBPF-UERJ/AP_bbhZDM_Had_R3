@@ -68,9 +68,6 @@ class HEPHero : public HEPBase {
         // INSERT YOUR SELECTION HERE
         bool Trigger();
 
-
-        void Get_Jet_Angular_Variables( int pt_cut = 20 );
-
     //=============================================================================================
     // ANALYSIS SETUP
     //=============================================================================================
@@ -102,7 +99,7 @@ class HEPHero : public HEPBase {
         bool MuonID( int iobj, int WP );
         bool MuonISO( int iobj, int WP );
         bool JetBTAG( int iobj, int WP );
-	void Get_Jet_Angular_Variables( int pt_cut = 20 );
+	    void Get_Jet_Angular_Variables( int pt_cut = 20 );
 
     //----JET------------------------------------------
         int Nbjets;

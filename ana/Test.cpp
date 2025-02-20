@@ -90,8 +90,9 @@ void HEPHero::SetupTest() {
     HDF_insert("ThirdLeadingFatJet_ZvsQCD", &ThirdLeadingFatJet_ZvsQCD);
     HDF_insert("FourthLeadingFatJet_ZvsQCD", &FourthLeadingFatJet_ZvsQCD);
 
+    HDF_insert("MET_FatJet_Mt", &MET_FatJet_Mt);
+    HDF_insert("MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi);
 
-    
     HDF_insert("nJet", &nJet);
     
     HDF_insert("Njets", &Njets);
@@ -108,6 +109,10 @@ void HEPHero::SetupTest() {
     HDF_insert("ThirdLeadingJet_mass", &ThirdLeadingJet_mass);
     HDF_insert("FourthLeadingJet_mass", &FourthLeadingJet_mass);
 
+    HDF_insert("OmegaMin",&OmegaMin);
+
+
+
     // HDF_insert("LeadingLep_pt", &LeadingLep_pt);
     // HDF_insert("LeadingLep_eta", &LeadingLep_eta);
     // HDF_insert("TrailingLep_pt", &TrailingLep_pt);
@@ -122,7 +127,6 @@ void HEPHero::SetupTest() {
     HDF_insert("RawMET_phi", &RawMET_phi);
     HDF_insert("RawMET_pt", &RawMET_pt);
 
-
     return;
 }
 
@@ -132,12 +136,12 @@ void HEPHero::SetupTest() {
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::TestRegion() {
 
+    if( !Trigger() ) return false;
     LeptonSelection();
     JetSelection();
     FatjetSelection();
+    Get_Jet_Angular_Variables();
 
-
-    Get_Jet_Angular_Variables( 30 );
 
     //-------------------------------------------------------------------------
     // Cut description
