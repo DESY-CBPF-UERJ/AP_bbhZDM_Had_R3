@@ -4,6 +4,9 @@ Signal_400_100                                  21.64               unknown     
 Signal_800_400                                  21.64               unknown             unknown
 Signal_1000_100                                 21.64               unknown             unknown
 TTToSemiLeptonic_test                           365.34	            17.54/22.29		    NNLO
+DYto2L-2Jets_MLL-4to10                          141500              301.9               NLO
+DYto2L-2Jets_MLL-10to50                         20950.0             183.5               unknown
+DYto2L-2Jets_MLL-50                             6688.0              83.99               unknown
 QCD_PT-15to30                                   1301000000        	2135000	            LO
 QCD_PT-30to50                                   113300000.0	        589300.0		    unknown
 QCD_PT-50to80                                   16760000	        27450		        LO
@@ -21,6 +24,7 @@ QCD_PT-2400to3200                               0.007542	        3.779e-05	    	
 QCD_PT-3200                                     0.0002331	        1.208e-06		    unknown
 TTto4Q                                          762.1	            0.1345	        	NLO
 TTtoLNu2Q                                       762.1           	0.1345		        NLO
+TTTo2L2Nu                                       762.1               0.1345              NLO
 WZtoLNu2Q                                       15.87           	0.007874		    NLO
 ZZto2Nu2Q                                       4.826	            0.001296		    NLO
 WminusH_Hto2B_Wto2Q                             0.3916	            5.798e-05		    NLO
@@ -46,8 +50,15 @@ ZZto2L2Nu                                       1.031	            0.0005268		   
 ZZto2L2Q                                        6.788	            0.003501		    NLO
 WZto2L2Q                                        7.568	            0.003908		    NLO
 WZto3LNu                                        4.924	            0.00237		        NLO
+TQbarto2Q-t-channel                             130                 0.07514             NLO
+TbarQto2Q-t-channel                             78.56               0.04092             NLO
+TQbartoLNu-t-channel                            130                 0.07514             NLO
+TbarWplusto2L2Nu                                36.05               0.01296             NLO
+TWminusto2L2Nu                                  35.99               0.01292             NLO
 TWminusto4Q                                     35.99	            0.01292		        NLO
 TWminustoLNu2Q                                  35.99	            0.01292		        NLO
+TbarWplusto4Q                                   36.05               0.01296             NLO
+TbarWplustoLNu2Q                                36.05               0.01296             NLO
 WWto4Q                                          50.79	            0.01816		        NLO
 WWtoLNu2Q                                       48.94	            0.0175		        NLO
 WWW                                             0.2328	            0.0001247		    LO

@@ -136,7 +136,7 @@ void HEPHero::SetupTest() {
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::TestRegion() {
 
-    if( !Trigger() ) return false;
+    // if( !Trigger() ) return false;
     LeptonSelection();
     JetSelection();
     FatjetSelection();
