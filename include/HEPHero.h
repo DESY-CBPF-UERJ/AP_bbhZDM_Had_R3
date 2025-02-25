@@ -44,6 +44,7 @@ class HEPHero : public HEPBase {
 
         void JetSelection();
         void FatjetSelection();
+        vector<float> SoftmaxHEP( vector<float> input_vec );
         void LeptonSelection();
         void SetupTest();
         bool TestRegion();
@@ -117,6 +118,7 @@ class HEPHero : public HEPBase {
         int Njets_tight;
         int Njets_ISR;
         int NPUjets;
+
         float HT;
         float HT30;
         float HT40;
@@ -191,8 +193,8 @@ class HEPHero : public HEPBase {
         float ThirdLeadingFatJet_ZvsQCD;
         float FourthLeadingFatJet_ZvsQCD;
 
-
-
+        int hadronic_channel;
+        float FatJet_b_max_deltaEta;
         float MET_FatJet_Mt;
         float MET_FatJet_deltaPhi;
         //----MET------------------------------------------

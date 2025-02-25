@@ -104,7 +104,7 @@ void HEPHero::LeptonSelection(){
     Nelectrons = selectedEle.size();
     Nmuons = selectedMu.size();
     Ntaus = selectedTau.size();
-    Nleptons = Nelectrons + Nmuons;
+    Nleptons = Nelectrons + Nmuons + Ntaus;
 
     
 }
@@ -257,7 +257,9 @@ void HEPHero::JetSelection(){
         FourthLeadingJet_pt = Jet_pt[selectedJet.at(3)];
         FourthLeadingJet_jetId = Jet_jetId[selectedJet.at(3)];
         FourthLeadingJet_mass = Jet_mass[selectedJet.at(3)];
-    }    
+    }
+
+
 }
 
 
@@ -333,6 +335,8 @@ void HEPHero::FatjetSelection(){
     ThirdLeadingFatJet_ZvsQCD = 0;
     FourthLeadingFatJet_ZvsQCD = 0;
 
+    FatJet_b_max_deltaEta = 0;
+
 
     if( NfatJets >= 1 ) {
         LeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(0)];
@@ -345,6 +349,15 @@ void HEPHero::FatjetSelection(){
         LeadingFatJet_massCorr = FatJet_particleNet_massCorr[selectedFatJet.at(0)];
         LeadingFatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
         LeadingFatJet_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(0)];
+
+
+        for( unsigned int iseljet = 0; iseljet < selectedJet.size(); ++iseljet ) {
+        int ijet = selectedJet[iseljet];
+        if( JetBTAG( ijet, JET_BTAG_WP ) ){
+            float FatJet_b_deltaEta = abs( FatJet_eta[selectedFatJet.at(0)] - Jet_eta[ijet]);
+            if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
+        }
+    }
         
     }
     if( NfatJets >= 2 ) {
@@ -391,7 +404,71 @@ void HEPHero::FatjetSelection(){
     // if( NfatJets >= 3 ) ThirdLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(2)];
     // if( NfatJets >= 4 ) FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
 
+    // FatJet_b_max_deltaEta = 0;
+    // for( unsigned int iseljet = 0; iseljet < selectedJet.size(); ++iseljet ) {
+    //     int ijet = selectedJet[iseljet];
+    //     if( JetBTAG( ijet, JET_BTAG_WP ) ){
+    //         float FatJet_b_deltaEta = abs(FatJet_eta - Jet_eta[ijet]);
+    //         if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
+    //     }
+    // }
 
+    // Hadronic Channel - 1 (Z-channel), 2(h-channel)
+    hadronic_channel = 0;
+    if( NfatJets >= 1 ) {
+        int fatjet_idx = selectedFatJet.at(0);
+        
+        vector<float> input_vec;
+        input_vec.push_back(FatJet_particleNet_XbbVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XccVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XggVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XqqVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XteVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XtmVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_XttVsQCD[fatjet_idx]);
+        input_vec.push_back(FatJet_particleNet_QCD[fatjet_idx]);
+        vector<float> fatjet_type_prob = SoftmaxHEP(input_vec);
+        
+        int type_id = max_element(fatjet_type_prob.begin(), fatjet_type_prob.end()) - fatjet_type_prob.begin();
+        if( type_id == 2 ){
+            hadronic_channel = 2;
+        }else if( type_id == 3 ){
+            hadronic_channel = 1;
+        }else{
+            vector<float> input_vec_2;
+            input_vec_2.push_back(FatJet_particleNetWithMass_HbbvsQCD[fatjet_idx]);
+            input_vec_2.push_back(FatJet_particleNetWithMass_HccvsQCD[fatjet_idx]);
+            input_vec_2.push_back(FatJet_particleNetWithMass_ZvsQCD[fatjet_idx]);
+            vector<float> fatjet_Zh_prob = SoftmaxHEP(input_vec_2);
+            float Hbb_prob = fatjet_Zh_prob[0];
+            float Hcc_prob = fatjet_Zh_prob[1];
+            float Z_prob = fatjet_Zh_prob[2];
+    
+            if( Z_prob > Hbb_prob && Z_prob > Hcc_prob ){
+                hadronic_channel = 1;
+            }else{
+                hadronic_channel = 2;
+            }
+        }
+    }
+    
+}
+
+
+vector<float> HEPHero::SoftmaxHEP( vector<float> input_vec ){
+
+    vector<float> output_vec;
+    float denominator = 0;
+    for( unsigned int i = 0; i < input_vec.size(); ++i ) {
+        denominator += exp(input_vec.at(i));
+        output_vec.push_back(exp(input_vec.at(i)));
+    }
+
+    for( unsigned int i = 0; i < input_vec.size(); ++i ) {
+        output_vec.at(i) = output_vec.at(i)/denominator;
+    }
+    
+    return output_vec;
 }
 
 

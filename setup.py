@@ -16,7 +16,7 @@ analysis_parameters = {
 "JET_LEP_DR_ISO_CUT         ": 0.4,
 "FAT_JET_PT_CUT             ": 170,     # Cut asked by Gilson
 "FAT_JET_ETA_CUT            ": 3,
-"FAT_JET_ID_WP              ": 0,       # 0-loose, 2-medium, 4-tight, 6-tightLepVeto  !!!!!!TO CONFIRM!!!!!!!
+"FAT_JET_ID_WP              ": 6,       # 0-loose, 2-medium, 4-tight, 6-tightLepVeto  !!!!!!TO CONFIRM!!!!!!!
 "ELECTRON_GAP_LOWER_CUT     ": 1.444,   # Lower absolute limit of barrel-endcap gap
 "ELECTRON_GAP_UPPER_CUT     ": 1.566,   # Upper absolute limit of barrel-endcap gap
 "ELECTRON_ETA_CUT           ": 2.5,

@@ -43,6 +43,7 @@ void HEPHero::SetupTest() {
    
     HDF_insert("Nelectrons", &Nelectrons);
     HDF_insert("Nmuons", &Nmuons);
+    HDF_insert("Ntaus", &Ntaus);
     HDF_insert("Nleptons", &Nleptons);
 
     //  TODO: Samples DR - SingleTop - TTbar fullyleptonnic
@@ -110,19 +111,23 @@ void HEPHero::SetupTest() {
     HDF_insert("FourthLeadingJet_mass", &FourthLeadingJet_mass);
 
     HDF_insert("OmegaMin",&OmegaMin);
-
-
-
+    HDF_insert("FatJet_b_max_deltaEta",&FatJet_b_max_deltaEta);
+    HDF_insert("hadronic_channel",&hadronic_channel);
+    
     // HDF_insert("LeadingLep_pt", &LeadingLep_pt);
     // HDF_insert("LeadingLep_eta", &LeadingLep_eta);
     // HDF_insert("TrailingLep_pt", &TrailingLep_pt);
     // HDF_insert("TrailingLep_eta", &TrailingLep_eta);
-
+    HDF_insert("MHT", &MHT);
+    
     HDF_insert("GenMET_phi", &GenMET_phi);
     HDF_insert("GenMET_pt", &GenMET_pt);
 
     HDF_insert("MET_phi", &MET_phi);
     HDF_insert("MET_pt", &MET_pt);
+
+    HDF_insert("PuppiMET_phi", &PuppiMET_phi);
+    HDF_insert("PuppiMET_pt", &PuppiMET_pt);
 
     HDF_insert("RawMET_phi", &RawMET_phi);
     HDF_insert("RawMET_pt", &RawMET_pt);

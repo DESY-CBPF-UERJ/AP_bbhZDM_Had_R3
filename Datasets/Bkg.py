@@ -75,7 +75,7 @@ for period,path in zip(periods,paths):
     TT = [
         ["TTto4Q_"+period]          + [year+'1800'+dti, path+"TTto4Q.txt"],       # TT To Hadronic
         ["TTtoLNu2Q_"+period]       + [year+'1800'+dti, path+"TTtoLNu2Q.txt"],    # TT To SemiLeptonic
-        ["TTTo2L2Nu_"+period]       + [year+'0300'+dti, path+"TTTo2L2Nu.txt"],    # TT To fullyLeptonic
+        ["TTto2L2Nu_"+period]       + [year+'0300'+dti, path+"TTto2L2Nu.txt"],    # TT To fullyLeptonic
     ]
 
     ResidualSM = [
@@ -107,6 +107,7 @@ for period,path in zip(periods,paths):
         ["TQbarto2Q-t-channel_"+period]      + [year+'1800'+dti, path+"TQbarto2Q-t-channel.txt"],
         ["TbarQto2Q-t-channel_"+period]      + [year+'1800'+dti, path+"TbarQto2Q-t-channel.txt"],
         ["TQbartoLNu-t-channel_"+period]     + [year+'1800'+dti, path+"TQbartoLNu-t-channel.txt"],
+        ["TbarQtoLNu-t-channel_"+period]     + [year+'1800'+dti, path+"TbarQtoLNu-t-channel.txt"],
         ["TbarWplusto2L2Nu_"+period]         + [year+'1800'+dti, path+"TbarWplusto2L2Nu.txt"],
         ["TWminusto2L2Nu_"+period]           + [year+'1800'+dti, path+"TWminusto2L2Nu.txt"],
         ["TWminusto4Q_"+period]              + [year+'1800'+dti, path+"TWminusto4Q.txt"],
