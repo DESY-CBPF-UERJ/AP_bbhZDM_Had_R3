@@ -96,7 +96,10 @@ void HEPHero::SetupTest() {
 
     HDF_insert("nJet", &nJet);
     
+
+    
     HDF_insert("Njets", &Njets);
+    HDF_insert("Nbjets", &Nbjets);
     HDF_insert("LeadingJet_pt", &LeadingJet_pt);
     HDF_insert("SubLeadingJet_pt", &SubLeadingJet_pt);
     HDF_insert("ThirdLeadingJet_pt", &ThirdLeadingJet_pt);

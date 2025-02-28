@@ -68,7 +68,7 @@ def get_samples( basedir, period ):
         'ttHto2C':                   [i for i in list_basedir if 'ttHto2C' == i.split("_"+periodTag)[0]],
         'TTto4Q':                    [i for i in list_basedir if 'TTto4Q' == i.split("_"+periodTag)[0]],
         'TTtoLNu2Q':                 [i for i in list_basedir if 'TTtoLNu2Q' == i.split("_"+periodTag)[0]],
-        'TTto2L2Nu':                [i for i in list_basedir if 'TTto2L2Nu' == i.split("_"+periodTag)[0]],
+        'TTto2L2Nu':                 [i for i in list_basedir if 'TTto2L2Nu' == i.split("_"+periodTag)[0]],
         'Wto2Q_PTQQ-100to200_1J':    [i for i in list_basedir if 'Wto2Q_PTQQ-100to200_1J' == i.split("_"+periodTag)[0]],
         'Wto2Q_PTQQ-100to200_2J':    [i for i in list_basedir if 'Wto2Q_PTQQ-100to200_2J' == i.split("_"+periodTag)[0]],
         'Wto2Q_PTQQ-200to400_1J':    [i for i in list_basedir if 'Wto2Q_PTQQ-200to400_1J' == i.split("_"+periodTag)[0]],

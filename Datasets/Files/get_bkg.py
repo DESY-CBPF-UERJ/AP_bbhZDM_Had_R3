@@ -79,7 +79,7 @@ datasets = [
 ["QCD_PT-3200",                 "/QCD_PT-3200_TuneCP5_13p6TeV_pythia8/"+campaign],
 ["TTto4Q",                      "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
 ["TTtoLNu2Q",                   "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TTTo2L2Nu",                   "/TTTo2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
+["TTto2L2Nu",                   "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
 ["WZtoLNu2Q",                   "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
 ["ZZto2Nu2Q",                   "/ZZto2Nu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
 ["WminusH_Hto2B_Wto2Q",         "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],

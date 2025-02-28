@@ -131,12 +131,11 @@ for period,path in zip(periods,paths):
         ["QCD_PT-1400to1800_"+period]      + [year+'1812'+dti, path+"QCD_PT-1400to1800.txt"],
         ["QCD_PT-1800to2400_"+period]      + [year+'1813'+dti, path+"QCD_PT-1800to2400.txt"],
         ["QCD_PT-2400to3200_"+period]      + [year+'1814'+dti, path+"QCD_PT-2400to3200.txt"],
+        ["QCD_PT-3200_"+period]            + [year+'1814'+dti, path+"QCD_PT-3200.txt"],
         # ["QCD_PT-3200toInf_"+period]       + [year+'1815'+dti, path+"QCD_PT-3200toInf.txt"],
         ["ttHto2B_"+period]                + [year+'1815'+dti, path+"ttHto2B.txt"],
         ["ttHto2C_"+period]                + [year+'1815'+dti, path+"ttHto2C.txt"],
-
     ]
-
 
     Wto2Q = [
         ["Wto2Q_PTQQ-100to200_1J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-100to200_1J.txt"],
@@ -163,12 +162,14 @@ for period,path in zip(periods,paths):
     ]
 
     VZ = [
+        ["WWto4Q_"+period]     + [year+'1800'+dti, path+"WWto4Q.txt"],
+        ["WWtoLNu2Q_"+period]     + [year+'1800'+dti, path+"WWtoLNu2Q.txt"],
         ["WZto2L2Q_"+period]     + [year+'1800'+dti, path+"WZto2L2Q.txt"],
         ["WZto3LNu_"+period]     + [year+'1800'+dti, path+"WZto3LNu.txt"],
         ["WZtoLNu2Q_"+period]    + [year+'1800'+dti, path+"WZtoLNu2Q.txt"],
         ["ZZto2L2Nu_"+period]    + [year+'1800'+dti, path+"ZZto2L2Nu.txt"],
         ["ZZto2L2Q_"+period]     + [year+'1800'+dti, path+"ZZto2L2Q.txt"],
-        ["ZZto2Nu2Q_"+period]    + [year+'1800'+dti, path+"ZZto2Nu2Q.txt"],
+        ["ZZto2Nu2Q_"+period]    + [year+'1800'+dti, path+"ZZto2Nu2Q.txt"],  
     ]
 
     Zto2Nu = [
@@ -208,8 +209,16 @@ for period,path in zip(periods,paths):
         ST_0_22 = ST
         DY_0_22 = DY
     elif period == "1_22":
+        Bkg_4b_1_22 = Bkg_4b
+        ResidualSM_1_22 = ResidualSM
         TT_1_22 = TT
-        # DYPt50ToInf_1_22 = DYPt50ToInf
+        Wto2Q_1_22 = Wto2Q
+        WtoLNu_1_22 = WtoLNu
+        VZ_1_22 = VZ
+        Zto2Nu_1_22 = Zto2Nu
+        Zto2Q_1_22 = Zto2Q
+        ST_1_22 = ST
+        DY_1_22 = DY
     elif period == "0_23":
         TT_0_23 = TT
         # DYPt50ToInf_0_23 = DYPt50ToInf
