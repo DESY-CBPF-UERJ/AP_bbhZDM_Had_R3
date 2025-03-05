@@ -1,0 +1,4 @@
+/store/mc/Run3Summer23NanoAODv12/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/NANOAODSIM/130X_mcRun3_2023_realistic_v14-v3/2590000/757ad178-31f7-490e-bfe2-de3005ea2fe1.root
+/store/mc/Run3Summer23NanoAODv12/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/NANOAODSIM/130X_mcRun3_2023_realistic_v14-v3/2590000/8204d89d-e952-4a85-b88b-87a6f885cca4.root
+/store/mc/Run3Summer23NanoAODv12/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/NANOAODSIM/130X_mcRun3_2023_realistic_v14-v3/2590000/43682f35-ce68-481b-b41e-59b64c5840f0.root
+/store/mc/Run3Summer23NanoAODv12/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/NANOAODSIM/130X_mcRun3_2023_realistic_v14-v3/2590000/7a5e8925-f25d-41f5-8aaa-1637848a1a9b.root

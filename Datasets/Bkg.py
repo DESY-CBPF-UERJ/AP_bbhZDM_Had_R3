@@ -33,42 +33,42 @@ for period,path in zip(periods,paths):
 
     DY = [
 
-        ["DYto2L-2Jets_MLL-4to10_"+period]          + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-4to10.txt"],
-        ["DYto2L-2Jets_MLL-10to50_"+period]         + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-10to50.txt"],
-        ["DYto2L-2Jets_MLL-50_"+period]             + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-50.txt"],
+        # ["DYto2L-2Jets_MLL-4to10_"+period]          + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-4to10.txt"],
+        # ["DYto2L-2Jets_MLL-10to50_"+period]         + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-10to50.txt"],
+        # ["DYto2L-2Jets_MLL-50_"+period]             + [year+'0300'+dti, path+"DYto2L-2Jets_MLL-50.txt"],
 
-        # ["DYto2E_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2E_MLL-10to50.txt"],
-        # ["DYto2E_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2E_MLL-50to120.txt"],
-        # ["DYto2E_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-120to200.txt"],
-        # ["DYto2E_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-200to400.txt"],
-        # ["DYto2E_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-400to800.txt"], 
-        # ["DYto2E_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2E_MLL-800to1500.txt"], 
-        # ["DYto2E_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-1500to2500.txt"],
-        # ["DYto2E_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-2500to4000.txt"],
-        # ["DYto2E_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-4000to6000.txt"],
-        # ["DYto2E_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2E_MLL-6000.txt"],
+        ["DYto2E_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2E_MLL-10to50.txt"],
+        ["DYto2E_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2E_MLL-50to120.txt"],
+        ["DYto2E_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-120to200.txt"],
+        ["DYto2E_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-200to400.txt"],
+        ["DYto2E_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2E_MLL-400to800.txt"], 
+        ["DYto2E_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2E_MLL-800to1500.txt"], 
+        ["DYto2E_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-1500to2500.txt"],
+        ["DYto2E_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-2500to4000.txt"],
+        ["DYto2E_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2E_MLL-4000to6000.txt"],
+        ["DYto2E_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2E_MLL-6000.txt"],
 
-        # ["DYto2Mu_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Mu_MLL-10to50.txt"],
-        # ["DYto2Mu_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Mu_MLL-50to120.txt"],
-        # ["DYto2Mu_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-120to200.txt"],
-        # ["DYto2Mu_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-200to400.txt"],
-        # ["DYto2Mu_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-400to800.txt"],
-        # ["DYto2Mu_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Mu_MLL-800to1500.txt"],
-        # ["DYto2Mu_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-1500to2500.txt"],
-        # ["DYto2Mu_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-2500to4000.txt"],
-        # ["DYto2Mu_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-4000to6000.txt"],
-        # ["DYto2Mu_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Mu_MLL-6000.txt"],
+        ["DYto2Mu_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Mu_MLL-10to50.txt"],
+        ["DYto2Mu_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Mu_MLL-50to120.txt"],
+        ["DYto2Mu_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-120to200.txt"],
+        ["DYto2Mu_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-200to400.txt"],
+        ["DYto2Mu_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Mu_MLL-400to800.txt"],
+        ["DYto2Mu_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Mu_MLL-800to1500.txt"],
+        ["DYto2Mu_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-1500to2500.txt"],
+        ["DYto2Mu_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-2500to4000.txt"],
+        ["DYto2Mu_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Mu_MLL-4000to6000.txt"],
+        ["DYto2Mu_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Mu_MLL-6000.txt"],
 
-        # ["DYto2Tau_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Tau_MLL-10to50.txt"],
-        # ["DYto2Tau_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Tau_MLL-50to120.txt"],
-        # ["DYto2Tau_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-120to200.txt"],
-        # ["DYto2Tau_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-200to400.txt"],
-        # ["DYto2Tau_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-400to800.txt"],
-        # ["DYto2Tau_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Tau_MLL-800to1500.txt"],
-        # ["DYto2Tau_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-1500to2500.txt"],
-        # ["DYto2Tau_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-2500to4000.txt"],
-        # ["DYto2Tau_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-4000to6000.txt"],
-        # ["DYto2Tau_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Tau_MLL-6000.txt"],
+        ["DYto2Tau_MLL-10to50_"+period]             + [year+'0300'+dti, path+"DYto2Tau_MLL-10to50.txt"],
+        ["DYto2Tau_MLL-50to120_"+period]            + [year+'0300'+dti, path+"DYto2Tau_MLL-50to120.txt"],
+        ["DYto2Tau_MLL-120to200_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-120to200.txt"],
+        ["DYto2Tau_MLL-200to400_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-200to400.txt"],
+        ["DYto2Tau_MLL-400to800_"+period]           + [year+'0300'+dti, path+"DYto2Tau_MLL-400to800.txt"],
+        ["DYto2Tau_MLL-800to1500_"+period]          + [year+'0300'+dti, path+"DYto2Tau_MLL-800to1500.txt"],
+        ["DYto2Tau_MLL-1500to2500_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-1500to2500.txt"],
+        ["DYto2Tau_MLL-2500to4000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-2500to4000.txt"],
+        ["DYto2Tau_MLL-4000to6000_"+period]         + [year+'0300'+dti, path+"DYto2Tau_MLL-4000to6000.txt"],
+        ["DYto2Tau_MLL-6000_"+period]               + [year+'0300'+dti, path+"DYto2Tau_MLL-6000.txt"],
 
     ]
 
@@ -197,7 +197,6 @@ for period,path in zip(periods,paths):
     ]
 
     if period == "0_22":
-        # DYPt50ToInf_0_22 = DYPt50ToInf
         Bkg_4b_0_22 = Bkg_4b
         ResidualSM_0_22 = ResidualSM
         TT_0_22 = TT
@@ -220,9 +219,25 @@ for period,path in zip(periods,paths):
         ST_1_22 = ST
         DY_1_22 = DY
     elif period == "0_23":
+        Bkg_4b_0_23 = Bkg_4b
+        ResidualSM_0_23 = ResidualSM
         TT_0_23 = TT
-        # DYPt50ToInf_0_23 = DYPt50ToInf
+        Wto2Q_0_23 = Wto2Q
+        WtoLNu_0_23 = WtoLNu
+        VZ_0_23 = VZ
+        Zto2Nu_0_23 = Zto2Nu
+        Zto2Q_0_23 = Zto2Q
+        ST_0_23 = ST
+        DY_0_23 = DY
     elif period == "1_23":
+        Bkg_4b_1_23 = Bkg_4b
+        ResidualSM_1_23 = ResidualSM
         TT_1_23 = TT
-        # DYPt50ToInf_1_23 = DYPt50ToInf
+        Wto2Q_1_23 = Wto2Q
+        WtoLNu_1_23 = WtoLNu
+        VZ_1_23 = VZ
+        Zto2Nu_1_23 = Zto2Nu
+        Zto2Q_1_23 = Zto2Q
+        ST_1_23 = ST
+        DY_1_23 = DY
 

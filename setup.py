@@ -38,7 +38,7 @@ analysis_parameters = {
 "MET_LEPLEP_DPHI_CUT        ": 0.8,
 "MET_LEPLEP_MT_CUT          ": 90,      #      
 "TAU_VS_ELE_ISO_WP          ": 4,       #  0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
-"TAU_VS_JET_ISO_WP          ": 4,        #   0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
+"TAU_VS_JET_ISO_WP          ": 4,       #   0=No Apply, 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
 "TAU_VS_MU_ISO_WP           ": 2,       #    0=No Apply, 1 = VLoose, 2 = Loose, 3 = Medium, 4 = Tight
 "TAU_PT_CUT                 ": 10,
 "TAU_ETA_CUT                ": 2.5,
