@@ -24,6 +24,7 @@ void HEPHero::SetupTestMatheus() {
     _cutFlow.insert(pair<string,double>("02_LeadingFatPt_more_200", 0) );
     _cutFlow.insert(pair<string,double>("03_NbJets_more_0", 0) );
     _cutFlow.insert(pair<string,double>("04_Leptons_equal_0", 0) );
+    _cutFlow.insert(pair<string,double>("05_Omega_more_0p3", 0) );
 //==================================================================================================
 
 
@@ -132,6 +133,9 @@ bool HEPHero::TestMatheusRegion() {
   
     //if (!(Nelectrons==0 && Nmuons==0) ) return false;
     _cutFlow.at("04_Leptons_equal_0") += evtWeight;
+
+    //if (OmegaMin<0.3) retunr false;
+    _cutFlow.at("05_Omega_more_0p3") += evtWeight;
   
   
 
