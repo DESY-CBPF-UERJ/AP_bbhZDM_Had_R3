@@ -29,6 +29,11 @@ for period,path in zip(periods,paths):
         ["Signal_400_100_"+period]           + [year+'9900'+dti, path+"Signal_400_100.txt"],
         ["Signal_800_400_"+period]           + [year+'9912'+dti, path+"Signal_800_400.txt"],
         ["Signal_1000_100_"+period]           + [year+'9914'+dti, path+"Signal_1000_100.txt"],
+    
+        ["Signal_A400_a100_"+period]           + [year+'9950'+dti, path+"Signal_A400_a100.txt"],
+        ["Signal_A800_a400_"+period]           + [year+'9952'+dti, path+"Signal_A800_a400.txt"],
+        ["Signal_A1000_a100_"+period]           + [year+'9954'+dti, path+"Signal_A1000_a100.txt"],
+    
     ]
 
         
