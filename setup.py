@@ -77,6 +77,16 @@ periods = [
 datasets = [
 #"Data_MET",
 "Signal",
+"Bkg_4b",
+"ResidualSM",
+"TT",
+"Wto2Q",
+"WtoLNu",
+"VZ",
+"Zto2Nu",
+"Zto2Q",
+"ST",
+"DY",
 ]
 
 
