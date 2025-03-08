@@ -7,9 +7,12 @@ def get_samples( basedir, period ):
     periodTag = period + "_files"
 
     samples = {
-        'Signal_400_100':            [i for i in list_basedir if 'Signal_400_100' == i.split("_"+periodTag)[0]],
-        'Signal_800_400':            [i for i in list_basedir if 'Signal_800_400' == i.split("_"+periodTag)[0]],
-        'Signal_1000_100':           [i for i in list_basedir if 'Signal_1000_100' == i.split("_"+periodTag)[0]],
+        'Signal_H400_a100':          [i for i in list_basedir if 'Signal_H400_a100' == i.split("_"+periodTag)[0]],
+        'Signal_H800_a400':          [i for i in list_basedir if 'Signal_H800_a400' == i.split("_"+periodTag)[0]],
+        'Signal_H1000_a100':         [i for i in list_basedir if 'Signal_H1000_a100' == i.split("_"+periodTag)[0]],
+        'Signal_A400_a100':          [i for i in list_basedir if 'Signal_A400_a100' == i.split("_"+periodTag)[0]],
+        'Signal_A800_a400':          [i for i in list_basedir if 'Signal_A800_a400' == i.split("_"+periodTag)[0]],
+        'Signal_A1000_a100':         [i for i in list_basedir if 'Signal_A1000_a100' == i.split("_"+periodTag)[0]],
         # 'DYto2L-2Jets_MLL-4to10':    [i for i in list_basedir if 'DYto2L-2Jets_MLL-4to10' == i.split("_"+periodTag)[0]],
         # 'DYto2L-2Jets_MLL-10to50':   [i for i in list_basedir if 'DYto2L-2Jets_MLL-10to50' == i.split("_"+periodTag)[0]],
         # 'DYto2L-2Jets_MLL-50':       [i for i in list_basedir if 'DYto2L-2Jets_MLL-50' == i.split("_"+periodTag)[0]],
