@@ -73,6 +73,7 @@ void HEPHero::FillControlVariables( string key, string value){
     if( key == "TAU_PT_CUT"                 )   TAU_PT_CUT = atoi(value.c_str());
     if( key == "TAU_ETA_CUT"                )   TAU_ETA_CUT = atoi(value.c_str());
 
+    if( key == "OMEGA_CUT"                )   OMEGA_CUT = atoi(value.c_str());
 
 
     // if( key == "LEPTON_DR_ISO_CUT"          )   LEPTON_DR_ISO_CUT = atof(value.c_str());

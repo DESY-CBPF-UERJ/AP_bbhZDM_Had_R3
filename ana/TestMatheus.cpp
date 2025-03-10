@@ -134,7 +134,7 @@ bool HEPHero::TestMatheusRegion() {
     //if (!(Nelectrons==0 && Nmuons==0) ) return false;
     _cutFlow.at("04_Leptons_equal_0") += evtWeight;
 
-    //if (OmegaMin<0.3) retunr false;
+    if (OmegaMin<OMEGA_CUT) return false;
     _cutFlow.at("05_Omega_more_0p3") += evtWeight;
   
   

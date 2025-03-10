@@ -42,6 +42,8 @@ analysis_parameters = {
 "TAU_VS_MU_ISO_WP           ": 2,       #    0=No Apply, 1 = VLoose, 2 = Loose, 3 = Medium, 4 = Tight
 "TAU_PT_CUT                 ": 10,
 "TAU_ETA_CUT                ": 2.5,
+"OMEGA_CUT                  ": 0.3,         
+
 }
 
 corrections = {  # 0-don't apply, 1-apply

@@ -260,7 +260,11 @@ class HEPHero : public HEPBase {
         float LEPLEP_DM_CUT;
         float MET_LEPLEP_DPHI_CUT;
         float MET_LEPLEP_MT_CUT;
-        
+       
+	float OMEGA_CUT;
+
+
+
         //----GENERAL--------------------------------------
         vector<int> selectedEle;
         vector<int> selectedEleLowPt;
