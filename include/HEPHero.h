@@ -42,10 +42,7 @@ class HEPHero : public HEPBase {
 
 
 
-        void JetSelection();
-        void FatjetSelection();
-        vector<float> SoftmaxHEP( vector<float> input_vec );
-        void LeptonSelection();
+        
         void SetupTest();
         bool TestRegion();
         void TestSelection();
@@ -102,6 +99,10 @@ class HEPHero : public HEPBase {
         bool MuonISO( int iobj, int WP );
         bool JetBTAG( int iobj, int WP );
 	void Get_Jet_Angular_Variables( int pt_cut = 20 );
+        void JetSelection();
+        void FatjetSelection();
+        vector<float> SoftmaxHEP( vector<float> input_vec );
+        void LeptonSelection();
 
     //----JET------------------------------------------
         int Nbjets;
