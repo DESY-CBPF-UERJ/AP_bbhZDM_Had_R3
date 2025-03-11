@@ -67,13 +67,14 @@ class HEPHero : public HEPBase {
         void TestMatheusSystematic();
         void FinishTestMatheus();
         // INSERT YOUR SELECTION HERE
-        bool Trigger();
+        
 
     //=============================================================================================
     // ANALYSIS SETUP
     //=============================================================================================
 
         //=====CMS Tools===========================================================================
+        bool Trigger();
         bool PileupJet(int iJet);
         void HEMissue();
         bool METFilters();
@@ -100,7 +101,7 @@ class HEPHero : public HEPBase {
         bool MuonID( int iobj, int WP );
         bool MuonISO( int iobj, int WP );
         bool JetBTAG( int iobj, int WP );
-	    void Get_Jet_Angular_Variables( int pt_cut = 20 );
+	void Get_Jet_Angular_Variables( int pt_cut = 20 );
 
     //----JET------------------------------------------
         int Nbjets;
