@@ -55,9 +55,9 @@ QCD_PT-1400to1800                               0.8103          	0.003798	    	u
 QCD_PT-1800to2400                               0.1148	            0.0005556	    	unknown
 QCD_PT-2400to3200                               0.007542	        3.779e-05	    	unknown
 QCD_PT-3200                                     0.0002331	        1.208e-06		    unknown
-TTto4Q                                          762.1	            0.1345	        	NLO
-TTtoLNu2Q                                       762.1           	0.1345		        NLO
-TTto2L2Nu                                       762.1               0.1345              NLO
+TTto4Q                                          419.7	            0.1345	        	  NLO
+TTtoLNu2Q                                       405.7           	0.1345		          NLO
+TTto2L2Nu                                       98.04             0.1345              NLO
 WZtoLNu2Q                                       15.87           	0.007874		    NLO
 ZZto2Nu2Q                                       4.826	            0.001296		    NLO
 WminusH_Hto2B_Wto2Q                             0.3916	            5.798e-05		    NLO
