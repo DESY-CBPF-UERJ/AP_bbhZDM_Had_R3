@@ -14,14 +14,14 @@ bool HEPHero::TauVSEletronID( int iobj, int WP ){
 //    std::cout<<"Tau_idDeepTau2018v2p5VSe: "<<(Tau_idDeepTau2018v2p5VSe[iobj] & WP) <<endl;
 // byDeepTau2018v2p5VSe ID working points (deepTau2018v2p5): 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
     if(      WP == 0 ) obj_selected = true;    //No Identification
-    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 1);    //VVVLoose
-    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 2);    //VVLoose
-    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 3);    //VLoose
-    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 4);    //Loose
-    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 5);    //Medium
-    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 6);    //Tight             
-    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 7);    //VTight
-    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSe[iobj] == 8);    //VVTight
+    else if( WP == 1 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 3);    //VLoose
+    else if( WP == 4 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 4);    //Loose
+    else if( WP == 5 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 5);    //Medium
+    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 6);    //Tight             
+    else if( WP == 7 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 7);    //VTight
+    else if( WP == 8 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 8);    //VVTight
 
 
     return obj_selected;
@@ -34,14 +34,14 @@ bool HEPHero::TauVSJetID( int iobj, int WP ){
  //   std::cout<<"Tau_idDeepTau2018v2p5VSjet: "<<(Tau_idDeepTau2018v2p5VSjet[iobj] & WP) <<endl;
 // yDeepTau2018v2p5VSjet ID working points (deepTau2018v2p5): 1 = VVVLoose, 2 = VVLoose, 3 = VLoose, 4 = Loose, 5 = Medium, 6 = Tight, 7 = VTight, 8 = VVTight
     if(      WP == 0 ) obj_selected = true;    //No Identification
-    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 1);    //VVVLoose
-    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 2);    //VVLoose
-    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 3);    //VLoose
-    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 4);    //Loose
-    else if( WP == 5 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 5);    //Medium
-    else if( WP == 6 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 6);    //Tight             
-    else if( WP == 7 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 7);    //VTight
-    else if( WP == 8 ) obj_selected = (Tau_idDeepTau2018v2p5VSjet[iobj] == 8);    //VVTight
+    else if( WP == 1 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 1);    //VVVLoose
+    else if( WP == 2 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 2);    //VVLoose
+    else if( WP == 3 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 3);    //VLoose
+    else if( WP == 4 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 4);    //Loose
+    else if( WP == 5 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 5);    //Medium
+    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 6);    //Tight             
+    else if( WP == 7 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 7);    //VTight
+    else if( WP == 8 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 8);    //VVTight
 
     return obj_selected;
 }
@@ -53,10 +53,10 @@ bool HEPHero::TauVSMuonID( int iobj, int WP ){
  //   std::cout<<"Tau_idDeepTau2018v2p5VSmu: "<<(Tau_idDeepTau2018v2p5VSmu[iobj] & WP) <<endl;
 // byDeepTau2018v2p5VSmu ID working points (deepTau2018v2p5): 1 = VLoose, 2 = Loose, 3 = Medium, 4 = Tight
     if(      WP == 0 ) obj_selected = true;                                     //No Identification
-    else if( WP == 1 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] == 1);    //VVLoose
-    else if( WP == 2 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] == 2);    //VLoose
-    else if( WP == 3 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] == 3);    //Medium
-    else if( WP == 4 ) obj_selected = (Tau_idDeepTau2018v2p5VSmu[iobj] == 4);    //Tight
+    else if( WP == 1 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSmu[iobj] >= 1);    //VVLoose
+    else if( WP == 2 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSmu[iobj] >= 2);    //VLoose
+    else if( WP == 3 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSmu[iobj] >= 3);    //Medium
+    else if( WP == 4 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSmu[iobj] >= 4);    //Tight
 
     return obj_selected;
 }
