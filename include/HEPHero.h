@@ -63,11 +63,6 @@ class HEPHero : public HEPBase {
         void TestMatheusSelection();
         void TestMatheusSystematic();
         void FinishTestMatheus();
-        void SetupML();
-        bool MLRegion();
-        void MLSelection();
-        void MLSystematic();
-        void FinishML();
         // INSERT YOUR SELECTION HERE
         
 

@@ -585,7 +585,6 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "Test_Electron_ID" ) SetupTest_Electron_ID();
     else if( _SELECTION == "massParticlesWeights" ) SetupmassParticlesWeights();
     else if( _SELECTION == "TestMatheus" ) SetupTestMatheus();
-    else if( _SELECTION == "ML" ) SetupML();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -599,7 +598,6 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "Test_Electron_ID" && !Test_Electron_IDRegion() ) Selected = false;
     if( _SELECTION == "massParticlesWeights" && !massParticlesWeightsRegion() ) Selected = false;
     if( _SELECTION == "TestMatheus" && !TestMatheusRegion() ) Selected = false;
-    if( _SELECTION == "ML" && !MLRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -610,7 +608,6 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSelection();
     if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSelection();
     if( _SELECTION == "TestMatheus" ) TestMatheusSelection();
-    if( _SELECTION == "ML" ) MLSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -619,7 +616,6 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSystematic();
     if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSystematic();
     if( _SELECTION == "TestMatheus" ) TestMatheusSystematic();
-    if( _SELECTION == "ML" ) MLSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -628,7 +624,6 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "Test_Electron_ID" ) FinishTest_Electron_ID();
     if( _SELECTION == "massParticlesWeights" ) FinishmassParticlesWeights();
     if( _SELECTION == "TestMatheus" ) FinishTestMatheus();
-    if( _SELECTION == "ML" ) FinishML();
     // FINISH YOUR SELECTION HERE
 }
    
