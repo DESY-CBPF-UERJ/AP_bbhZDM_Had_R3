@@ -63,6 +63,11 @@ class HEPHero : public HEPBase {
         void TestMatheusSelection();
         void TestMatheusSystematic();
         void FinishTestMatheus();
+        void SetupML();
+        bool MLRegion();
+        void MLSelection();
+        void MLSystematic();
+        void FinishML();
         // INSERT YOUR SELECTION HERE
         
 
@@ -98,7 +103,8 @@ class HEPHero : public HEPBase {
         bool MuonID( int iobj, int WP );
         bool MuonISO( int iobj, int WP );
         bool JetBTAG( int iobj, int WP );
-	void Get_Jet_Angular_Variables( int pt_cut = 20 );
+        void Get_Jet_Angular_Variables( int pt_cut = 20 );
+        void Get_Jet_Shape_Variables();
         void JetSelection();
         void FatjetSelection();
         vector<float> SoftmaxHEP( vector<float> input_vec );
@@ -346,6 +352,12 @@ class HEPHero : public HEPBase {
         bool HEM_issue_jet_v2;
         bool HEM_issue_met;
         bool HEM_filter;
+
+        float RT_1;
+        float RT_2;
+        float RT_3;
+        float RT_4;
+        float tauT;
 
         int IdxBestMu;
         int IdxBestTau;

@@ -572,3 +572,50 @@ void HEPHero::Get_Jet_Angular_Variables( int pt_cut ){
     }
 
 }
+
+
+//-------------------------------------------------------------------------------------------------
+// Jet shape variables [https://arxiv.org/abs/1102.4785]
+//-------------------------------------------------------------------------------------------------
+void HEPHero::Get_Jet_Shape_Variables(){
+
+    float HT_1 = 0;
+    float HT_2 = 0;
+    float HT_3 = 0;
+    float HT_4 = 0;
+    int phi_values = 32; // 2*M_PI/0.4 = 15.7
+    vector<float> prod_sum(phi_values, 0.0);
+    for( unsigned int iseljet = 0; iseljet < selectedJet.size(); ++iseljet ){
+        int ijet = selectedJet.at(iseljet);
+        if(iseljet < 1) HT_1 += Jet_pt[ijet];
+        if(iseljet < 2) HT_2 += Jet_pt[ijet];
+        if(iseljet < 3) HT_3 += Jet_pt[ijet];
+        if(iseljet < 4) HT_4 += Jet_pt[ijet];
+
+        TLorentzVector Jet;
+        Jet.SetPtEtaPhiE(Jet_pt[ijet], Jet_eta[ijet], Jet_phi[ijet], 0);
+        for( unsigned int iphi = 0; iphi < phi_values; ++iphi ) {
+            float phi = 2*M_PI*(iphi/phi_values);
+            float n_x = cos(phi);
+            float n_y = sin(phi);
+            prod_sum.at(iphi) += abs(Jet.Px()*n_x + Jet.Py()*n_y);
+        }
+    }
+
+    if( HT > 0 ){
+        RT_1 = HT_1/HT;
+        RT_2 = HT_2/HT;
+        RT_3 = HT_3/HT;
+        RT_4 = HT_4/HT;
+        int id_max = max_element(prod_sum.begin(), prod_sum.end()) - prod_sum.begin();
+        float TT = prod_sum.at(id_max)/HT; //transverse thrust
+        tauT = 1 - TT;
+    }else{
+        RT_1 = 0;
+        RT_2 = 0;
+        RT_3 = 0;
+        RT_4 = 0;
+        tauT = 0;
+    }
+
+}

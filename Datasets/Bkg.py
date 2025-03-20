@@ -79,28 +79,12 @@ for period,path in zip(periods,paths):
     ]
 
     ResidualSM = [
-        ["WtoLNu_0J_"+period]              + [year+'1800'+dti, path+"WtoLNu_0J.txt"],
-        ["WtoLNu_1J_"+period]              + [year+'1800'+dti, path+"WtoLNu_1J.txt"],
-        ["WtoLNu_2J_"+period]              + [year+'1800'+dti, path+"WtoLNu_2J.txt"],
-        ["WplusH_Hto2B_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2B_Wto2Q.txt"],
-        ["WplusH_Hto2B_WtoLNu_"+period]    + [year+'1800'+dti, path+"WplusH_Hto2B_WtoLNu.txt"],
-        ["WplusH_Hto2C_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2C_Wto2Q.txt"],
-        ["WplusH_Hto2C_WtoLNu_"+period]    + [year+'1800'+dti, path+"WplusH_Hto2C_WtoLNu.txt"],
-        ["WplusHtoInv_Wto2Q_"+period]      + [year+'1800'+dti, path+"WplusHtoInv_Wto2Q.txt"],
-        ["WminusH_Hto2B_Wto2Q_"+period]    + [year+'1800'+dti, path+"WminusH_Hto2B_Wto2Q.txt"],
-        ["WminusH_Hto2B_WtoLNu_"+period]   + [year+'1800'+dti, path+"WminusH_Hto2B_WtoLNu.txt"],
-        ["WminusH_Hto2C_Wto2Q_"+period]    + [year+'1800'+dti, path+"WminusH_Hto2C_Wto2Q.txt"],
-        ["WminusH_Hto2C_WtoLNu_"+period]   + [year+'1800'+dti, path+"WminusH_Hto2C_WtoLNu.txt"],
-        ["WminusHtoInv_Wto2Q_"+period]     + [year+'1800'+dti, path+"WminusHtoInv_Wto2Q.txt"],
         ["WWW_"+period]                    + [year+'1800'+dti, path+"WWW.txt"],
         ["WWZ_"+period]                    + [year+'1800'+dti, path+"WWZ.txt"],
         ["WZZ_"+period]                    + [year+'1800'+dti, path+"WZZ.txt"],
         ["ZZZ_"+period]                    + [year+'1800'+dti, path+"ZZZ.txt"],
-        ["ZH_Hto2B_Zto2L_"+period]         + [year+'1800'+dti, path+"ZH_Hto2B_Zto2L.txt"],
-        ["ZH_Hto2B_Zto2Q_"+period]         + [year+'1800'+dti, path+"ZH_Hto2B_Zto2Q.txt"],
-        ["ZH_Hto2C_Zto2L_"+period]         + [year+'1800'+dti, path+"ZH_Hto2C_Zto2L.txt"],
-        ["ZH_Hto2C_Zto2Q_"+period]         + [year+'1800'+dti, path+"ZH_Hto2C_Zto2Q.txt"],
-        ["ZHtoInv_Zto2Q_"+period]          + [year+'1800'+dti, path+"ZHtoInv_Zto2Q.txt"],
+        ["ttHto2B_"+period]                + [year+'1815'+dti, path+"ttHto2B.txt"],
+        ["ttHto2C_"+period]                + [year+'1815'+dti, path+"ttHto2C.txt"],
     ]    
 
     ST = [
@@ -116,7 +100,7 @@ for period,path in zip(periods,paths):
         ["TbarWplustoLNu2Q_"+period]         + [year+'1800'+dti, path+"TbarWplustoLNu2Q.txt"],
     ]
 
-    Bkg_4b = [
+    QCD = [
         ["QCD_PT-15to30_"+period]          + [year+'1800'+dti, path+"QCD_PT-15to30.txt"],
         ["QCD_PT-30to50_"+period]          + [year+'1802'+dti, path+"QCD_PT-30to50.txt"],
         ["QCD_PT-50to80_"+period]          + [year+'1803'+dti, path+"QCD_PT-50to80.txt"],
@@ -133,11 +117,12 @@ for period,path in zip(periods,paths):
         ["QCD_PT-2400to3200_"+period]      + [year+'1814'+dti, path+"QCD_PT-2400to3200.txt"],
         ["QCD_PT-3200_"+period]            + [year+'1814'+dti, path+"QCD_PT-3200.txt"],
         # ["QCD_PT-3200toInf_"+period]       + [year+'1815'+dti, path+"QCD_PT-3200toInf.txt"],
-        ["ttHto2B_"+period]                + [year+'1815'+dti, path+"ttHto2B.txt"],
-        ["ttHto2C_"+period]                + [year+'1815'+dti, path+"ttHto2C.txt"],
     ]
 
-    Wto2Q = [
+    WJets = [
+        ["WtoLNu_0J_"+period]              + [year+'1800'+dti, path+"WtoLNu_0J.txt"],
+        #["WtoLNu_1J_"+period]              + [year+'1800'+dti, path+"WtoLNu_1J.txt"],
+        #["WtoLNu_2J_"+period]              + [year+'1800'+dti, path+"WtoLNu_2J.txt"],
         ["Wto2Q_PTQQ-100to200_1J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-100to200_1J.txt"],
         ["Wto2Q_PTQQ-100to200_2J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-100to200_2J.txt"],
         ["Wto2Q_PTQQ-200to400_1J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-200to400_1J.txt"],
@@ -146,9 +131,6 @@ for period,path in zip(periods,paths):
         ["Wto2Q_PTQQ-400to600_2J_"+period]     + [year+'1800'+dti, path+"Wto2Q_PTQQ-400to600_2J.txt"],
         ["Wto2Q_PTQQ-600_1J_"+period]          + [year+'1800'+dti, path+"Wto2Q_PTQQ-600_1J.txt"],
         ["Wto2Q_PTQQ-600_2J_"+period]          + [year+'1800'+dti, path+"Wto2Q_PTQQ-600_2J.txt"],
-    ]
-
-    WtoLNu = [
         ["WtoLNu_PTLNu-100to200_1J_"+period]   + [year+'1800'+dti, path+"WtoLNu_PTLNu-100to200_1J.txt"],
         ["WtoLNu_PTLNu-100to200_2J_"+period]   + [year+'1800'+dti, path+"WtoLNu_PTLNu-100to200_2J.txt"],
         ["WtoLNu_PTLNu-200to400_1J_"+period]   + [year+'1800'+dti, path+"WtoLNu_PTLNu-200to400_1J.txt"],
@@ -161,7 +143,7 @@ for period,path in zip(periods,paths):
         ["WtoLNu_PTLNu-600_2J_"+period]        + [year+'1800'+dti, path+"WtoLNu_PTLNu-600_2J.txt"],
     ]
 
-    VZ = [
+    Diboson = [
         ["WWto4Q_"+period]     + [year+'1800'+dti, path+"WWto4Q.txt"],
         ["WWtoLNu2Q_"+period]     + [year+'1800'+dti, path+"WWtoLNu2Q.txt"],
         ["WZto2L2Q_"+period]     + [year+'1800'+dti, path+"WZto2L2Q.txt"],
@@ -170,9 +152,25 @@ for period,path in zip(periods,paths):
         ["ZZto2L2Nu_"+period]    + [year+'1800'+dti, path+"ZZto2L2Nu.txt"],
         ["ZZto2L2Q_"+period]     + [year+'1800'+dti, path+"ZZto2L2Q.txt"],
         ["ZZto2Nu2Q_"+period]    + [year+'1800'+dti, path+"ZZto2Nu2Q.txt"],  
+        ["WplusH_Hto2B_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2B_Wto2Q.txt"],
+        ["WplusH_Hto2B_WtoLNu_"+period]    + [year+'1800'+dti, path+"WplusH_Hto2B_WtoLNu.txt"],
+        ["WplusH_Hto2C_Wto2Q_"+period]     + [year+'1800'+dti, path+"WplusH_Hto2C_Wto2Q.txt"],
+        ["WplusH_Hto2C_WtoLNu_"+period]    + [year+'1800'+dti, path+"WplusH_Hto2C_WtoLNu.txt"],
+        ["WminusH_Hto2B_Wto2Q_"+period]    + [year+'1800'+dti, path+"WminusH_Hto2B_Wto2Q.txt"],
+        ["WminusH_Hto2B_WtoLNu_"+period]   + [year+'1800'+dti, path+"WminusH_Hto2B_WtoLNu.txt"],
+        ["WminusH_Hto2C_Wto2Q_"+period]    + [year+'1800'+dti, path+"WminusH_Hto2C_Wto2Q.txt"],
+        ["WminusH_Hto2C_WtoLNu_"+period]   + [year+'1800'+dti, path+"WminusH_Hto2C_WtoLNu.txt"],
+        ["ZH_Hto2B_Zto2L_"+period]         + [year+'1800'+dti, path+"ZH_Hto2B_Zto2L.txt"],
+        ["ZH_Hto2B_Zto2Q_"+period]         + [year+'1800'+dti, path+"ZH_Hto2B_Zto2Q.txt"],
+        ["ZH_Hto2C_Zto2L_"+period]         + [year+'1800'+dti, path+"ZH_Hto2C_Zto2L.txt"],
+        ["ZH_Hto2C_Zto2Q_"+period]         + [year+'1800'+dti, path+"ZH_Hto2C_Zto2Q.txt"],
+        ["ZH_Hto2B_Zto2Nu_"+period]        + [year+'1800'+dti, path+"ZH_Hto2B_Zto2Nu.txt"],
+        ["ZH_Hto2C_Zto2Nu_"+period]        + [year+'1800'+dti, path+"ZH_Hto2C_Zto2Nu.txt"],
+        ["ZHto2Zto4Nu_Zto2Q_"+period]      + [year+'1800'+dti, path+"ZHto2Zto4Nu_Zto2Q.txt"],
+
     ]
 
-    Zto2Nu = [
+    ZJets = [
         ["Zto2Nu_PTNuNu-100to200_1J_"+period]   + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-100to200_1J.txt"],
         ["Zto2Nu_PTNuNu-100to200_2J_"+period]   + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-100to200_2J.txt"],
         ["Zto2Nu_PTNuNu-200to400_2J_"+period]   + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-200to400_2J.txt"],
@@ -183,9 +181,6 @@ for period,path in zip(periods,paths):
         ["Zto2Nu_PTNuNu-40to100_2J_"+period]    + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-40to100_2J.txt"],
         ["Zto2Nu_PTNuNu-600_1J_"+period]        + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-600_1J.txt"],
         ["Zto2Nu_PTNuNu-600_2J_"+period]        + [year+'1800'+dti, path+"Zto2Nu_PTNuNu-600_2J.txt"],
-    ]    
-    
-    Zto2Q = [
         ["Zto2Q_PTQQ-100to200_1J_"+period]    + [year+'1800'+dti, path+"Zto2Q_PTQQ-100to200_1J.txt"],
         ["Zto2Q_PTQQ-100to200_2J_"+period]    + [year+'1800'+dti, path+"Zto2Q_PTQQ-100to200_2J.txt"],
         ["Zto2Q_PTQQ-200to400_1J_"+period]    + [year+'1800'+dti, path+"Zto2Q_PTQQ-200to400_1J.txt"],
@@ -194,50 +189,42 @@ for period,path in zip(periods,paths):
         ["Zto2Q_PTQQ-400to600_2J_"+period]    + [year+'1800'+dti, path+"Zto2Q_PTQQ-400to600_2J.txt"],
         ["Zto2Q_PTQQ-600_1J_"+period]         + [year+'1800'+dti, path+"Zto2Q_PTQQ-600_1J.txt"],
         ["Zto2Q_PTQQ-600_2J_"+period]         + [year+'1800'+dti, path+"Zto2Q_PTQQ-600_2J.txt"],
-    ]
+    ]    
 
     if period == "0_22":
-        Bkg_4b_0_22 = Bkg_4b
+        QCD_0_22 = QCD
         ResidualSM_0_22 = ResidualSM
         TT_0_22 = TT
-        Wto2Q_0_22 = Wto2Q
-        WtoLNu_0_22 = WtoLNu
-        VZ_0_22 = VZ
-        Zto2Nu_0_22 = Zto2Nu
-        Zto2Q_0_22 = Zto2Q
+        WJets_0_22 = WJets
+        Diboson_0_22 = Diboson
+        ZJets_0_22 = ZJets
         ST_0_22 = ST
         DY_0_22 = DY
     elif period == "1_22":
-        Bkg_4b_1_22 = Bkg_4b
+        QCD_1_22 = QCD
         ResidualSM_1_22 = ResidualSM
         TT_1_22 = TT
-        Wto2Q_1_22 = Wto2Q
-        WtoLNu_1_22 = WtoLNu
-        VZ_1_22 = VZ
-        Zto2Nu_1_22 = Zto2Nu
-        Zto2Q_1_22 = Zto2Q
+        WJets_1_22 = WJets
+        Diboson_1_22 = Diboson
+        ZJets_1_22 = ZJets
         ST_1_22 = ST
         DY_1_22 = DY
     elif period == "0_23":
-        Bkg_4b_0_23 = Bkg_4b
+        QCD_0_23 = QCD
         ResidualSM_0_23 = ResidualSM
         TT_0_23 = TT
-        Wto2Q_0_23 = Wto2Q
-        WtoLNu_0_23 = WtoLNu
-        VZ_0_23 = VZ
-        Zto2Nu_0_23 = Zto2Nu
-        Zto2Q_0_23 = Zto2Q
+        WJets_0_23 = WJets
+        Diboson_0_23 = Diboson
+        ZJets_0_23 = ZJets
         ST_0_23 = ST
         DY_0_23 = DY
     elif period == "1_23":
-        Bkg_4b_1_23 = Bkg_4b
+        QCD_1_23 = QCD
         ResidualSM_1_23 = ResidualSM
         TT_1_23 = TT
-        Wto2Q_1_23 = Wto2Q
-        WtoLNu_1_23 = WtoLNu
-        VZ_1_23 = VZ
-        Zto2Nu_1_23 = Zto2Nu
-        Zto2Q_1_23 = Zto2Q
+        WJets_1_23 = WJets
+        Diboson_1_23 = Diboson
+        ZJets_1_23 = ZJets
         ST_1_23 = ST
         DY_1_23 = DY
 

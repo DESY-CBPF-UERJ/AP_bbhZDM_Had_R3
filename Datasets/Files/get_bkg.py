@@ -49,6 +49,9 @@ if os.path.isdir(basedir) is False:
     os.makedirs(basedir)
 
 datasets = [
+["ZH_Hto2B_Zto2Nu",             "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
+["ZH_Hto2C_Zto2Nu",             "/ZH_Hto2C_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
+["ZHto2Zto4Nu_Zto2Q",           "/ZHto2Zto4Nu_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
 ["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
 ["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
 ["DYto2L-2Jets_MLL-50",         "/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
