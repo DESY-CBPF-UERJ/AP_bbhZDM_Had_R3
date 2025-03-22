@@ -408,7 +408,7 @@ void HEPHero::FatjetSelection(){
     // for( unsigned int iseljet = 0; iseljet < selectedJet.size(); ++iseljet ) {
     //     int ijet = selectedJet[iseljet];
     //     if( JetBTAG( ijet, JET_BTAG_WP ) ){
-    //         float fatjet_b_deltaEta = abs(FatJet_eta - Jet_eta[ijet]);
+    //         float FatJet_b_deltaEta = abs(FatJet_eta - Jet_eta[ijet]);
     //         if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
     //     }
     // }
