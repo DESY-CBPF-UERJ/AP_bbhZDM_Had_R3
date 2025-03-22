@@ -19,7 +19,7 @@ bool HEPHero::TauVSEletronID( int iobj, int WP ){
     else if( WP == 3 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 3);    //VLoose
     else if( WP == 4 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 4);    //Loose
     else if( WP == 5 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 5);    //Medium
-    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 6);    //Tight             
+    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 6);    //Tight
     else if( WP == 7 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 7);    //VTight
     else if( WP == 8 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSe[iobj] >= 8);    //VVTight
 
@@ -39,7 +39,7 @@ bool HEPHero::TauVSJetID( int iobj, int WP ){
     else if( WP == 3 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 3);    //VLoose
     else if( WP == 4 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 4);    //Loose
     else if( WP == 5 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 5);    //Medium
-    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 6);    //Tight             
+    else if( WP == 6 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 6);    //Tight
     else if( WP == 7 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 7);    //VTight
     else if( WP == 8 ) obj_selected = ((int)Tau_idDeepTau2018v2p5VSjet[iobj] >= 8);    //VVTight
 

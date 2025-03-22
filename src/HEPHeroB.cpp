@@ -40,7 +40,7 @@ void HEPHero::FillControlVariables( string key, string value){
     // if( key == "Z_recoil"                   )   Z_recoil_file = value;
     // if( key == "NN_prep_keras"              )   preprocessing_keras_file = value;
     // if( key == "NN_model_keras"             )   model_keras_file = value;
-    // if( key == "NN_model_torch"             )   model_torch_file = value;
+    if( key == "NN_model"                      )   NN_model_file = value;
 
     //----SELECTION--------------------------------------------------------------------------------------
     if( key == "JET_ETA_CUT"                )   JET_ETA_CUT = atof(value.c_str());
@@ -582,9 +582,6 @@ bool HEPHero::MC_processing(){
 void HEPHero::SetupAna(){
     if( false );
     else if( _SELECTION == "Test" ) SetupTest();
-    else if( _SELECTION == "Test_Electron_ID" ) SetupTest_Electron_ID();
-    else if( _SELECTION == "massParticlesWeights" ) SetupmassParticlesWeights();
-    else if( _SELECTION == "TestMatheus" ) SetupTestMatheus();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -595,9 +592,6 @@ void HEPHero::SetupAna(){
 bool HEPHero::AnaRegion(){
     bool Selected = true;
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
-    if( _SELECTION == "Test_Electron_ID" && !Test_Electron_IDRegion() ) Selected = false;
-    if( _SELECTION == "massParticlesWeights" && !massParticlesWeightsRegion() ) Selected = false;
-    if( _SELECTION == "TestMatheus" && !TestMatheusRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -605,25 +599,16 @@ bool HEPHero::AnaRegion(){
 
 void HEPHero::AnaSelection(){
     if( _SELECTION == "Test" ) TestSelection();
-    if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSelection();
-    if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSelection();
-    if( _SELECTION == "TestMatheus" ) TestMatheusSelection();
     // CALL YOUR SELECTION HERE
 }
 
 void HEPHero::AnaSystematic(){
     if( _SELECTION == "Test" ) TestSystematic();
-    if( _SELECTION == "Test_Electron_ID" ) Test_Electron_IDSystematic();
-    if( _SELECTION == "massParticlesWeights" ) massParticlesWeightsSystematic();
-    if( _SELECTION == "TestMatheus" ) TestMatheusSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
 void HEPHero::FinishAna(){
     if( _SELECTION == "Test" ) FinishTest();
-    if( _SELECTION == "Test_Electron_ID" ) FinishTest_Electron_ID();
-    if( _SELECTION == "massParticlesWeights" ) FinishmassParticlesWeights();
-    if( _SELECTION == "TestMatheus" ) FinishTestMatheus();
     // FINISH YOUR SELECTION HERE
 }
    

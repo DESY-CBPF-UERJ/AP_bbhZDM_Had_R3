@@ -408,7 +408,7 @@ void HEPHero::FatjetSelection(){
     // for( unsigned int iseljet = 0; iseljet < selectedJet.size(); ++iseljet ) {
     //     int ijet = selectedJet[iseljet];
     //     if( JetBTAG( ijet, JET_BTAG_WP ) ){
-    //         float FatJet_b_deltaEta = abs(FatJet_eta - Jet_eta[ijet]);
+    //         float fatjet_b_deltaEta = abs(FatJet_eta - Jet_eta[ijet]);
     //         if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
     //     }
     // }
@@ -500,9 +500,9 @@ bool HEPHero::Trigger(){
 
 
 
-//---------------------------------------------------------------------------------------------------------------
-// Jet angular variables
-//---------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+// Get angular variables
+//-------------------------------------------------------------------------------------------------
 void HEPHero::Get_Jet_Angular_Variables( int pt_cut ){
 
     if( (pt_cut != 20) && (pt_cut != 30) && (pt_cut != 40) ){
@@ -575,7 +575,7 @@ void HEPHero::Get_Jet_Angular_Variables( int pt_cut ){
 
 
 //-------------------------------------------------------------------------------------------------
-// Jet shape variables [https://arxiv.org/abs/1102.4785]
+// Get shape variables [https://arxiv.org/abs/1102.4785]
 //-------------------------------------------------------------------------------------------------
 void HEPHero::Get_Jet_Shape_Variables(){
 
@@ -617,5 +617,40 @@ void HEPHero::Get_Jet_Shape_Variables(){
         RT_4 = 0;
         tauT = 0;
     }
+
+}
+
+
+//-------------------------------------------------------------------------------------------------
+// Get Signal Taggers
+//-------------------------------------------------------------------------------------------------
+void HEPHero::Get_Signal_Taggers(){
+    float floatC = 1.;
+
+    float fatjet_pt = FatJet_pt[selectedFatJet.at(0)];
+    float fatjet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
+    float fatjet_nConstituents = FatJet_nConstituents[selectedFatJet.at(0)];
+    float fatjet_WM_HbbvsQCD = FatJet_particleNetWithMass_HbbvsQCD[selectedFatJet.at(0)];
+    float fatjet_WM_HccvsQCD = FatJet_particleNetWithMass_HccvsQCD[selectedFatJet.at(0)];
+    float fatjet_WM_QCD = FatJet_particleNetWithMass_QCD[selectedFatJet.at(0)];
+    float fatjet_WM_TvsQCD = FatJet_particleNetWithMass_TvsQCD[selectedFatJet.at(0)];
+    float fatjet_WM_WvsQCD = FatJet_particleNetWithMass_WvsQCD[selectedFatJet.at(0)];
+    float fatjet_WM_ZvsQCD = FatJet_particleNetWithMass_ZvsQCD[selectedFatJet.at(0)];
+    float fatjet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(0)];
+    float fatjet_XccVsQCD = FatJet_particleNet_XccVsQCD[selectedFatJet.at(0)];
+    float fatjet_XggVsQCD = FatJet_particleNet_XggVsQCD[selectedFatJet.at(0)];
+    float fatjet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(0)];
+    float fatjet_XttVsQCD = FatJet_particleNet_XttVsQCD[selectedFatJet.at(0)];
+
+    vector<vector<float>> inputTensorValues = {{OmegaMin, Nbjets*floatC, HT, FMax, MHT, MET_pt, MDT, MET_FatJet_deltaPhi, MET_FatJet_Mt, RT_1, RT_3, tauT, fatjet_pt, fatjet_msoftdrop, fatjet_nConstituents*floatC, fatjet_WM_HbbvsQCD, fatjet_WM_HccvsQCD, fatjet_WM_QCD, fatjet_WM_TvsQCD, fatjet_WM_WvsQCD, fatjet_WM_ZvsQCD, fatjet_XbbVsQCD, fatjet_XccVsQCD, fatjet_XggVsQCD, fatjet_XqqVsQCD, fatjet_XttVsQCD}};
+    vector<vector<int64_t>> inputTensorDims = {{1, 26}};
+    const char* inputNames[] = {"features"};
+
+    vector<vector<float>> outputTensorValues = {{999., 999.}};
+    vector<vector<int64_t>> outputTensorDims = {{1, 2}};
+    const char* outputNames[] = {"output"};
+
+    vector<float> signal_tag_vec = signal_tagger.predict(inputNames, inputTensorValues, inputTensorDims, outputNames, outputTensorValues, outputTensorDims);
+    signal_tag = signal_tag_vec.at(0);
 
 }

@@ -4,9 +4,10 @@
 #include "HEPBase.h"
 #include "CMS.h"
 #include "ML.h"
-#include <vector>
-#include "TLorentzVector.h"
-
+//#include <vector>
+//#include "TLorentzVector.h"
+#include "onnxruntime_cxx_api.h"
+#include "onnx_model.h"
 
 
 using namespace std;
@@ -48,21 +49,6 @@ class HEPHero : public HEPBase {
         void TestSelection();
         void TestSystematic();
         void FinishTest();
-        void SetupTest_Electron_ID();
-        bool Test_Electron_IDRegion();
-        void Test_Electron_IDSelection();
-        void Test_Electron_IDSystematic();
-        void FinishTest_Electron_ID();
-        void SetupmassParticlesWeights();
-        bool massParticlesWeightsRegion();
-        void massParticlesWeightsSelection();
-        void massParticlesWeightsSystematic();
-        void FinishmassParticlesWeights();
-        void SetupTestMatheus();
-        bool TestMatheusRegion();
-        void TestMatheusSelection();
-        void TestMatheusSystematic();
-        void FinishTestMatheus();
         // INSERT YOUR SELECTION HERE
         
 
@@ -100,6 +86,7 @@ class HEPHero : public HEPBase {
         bool JetBTAG( int iobj, int WP );
         void Get_Jet_Angular_Variables( int pt_cut = 20 );
         void Get_Jet_Shape_Variables();
+        void Get_Signal_Taggers();
         void JetSelection();
         void FatjetSelection();
         vector<float> SoftmaxHEP( vector<float> input_vec );
@@ -264,7 +251,7 @@ class HEPHero : public HEPBase {
         float MET_LEPLEP_DPHI_CUT;
         float MET_LEPLEP_MT_CUT;
        
-	float OMEGA_CUT;
+	    float OMEGA_CUT;
 
 
 
@@ -353,6 +340,10 @@ class HEPHero : public HEPBase {
         float RT_3;
         float RT_4;
         float tauT;
+
+        ONNX_MODEL signal_tagger;
+        float signal_tag;
+        string NN_model_file;
 
         int IdxBestMu;
         int IdxBestTau;

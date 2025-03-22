@@ -9,7 +9,8 @@
 //-------------------------------------------------------------------------------------------------
 namespace Test{
 
-    //int variable1Name;   [example]
+    float FatJet_pt;
+    float FatJet_msoftdrop;
 }
 
 
@@ -19,7 +20,13 @@ namespace Test{
 void HEPHero::SetupTest() {
 
     //======SETUP CUTFLOW==========================================================================
-    //_cutFlow.insert(pair<string,double>("CutName", 0) );   [example]
+    _cutFlow.insert(pair<string,double>("00_Leptons_equal_0", 0) );
+    _cutFlow.insert(pair<string,double>("01_NbJets_more_0", 0) );
+    _cutFlow.insert(pair<string,double>("02_MET_PT_more_200_and_MHT_more_200", 0) );
+    _cutFlow.insert(pair<string,double>("03_NfatJets_more_0", 0) );
+    _cutFlow.insert(pair<string,double>("04_LeadingFatPt_more_200", 0) );
+    _cutFlow.insert(pair<string,double>("05_Omega_more_0p3", 0) );
+    _cutFlow.insert(pair<string,double>("06_Signal_like_events", 0) );
 
     //======SETUP HISTOGRAMS=======================================================================
     //makeHist( "histogram1DName", 40, 0., 40., "xlabel", "ylabel" );   [example]
@@ -34,106 +41,31 @@ void HEPHero::SetupTest() {
     //_outputTree->Branch("variable1NameInTheTree", &Test::variable1Name );  [example]
 
     //======SETUP INFORMATION IN OUTPUT HDF5 FILE==================================================
-    //HDF_insert("variable1NameInTheTree", &Test::variable1Name );  [example]
-    // HDF_insert("JetMass", &weights::JetMass);
-
-    
-
-    HDF_insert("event", &event);
-   
     HDF_insert("Nelectrons", &Nelectrons);
     HDF_insert("Nmuons", &Nmuons);
     HDF_insert("Ntaus", &Ntaus);
     HDF_insert("Nleptons", &Nleptons);
 
-    //  TODO: Samples DR - SingleTop - TTbar fullyleptonnic
-    //  TODO: Explore other Fat Jets variables
-
     HDF_insert("NfatJets", &NfatJets);
-    HDF_insert("LeadingFatJet_jetId", &LeadingFatJet_jetId);
-    HDF_insert("SubLeadingFatJet_jetId", &SubLeadingFatJet_jetId);
-    HDF_insert("ThirdLeadingFatJet_jetId", &ThirdLeadingFatJet_jetId);
-    HDF_insert("FourthLeadingFatJet_jetId", &FourthLeadingFatJet_jetId);
-    HDF_insert("LeadingFatJet_pt", &LeadingFatJet_pt);
-    HDF_insert("SubLeadingFatJet_pt", &SubLeadingFatJet_pt);
-    HDF_insert("ThirdLeadingFatJet_pt", &ThirdLeadingFatJet_pt);
-    HDF_insert("FourthLeadingFatJet_pt", &FourthLeadingFatJet_pt);
-    HDF_insert("LeadingFatJet_mass", &LeadingFatJet_mass);
-    HDF_insert("SubLeadingFatJet_mass", &SubLeadingFatJet_mass);
-    HDF_insert("ThirdLeadingFatJet_mass", &ThirdLeadingFatJet_mass);
-    HDF_insert("FourthLeadingFatJet_mass", &FourthLeadingFatJet_mass);
-    HDF_insert("LeadingFatJet_XbbVsQCD", &LeadingFatJet_XbbVsQCD);
-    HDF_insert("SubLeadingFatJet_XbbVsQCD", &SubLeadingFatJet_XbbVsQCD);
-    HDF_insert("ThirdLeadingFatJet_XbbVsQCD", &ThirdLeadingFatJet_XbbVsQCD);
-    HDF_insert("FourthLeadingFatJet_XbbVsQCD", &FourthLeadingFatJet_XbbVsQCD);
-    HDF_insert("LeadingFatJet_XccVsQCD", &LeadingFatJet_XccVsQCD);
-    HDF_insert("SubLeadingFatJet_XccVsQCD", &SubLeadingFatJet_XccVsQCD);
-    HDF_insert("ThirdLeadingFatJet_XccVsQCD", &ThirdLeadingFatJet_XccVsQCD);
-    HDF_insert("FourthLeadingFatJet_XccVsQCD", &FourthLeadingFatJet_XccVsQCD);
-    HDF_insert("LeadingFatJet_XggVsQCD", &LeadingFatJet_XggVsQCD);
-    HDF_insert("SubLeadingFatJet_XggVsQCD", &SubLeadingFatJet_XggVsQCD);
-    HDF_insert("ThirdLeadingFatJet_XggVsQCD", &ThirdLeadingFatJet_XggVsQCD);
-    HDF_insert("FourthLeadingFatJet_XggVsQCD", &FourthLeadingFatJet_XggVsQCD);
-    HDF_insert("LeadingFatJet_XqqVsQCD", &LeadingFatJet_XqqVsQCD);
-    HDF_insert("SubLeadingFatJet_XqqVsQCD", &SubLeadingFatJet_XqqVsQCD);
-    HDF_insert("ThirdLeadingFatJet_XqqVsQCD", &ThirdLeadingFatJet_XqqVsQCD);
-    HDF_insert("FourthLeadingFatJet_XqqVsQCD", &FourthLeadingFatJet_XqqVsQCD);
-    HDF_insert("LeadingFatJet_msoftdrop", &LeadingFatJet_msoftdrop);
-    HDF_insert("SubLeadingFatJet_msoftdrop", &SubLeadingFatJet_msoftdrop);
-    HDF_insert("ThirdLeadingFatJet_msoftdrop", &ThirdLeadingFatJet_msoftdrop);
-    HDF_insert("FourthLeadingFatJet_msoftdrop", &FourthLeadingFatJet_msoftdrop);
-    HDF_insert("LeadingFatJet_massCorr", &LeadingFatJet_massCorr);
-    HDF_insert("SubLeadingFatJet_massCorr", &SubLeadingFatJet_massCorr);
-    HDF_insert("ThirdLeadingFatJet_massCorr", &ThirdLeadingFatJet_massCorr);
-    HDF_insert("FourthLeadingFatJet_massCorr", &FourthLeadingFatJet_massCorr);
-    HDF_insert("LeadingFatJet_ZvsQCD", &LeadingFatJet_ZvsQCD);
-    HDF_insert("SubLeadingFatJet_ZvsQCD", &SubLeadingFatJet_ZvsQCD);
-    HDF_insert("ThirdLeadingFatJet_ZvsQCD", &ThirdLeadingFatJet_ZvsQCD);
-    HDF_insert("FourthLeadingFatJet_ZvsQCD", &FourthLeadingFatJet_ZvsQCD);
-
-    HDF_insert("MET_FatJet_Mt", &MET_FatJet_Mt);
-    HDF_insert("MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi);
-
-    HDF_insert("nJet", &nJet);
-    
-
-    
-    HDF_insert("Njets", &Njets);
-    HDF_insert("Nbjets", &Nbjets);
-    HDF_insert("LeadingJet_pt", &LeadingJet_pt);
-    HDF_insert("SubLeadingJet_pt", &SubLeadingJet_pt);
-    HDF_insert("ThirdLeadingJet_pt", &ThirdLeadingJet_pt);
-    HDF_insert("FourthLeadingJet_pt", &FourthLeadingJet_pt);
-    HDF_insert("LeadingJet_jetId", &LeadingJet_jetId);
-    HDF_insert("SubLeadingJet_jetId", &SubLeadingJet_jetId);
-    HDF_insert("ThirdLeadingJet_jetId", &ThirdLeadingJet_jetId);
-    HDF_insert("FourthLeadingJet_jetId", &FourthLeadingJet_jetId);
-    HDF_insert("LeadingJet_mass", &LeadingJet_mass);
-    HDF_insert("SubLeadingJet_mass", &SubLeadingJet_mass);
-    HDF_insert("ThirdLeadingJet_mass", &ThirdLeadingJet_mass);
-    HDF_insert("FourthLeadingJet_mass", &FourthLeadingJet_mass);
-
-    HDF_insert("OmegaMin",&OmegaMin);
     HDF_insert("FatJet_b_max_deltaEta",&FatJet_b_max_deltaEta);
-    HDF_insert("hadronic_channel",&hadronic_channel);
     
-    // HDF_insert("LeadingLep_pt", &LeadingLep_pt);
-    // HDF_insert("LeadingLep_eta", &LeadingLep_eta);
-    // HDF_insert("TrailingLep_pt", &TrailingLep_pt);
-    // HDF_insert("TrailingLep_eta", &TrailingLep_eta);
+    HDF_insert("Nbjets", &Nbjets);
+    HDF_insert("HT", &HT);
+    HDF_insert("OmegaMin", &OmegaMin);
+    HDF_insert("FMax", &FMax);
     HDF_insert("MHT", &MHT);
-    
-    HDF_insert("GenMET_phi", &GenMET_phi);
-    HDF_insert("GenMET_pt", &GenMET_pt);
-
-    HDF_insert("MET_phi", &MET_phi);
     HDF_insert("MET_pt", &MET_pt);
+    HDF_insert("MDT", &MDT);
+    HDF_insert("MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi);
+    HDF_insert("MET_FatJet_Mt", &MET_FatJet_Mt);
+    HDF_insert("RT_1", &RT_1);
+    HDF_insert("RT_3", &RT_3);
+    HDF_insert("tauT", &tauT);
 
-    HDF_insert("PuppiMET_phi", &PuppiMET_phi);
-    HDF_insert("PuppiMET_pt", &PuppiMET_pt);
+    HDF_insert("FatJet_pt", &Test::FatJet_pt);
+    HDF_insert("FatJet_msoftdrop", &Test::FatJet_msoftdrop);
 
-    HDF_insert("RawMET_phi", &RawMET_phi);
-    HDF_insert("RawMET_pt", &RawMET_pt);
+    HDF_insert("signal_tag", &signal_tag);
 
     return;
 }
@@ -144,11 +76,45 @@ void HEPHero::SetupTest() {
 //-------------------------------------------------------------------------------------------------
 bool HEPHero::TestRegion() {
 
-    // if( !Trigger() ) return false;
     LeptonSelection();
+
+    if (!(Nleptons==0) ) return false;
+    _cutFlow.at("00_Leptons_equal_0") += evtWeight;
+
     JetSelection();
+
+    if ( !(Nbjets>0) ) return false;
+    _cutFlow.at("01_NbJets_more_0") += evtWeight;
+
+    if (!(MET_pt > 200 && MHT > 200) ) return false;
+    _cutFlow.at("02_MET_PT_more_200_and_MHT_more_200") += evtWeight;
+
     FatjetSelection();
+
+    if ( !(NfatJets>0) ) return false;
+    _cutFlow.at("03_NfatJets_more_0") += evtWeight;
+
+    if ( !(LeadingFatJet_pt>200) ) return false;
+    _cutFlow.at("04_LeadingFatPt_more_200") += evtWeight;
+
     Get_Jet_Angular_Variables();
+
+    if ( !(OmegaMin>OMEGA_CUT) ) return false;
+    _cutFlow.at("05_Omega_more_0p3") += evtWeight;
+
+    Get_Jet_Shape_Variables();
+    Get_Signal_Taggers();
+
+    if ( !(signal_tag>0.6) ) return false;
+    _cutFlow.at("06_Signal_like_events") += evtWeight;
+
+    Weight_corrections();
+
+    Test::FatJet_pt = FatJet_pt[selectedFatJet.at(0)];
+    Test::FatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
+
+
+
 
 
     //-------------------------------------------------------------------------

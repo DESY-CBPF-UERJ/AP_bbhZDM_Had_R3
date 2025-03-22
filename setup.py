@@ -79,21 +79,23 @@ periods = [
 datasets = [
 #"Data_MET",
 "Signal",
-"QCD",
-"ResidualSM",
-"TT",
-"WJets",
-"Diboson",
-"ZJets",
+#"QCD",
+#"ResidualSM",
 "ST",
-"DY",
+"TT",
+"Zto2Nu",
+"WtoLNu",
+"VV",
+"Vh",
+#"DY",
 ]
 
 
 #--------------------------------------------------------------------------------------------------
 # Metadata
 #--------------------------------------------------------------------------------------------------
-metadata = {       
+metadata = {
+"NN_model_X_XX         ": analysis+"/Metadata/ML/model.onnx",
 }
 
 

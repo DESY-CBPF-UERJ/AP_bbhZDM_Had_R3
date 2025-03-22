@@ -14,6 +14,8 @@ void HEPHero::PreRoutines() {
     _outputTree->Branch( "evtWeight", &evtWeight );
     HDF_insert( "evtWeight", &evtWeight );
 
+    signal_tagger.readFile(NN_model_file);
+
 }
 
 
