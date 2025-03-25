@@ -105,7 +105,7 @@ bool HEPHero::TestRegion() {
     Get_Jet_Shape_Variables();
     Get_Signal_Taggers();
 
-    if ( !(signal_tag>0.6) ) return false;
+    if ( !(signal_tag>0.8) ) return false;
     _cutFlow.at("06_Signal_like_events") += evtWeight;
 
     Weight_corrections();
