@@ -108,7 +108,7 @@ Zto2Nu_PTNuNu-40to100_1J                        929.8	            5.481		       
 Zto2Nu_PTNuNu-40to100_2J                        335.5	            3.49		        LO
 Zto2Nu_PTNuNu-100to200_1J                       86.38	            0.441		        LO
 Zto2Nu_PTNuNu-100to200_2J                       100.4	            0.8555		        LO
-Zto2Nu_PTNuNu-200to400                          6.354	            0.03067		        LO
+Zto2Nu_PTNuNu-200to400_1J                       6.354	            0.03067		        LO
 Zto2Nu_PTNuNu-200to400_2J                       13.86	            0.09802		        LO
 Zto2Nu_PTNuNu-400to600_1J                       0.2188	            0.0009573		    LO
 Zto2Nu_PTNuNu-400to600_2J                       0.7816	            0.005088		    LO
