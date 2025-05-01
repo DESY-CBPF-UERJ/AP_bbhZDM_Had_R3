@@ -1,8 +1,8 @@
 # Arquivos de conf do meu projeto
-ana/CMakeFiles/CMakeDirectoryInformation.cmake
+ana/CMakeFiles
 ana/Makefile
 ana/cmake_install.cmake
-src/CMakeFiles/CMakeDirectoryInformation.cmake
+src/CMakeFiles
 src/Makefile
 src/cmake_install.cmake
 ana/local_output/
