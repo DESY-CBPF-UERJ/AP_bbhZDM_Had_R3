@@ -14,6 +14,16 @@ campaign = "*"+args.tag+"*/NANOAODSIM"
 
 
 datasets = [
+"ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8",
+"ZH_Hto2C_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8",
+"ZHto2Zto4Nu_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8",
+"TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8",
+"TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8",
+"TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8",
+"TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8",
+"TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8",
+"TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8",
+"TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8",
 "QCD_PT-15to30_TuneCP5_13p6TeV_pythia8",
 "QCD_PT-30to50_TuneCP5_13p6TeV_pythia",
 "QCD_PT-50to80_TuneCP5_13p6TeV_pythia8",
@@ -52,8 +62,6 @@ datasets = [
 "ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8",
 "WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8",
 "WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8",
-"TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8",
-"TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8",
 "WWto4Q_TuneCP5_13p6TeV_powheg-pythia8",
 "WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8",
 "WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8",
