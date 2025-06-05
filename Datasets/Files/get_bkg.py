@@ -2,232 +2,224 @@ import os
 import sys
 import argparse
 
-
-#======SETUP=======================================================================================
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version")
 parser.add_argument("-p", "--period")
 args = parser.parse_args()
 
-dataset_code = args.period+"_"+args.version
+version = args.version
+period = args.period
 
-datasets_available = ["0_16_9", "1_16_9", "0_17_9", "0_18_9", "0_22_12", "1_22_12", "0_23_12", "1_23_12"]
-
-if dataset_code not in datasets_available:
-    print("There is no dataset for")
-    print("NanoAOD version = v"+args.version)
-    print("Year = 20"+args.period[-2:])
-    print("DTI = "+args.period[0])
-    print("Type a period and a version present in the list below in which the elements are formed as period_version.")
-    print(datasets_available)
-    sys.exit()
-
-
-if args.version == "9":
-    if args.period == "0_16":
-        campaign = "RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11"
-    elif args.period == "1_16":
-        campaign = "RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17"
-    elif args.period == "0_17":
-        campaign = "RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9"
-    elif args.period == "0_18":
-        campaign = "RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1"
-
-if args.version == "12":
-    if args.period == "0_22":
-        campaign = "Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5"
-    elif args.period == "1_22":
-        campaign = "Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6"
-    elif args.period == "0_23":
-        campaign = "Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14"
-    elif args.period == "1_23":
-        campaign = "Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2"
-
-
-basedir = "bkg_"+args.period[-2:]+"/dti_"+args.period[0]+"/v"+args.version+"/"
+basedir = "bkg_"+period[-2:]+"/dti_"+period[0]+"/v"+version+"/"
 if os.path.isdir(basedir) is False:
     os.makedirs(basedir)
 
+#==================================================================================================
+# Campaigns setup  (key = version_period)
+#==================================================================================================
+campaigns = {}
+campaigns["9_0_16"] = "RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11"
+campaigns["9_1_16"] = "RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17"
+campaigns["9_0_17"] = "RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9"
+campaigns["9_0_18"] = "RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1"
+campaigns["12_0_22"] = "Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5"
+campaigns["12_1_22"] = "Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6"
+campaigns["12_0_23"] = "Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14"
+campaigns["12_1_23"] = "Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2"
+
+
+#==================================================================================================
+# Datasets setup
+#==================================================================================================
 datasets = [
-["ZH_Hto2B_Zto2Nu",             "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["ZH_Hto2C_Zto2Nu",             "/ZH_Hto2C_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["ZHto2Zto4Nu_Zto2Q",           "/ZHto2Zto4Nu_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["DYto2L-2Jets_MLL-50",         "/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["DYto2E_MLL-10to50",           "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-50to120",          "/DYto2E_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-120to200",         "/DYto2E_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-200to400",         "/DYto2E_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-400to800",         "/DYto2E_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-800to1500",        "/DYto2E_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-1500to2500",       "/DYto2E_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-2500to4000",       "/DYto2E_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-4000to6000",       "/DYto2E_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2E_MLL-6000",             "/DYto2E_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-10to50",          "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-50to120",         "/DYto2Mu_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-120to200",        "/DYto2Mu_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-200to400",        "/DYto2Mu_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-400to800",        "/DYto2Mu_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-800to1500",       "/DYto2Mu_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-1500to2500",      "/DYto2Mu_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-2500to4000",      "/DYto2Mu_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-4000to6000",      "/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Mu_MLL-6000",            "/DYto2Mu_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-10to50",         "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-50to120",        "/DYto2Tau_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-120to200",       "/DYto2Tau_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-200to400",       "/DYto2Tau_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-400to800",       "/DYto2Tau_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-800to1500",      "/DYto2Tau_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-1500to2500",     "/DYto2Tau_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-2500to4000",     "/DYto2Tau_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-4000to6000",     "/DYto2Tau_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["DYto2Tau_MLL-6000",           "/DYto2Tau_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["QCD_PT-15to30",               "/QCD_PT-15to30_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-30to50",               "/QCD_PT-30to50_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-50to80",               "/QCD_PT-50to80_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-80to120",              "/QCD_PT-80to120_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-120to170",             "/QCD_PT-120to170_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-170to300",             "/QCD_PT-170to300_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-300to470",             "/QCD_PT-300to470_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-470to600",             "/QCD_PT-470to600_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-600to800",             "/QCD_PT-600to800_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-800to1000",            "/QCD_PT-800to1000_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-1000to1400",           "/QCD_PT-1000to1400_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-1400to1800",           "/QCD_PT-1400to1800_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-1800to2400",           "/QCD_PT-1800to2400_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-2400to3200",           "/QCD_PT-2400to3200_TuneCP5_13p6TeV_pythia8/"+campaign],
-["QCD_PT-3200",                 "/QCD_PT-3200_TuneCP5_13p6TeV_pythia8/"+campaign],
-["TTto4Q",                      "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TTtoLNu2Q",                   "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TTto2L2Nu",                   "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WZtoLNu2Q",                   "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZZto2Nu2Q",                   "/ZZto2Nu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WminusH_Hto2B_Wto2Q",         "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WminusH_Hto2B_WtoLNu",        "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WminusH_Hto2C_Wto2Q",         "/WminusH_Hto2C_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WminusH_Hto2C_WtoLNu",        "/WminusH_Hto2C_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WminusHtoInv_Wto2Q",          "/WminusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["WplusH_Hto2B_Wto2Q",          "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WplusH_Hto2B_WtoLNu",         "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WplusH_Hto2C_Wto2Q",          "/WplusH_Hto2C_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WplusH_Hto2C_WtoLNu",         "/WplusH_Hto2C_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WplusHtoInv_Wto2Q",           "/WplusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["ZH_Hto2B_Zto2Q",              "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZH_Hto2C_Zto2Q",              "/ZH_Hto2C_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZHtoInv_Zto2Q",               "/ZHtoInv_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"+campaign],
-["ZH_Hto2B_Zto2L",              "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZH_Hto2C_Zto2L",              "/ZH_Hto2C_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZZto2L2Nu",                   "/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ZZto2L2Q",                    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WZto2L2Q",                    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WZto3LNu",                    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TbarWplusto2L2Nu",            "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TWminusto2L2Nu",              "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TWminusto4Q",                 "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TWminustoLNu2Q",              "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TbarWplusto4Q",               "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["TbarWplustoLNu2Q",            "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WWto4Q",                      "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WWtoLNu2Q",                   "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["WWW",                         "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/"+campaign],
-["WWZ",                         "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"+campaign],
-["WZZ",                         "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"+campaign],
-["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"+campaign],
-["ttHto2B",                     "/ttHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["ttHto2C",                     "/ttHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_PTNuNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-40to100_2J",    "/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-100to200_1J",   "/Zto2Nu-2Jets_PTNuNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-100to200_2J",   "/Zto2Nu-2Jets_PTNuNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-200to400",      "/Zto2Nu-2Jets_PTNuNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-200to400_2J",   "/Zto2Nu-2Jets_PTNuNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-400to600_1J",   "/Zto2Nu-2Jets_PTNuNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-400to600_2J",   "/Zto2Nu-2Jets_PTNuNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-600_1J",        "/Zto2Nu-2Jets_PTNuNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_PTNuNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-100to200_1J",      "/Wto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-100to200_2J",      "/Wto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-200to400_1J",      "/Wto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-200to400_2J",      "/Wto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-400to600_1J",      "/Wto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-400to600_2J",      "/Wto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-600_1J",           "/Wto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["Wto2Q_PTQQ-600_2J",           "/Wto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_0J",                   "/WtoLNu-2Jets_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_1J",                   "/WtoLNu-2Jets_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_2J",                   "/WtoLNu-2Jets_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-100to200_1J",    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-100to200_2J",    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-200to400_1J",    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-200to400_2J",    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-400to600_1J",    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-400to600_2J",    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-40to100_1J",     "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-40to100_2J",     "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-600_1J",         "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
-["WtoLNu_PTLNu-600_2J",         "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"+campaign],
+["ZH_Hto2B_Zto2Nu",             "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["ZH_Hto2C_Zto2Nu",             "/ZH_Hto2C_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["ZHto2Zto4Nu_Zto2Q",           "/ZHto2Zto4Nu_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["DYto2L-2Jets_MLL-50",         "/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["DYto2E_MLL-10to50",           "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-50to120",          "/DYto2E_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-120to200",         "/DYto2E_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-200to400",         "/DYto2E_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-400to800",         "/DYto2E_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-800to1500",        "/DYto2E_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-1500to2500",       "/DYto2E_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-2500to4000",       "/DYto2E_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-4000to6000",       "/DYto2E_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2E_MLL-6000",             "/DYto2E_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-10to50",          "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-50to120",         "/DYto2Mu_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-120to200",        "/DYto2Mu_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-200to400",        "/DYto2Mu_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-400to800",        "/DYto2Mu_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-800to1500",       "/DYto2Mu_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-1500to2500",      "/DYto2Mu_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-2500to4000",      "/DYto2Mu_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-4000to6000",      "/DYto2Mu_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Mu_MLL-6000",            "/DYto2Mu_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-10to50",         "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-50to120",        "/DYto2Tau_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-120to200",       "/DYto2Tau_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-200to400",       "/DYto2Tau_MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-400to800",       "/DYto2Tau_MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-800to1500",      "/DYto2Tau_MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-1500to2500",     "/DYto2Tau_MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-2500to4000",     "/DYto2Tau_MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-4000to6000",     "/DYto2Tau_MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["DYto2Tau_MLL-6000",           "/DYto2Tau_MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"],
+["QCD_PT-15to30",               "/QCD_PT-15to30_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-30to50",               "/QCD_PT-30to50_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-50to80",               "/QCD_PT-50to80_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-80to120",              "/QCD_PT-80to120_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-120to170",             "/QCD_PT-120to170_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-170to300",             "/QCD_PT-170to300_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-300to470",             "/QCD_PT-300to470_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-470to600",             "/QCD_PT-470to600_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-600to800",             "/QCD_PT-600to800_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-800to1000",            "/QCD_PT-800to1000_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-1000to1400",           "/QCD_PT-1000to1400_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-1400to1800",           "/QCD_PT-1400to1800_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-1800to2400",           "/QCD_PT-1800to2400_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-2400to3200",           "/QCD_PT-2400to3200_TuneCP5_13p6TeV_pythia8/"],
+["QCD_PT-3200",                 "/QCD_PT-3200_TuneCP5_13p6TeV_pythia8/"],
+["TTto4Q",                      "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TTtoLNu2Q",                   "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TTto2L2Nu",                   "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WZtoLNu2Q",                   "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZZto2Nu2Q",                   "/ZZto2Nu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WminusH_Hto2B_Wto2Q",         "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WminusH_Hto2B_WtoLNu",        "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WminusH_Hto2C_Wto2Q",         "/WminusH_Hto2C_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WminusH_Hto2C_WtoLNu",        "/WminusH_Hto2C_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WminusHtoInv_Wto2Q",          "/WminusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["WplusH_Hto2B_Wto2Q",          "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WplusH_Hto2B_WtoLNu",         "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WplusH_Hto2C_Wto2Q",          "/WplusH_Hto2C_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WplusH_Hto2C_WtoLNu",         "/WplusH_Hto2C_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WplusHtoInv_Wto2Q",           "/WplusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["ZH_Hto2B_Zto2Q",              "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZH_Hto2C_Zto2Q",              "/ZH_Hto2C_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZHtoInv_Zto2Q",               "/ZHtoInv_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],
+["ZH_Hto2B_Zto2L",              "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZH_Hto2C_Zto2L",              "/ZH_Hto2C_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZZto2L2Nu",                   "/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ZZto2L2Q",                    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WZto2L2Q",                    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WZto3LNu",                    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TbarWplusto2L2Nu",            "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TWminusto2L2Nu",              "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TWminusto4Q",                 "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TWminustoLNu2Q",              "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TbarWplusto4Q",               "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["TbarWplustoLNu2Q",            "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WWto4Q",                      "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WWtoLNu2Q",                   "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
+["WWW",                         "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/"],
+["WWZ",                         "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["WZZ",                         "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["ttHto2B",                     "/ttHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["ttHto2C",                     "/ttHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
+["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_PTNuNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-40to100_2J",    "/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-100to200_1J",   "/Zto2Nu-2Jets_PTNuNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-100to200_2J",   "/Zto2Nu-2Jets_PTNuNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-200to400",      "/Zto2Nu-2Jets_PTNuNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-200to400_2J",   "/Zto2Nu-2Jets_PTNuNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-400to600_1J",   "/Zto2Nu-2Jets_PTNuNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-400to600_2J",   "/Zto2Nu-2Jets_PTNuNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-600_1J",        "/Zto2Nu-2Jets_PTNuNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_PTNuNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-100to200_1J",      "/Wto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-100to200_2J",      "/Wto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-200to400_1J",      "/Wto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-200to400_2J",      "/Wto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-400to600_1J",      "/Wto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-400to600_2J",      "/Wto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-600_1J",           "/Wto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Wto2Q_PTQQ-600_2J",           "/Wto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_0J",                   "/WtoLNu-2Jets_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_1J",                   "/WtoLNu-2Jets_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_2J",                   "/WtoLNu-2Jets_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-100to200_1J",    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-100to200_2J",    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-200to400_1J",    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-200to400_2J",    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-400to600_1J",    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-400to600_2J",    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-40to100_1J",     "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-40to100_2J",     "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-600_1J",         "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu_PTLNu-600_2J",         "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ]
 
-for i in range(len(datasets)):
-    file_name = basedir + datasets[i][0] + ".txt"
 
-    # Main dataset
-    for k in range(9):
-        ds_name = datasets[i][1] + "-v" + str(k+1) + "/NANOAODSIM"
-        if k == 0:
-            command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' > " + "temp.txt"
+#==================================================================================================
+# DO NOT TOUCH THIS PART
+#==================================================================================================
+campaign_key = version+"_"+period
+if campaign_key in campaigns:
+    for i in range(len(datasets)):
+        file_name = basedir + datasets[i][0]+".txt"
+
+        # Main dataset
+        for k in range(9):
+            ds_name = datasets[i][1]+campaigns[campaign_key] + "-v" + str(k+1) + "/NANOAODSIM"
+            if k == 0:
+                command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' > " + "temp.txt"
+            else:
+                command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' >> " + "temp.txt"
+            os.system(command)
+        has_dataset = False
+        k_lines = []
+        with open("temp.txt", "r") as file:
+            for line in file:
+                has_dataset = True
+                k_lines.append(line[0:-1])
+        os.system("rm temp.txt")
+        if has_dataset:
+            k_value = 9
+            for dataset_name in reversed(k_lines):
+                command = "dasgoclient --limit 0 --query 'file dataset=" + dataset_name + "' > " + file_name
+                os.system(command)
+                NumLines = sum(1 for line in open(file_name))
+                if NumLines > 0:
+                    print(dataset_name)
+                    break
+                k_value = k_value - 1
         else:
-            command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' >> " + "temp.txt"
-        os.system(command)
-    has_dataset = False
-    k_lines = []
-    with open("temp.txt", "r") as file:
-        for line in file:
-            has_dataset = True
-            k_lines.append(line[0:-1])
-    os.system("rm temp.txt")
-    if has_dataset:
-        k_value = 9
-        for dataset_name in reversed(k_lines):
-            command = "dasgoclient --limit 0 --query 'file dataset=" + dataset_name + "' > " + file_name
-            os.system(command)
-            NumLines = sum(1 for line in open(file_name))
-            if NumLines > 0:
-                print(dataset_name)
-                break
-            k_value = k_value - 1
-    else:
-        open(file_name, 'a').close()
-        print(datasets[i][1] + " is not available!")
+            open(file_name, 'a').close()
+            print(datasets[i][1]+campaigns[campaign_key] + " is not available!")
 
-    # Extension
-    ds_name = datasets[i][1] + "_ext*-v" + str(k_value) + "/NANOAODSIM"
-    command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' > " + "temp.txt"
-    os.system(command)
-    has_dataset = False
-    ext_lines = []
-    with open("temp.txt", "r") as file:
-        for line in file:
-            has_dataset = True
-            ext_lines.append(line[0:-1])
-    os.system("rm temp.txt")
-    if has_dataset:
-        for dataset_name in ext_lines:
-            command = "dasgoclient --limit 0 --query 'file dataset=" + dataset_name + "' >> " + file_name
-            os.system(command)
-            print(dataset_name)
+        # Extension
+        ds_name = datasets[i][1]+campaigns[campaign_key] + "_ext*-v" + str(k_value) + "/NANOAODSIM"
+        command = "dasgoclient --limit 0 --query 'dataset dataset=" + ds_name + "' > " + "temp.txt"
+        os.system(command)
+        has_dataset = False
+        ext_lines = []
+        with open("temp.txt", "r") as file:
+            for line in file:
+                has_dataset = True
+                ext_lines.append(line[0:-1])
+        os.system("rm temp.txt")
+        if has_dataset:
+            for dataset_name in ext_lines:
+                command = "dasgoclient --limit 0 --query 'file dataset=" + dataset_name + "' >> " + file_name
+                os.system(command)
+                print(dataset_name)
+else:
+    print("There is no campaign set for this period and NANOAOD version!")
+    sys.exit()

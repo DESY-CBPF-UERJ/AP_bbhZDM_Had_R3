@@ -1,30 +1,58 @@
 analysis = "AP_bbhZDM_Had_R3"
 nano_version = 'v12'
-path_0_22 = analysis+'/Datasets/Files/signal_22/dti_0/'+nano_version+'/'
-path_1_22 = analysis+'/Datasets/Files/signal_22/dti_1/'+nano_version+'/'
-path_0_23 = analysis+'/Datasets/Files/signal_23/dti_0/'+nano_version+'/'
-path_1_23 = analysis+'/Datasets/Files/signal_23/dti_1/'+nano_version+'/'
 
 #--------------------------------------------------------------------------------------------------
-# ID digits:
-# 1st-2nd = 16(2016),17(2017),18(2018)                              # Year
-# 3th-4th = 00(Data),01(MC-signal),02-13(MC-bkg),99(private sample) # Group
-# 5th-6th = 00(none),...                                            # Bkg -> Process
-# 5th-6th = 00(none),11(250_30),12(250_40),55(1250_100)             # Signal -> Signal point
-# 5th-6th = 00(none),01(A),02(B),03(C)                              # Data -> Era
-# 7th     = 0,1,2,...                                               # Data taking interval (DTI)
-
+# Production ID:
+# 00-09(Data), 10-19(MC-signal), 20-98(MC-bkg), 99(private sample)
+#
+# Data taking interval (DTI):
 # 2022 DTIs = 0(preEE), 1(postEE)
 # 2023 DTIs = 0(preBPix), 1(postBPix)
 #--------------------------------------------------------------------------------------------------
 
-periods = ["0_22", "1_22", "0_23", "1_23"]
-paths = [path_0_22, path_1_22, path_0_23, path_1_23]
-for period,path in zip(periods,paths):
+paths = {}
+paths["0_22"] = analysis+'/Datasets/Files/signal_22/dti_0/'+nano_version+'/'
+paths["1_22"] = analysis+'/Datasets/Files/signal_22/dti_1/'+nano_version+'/'
+paths["0_23"] = analysis+'/Datasets/Files/signal_23/dti_0/'+nano_version+'/'
+paths["1_23"] = analysis+'/Datasets/Files/signal_23/dti_1/'+nano_version+'/'
+
+
+s_ds = {}
+for period in paths.keys():
     
     dti = period[0]
     year = period[-2:]
-        
+
+    s_ds_info = {
+    "Signal": [
+        ["Signal_H400_a100",                '10',       0.01803526,          0.,                'unknown'],
+        ["Signal_H800_a400",                '10',       0.0009888929,        0.,                'unknown'],
+        ["Signal_H1000_a100",               '10',       0.000338307,         0.,                'unknown'],
+        ["Signal_A400_a100",                '10',       0.1674263,           0.,                'unknown'],
+        ["Signal_A800_a400",                '10',       0.02262806,          0.,                'unknown'],
+        ["Signal_A1000_a100",               '10',       0.0101514,           0.,                'unknown'],
+    ],
+    }
+
+
+    for key in s_ds_info.keys():
+        s_ds[key+"_"+period] = []
+        for ds in s_ds_info[key]:
+            list_temp = []
+            list_temp.append(ds[0]+"_"+period)
+            list_temp.append(ds[1]+year+dti)
+            list_temp.append(paths[period]+ds[0]+".txt")
+            s_ds[key+"_"+period].append(list_temp)
+    del s_ds_info
+
+
+
+
+
+
+
+
+    """
     Signal = [
         ["Signal_H400_a100_"+period]           + [year+'9900'+dti, path+"Signal_H400_a100.txt"],
         ["Signal_H800_a400_"+period]           + [year+'9912'+dti, path+"Signal_H800_a400.txt"],
@@ -46,3 +74,4 @@ for period,path in zip(periods,paths):
         Signal_0_23 = Signal
     elif period == "1_23":
         Signal_1_23 = Signal
+    """

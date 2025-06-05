@@ -1,22 +1,69 @@
 analysis = "AP_bbhZDM_Had_R3"
 nano_version = 'v12'
-path_22 = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
-path_23 = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
 
 #--------------------------------------------------------------------------------------------------
-# ID digits:
-# 1st-2nd = 16(2016),17(2017),18(2018)                              # Year
-# 3th-4th = 00(Data),01(MC-signal),02-13(MC-bkg),99(private sample) # Group
-# 5th-6th = 00(none),...                                            # Bkg -> Process
-# 5th-6th = 00(none),11(250_30),12(250_40),55(1250_100)             # Signal -> Signal point
-# 5th-6th = 00(none),01(A),02(B),03(C)                              # Data -> Era
-# 7th     = 0,1,2,...                                               # Data taking interval (DTI)
-
+# Production ID:
+# 00-09(Data), 10-19(MC-signal), 20-98(MC-bkg), 99(private sample)
+#
+# Data taking interval (DTI):
 # 2022 DTIs = 0(preEE), 1(postEE)
 # 2023 DTIs = 0(preBPix), 1(postBPix)
 #--------------------------------------------------------------------------------------------------
 
+paths = {}
+paths["0_22"] = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
+paths["1_22"] = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
+paths["0_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
+paths["1_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
 
+eras = {}
+eras["0_22"] = ['C', 'D']
+eras["1_22"] = ['E', 'F', 'G']
+eras["0_23"] = ['C']
+eras["1_23"] = ['D']
+
+lumis = {}
+lumis["0_22"] = [7980.4,    0,  0,  0]
+lumis["1_22"] = [26671.7,   0,  0,  0]
+lumis["0_23"] = [17794,     0,  0,  0]
+lumis["1_23"] = [9451,      0,  0,  0]
+
+
+d_ds = {}
+for period in paths.keys():
+
+    dti = period[0]
+    year = period[-2:]
+
+    d_ds_info = {
+    "Data_Lep": [
+        ["Data_SingleEle",      '00'],
+        ["Data_SingleMu",       '00'],
+    ],
+    "Data_MET": [
+        ["Data_MET",            '01'],
+    ],
+    }
+
+
+    for key in d_ds_info.keys():
+        d_ds[key+"_"+period] = []
+        for ds in d_ds_info[key]:
+            for era in eras[period]:
+                list_temp = []
+                list_temp.append(ds[0]+"_"+era+"_"+period)
+                list_temp.append(ds[1]+year+dti)
+                list_temp.append(paths[period]+ds[0]+"_"+era+".txt")
+                d_ds[key+"_"+period].append(list_temp)
+    del d_ds_info
+
+
+
+
+
+
+
+"""
 Data_Lep_0_22 = [
 ["Data_SingleEle_C_0_22"]             + ['2200030', path_22+"SingleEle_C.txt"],
 ["Data_SingleMu_C_0_22"]              + ['2200230', path_22+"SingleMu_C.txt"],
@@ -53,4 +100,9 @@ Data_Lep_1_23 = [
 Data_MET_1_23 = [
 ["Data_MET_F_1_23"]                   + ['2300571', path_23+"MET_F.txt"],
 ]
+"""
+
+
+print(d_ds["Data_Lep_0_22"])
+
 
