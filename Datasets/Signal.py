@@ -23,14 +23,14 @@ for period in paths.keys():
     dti = period[0]
     year = period[-2:]
 
-    s_ds_info = {
+    s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
     "Signal": [
-        ["Signal_H400_a100",                '10',       0.01803526,          0.,                'unknown'],
-        ["Signal_H800_a400",                '10',       0.0009888929,        0.,                'unknown'],
-        ["Signal_H1000_a100",               '10',       0.000338307,         0.,                'unknown'],
-        ["Signal_A400_a100",                '10',       0.1674263,           0.,                'unknown'],
-        ["Signal_A800_a400",                '10',       0.02262806,          0.,                'unknown'],
-        ["Signal_A1000_a100",               '10',       0.0101514,           0.,                'unknown'],
+        ["Signal_H400_a100",                '99',       0.01803526,          0.,                'unknown'],
+        ["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
+        ["Signal_H1000_a100",               '99',       0.000338307,         0.,                'unknown'],
+        ["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
+        ["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
+        ["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
     ],
     }
 

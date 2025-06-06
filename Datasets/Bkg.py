@@ -23,7 +23,8 @@ for period in paths.keys():
     year = period[-2:]
     dti = period[0]
 
-    b_ds_info = {
+    # https://xsecdb-xsdb-official.app.cern.ch/
+    b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
     "DY": [
         ["DYto2E_MLL-10to50",               '20',       6744,                1.132,             'NLO'],
         ["DYto2E_MLL-50to120",              '20',       2219,                0.2327,            'NLO'],

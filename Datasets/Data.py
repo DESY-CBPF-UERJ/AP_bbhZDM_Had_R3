@@ -22,7 +22,9 @@ eras["1_22"] = ['E', 'F', 'G']
 eras["0_23"] = ['C']
 eras["1_23"] = ['D']
 
-lumis = {}
+# https://twiki.cern.ch/twiki/bin/view/CMS/TWikiLUM
+lumis = {} # [Luminosity[pb-1], Unc_total[%], Unc_uncorr[%], Unc_fullcorr[%]]
+lumis["tags"] = ["Luminosity", "Unc_total", "uncorr", "fullcorr"]
 lumis["0_22"] = [7980.4,    0,  0,  0]
 lumis["1_22"] = [26671.7,   0,  0,  0]
 lumis["0_23"] = [17794,     0,  0,  0]
@@ -35,7 +37,7 @@ for period in paths.keys():
     dti = period[0]
     year = period[-2:]
 
-    d_ds_info = {
+    d_ds_info = { # [DatasetName, Production ID]
     "Data_Lep": [
         ["Data_SingleEle",      '00'],
         ["Data_SingleMu",       '00'],
