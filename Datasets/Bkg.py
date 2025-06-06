@@ -184,6 +184,8 @@ for period in paths.keys():
             list_temp.append(ds[0]+"_"+period)
             list_temp.append(ds[1]+year+dti)
             list_temp.append(paths[period]+ds[0]+".txt")
+            list_temp.append(ds[2])
+            list_temp.append(ds[3])
             b_ds[key+"_"+period].append(list_temp)
     del b_ds_info
 
