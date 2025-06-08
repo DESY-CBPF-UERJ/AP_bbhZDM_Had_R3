@@ -20,13 +20,13 @@ namespace Test{
 void HEPHero::SetupTest() {
 
     //======SETUP CUTFLOW==========================================================================
-    _cutFlow.insert(pair<string,double>("00_Leptons_equal_0", 0) );
-    _cutFlow.insert(pair<string,double>("01_NbJets_more_0", 0) );
-    _cutFlow.insert(pair<string,double>("02_MET_PT_more_200_and_MHT_more_200", 0) );
-    _cutFlow.insert(pair<string,double>("03_NfatJets_more_0", 0) );
-    _cutFlow.insert(pair<string,double>("04_LeadingFatPt_more_200", 0) );
-    _cutFlow.insert(pair<string,double>("05_Omega_more_0p3", 0) );
-    _cutFlow.insert(pair<string,double>("06_Signal_like_events", 0) );
+    _cutFlow.insert(pair<string,double>("00_NLeptons_g_0", 0) );
+    _cutFlow.insert(pair<string,double>("01_NbJets_g_0", 0) );
+    _cutFlow.insert(pair<string,double>("02_MET_MHT_g_200", 0) );
+    _cutFlow.insert(pair<string,double>("03_NFatJets_g_0", 0) );
+    _cutFlow.insert(pair<string,double>("04_FatJet_Pt_g_200", 0) );
+    _cutFlow.insert(pair<string,double>("05_Omega_g_0p3", 0) );
+    _cutFlow.insert(pair<string,double>("06_Signal_like", 0) );
 
     //======SETUP HISTOGRAMS=======================================================================
     //makeHist( "histogram1DName", 40, 0., 40., "xlabel", "ylabel" );   [example]
@@ -77,36 +77,36 @@ void HEPHero::SetupTest() {
 bool HEPHero::TestRegion() {
 
     LeptonSelection();
-
+    
     if (!(Nleptons==0) ) return false;
-    _cutFlow.at("00_Leptons_equal_0") += evtWeight;
+    _cutFlow.at("00_NLeptons_g_0") += evtWeight;
 
     JetSelection();
 
     if ( !(Nbjets>0) ) return false;
-    _cutFlow.at("01_NbJets_more_0") += evtWeight;
+    _cutFlow.at("01_NbJets_g_0") += evtWeight;
 
     if (!(MET_pt > 200 && MHT > 200) ) return false;
-    _cutFlow.at("02_MET_PT_more_200_and_MHT_more_200") += evtWeight;
+    _cutFlow.at("02_MET_MHT_g_200") += evtWeight;
 
     FatjetSelection();
 
     if ( !(NfatJets>0) ) return false;
-    _cutFlow.at("03_NfatJets_more_0") += evtWeight;
+    _cutFlow.at("03_NFatJets_g_0") += evtWeight;
 
     if ( !(LeadingFatJet_pt>200) ) return false;
-    _cutFlow.at("04_LeadingFatPt_more_200") += evtWeight;
+    _cutFlow.at("04_FatJet_Pt_g_200") += evtWeight;
 
     Get_Jet_Angular_Variables();
 
     if ( !(OmegaMin>OMEGA_CUT) ) return false;
-    _cutFlow.at("05_Omega_more_0p3") += evtWeight;
+    _cutFlow.at("05_Omega_g_0p3") += evtWeight;
 
     Get_Jet_Shape_Variables();
     Get_Signal_Taggers();
 
     if ( !(signal_tag>0.8) ) return false;
-    _cutFlow.at("06_Signal_like_events") += evtWeight;
+    _cutFlow.at("06_Signal_like") += evtWeight;
 
     Weight_corrections();
 
