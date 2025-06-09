@@ -118,10 +118,6 @@ void HEPHero::JetSelection(){
     selectedJet.clear();
     //jetMomenta.clear();
 
-    for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
-        Jet_JES_pt[ijet] = Jet_pt[ijet];
-    }
-
     // // TODO: TO BE IMPLEMENTED
     // JESvariation();
     // JERvariation();
