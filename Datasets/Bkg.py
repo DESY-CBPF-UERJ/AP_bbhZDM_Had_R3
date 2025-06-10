@@ -190,4 +190,4 @@ for period in paths.keys():
             list_temp.append(ds[2])
             list_temp.append(ds[3])
             b_ds[key+"_"+period].append(list_temp)
-    del b_ds_info
+
