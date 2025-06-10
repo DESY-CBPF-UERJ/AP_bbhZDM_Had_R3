@@ -33,6 +33,7 @@ lumis["0_23"] = [17794,     0,  0,  0]
 lumis["1_23"] = [9451,      0,  0,  0]
 
 
+d_ds_info = {}
 d_ds_info["0_22"] = { # [DatasetName, Production ID]
 "Data_Lep": [
     ["Data_SingleEle",      '00'],
@@ -42,7 +43,6 @@ d_ds_info["0_22"] = { # [DatasetName, Production ID]
     ["Data_MET",            '01'],
 ],
 }
-
 d_ds_info["1_22"] = d_ds_info["0_22"].copy()
 d_ds_info["0_23"] = d_ds_info["0_22"].copy()
 d_ds_info["1_23"] = d_ds_info["0_22"].copy()
