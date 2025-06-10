@@ -32,20 +32,20 @@ s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 #----------------------------------------------------------------------------------------
 # [DO NOT TOUCH THIS PART]
 #----------------------------------------------------------------------------------------
-b_ds = {}
+s_ds = {}
 for period in paths.keys():
 
-    year = period[-2:]
     dti = period[0]
+    year = period[-2:]
 
-    for key in b_ds_info.keys():
-        b_ds[key+"_"+period] = []
-        for ds in b_ds_info[key]:
+    for key in s_ds_info.keys():
+        s_ds[key+"_"+period] = []
+        for ds in s_ds_info[key]:
             list_temp = []
             list_temp.append(ds[0]+"_"+period)
             list_temp.append(ds[1]+year+dti)
             list_temp.append(paths[period]+ds[0]+".txt")
             list_temp.append(ds[2])
             list_temp.append(ds[3])
-            b_ds[key+"_"+period].append(list_temp)
-    del b_ds_info
+            s_ds[key+"_"+period].append(list_temp)
+    del s_ds_info
