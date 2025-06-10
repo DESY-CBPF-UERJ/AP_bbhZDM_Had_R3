@@ -177,8 +177,8 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 b_ds = {}
 for period in paths.keys():
 
-    year = period[-2:]
     dti = period[0]
+    year = period[-2:]
 
     for key in b_ds_info.keys():
         b_ds[key+"_"+period] = []
@@ -191,5 +191,3 @@ for period in paths.keys():
             list_temp.append(ds[3])
             b_ds[key+"_"+period].append(list_temp)
     del b_ds_info
-
-
