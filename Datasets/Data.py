@@ -16,11 +16,13 @@ paths["1_22"] = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
 paths["0_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
 paths["1_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
 
+
 eras = {}
 eras["0_22"] = ['C', 'D']
 eras["1_22"] = ['E', 'F', 'G']
 eras["0_23"] = ['C']
 eras["1_23"] = ['D']
+
 
 # https://twiki.cern.ch/twiki/bin/view/CMS/TWikiLUM
 lumis = {} # [Luminosity[pb-1], Unc_total[%], Unc_uncorr[%], Unc_fullcorr[%]]
@@ -31,26 +33,33 @@ lumis["0_23"] = [17794,     0,  0,  0]
 lumis["1_23"] = [9451,      0,  0,  0]
 
 
+d_ds_info["0_22"] = { # [DatasetName, Production ID]
+"Data_Lep": [
+    ["Data_SingleEle",      '00'],
+    ["Data_SingleMu",       '00'],
+],
+"Data_MET": [
+    ["Data_MET",            '01'],
+],
+}
+
+d_ds_info["1_22"] = d_ds_info["0_22"].copy()
+d_ds_info["0_23"] = d_ds_info["0_22"].copy()
+d_ds_info["1_23"] = d_ds_info["0_22"].copy()
+
+
+#----------------------------------------------------------------------------------------
+# [DO NOT TOUCH THIS PART]
+#----------------------------------------------------------------------------------------
 d_ds = {}
 for period in paths.keys():
 
     dti = period[0]
     year = period[-2:]
 
-    d_ds_info = { # [DatasetName, Production ID]
-    "Data_Lep": [
-        ["Data_SingleEle",      '00'],
-        ["Data_SingleMu",       '00'],
-    ],
-    "Data_MET": [
-        ["Data_MET",            '01'],
-    ],
-    }
-
-
-    for key in d_ds_info.keys():
+    for key in d_ds_info[period].keys():
         d_ds[key+"_"+period] = []
-        for ds in d_ds_info[key]:
+        for ds in d_ds_info[period][key]:
             for era in eras[period]:
                 list_temp = []
                 list_temp.append(ds[0]+"_"+era+"_"+period)

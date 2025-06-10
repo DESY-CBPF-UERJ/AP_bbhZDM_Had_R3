@@ -17,32 +17,35 @@ paths["0_23"] = analysis+'/Datasets/Files/signal_23/dti_0/'+nano_version+'/'
 paths["1_23"] = analysis+'/Datasets/Files/signal_23/dti_1/'+nano_version+'/'
 
 
-s_ds = {}
+s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
+"Signal": [
+    ["Signal_H400_a100",                '99',       0.01803526,          0.,                'unknown'],
+    ["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
+    ["Signal_H1000_a100",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
+    ["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
+    ["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
+],
+}
+
+
+#----------------------------------------------------------------------------------------
+# [DO NOT TOUCH THIS PART]
+#----------------------------------------------------------------------------------------
+b_ds = {}
 for period in paths.keys():
-    
-    dti = period[0]
+
     year = period[-2:]
+    dti = period[0]
 
-    s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
-    "Signal": [
-        ["Signal_H400_a100",                '99',       0.01803526,          0.,                'unknown'],
-        ["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
-        ["Signal_H1000_a100",               '99',       0.000338307,         0.,                'unknown'],
-        ["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
-        ["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
-        ["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
-    ],
-    }
-
-
-    for key in s_ds_info.keys():
-        s_ds[key+"_"+period] = []
-        for ds in s_ds_info[key]:
+    for key in b_ds_info.keys():
+        b_ds[key+"_"+period] = []
+        for ds in b_ds_info[key]:
             list_temp = []
             list_temp.append(ds[0]+"_"+period)
             list_temp.append(ds[1]+year+dti)
             list_temp.append(paths[period]+ds[0]+".txt")
             list_temp.append(ds[2])
             list_temp.append(ds[3])
-            s_ds[key+"_"+period].append(list_temp)
-    del s_ds_info
+            b_ds[key+"_"+period].append(list_temp)
+    del b_ds_info
