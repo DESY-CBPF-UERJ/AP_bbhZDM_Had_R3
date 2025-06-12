@@ -7,7 +7,6 @@
 //#include <vector>
 //#include "TLorentzVector.h"
 #include "onnxruntime_cxx_api.h"
-#include "onnx_model.h"
 #include "correction.h"
 
 
