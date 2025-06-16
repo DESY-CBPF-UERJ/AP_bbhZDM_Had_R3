@@ -36,13 +36,14 @@ void HEPHero::PreRoutines() {
 bool HEPHero::RunRoutines() {
     
     //======SUM THE GENERATOR WEIGHTS=================================================
-    SumGenWeights_original += genWeight;
-    if(dataset_group == "Signal"){
-        SumGenWeights += genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
-    }else{
-        SumGenWeights += genWeight;
+    if( dataset_group != "Data" ){
+        SumGenWeights_original += genWeight;
+        if(dataset_group == "Signal"){
+            SumGenWeights += genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
+        }else{
+            SumGenWeights += genWeight;
+        }
     }
-
 
     //======MC SAMPLES PROCESSING=====================================================
     if( !MC_processing() ) return false;
