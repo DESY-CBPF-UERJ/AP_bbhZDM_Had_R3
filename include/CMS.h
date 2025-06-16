@@ -26,8 +26,6 @@
 #include "rapidjson/document.h"
 #include "rapidjson/filereadstream.h"
 #include "rapidcsv.h"
-#include <torch/torch.h>
-#include <torch/script.h>
 
 using namespace std;
 
