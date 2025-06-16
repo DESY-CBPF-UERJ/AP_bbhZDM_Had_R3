@@ -18,10 +18,6 @@ void HEPHero::Weight_corrections(){
         */
     }
 
-    if(dataset_group == "Signal"){
-        evtWeight *= LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
-    }
-
 }
 
 
