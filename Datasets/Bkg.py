@@ -18,6 +18,7 @@ paths["1_23"] = analysis+'/Datasets/Files/bkg_23/dti_1/'+nano_version+'/'
 
 
 # https://xsecdb-xsdb-official.app.cern.ch/
+# https://twiki.cern.ch/twiki/bin/view/LHCPhysics/CERNYellowReportPageAt13TeV (Higgs)
 b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
 "DY": [
     ["DYto2E_MLL-10to50",               '20',       6744,                1.132,             'NLO'],
@@ -117,13 +118,13 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ],
 
 "Vh": [
-    ["WplusH_Hto2B_WtoLNu",             '29',       0.3001,	            3.337e-05,		    'NLO'],
-    ["WplusH_Hto2C_WtoLNu",             '29',       0.3,             	0.000009736,		'NLO'],
-    ["WminusH_Hto2B_WtoLNu",            '29',       0.1887,	            2.23e-05,		    'NLO'],
-    ["WminusH_Hto2C_WtoLNu",            '29',       0.1887,	            0.000006691,		'NLO'],
-    ["ZH_Hto2B_Zto2Nu",                 '29',       0.168,              0,                  'NLO'],
-    ["ZH_Hto2C_Zto2Nu",                 '29',       0.168,              0,                  'NLO'],
-    ["ZHto2Zto4Nu_Zto2Q",               '29',       0.5932,             0,                  'NLO'],
+    ["WplusH_Hto2B_WtoLNu",             '29',       0.05476506,	        0,		            '0.09426*0.581'],
+    ["WplusH_Hto2C_WtoLNu",             '29',       0.00273354,         0,		            '0.09426*0.029'],
+    ["WminusH_Hto2B_WtoLNu",            '29',       0.03476123,	        0,		            '0.05983*0.581'],
+    ["WminusH_Hto2C_WtoLNu",            '29',       0.00173507,	        0,		            '0.05983*0.029'],
+    ["ZH_Hto2B_Zto2Nu",                 '29',       0.08845144,         0,                  '0.7612*0.581*0.2'],
+    ["ZH_Hto2C_Zto2Nu",                 '29',       0.00441496,         0,                  '0.7612*0.029*0.2'],
+    ["ZHto2Zto4Nu_Zto2Q",               '29',       0.000553449,        0,                  '0.7612*0.026*0.2*0.2*0.69911'],
 ],
 
 "ResidualSM": [
