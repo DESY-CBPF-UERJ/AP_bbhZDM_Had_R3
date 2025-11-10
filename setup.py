@@ -79,15 +79,15 @@ periods = [
 datasets = [
 #"Data_Lep",
 "Signal",
-#"QCD",
-#"ResidualSM",
+"QCD",
+"ResidualSM",
 "ST",
 "TT",
 "Zto2Nu",
 "WtoLNu",
 "VV",
 "Vh",
-#"DY",
+"DY",
 ]
 
 
