@@ -15,52 +15,22 @@ datasets = [
 ["ZH_Hto2B_Zto2Nu",             "/ZH-Zto2Nu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZH_Hto2C_Zto2Nu",             "/ZH-Zto2Nu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZHto2Zto4Nu_Zto2Q",           "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],   #NEW
-# As três amostras abaixo apresentam uma mudança brusca para o caso de 2024, ficando assim:
-# Usei dasgoclient --limit 0 --query 'dataset dataset=/DYto2L*/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2*/NANOAODSIM'
-# /DYto2L-2Jets_Bin-1J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-# /DYto2L-2Jets_Bin-1J-MLL-50-PTLL-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-# /DYto2L-2Jets_Bin-1J-MLL-50-PTLL-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-# /DYto2L-2Jets_Bin-1J-MLL-50-PTLL-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
-# /DYto2L-2Jets_Bin-1J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-# /DYto2L-2Jets_Bin-2J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM -> ESSE DAQUI
-# /DYto2L-2Jets_Bin-2J-MLL-50-PTLL-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM -> ESSE DAQUI
-# /DYto2L-2Jets_Bin-2J-MLL-50-PTLL-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM -> ESSE DAQUI
-# /DYto2L-2Jets_Bin-2J-MLL-50-PTLL-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM -> ESSE DAQUI
-# /DYto2L-2Jets_Bin-2J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM -> ESSE DAQUI
+
 ["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],         #OLD, aparentemente não existe versão
 ["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],        #OLD, aparentemente não existe versão
-["DYto2L-2Jets_MLL-50",         "/DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],            #OLD, aparentemente foi separado em 5 novas amostras (apontadas acima)
+
+["DYto2L-2Jets_1J_PTLL-40to100",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_1J_PTLL-100to200",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_1J_PTLL-200to400",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_1J_PTLL-400to600",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_1J_PTLL-600",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+
+["DYto2L-2Jets_2J_PTLL-40to100",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_2J_PTLL-100to200",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_2J_PTLL-200to400",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_2J_PTLL-400to600",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
+["DYto2L-2Jets_2J_PTLL-600",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ##############################################################################################################
-["DYto2E_MLL-10to50",           "/DYto2E_Bin-MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"], #NEW
-["DYto2E_MLL-50to120",          "/DYto2E_Bin-MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"], #NEW
-["DYto2E_MLL-120to200",         "/DYto2E_Bin-MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"], #NEW
-["DYto2E_MLL-200to400",         "/DYto2E_Bin-MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"], #NEW
-["DYto2E_MLL-400to800",         "/DYto2E_Bin-MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2E_MLL-800to1500",        "/DYto2E_Bin-MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2E_MLL-1500to2500",       "/DYto2E_Bin-MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2E_MLL-2500to4000",       "/DYto2E_Bin-MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2E_MLL-4000to6000",       "/DYto2E_Bin-MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2E_MLL-6000",             "/DYto2E_Bin-MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"], #NEW
-["DYto2Mu_MLL-10to50",          "/DYto2Mu_Bin-MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-50to120",         "/DYto2Mu_Bin-MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-120to200",        "/DYto2Mu_Bin-MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-200to400",        "/DYto2Mu_Bin-MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-400to800",        "/DYto2Mu_Bin-MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-800to1500",       "/DYto2Mu_Bin-MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-1500to2500",      "/DYto2Mu_Bin-MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-2500to4000",      "/DYto2Mu_Bin-MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-4000to6000",      "/DYto2Mu_Bin-MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Mu_MLL-6000",            "/DYto2Mu_Bin-MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-10to50",         "/DYto2Tau_Bin-MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-50to120",        "/DYto2Tau_Bin-MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-120to200",       "/DYto2Tau_Bin-MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-200to400",       "/DYto2Tau_Bin-MLL-200to400_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-400to800",       "/DYto2Tau_Bin-MLL-400to800_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-800to1500",      "/DYto2Tau_Bin-MLL-800to1500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-1500to2500",     "/DYto2Tau_Bin-MLL-1500to2500_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-2500to4000",     "/DYto2Tau_Bin-MLL-2500to4000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-4000to6000",     "/DYto2Tau_Bin-MLL-4000to6000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
-["DYto2Tau_MLL-6000",           "/DYto2Tau_Bin-MLL-6000_TuneCP5_13p6TeV_powheg-pythia8/"],  #NEW
 #Essa amostra foi fragmentada em dois tipos
 ["QCD_PT-15to30",               "/QCD_PT-15to30_TuneCP5_13p6TeV_pythia8/"], # OLD
 #["QCD_PT-15to20",               "/QCD_Bin-PT-15to20_TuneCP5_13p6TeV_pythia8/"], # NEW ?
@@ -132,34 +102,25 @@ datasets = [
 ["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # OLD, o unico disponivel é o "ZZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
 ["ttHto2B",                     "/TTH-Hto2B_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
 ["ttHto2C",                     "/TTH-Hto2C_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
-/Zto2Nu-2Jets_Bin-1J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-1J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-1J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-1J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
-/Zto2Nu-2Jets_Bin-1J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-2J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-2J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-2J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-/Zto2Nu-2Jets_Bin-2J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
-/Zto2Nu-2Jets_Bin-2J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
-["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_PTNuNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], 
-["Zto2Nu_PTNuNu-40to100_2J",    "/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-100to200_1J",   "/Zto2Nu-2Jets_PTNuNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-100to200_2J",   "/Zto2Nu-2Jets_PTNuNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-200to400",      "/Zto2Nu-2Jets_PTNuNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-200to400_2J",   "/Zto2Nu-2Jets_PTNuNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-400to600_1J",   "/Zto2Nu-2Jets_PTNuNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-400to600_2J",   "/Zto2Nu-2Jets_PTNuNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-600_1J",        "/Zto2Nu-2Jets_PTNuNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_PTNuNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_Bin-1J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
+["Zto2Nu_PTNuNu-40to100_2J",    "/Zto2Nu-2Jets_Bin-2J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
+["Zto2Nu_PTNuNu-100to200_1J",   "/Zto2Nu-2Jets_Bin-1J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
+["Zto2Nu_PTNuNu-100to200_2J",   "/Zto2Nu-2Jets_Bin-2J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],  #NEW
+["Zto2Nu_PTNuNu-200to400",      "/Zto2Nu-2Jets_Bin-1J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],  # NEW
+["Zto2Nu_PTNuNu-200to400_2J",   "/Zto2Nu-2Jets_Bin-2J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
+["Zto2Nu_PTNuNu-400to600_1J",   "/Zto2Nu-2Jets_Bin-1J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
+["Zto2Nu_PTNuNu-400to600_2J",   "/Zto2Nu-2Jets_Bin-2J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],  # NEW
+["Zto2Nu_PTNuNu-600_1J",        "/Zto2Nu-2Jets_Bin-1J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
+["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_Bin-2J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
+["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão para 2024
+  
 ["Wto2Q_PTQQ-100to200_1J",      "/Wto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Wto2Q_PTQQ-100to200_2J",      "/Wto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Wto2Q_PTQQ-200to400_1J",      "/Wto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
