@@ -104,25 +104,45 @@ datasets = [
 ["WZto2L2Q",                    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
 ["WZto3LNu",                    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
   
-["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TbarWplusto2L2Nu",            "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TWminusto2L2Nu",              "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TWminusto4Q",                 "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TWminustoLNu2Q",              "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TbarWplusto4Q",               "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["TbarWplustoLNu2Q",            "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["WWto4Q",                      "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["WWtoLNu2Q",                   "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"],
-["WWW",                         "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/"],
-["WWZ",                         "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
-["WZZ",                         "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
-["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
-["ttHto2B",                     "/ttHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
-["ttHto2C",                     "/ttHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/"],
-["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_PTNuNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"], #OLD, Não existe versão, usando
+# dasgoclient --limit 0 --query 'dataset dataset=/*t-channel*/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2*/NANOAODSIM'
+# obtive:
+#/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM -> Seria esse?
+#/TBbarQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TBbarQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TbarBQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TbarBQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+#/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+["TbarWplusto2L2Nu",            "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],# NEW, não teve mudança na nomeclatura
+["TWminusto2L2Nu",              "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW, não teve mudança na nomeclatura
+["TWminusto4Q",                 "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],  # NEW, não teve mudança na nomeclatura
+["TWminustoLNu2Q",              "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW, não teve mudança na nomeclatura
+["TbarWplusto4Q",               "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW, não teve mudança na nomeclatura
+["TbarWplustoLNu2Q",            "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # 
+["WWto4Q",                      "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/"], #
+["WWtoLNu2Q",                   "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"], #
+["WWW",                         "/WWW-4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW
+["WWZ",                         "/WWZ-4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW
+["WZZ",                         "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # OLD, o unico disponivel é o "WZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
+["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # OLD, o unico disponivel é o "ZZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
+["ttHto2B",                     "/TTH-Hto2B_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
+["ttHto2C",                     "/TTH-Hto2C_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
+/Zto2Nu-2Jets_Bin-1J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-1J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-1J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-1J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
+/Zto2Nu-2Jets_Bin-1J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-2J-PTNuNu-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-2J-PTNuNu-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-2J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+/Zto2Nu-2Jets_Bin-2J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
+/Zto2Nu-2Jets_Bin-2J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_PTNuNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], 
 ["Zto2Nu_PTNuNu-40to100_2J",    "/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Zto2Nu_PTNuNu-100to200_1J",   "/Zto2Nu-2Jets_PTNuNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Zto2Nu_PTNuNu-100to200_2J",   "/Zto2Nu-2Jets_PTNuNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
