@@ -29,12 +29,11 @@ datasets = [
 ["DYto2L-2Jets_2J_PTLL-100to200",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
 ["DYto2L-2Jets_2J_PTLL-200to400",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-200to400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
 ["DYto2L-2Jets_2J_PTLL-400to600",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
-["DYto2L-2Jets_2J_PTLL-600",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["DYto2L-2Jets_2J_PTLL-600",         "/DYto2L-2Jets_Bin-2J-MLL-50-PTLL-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
 ##############################################################################################################
 #Essa amostra foi fragmentada em dois tipos
-["QCD_PT-15to30",               "/QCD_PT-15to30_TuneCP5_13p6TeV_pythia8/"], # OLD
-#["QCD_PT-15to20",               "/QCD_Bin-PT-15to20_TuneCP5_13p6TeV_pythia8/"], # NEW ?
-#["QCD_PT-20to30",               "/QCD_Bin-PT-20to30_TuneCP5_13p6TeV_pythia8/"], # NEW ?
+["QCD_PT-15to20",               "/QCD_Bin-PT-15to20_TuneCP5_13p6TeV_pythia8/"], # NEW 
+["QCD_PT-20to30",               "/QCD_Bin-PT-20to30_TuneCP5_13p6TeV_pythia8/"], # NEW 
 ["QCD_PT-30to50",               "/QCD_Bin-PT-30to50_TuneCP5_13p6TeV_pythia8/"], # NEW
 ["QCD_PT-50to80",               "/QCD_Bin-PT-50to80_TuneCP5_13p6TeV_pythia8/"], # NEW
 ["QCD_PT-80to120",              "/QCD_Bin-PT-80to120_TuneCP5_13p6TeV_pythia8/"], # NEW
@@ -44,11 +43,11 @@ datasets = [
 ["QCD_PT-470to600",             "/QCD_Bin-PT-470to600_TuneCP5_13p6TeV_pythia8/"], # NEW
 ["QCD_PT-600to800",             "/QCD_Bin-PT-600to800_TuneCP5_13p6TeV_pythia8/"], # NEW
 ["QCD_PT-800to1000",            "/QCD_Bin-PT-800to1000_TuneCP5_13p6TeV_pythia8/"], # NEW
-["QCD_PT-1000to1400",           "/QCD_Bin-PT-1000to1500_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1000~1400 para 1000~1500. Modifico o nome? Acredito que sim
-["QCD_PT-1400to1800",           "/QCD_Bin-PT-1500to2000_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1400~1800 para 1500~2000. Modifico o nome? Acredito que sim
-["QCD_PT-1800to2400",           "/QCD_Bin-PT-2000to2500_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1800~2400 para 2000~2500. Modifico o nome? Acredito que sim
-["QCD_PT-2400to3200",           "/QCD_Bin-PT-2500to3000_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 2400~3200 para 2500~3000. Modifico o nome? Acredito que sim
-["QCD_PT-3200",                 "/QCD_Bin-PT-3000_TuneCP5_13p6TeV_pythia8/"], # NEW
+["QCD_PT-1000to1500",           "/QCD_Bin-PT-1000to1500_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1000~1400 para 1000~1500. Modifico o nome? Acredito que sim
+["QCD_PT-1500to2000",           "/QCD_Bin-PT-1500to2000_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1400~1800 para 1500~2000. Modifico o nome? Acredito que sim
+["QCD_PT-2000to2500",           "/QCD_Bin-PT-2000to2500_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 1800~2400 para 2000~2500. Modifico o nome? Acredito que sim
+["QCD_PT-2500to3000",           "/QCD_Bin-PT-2500to3000_TuneCP5_13p6TeV_pythia8/"], # NEW, MUDARAM O RANGE, de 2400~3200 para 2500~3000. Modifico o nome? Acredito que sim
+["QCD_PT-3000",                 "/QCD_Bin-PT-3000_TuneCP5_13p6TeV_pythia8/"], # NEW
 ["TTto4Q",                      "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
 ["TTtoLNu2Q",                   "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
 ["TTto2L2Nu",                   "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura. Nesse caso existe uma versão UP (TTto2L2Nu_TuneCP5Up_13p6TeV_powheg-pythia8) e DOWN (TTto2L2Nu_TuneCP5Down_13p6TeV_powheg-pythia8)
@@ -58,15 +57,15 @@ datasets = [
 ["WminusH_Hto2B_WtoLNu",        "/WminusH-WtoLNu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WminusH_Hto2C_Wto2Q",         "/WminusH-Wto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WminusH_Hto2C_WtoLNu",        "/WminusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
-["WminusHtoInv_Wto2Q",          "/WminusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"],  #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["WminusHtoInv_Wto2Q",          "/WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["WplusH_Hto2B_Wto2Q",          "/WplusH-Wto2Q-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WplusH_Hto2B_WtoLNu",         "/WplusH-WtoLNu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WplusH_Hto2C_Wto2Q",          "/WplusH-Wto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  # NEW
 ["WplusH_Hto2C_WtoLNu",         "/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  # NEW
-["WplusHtoInv_Wto2Q",           "/WplusHtoInv_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["WplusHtoInv_Wto2Q",           "/WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["ZH_Hto2B_Zto2Q",              "/ZH-Zto2Q-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZH_Hto2C_Zto2Q",              "/ZH-Zto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
-["ZHtoInv_Zto2Q",               "/ZHtoInv_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["ZHtoInv_Zto2Q",               "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["ZH_Hto2B_Zto2L",              "/ZH-Zto2L-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZH_Hto2C_Zto2L",              "/ZH-Zto2L-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZZto2L2Nu",                   "/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
