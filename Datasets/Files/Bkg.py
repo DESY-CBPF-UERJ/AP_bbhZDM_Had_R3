@@ -16,8 +16,8 @@ datasets = [
 ["ZH_Hto2C_Zto2Nu",             "/ZH-Zto2Nu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZHto2Zto4Nu_Zto2Q",           "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],   #NEW
 
-["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],         #OLD, aparentemente não existe versão
-["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],        #OLD, aparentemente não existe versão
+#["DYto2L-2Jets_MLL-4to10",      "/DYto2L-2Jets_MLL-4to10_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],         #OLD, aparentemente não existe versão
+#["DYto2L-2Jets_MLL-10to50",     "/DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],        #OLD, aparentemente não existe versão
 
 ["DYto2L-2Jets_1J_PTLL-40to100",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
 ["DYto2L-2Jets_1J_PTLL-100to200",         "/DYto2L-2Jets_Bin-1J-MLL-50-PTLL-100to200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW, utilizado PLL agora em vez de MLL
@@ -57,15 +57,15 @@ datasets = [
 ["WminusH_Hto2B_WtoLNu",        "/WminusH-WtoLNu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WminusH_Hto2C_Wto2Q",         "/WminusH-Wto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WminusH_Hto2C_WtoLNu",        "/WminusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
-["WminusHtoInv_Wto2Q",          "/WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["WminusHtoInv_Wto2Q",          "/WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  #NEW, Não há uma versão facil de apontar que é essa, mas encontrei esse: WminusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["WplusH_Hto2B_Wto2Q",          "/WplusH-Wto2Q-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WplusH_Hto2B_WtoLNu",         "/WplusH-WtoLNu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["WplusH_Hto2C_Wto2Q",          "/WplusH-Wto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  # NEW
 ["WplusH_Hto2C_WtoLNu",         "/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],  # NEW
-["WplusHtoInv_Wto2Q",           "/WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["WplusHtoInv_Wto2Q",           "/WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #NEW, Não há uma versão facil de apontar que é essa, mas encontrei esse: WplusH-Hto2Zto4Nu-Wto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["ZH_Hto2B_Zto2Q",              "/ZH-Zto2Q-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZH_Hto2C_Zto2Q",              "/ZH-Zto2Q-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
-["ZHtoInv_Zto2Q",               "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #OLD, Não há uma versão facil de apontar que é essa, mas encontrei esse: ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
+["ZHtoInv_Zto2Q",               "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], #NEW, Não há uma versão facil de apontar que é essa, mas encontrei esse: ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8
 ["ZH_Hto2B_Zto2L",              "/ZH-Zto2L-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZH_Hto2C_Zto2L",              "/ZH-Zto2L-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"], # NEW
 ["ZZto2L2Nu",                   "/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
@@ -73,7 +73,7 @@ datasets = [
 ["WZto2L2Q",                    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
 ["WZto3LNu",                    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/"], # Atualizado, mas sem mudança na nomeclatura
   
-["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"], #OLD, Não existe versão para 2024
+#["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"], #OLD, Não existe versão para 2024
 ###########################################################################################################################################
 ["TBbarQto2Q-t-channel",         "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/"], # Nova amostra incluida
 ["TBbarQtoLNu-t-channel",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida
@@ -86,9 +86,9 @@ datasets = [
   
   
 ###########################################################################################################################################
-["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
-["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
-["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+#["TbarQto2Q-t-channel",         "/TbarQto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+#["TQbartoLNu-t-channel",        "/TQbartoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
+#["TbarQtoLNu-t-channel",        "/TbarQtoLNu-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"],# OLD, mesma consideração do de cima
 ["TbarWplusto2L2Nu",            "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"],# NEW, não teve mudança na nomeclatura
 ["TWminusto2L2Nu",              "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW, não teve mudança na nomeclatura
 ["TWminusto4Q",                 "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/"],  # NEW, não teve mudança na nomeclatura
@@ -99,8 +99,8 @@ datasets = [
 ["WWtoLNu2Q",                   "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
 ["WWW",                         "/WWW-4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW
 ["WWZ",                         "/WWZ-4F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW
-["WZZ",                         "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # OLD, o unico disponivel é o "WZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
-["ZZZ",                         "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # OLD, o unico disponivel é o "ZZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
+["WZZ",                         "/WZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW, o unico disponivel é o "WZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
+["ZZZ",                         "/ZZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8/"], # NEW, o unico disponivel é o "ZZZ-5F_TuneCP5_13p6TeV_amcatnlo-pythia8"
 ["ttHto2B",                     "/TTH-Hto2B_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
 ["ttHto2C",                     "/TTH-Hto2C_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/"], # NEW
 ["Zto2Nu_PTNuNu-40to100_1J",    "/Zto2Nu-2Jets_Bin-1J-PTNuNu-40to100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
@@ -113,14 +113,14 @@ datasets = [
 ["Zto2Nu_PTNuNu-400to600_2J",   "/Zto2Nu-2Jets_Bin-2J-PTNuNu-400to600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],  # NEW
 ["Zto2Nu_PTNuNu-600_1J",        "/Zto2Nu-2Jets_Bin-1J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
 ["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_Bin-2J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
-["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
-["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão para 2024
+#["Zto2Q_PTQQ-100to200_1J",      "/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-100to200_2J",      "/Zto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-200to400_1J",      "/Zto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-200to400_2J",      "/Zto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-400to600_1J",      "/Zto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-400to600_2J",      "/Zto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-600_1J",           "/Zto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão pra 2024
+#["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # Não existe versão para 2024
 
 
 #########################################################################################################################################
@@ -140,19 +140,19 @@ datasets = [
 ##########################################################################################################################################
 
 
-["Wto2Q_PTQQ-100to200_1J",      "/Wto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-100to200_2J",      "/Wto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-200to400_1J",      "/Wto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-200to400_2J",      "/Wto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-400to600_1J",      "/Wto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-400to600_2J",      "/Wto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-600_1J",           "/Wto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
-["Wto2Q_PTQQ-600_2J",           "/Wto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-100to200_1J",      "/Wto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-100to200_2J",      "/Wto2Q-2Jets_PTQQ-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-200to400_1J",      "/Wto2Q-2Jets_PTQQ-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-200to400_2J",      "/Wto2Q-2Jets_PTQQ-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-400to600_1J",      "/Wto2Q-2Jets_PTQQ-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-400to600_2J",      "/Wto2Q-2Jets_PTQQ-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-600_1J",           "/Wto2Q-2Jets_PTQQ-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
+#["Wto2Q_PTQQ-600_2J",           "/Wto2Q-2Jets_PTQQ-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD, Não existe versão para 2024
 
 
-["WtoLNu_0J",                   "/WtoLNu-2Jets_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024
-["WtoLNu_1J",                   "/WtoLNu-2Jets_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024 ou seria um das incluidas abaixo 
-["WtoLNu_2J",                   "/WtoLNu-2Jets_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024 ou seria um das incluidas abaixo
+#["WtoLNu_0J",                   "/WtoLNu-2Jets_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024
+#["WtoLNu_1J",                   "/WtoLNu-2Jets_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024 ou seria um das incluidas abaixo 
+#["WtoLNu_2J",                   "/WtoLNu-2Jets_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # OLD,Não parece existir uma versão para essa de 2024 ou seria um das incluidas abaixo
 
 ################################################################################
 #NOVAS AMOSTRAS INCLUIDAS
