@@ -44,18 +44,19 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ],
 
 "ST": [
+    ["TBbarQtoLNu-t-channel",             '30',   38.6	,   0.1084,   'NLO'],   # powheg-madspin
+    ["TbarBQtoLNu-t-channel",             '30',   23.34	,   0.05875,   'NLO'],   # powheg-madspin
+    
     ["TbarWplusto2L2Nu",     '24',   36.05,     0.01296,   'NLO'],   # powheg
     ["TWminusto2L2Nu",       '24',   35.99,     0.01292,   'NLO'],   # powheg
 
-    ["TWminusto4Q",          '24',   35.99,     0.01292,   'NLO'],   # powheg
     ["TWminustoLNu2Q",       '24',   35.99,     0.01292,   'NLO'],   # powheg
 
-    ["TbarWplusto4Q",        '24',   36.05,     0.01296,   'NLO'],   # powheg
     ["TbarWplustoLNu2Q",     '24',   36.05,     0.01296,   'NLO'],   # powheg
 
     
-   # ["TQbartoLNu-t-channel",            '24',       130,                 0.07514,           'NLO'],
-   # ["TbarQtoLNu-t-channel",            '24',       78.56,               0.04092,           'NLO'],
+   # ["TQbartoLNu-t-channel",            '24',       130,                 0.07514,           'NLO'], NÃO EXISTE
+   # ["TbarQtoLNu-t-channel",            '24',       78.56,               0.04092,           'NLO'], NÃO EXISTE
    # ["TbarWplusto2L2Nu",                '24',       36.05,               0.01296,           'NLO'],
    # ["TWminusto2L2Nu",                  '24',       35.99,               0.01292,           'NLO'],
    # ["TWminustoLNu2Q",                  '24',       35.99,               0.01292,           'NLO'],
@@ -131,27 +132,28 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 
 "WtoLNu": [
    # Devo incluir esses??
-   # ["WtoLNu_1J",     '27',   XSEC,     KFACT,   'LO'],   # madgraphMLM
-   # ["WtoLNu_2J",     '27',   XSEC,     KFACT,   'LO'],   # madgraphMLM
-   # ["WtoLNu_3J",     '27',   XSEC,     KFACT,   'LO'],   # madgraphMLM
-   # ["WtoLNu_4J",     '27',   XSEC,     KFACT,   'LO'],   # madgraphMLM
+#############################################################################
+    ["WtoLNu_1J",     '27',   9141,     24.37,   'LO'],   # madgraphMLM
+    ["WtoLNu_2J",     '27',   2931,     8.539,   'LO'],   # madgraphMLM
+    ["WtoLNu_3J",     '27',   864.6,     2.634,   'LO'],   # madgraphMLM
+    ["WtoLNu_4J",     '27',   417.8,     1.283,   'LO'],   # madgraphMLM
 
-
+##############################################################################
     
-    ["WtoLNu_PTLNu-40to100_1J",     '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-40to100_2J",     '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-40to100_1J",     '27',   4211,     27.71,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-40to100_2J",     '27',   1581,     16.18	,   'NLO'],   # amcatnloFXFX
     
-    ["WtoLNu_PTLNu-100to200_1J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-100to200_2J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-100to200_1J",    '27',   342.3,     1.842,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-100to200_2J",    '27',   411.1,     3.841,   'NLO'],   # amcatnloFXFX
     
-    ["WtoLNu_PTLNu-200to400_1J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-200to400_2J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-200to400_1J",    '27',   21.84,     0.1076,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-200to400_2J",    '27',   53.59,     0.4098,   'NLO'],   # amcatnloFXFX
     
-    ["WtoLNu_PTLNu-400to600_1J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-400to600_2J",    '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-400to600_1J",    '27',   0.6845,     0.003095,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-400to600_2J",    '27',   3.099,     0.01935,   'NLO'],   # amcatnloFXFX
     
-    ["WtoLNu_PTLNu-600_1J",         '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-600_2J",         '27',   XSEC,     KFACT,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-600_1J",         '27',   0.07753,     0.0003313,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
 
     
   #  ["WtoLNu_PTLNu-40to100_1J",         '27',       4427,	            28.3,		        'LO'],
@@ -177,9 +179,9 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ],
 
 "Vh": [
-    ["ZH_Hto2B_Zto2Nu",      '29',   0.168,     0,   'NLO'],   # powheg MINLO
-    ["ZH_Hto2C_Zto2Nu",      '29',   XSEC,     0,   'NLO'],   # powheg MINLO
-    ["ZHto2Zto4Nu_Zto2Q",    '29',   XSEC,     0,   'NLO'],   # powheg MINLO
+    ["ZH_Hto2B_Zto2Nu",      '29',   0.168,      0.0002559,   'NLO'],   # powheg MINLO
+    ["ZH_Hto2C_Zto2Nu",      '29',   0.168,     0.0002559,   'NLO'],   # powheg MINLO
+    ["ZHto2Zto4Nu_Zto2Q",    '29',   0.5934	,     0.00004693,   'NLO'],   # powheg MINLO
 
     ["WplusH_Hto2B_WtoLNu",    '29',   0.3,   0.00000519,   'NLO'],   # powhegMINLO
     ["WplusH_Hto2C_WtoLNu",    '29',   0.3,   0.000004869,   'NLO'],   # powhegMINLO
@@ -208,17 +210,17 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     #["Zto2Q_PTQQ-600_2J",               '30',       0.4459,	            0.002084,		    'LO'], # SEM VERSÂO
 
     # --- 2 Jets, PTQQ bins (amcatnloFXFX) ---
-    ["Wto2Q-2Jets_Bin-PTQQ-100",        '30',   XSEC,     KFACT,   'NLO'],
-    ["Wto2Q-2Jets_Bin-PTQQ-200",        '30',   XSEC,     KFACT,   'NLO'],
-    ["Wto2Q-2Jets_Bin-PTQQ-400",        '30',   XSEC,     KFACT,   'NLO'],
-    ["Wto2Q-2Jets_Bin-PTQQ-600",        '30',   XSEC,     KFACT,   'NLO'], 
+    ["Wto2Q-2Jets_Bin-PTQQ-100",        '30',   XSEC,     KFACT,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
+    ["Wto2Q-2Jets_Bin-PTQQ-200",        '30',   165.3,     1.226,   'NLO'],
+    ["Wto2Q-2Jets_Bin-PTQQ-400",        '30',   XSEC,     KFACT,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
+    ["Wto2Q-2Jets_Bin-PTQQ-600",        '30',   XSEC,     KFACT,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
     
     # --- 3 Jets, HT bins (madgraphMLM → LO) ---
-    ["Wto2Q-3Jets_Bin-HT-100to400",     '30',   XSEC,     KFACT,   'LO'],
-    ["Wto2Q-3Jets_Bin-HT-400to800",     '30',   XSEC,     KFACT,   'LO'],
-    ["Wto2Q-3Jets_Bin-HT-800to1500",    '30',   XSEC,     KFACT,   'LO'],
-    ["Wto2Q-3Jets_Bin-HT-1500to2500",   '30',   XSEC,     KFACT,   'LO'],
-    ["Wto2Q-3Jets_Bin-HT-2500",         '30',   XSEC,     KFACT,   'LO'],
+    ["Wto2Q-3Jets_Bin-HT-100to400",     '30',   16120,     44.49,   'LO'],
+    ["Wto2Q-3Jets_Bin-HT-400to800",     '30',   XSEC,     KFACT,   'LO'], # Não existe no XSDB
+    ["Wto2Q-3Jets_Bin-HT-800to1500",    '30',   XSEC,     KFACT,   'LO'], # Não existe no XSDB
+    ["Wto2Q-3Jets_Bin-HT-1500to2500",   '30',   XSEC,     KFACT,   'LO'], # Não existe no XSDB
+    ["Wto2Q-3Jets_Bin-HT-2500",         '30',   XSEC,     KFACT,   'LO'], # Não existe no XSDB
 
     #["Wto2Q_PTQQ-100to200_1J",          '30',       1517,	            7.518,		        'LO'],
     #["Wto2Q_PTQQ-100to200_2J",          '30',       1757,	            14.55,		        'LO'],
@@ -261,8 +263,8 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     #["ZZto2L2Nu",                       '30',       1.031,	            0.0005268,		    'NLO'],
     #["ZZto2L2Q",                        '30',       6.788,	            0.003501,		    'NLO'],
 
-    ["TbarWplusto4Q",   '30',   XSEC,   KFACT,   'NLO'],   # powheg
-    ["TWminusto4Q",     '30',   XSEC,   KFACT,   'NLO'],   # powheg
+    ["TbarWplusto4Q",   '30',   36.05,   0.01296,   'NLO'],   # powheg
+    ["TWminusto4Q",     '30',   35.99,   0.01292,   'NLO'],   # powheg
 
     #["TbarWplusto4Q",                   '30',       36.05,              0.01296,            'NLO'],
     #["TWminusto4Q",                     '30',       35.99,	            0.01292,		    'NLO'],
@@ -291,15 +293,14 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     
     ["TBbarQto2Q-t-channel",              '30',   77.26,   0.2169,   'NLO'],   # powheg-madspin
 
-    ["TBbarQtoLNu-t-channel_CP5Down",     '30',   38.6	,   0.1084	,   'NLO'],   # powheg-madspin # OPCIONAL?
-    ["TBbarQtoLNu-t-channel_CP5Up",       '30',   38.6	,   0.1084,   'NLO'],   # powheg-madspin # OPCIONAL?
-    ["TBbarQtoLNu-t-channel",             '30',   38.6	,   0.1084,   'NLO'],   # powheg-madspin
+    #["TBbarQtoLNu-t-channel_CP5Down",     '30',   38.6	,   0.1084	,   'NLO'],   # powheg-madspin # OPCIONAL?
+    #["TBbarQtoLNu-t-channel_CP5Up",       '30',   38.6	,   0.1084,   'NLO'],   # powheg-madspin # OPCIONAL?
     
     ["TbarBQto2Q-t-channel",              '30',   46.73,   0.1176,   'NLO'],   # powheg-madspin
     
-    ["TbarBQtoLNu-t-channel_CP5Down",     '30',   23.34	,   0.05875	,   'NLO'],   # powheg-madspin
-    ["TbarBQtoLNu-t-channel_CP5Up",       '30',   23.34	,   0.05875,   'NLO'],   # powheg-madspin
-    ["TbarBQtoLNu-t-channel",             '30',   23.34	,   0.05875,   'NLO'],   # powheg-madspin
+    #["TbarBQtoLNu-t-channel_CP5Down",     '30',   23.34	,   0.05875	,   'NLO'],   # powheg-madspin
+    #["TbarBQtoLNu-t-channel_CP5Up",       '30',   23.34	,   0.05875,   'NLO'],   # powheg-madspin
+    
 
 
     ["WminusHtoInv_Wto2Q",     '30', 0.3916, 0.00002025, 'NLO'],
