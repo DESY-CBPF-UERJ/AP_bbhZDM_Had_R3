@@ -15,6 +15,7 @@ paths["0_22"] = analysis+'/Datasets/Files/bkg_22/dti_0/'+nano_version+'/'
 paths["1_22"] = analysis+'/Datasets/Files/bkg_22/dti_1/'+nano_version+'/'
 paths["0_23"] = analysis+'/Datasets/Files/bkg_23/dti_0/'+nano_version+'/'
 paths["1_23"] = analysis+'/Datasets/Files/bkg_23/dti_1/'+nano_version+'/'
+paths["0_24"] = analysis+'/Datasets/Files/bkg_24/dti_1/'+nano_version+'/'
 
 
 # https://xsecdb-xsdb-official.app.cern.ch/
