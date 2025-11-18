@@ -76,12 +76,12 @@ datasets = [
 #["TQbarto2Q-t-channel",         "/TQbarto2Q-t-channel_TuneCP5_13p6TeV_powheg-pythia8/"], #OLD, Não existe versão para 2024
 ###########################################################################################################################################
 ["TBbarQto2Q-t-channel",         "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/"], # Nova amostra incluida
-["TBbarQtoLNu-t-channel_CP5Down",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
-["TBbarQtoLNu-t-channel_CP5Up",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
+#["TBbarQtoLNu-t-channel_CP5Down",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
+#["TBbarQtoLNu-t-channel_CP5Up",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
 ["TBbarQtoLNu-t-channel",         "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida
 ["TbarBQto2Q-t-channel",         "/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida
-["TbarBQtoLNu-t-channel_CP5Down",         "/TbarBQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
-["TbarBQtoLNu-t-channel_CP5Up",         "/TbarBQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
+#["TbarBQtoLNu-t-channel_CP5Down",         "/TbarBQtoLNu-t-channel-4FS_TuneCP5Down_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
+#["TbarBQtoLNu-t-channel_CP5Up",         "/TbarBQtoLNu-t-channel-4FS_TuneCP5Up_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida # OPCIONAL?
 ["TbarBQtoLNu-t-channel",         "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/"],  # Nova amostra incluida
   
   
@@ -115,13 +115,13 @@ datasets = [
 ["Zto2Nu_PTNuNu-600_2J",        "/Zto2Nu-2Jets_Bin-2J-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
   
 ["Zto2Q_PTQQ-100_2J",      "/Zto2Q-2Jets_Bin-PTQQ-100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
-["Zto2Q_HT-100to400_4J",      "/Zto2Q-4Jets_Bin-HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
+#["Zto2Q_HT-100to400_4J",      "/Zto2Q-4Jets_Bin-HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
 ["Zto2Q_PTQQ-200_2J",      "/Zto2Q-2Jets_Bin-PTQQ-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
-["Zto2Q_HT-1500to2500_4J",      "/Zto2Q-4Jets_Bin-HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
+#["Zto2Q_HT-1500to2500_4J",      "/Zto2Q-4Jets_Bin-HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
 ["Zto2Q_PTQQ-400_2J",      "/Zto2Q-2Jets_Bin-PTQQ-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
-["Zto2Q_HT-400to800_4J",      "/Zto2Q-4Jets_Bin-HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
+#["Zto2Q_HT-400to800_4J",      "/Zto2Q-4Jets_Bin-HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
 ["Zto2Q_PTQQ-600_2J",           "/Zto2Q-2Jets_Bin-PTQQ-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], # NEW
-["Zto2Q_HT-800To1500_4J",           "/Zto2Q-4Jets_Bin-HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
+#["Zto2Q_HT-800To1500_4J",           "/Zto2Q-4Jets_Bin-HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"], # NEW
 
 
 
@@ -132,11 +132,11 @@ datasets = [
 ["Wto2Q-2Jets_Bin-PTQQ-200",      "/Wto2Q-2Jets_Bin-PTQQ-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Wto2Q-2Jets_Bin-PTQQ-400",      "/Wto2Q-2Jets_Bin-PTQQ-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["Wto2Q-2Jets_Bin-PTQQ-600",      "/Wto2Q-2Jets_Bin-PTQQ-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-["Wto2Q-3Jets_Bin-HT-100to400",   "/Wto2Q-3Jets_Bin-HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["Wto2Q-3Jets_Bin-HT-1500to2500", "/Wto2Q-3Jets_Bin-HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["Wto2Q-3Jets_Bin-HT-2500",       "/Wto2Q-3Jets_Bin-HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["Wto2Q-3Jets_Bin-HT-400to800",   "/Wto2Q-3Jets_Bin-HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["Wto2Q-3Jets_Bin-HT-800to1500",  "/Wto2Q-3Jets_Bin-HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["Wto2Q-3Jets_Bin-HT-100to400",   "/Wto2Q-3Jets_Bin-HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["Wto2Q-3Jets_Bin-HT-1500to2500", "/Wto2Q-3Jets_Bin-HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["Wto2Q-3Jets_Bin-HT-2500",       "/Wto2Q-3Jets_Bin-HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["Wto2Q-3Jets_Bin-HT-400to800",   "/Wto2Q-3Jets_Bin-HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["Wto2Q-3Jets_Bin-HT-800to1500",  "/Wto2Q-3Jets_Bin-HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
 
 
 
@@ -163,10 +163,10 @@ datasets = [
 
 ################################################################################
 #NOVAS AMOSTRAS INCLUIDAS
-["WtoLNu_1J",                   "/WtoLNu-4Jets_Bin-1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["WtoLNu_2J",                   "/WtoLNu-4Jets_Bin-2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["WtoLNu_3J",                   "/WtoLNu-4Jets_Bin-3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
-["WtoLNu_4J",                   "/WtoLNu-4Jets_Bin-4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["WtoLNu_1J",                   "/WtoLNu-4Jets_Bin-1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["WtoLNu_2J",                   "/WtoLNu-4Jets_Bin-2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["WtoLNu_3J",                   "/WtoLNu-4Jets_Bin-3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
+#["WtoLNu_4J",                   "/WtoLNu-4Jets_Bin-4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/"],
 
 #################################################################################
 
