@@ -305,7 +305,7 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 
 
     ["WminusHtoInv_Wto2Q",     '30', 0.3916, 0.00002025, 'NLO'],
-    ["WplusHtoInv_Wto2Q"],     '30', 0.6194, 0.00002424, 'NLO'],
+    ["WplusHtoInv_Wto2Q",     '30', 0.6194, 0.00002424, 'NLO'],
     ["ZHtoInv_Zto2Q",    '30',    0.5934,0.00004693	,'NLO'],
 
 
