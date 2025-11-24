@@ -592,7 +592,11 @@ class HEPHero : public HEPBase {
         // Vector to store the four-moments of the selected jets
         std::vector<TLorentzVector> jetMomenta;
 
-       
+		// Informação de variaveis do LHE
+		Float_t LHE_HT;
+        Float_t LHE_Vpt;
+        UChar_t LHE_Njets;
+
 
         Float_t GenMET_phi;
         Float_t GenMET_pt;
