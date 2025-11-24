@@ -464,6 +464,11 @@ bool HEPHero::Init() {
             _inputTree->SetBranchAddress("LHEScaleWeight", &LHEScaleWeight);
             _inputTree->SetBranchAddress("nPSWeight", &nPSWeight);
             _inputTree->SetBranchAddress("PSWeight", &PSWeight);
+
+
+            _inputTree->SetBranchAddress("LHE_HT", &LHE_HT );
+            _inputTree->SetBranchAddress("LHE_Vpt", &LHE_Vpt );
+            _inputTree->SetBranchAddress("LHE_Njets", &LHE_Njets );
             
 
         }
