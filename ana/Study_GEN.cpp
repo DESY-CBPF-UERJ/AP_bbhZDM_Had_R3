@@ -214,6 +214,8 @@ void HEPHero::SetupStudy_GEN() {
 
     HDF_insert("GEN_qq_inside_zh", &Study_GEN::GEN_qq_inside_zh);
 
+ 	HDF_insert("GenHT", &LHE_HT );
+    HDF_insert("GenVpt", &LHE_Vpt );
 
 
     
