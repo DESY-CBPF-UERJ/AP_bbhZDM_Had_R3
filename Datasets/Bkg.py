@@ -23,17 +23,17 @@ paths["0_24"] = analysis+'/Datasets/Files/bkg_24/dti_0/v15/'
 b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
 "DY": [
 
-    ["DYto2L-2Jets_1J_PTLL-40to100",   '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_1J_PTLL-100to200",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_1J_PTLL-200to400",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_1J_PTLL-400to600",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_1J_PTLL-600",       '20',  XSEC,   KFACT,   'NLO'],
+    ["DYto2L-2Jets_1J_PTLL-40to100",   '20',  475.3, 2.811,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-100to200",  '20', 45.42,	0.2314,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-200to400",  '20',  3.382, 0.01443,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-400to600",  '20',  0.1162, 0.0004367,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-600",       '20',  0.01392, 0.00005797,   'LO'],
 
-    ["DYto2L-2Jets_2J_PTLL-40to100",   '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_2J_PTLL-100to200",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_2J_PTLL-200to400",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_2J_PTLL-400to600",  '20',  XSEC,   KFACT,   'NLO'],
-    ["DYto2L-2Jets_2J_PTLL-600",       '20',  XSEC,   KFACT,   'NLO'],
+    ["DYto2L-2Jets_2J_PTLL-40to100",   '20',  179.3, 1.827,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-100to200",  '20',  51.68, 0.4864,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-200to400",  '20',  7.159, 0.05581,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-400to600",  '20',  0.4157, 0.002364,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-600",       '20',  0.07019, 0.0003334,   'LO'],
     
 ],
 
