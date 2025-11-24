@@ -15,6 +15,7 @@ paths["0_22"] = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
 paths["1_22"] = analysis+'/Datasets/Files/data_22/'+nano_version+'/'
 paths["0_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
 paths["1_23"] = analysis+'/Datasets/Files/data_23/'+nano_version+'/'
+paths["0_24"] = analysis+'/Datasets/Files/data_24/v15/'
 
 
 eras = {}
@@ -22,6 +23,7 @@ eras["0_22"] = ['C', 'D']
 eras["1_22"] = ['E', 'F', 'G']
 eras["0_23"] = ['C']
 eras["1_23"] = ['D']
+eras["0_24"] = ['C','D','E','F','G','H','I']
 
 
 # https://twiki.cern.ch/twiki/bin/view/CMS/TWikiLUM
@@ -31,6 +33,7 @@ lumis["0_22"] = [7980.4,    0,  0,  0]
 lumis["1_22"] = [26671.7,   0,  0,  0]
 lumis["0_23"] = [17794,     0,  0,  0]
 lumis["1_23"] = [9451,      0,  0,  0]
+lumis["0_24"] = [108950,      0,  0,  0] #source: https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVRun3Analysis#2024_Analysis_Summary_Table
 
 
 d_ds_info = {}
@@ -46,6 +49,7 @@ d_ds_info["0_22"] = { # [DatasetName, Production ID]
 d_ds_info["1_22"] = d_ds_info["0_22"].copy()
 d_ds_info["0_23"] = d_ds_info["0_22"].copy()
 d_ds_info["1_23"] = d_ds_info["0_22"].copy()
+d_ds_info["0_24"] = d_ds_info["0_22"].copy()
 
 
 #----------------------------------------------------------------------------------------
