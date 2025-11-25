@@ -145,61 +145,66 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
     bool obj_selected = false;
     float BTAG_CUT;
 
+    if ( dataset_year == "22"){
     // DeepJet
-    if( dataset_year == "22"){
+   
         if( dataset_dti == 0 ){     //SUMMER2022
             if(      WP == 0 ) BTAG_CUT = 0.0583;   // loose
             else if( WP == 1 ) BTAG_CUT = 0.3086;   // medium
             else if( WP == 2 ) BTAG_CUT = 0.7183;   // tight
             else if( WP == 3 ) BTAG_CUT = 0.8111;   // very tight
             else if( WP == 4 ) BTAG_CUT = 0.9512;   // very very tight
-        }else{                      //SUMMMER2022EE
-            if(      WP == 0 ) BTAG_CUT = 0.0614;   // loose
-            else if( WP == 1 ) BTAG_CUT = 0.3196;   // medium
-            else if( WP == 2 ) BTAG_CUT = 0.73;   // tight
-            else if( WP == 3 ) BTAG_CUT = 0.8184;   // very tight
-            else if( WP == 4 ) BTAG_CUT = 0.9542;   // very very tight
-        }
-    }
-
-    // particleNET
-    if( dataset_year == "22"){
-        if( dataset_dti == 0 ){     //SUMMER2022
+            // particleNET
             if(      WP == 5 ) BTAG_CUT = 0.047;   // loose
             else if( WP == 6 ) BTAG_CUT = 0.245;   // medium
             else if( WP == 7 ) BTAG_CUT = 0.6734;   // tight
             else if( WP == 8 ) BTAG_CUT = 0.7862;   // very tight
             else if( WP == 9 ) BTAG_CUT = 0.961;   // very very tight
-        }else{                      //SUMMMER2022EE
-            if(      WP == 5 ) BTAG_CUT = 0.0499;   // loose
-            else if( WP == 6 ) BTAG_CUT = 0.2605;   // medium
-            else if( WP == 7 ) BTAG_CUT = 0.6915;   // tight
-            else if( WP == 8 ) BTAG_CUT = 0.8033;   // very tight
-            else if( WP == 9 ) BTAG_CUT = 0.9664;   // very very tight
-        }
-    }
-
-    // robustParticleTransformer
-    if( dataset_year == "22"){
-        if( dataset_dti == 0 ){     //SUMMER2022
+            //robustParticleTransformer
             if(      WP == 10 ) BTAG_CUT = 0.0849;   // loose
             else if( WP == 11 ) BTAG_CUT = 0.4319;   // medium
             else if( WP == 12 ) BTAG_CUT = 0.8482;   // tight
             else if( WP == 13 ) BTAG_CUT = 0.9151;   // very tight
             else if( WP == 14 ) BTAG_CUT = 0.9874;   // very very tight
         }else{                      //SUMMMER2022EE
+            if(      WP == 0 ) BTAG_CUT = 0.0614;   // loose
+            else if( WP == 1 ) BTAG_CUT = 0.3196;   // medium
+            else if( WP == 2 ) BTAG_CUT = 0.73;   // tight
+            else if( WP == 3 ) BTAG_CUT = 0.8184;   // very tight
+            else if( WP == 4 ) BTAG_CUT = 0.9542;   // very very tight
+            // particleNET
+            if(      WP == 5 ) BTAG_CUT = 0.0499;   // loose
+            else if( WP == 6 ) BTAG_CUT = 0.2605;   // medium
+            else if( WP == 7 ) BTAG_CUT = 0.6915;   // tight
+            else if( WP == 8 ) BTAG_CUT = 0.8033;   // very tight
+            else if( WP == 9 ) BTAG_CUT = 0.9664;   // very very tight
+            //robustParticleTransformer
             if(      WP == 10 ) BTAG_CUT = 0.0897;   // loose
             else if( WP == 11 ) BTAG_CUT = 0.451;   // medium
             else if( WP == 12 ) BTAG_CUT = 0.8604;   // tight
             else if( WP == 13 ) BTAG_CUT = 0.9234;   // very tight
             else if( WP == 14 ) BTAG_CUT = 0.9893;   // very very tight
         }
-    }
 
     if(      WP >= 0 and WP <=4 ) obj_selected = (Jet_btagDeepFlavB[iobj] > BTAG_CUT);    // DeepJet
     else if( WP >= 5 and WP <=9 ) obj_selected = (Jet_btagPNetB[iobj] > BTAG_CUT);        // particleNET
     else if( WP >= 10 and WP <=14 ) obj_selected = (Jet_btagRobustParTAK4B[iobj] > BTAG_CUT);        // robustParticleTransformer
 
+    }
+ 
+    if( dataset_year == "24"){
+        // UParTAK4    https://btv-wiki.docs.cern.ch/ScaleFactors/Run3Summer24/#general-remarks 
+        if(      WP == 0 ) BTAG_CUT = 0.0246;   // loose
+        else if( WP == 1 ) BTAG_CUT = 0.1272;   // medium
+        else if( WP == 2 ) BTAG_CUT = 0.4648;   // tight
+        else if( WP == 3 ) BTAG_CUT = 0.6298;   // very tight
+        else if( WP == 4 ) BTAG_CUT = 0.9739;   // very very tight
+        
+        if(      WP >= 0 and WP <=4 ) obj_selected = (Jet_btagUParTAK4B[iobj] > BTAG_CUT);    
+        
+    }
+
+    
 
 
 
