@@ -597,6 +597,8 @@ class HEPHero : public HEPBase {
         Float_t LHE_Vpt;
         UChar_t LHE_Njets;
 
+		Float_t Jet_btagUParTAK4B[100];
+
 
         Float_t GenMET_phi;
         Float_t GenMET_pt;
