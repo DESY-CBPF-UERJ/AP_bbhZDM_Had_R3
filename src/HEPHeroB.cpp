@@ -371,6 +371,12 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_rawFactor", &Jet_rawFactor);
         
 
+
+        if (dataset_year == "24"){
+            _inputTree->SetBranchAddress("Jet_btagUParTAK4B",&Jet_btagUParTAK4B);
+        }
+        
+        
         //-----------------------------------------------------------------------------------------
 
         if( dataset_year == "22" ){
