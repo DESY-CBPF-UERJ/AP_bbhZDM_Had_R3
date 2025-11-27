@@ -156,6 +156,8 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_mass", Jet_mass);
         _inputTree->SetBranchAddress("Jet_phi", Jet_phi);
         _inputTree->SetBranchAddress("Jet_pt", Jet_pt);
+        _inputTree->SetBranchAddress("Jet_btagPNetB", Jet_btagPNetB);
+        
         
         _inputTree->SetBranchAddress("LHE_HT", &LHE_HT);
         _inputTree->SetBranchAddress("LHE_Vpt", &LHE_Vpt);
@@ -424,7 +426,7 @@ bool HEPHero::Init() {
            // _inputTree->SetBranchAddress("nLHEPdfWeight", &nLHEPdfWeight);
             //_inputTree->SetBranchAddress("LHEPdfWeight", &LHEPdfWeight);
            // _inputTree->SetBranchAddress("nLHEReweightingWeight", &nLHEReweightingWeight);
-            //_inputTree->SetBranchAddress("LHEReweightingWeight", &LHEReweightingWeight);
+            _inputTree->SetBranchAddress("LHEReweightingWeight", &LHEReweightingWeight);
             //_inputTree->SetBranchAddress("nLHEScaleWeight", &nLHEScaleWeight);
             //_inputTree->SetBranchAddress("LHEScaleWeight", &LHEScaleWeight);
             //_inputTree->SetBranchAddress("nPSWeight", &nPSWeight);
