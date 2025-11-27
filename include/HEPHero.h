@@ -422,7 +422,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Electron_promptMVA[100];   //[nElectron]
 		
 		Int_t           nFatJet;
-//		UChar_t         FatJet_nConstituents[100];   //[nFatJet]
+		UChar_t         FatJet_nConstituents[100];   //[nFatJet]
 //		Short_t         FatJet_chMultiplicity[100];   //[nFatJet]
 //		Short_t         FatJet_neMultiplicity[100];   //[nFatJet]
 //		Short_t         FatJet_subJetIdx1[100];   //[nFatJet]
@@ -477,7 +477,7 @@ class HEPHero : public HEPBase {
 		Float_t         FatJet_particleNetWithMass_TvsQCD[100];   //[nFatJet]
 		Float_t         FatJet_particleNetWithMass_WvsQCD[100];   //[nFatJet]
 		Float_t         FatJet_particleNetWithMass_ZvsQCD[100];   //[nFatJet]
-//		Float_t         FatJet_particleNet_QCD[100];   //[nFatJet]
+		Float_t         FatJet_particleNet_QCD[100];   //[nFatJet]
 //		Float_t         FatJet_particleNet_QCD0HF[100];   //[nFatJet]
 //		Float_t         FatJet_particleNet_QCD1HF[100];   //[nFatJet]
 //		Float_t         FatJet_particleNet_QCD2HF[100];   //[nFatJet]
@@ -489,7 +489,7 @@ class HEPHero : public HEPBase {
 		Float_t         FatJet_particleNet_XteVsQCD[100];   //[nFatJet]
 		Float_t         FatJet_particleNet_XtmVsQCD[100];   //[nFatJet]
 		Float_t         FatJet_particleNet_XttVsQCD[100];   //[nFatJet]
-//		Float_t         FatJet_particleNet_massCorr[100];   //[nFatJet]
+		Float_t         FatJet_particleNet_massCorr[100];   //[nFatJet]
 		Float_t         FatJet_phi[100];   //[nFatJet]
 		Float_t         FatJet_pt[100];   //[nFatJet]
 //		Float_t         FatJet_rawFactor[100];   //[nFatJet]
