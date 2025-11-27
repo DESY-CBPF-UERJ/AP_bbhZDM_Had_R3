@@ -525,15 +525,15 @@ class HEPHero : public HEPBase {
 //		Float_t         GenJet_pt[100];   //[nGenJet]
 		
 		Int_t           nGenPart;
-		Short_t         GenPart_genPartIdxMother[24];   //[nGenPart]
-		UShort_t        GenPart_statusFlags[24];   //[nGenPart]
-		Int_t           GenPart_pdgId[24];   //[nGenPart]
-		Int_t           GenPart_status[24];   //[nGenPart]
-		Float_t         GenPart_eta[24];   //[nGenPart]
-		Float_t         GenPart_mass[24];   //[nGenPart]
-		Float_t         GenPart_phi[24];   //[nGenPart]
-		Float_t         GenPart_pt[24];   //[nGenPart]
-//		Float_t         GenPart_iso[24];   //[nGenPart]
+		Short_t         GenPart_genPartIdxMother[100];   //[nGenPart]
+		UShort_t        GenPart_statusFlags[100];   //[nGenPart]
+		Int_t           GenPart_pdgId[100];   //[nGenPart]
+		Int_t           GenPart_status[100];   //[nGenPart]
+		Float_t         GenPart_eta[100];   //[nGenPart]
+		Float_t         GenPart_mass[100];   //[nGenPart]
+		Float_t         GenPart_phi[100];   //[nGenPart]
+		Float_t         GenPart_pt[100];   //[nGenPart]
+//		Float_t         GenPart_iso[100];   //[nGenPart]
 		
 //		Int_t           nGenProton;
 //		Bool_t          GenProton_isPU[100];   //[nGenProton]
