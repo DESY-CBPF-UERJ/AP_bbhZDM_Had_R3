@@ -79,7 +79,7 @@ void HEPHero::SetupStudy_GEN() {
     HDF_insert("OmegaMin", &OmegaMin);
     HDF_insert("FMax", &FMax);
     HDF_insert("MHT", &MHT);
-    HDF_insert("MET_pt", &MET_pt);
+    HDF_insert("MET_pt", &PFMET_pt);
     HDF_insert("MDT", &MDT);
     HDF_insert("MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi);
     HDF_insert("MET_FatJet_Mt", &MET_FatJet_Mt);
@@ -891,7 +891,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
             Study_GEN::RECO_deltaEta_FatJet_JetB_more_pt = fabs(FatJet_eta[selectedFatJet.at(0)] - Jet_eta[ijet]);
             Study_GEN::RECO_deltaPhi_FatJet_JetB_more_pt = temp_dPhi_FatJet_Jetb;
 
-            Study_GEN::RECO_deltaPhi_MET_JetB_more_pt = acos(cos(Jet_phi[ijet] - MET_phi));
+            Study_GEN::RECO_deltaPhi_MET_JetB_more_pt = acos(cos(Jet_phi[ijet] - PFMET_phi));
         }
         // Caso onde o JetB tem o menor pt
         if (Jet_pt[ijet] < temp_menor_pt_jetB){
@@ -900,21 +900,21 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
             Study_GEN::RECO_deltaEta_FatJet_JetB_less_pt = fabs(FatJet_eta[selectedFatJet.at(0)] - Jet_eta[ijet]);
             Study_GEN::RECO_deltaPhi_FatJet_JetB_less_pt = temp_dPhi_FatJet_Jetb;
 
-            Study_GEN::RECO_deltaPhi_MET_JetB_less_pt = acos(cos(Jet_phi[ijet] - MET_phi));
+            Study_GEN::RECO_deltaPhi_MET_JetB_less_pt = acos(cos(Jet_phi[ijet] - PFMET_phi));
         }
 
 
 
-        Study_GEN::RECO_deltaPhi_MET_FatJet = fabs(acos(cos(FatJet_phi[selectedFatJet.at(0)] - MET_phi)));
+        Study_GEN::RECO_deltaPhi_MET_FatJet = fabs(acos(cos(FatJet_phi[selectedFatJet.at(0)] - PFMET_phi)));
 
 
         
         
-        float temp_dPhi_METJetb = acos(cos(Jet_phi[ijet] - MET_phi));
+        float temp_dPhi_METJetb = acos(cos(Jet_phi[ijet] - PFMET_phi));
         // Menor DeltaPhi entre o MET e JetB
         if (dPhi_METJetb > temp_dPhi_METJetb){
             dPhi_METJetb = temp_dPhi_METJetb;
-            reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
+            reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - PFMET_phi)));
             Study_GEN::RECO_deltaPhi_MET_JetB_less_deltaphi = dPhi_METJetb;
         }
         // Maior DeltaPhi entre o MET e JetB
@@ -923,7 +923,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
             Study_GEN::RECO_deltaPhi_MET_JetB_more_deltaphi = temp_dPhi_METJetb_more;
         }
         
-        temp_reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
+        temp_reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - PFMET_phi)));
         if (reco_max_mass_tran_close_b < temp_reco_mass_tran_close_b){
             reco_max_mass_tran_close_b = temp_reco_mass_tran_close_b;
         } 
@@ -933,7 +933,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
         
         
         }
-        double temp_dPhi = acos(cos(FatJet_phi[selectedFatJet.at(0)] - atan2(Jet_pt[ijet]*sin(Jet_phi[ijet]) + PFMET_pt*sin(MET_phi), Jet_pt[ijet]*cos(Jet_phi[ijet]) + PFMET_pt*cos(MET_phi))));
+        double temp_dPhi = acos(cos(FatJet_phi[selectedFatJet.at(0)] - atan2(Jet_pt[ijet]*sin(Jet_phi[ijet]) + PFMET_pt*sin(PFMET_phi), Jet_pt[ijet]*cos(Jet_phi[ijet]) + PFMET_pt*cos(PFMET_phi))));
         if (dPhi>temp_dPhi){
             dPhi = temp_dPhi;
         }
