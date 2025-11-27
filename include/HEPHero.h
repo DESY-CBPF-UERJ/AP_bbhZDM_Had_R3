@@ -571,8 +571,9 @@ class HEPHero : public HEPBase {
 		Float_t         GenVisTau_mass[100];   //[nGenVisTau]
 		Float_t         GenVisTau_phi[100];   //[nGenVisTau]
 		Float_t         GenVisTau_pt[100];   //[nGenVisTau]
-		Float_t         genWeight;
+		
 		*/
+		Float_t         genWeight;		
 		/*
 		Float_t         LHEWeight_originalXWGTUP;
 		Int_t           nLHEPdfWeight;
