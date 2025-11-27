@@ -416,7 +416,7 @@ bool HEPHero::Init() {
             _inputTree->SetBranchAddress("SubGenJetAK8_phi", &SubGenJetAK8_phi);
             _inputTree->SetBranchAddress("SubGenJetAK8_pt", &SubGenJetAK8_pt);
 
-           // _inputTree->SetBranchAddress("genWeight", &genWeight);
+            _inputTree->SetBranchAddress("genWeight", &genWeight);
            // _inputTree->SetBranchAddress("LHEWeight_originalXWGTUP", &LHEWeight_originalXWGTUP);
            // _inputTree->SetBranchAddress("nLHEPdfWeight", &nLHEPdfWeight);
             //_inputTree->SetBranchAddress("LHEPdfWeight", &LHEPdfWeight);
