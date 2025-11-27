@@ -107,6 +107,7 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("nFatJet", &nFatJet);
         _inputTree->SetBranchAddress("FatJet_eta", FatJet_eta);
         _inputTree->SetBranchAddress("FatJet_mass", FatJet_mass);
+        _inputTree->SetBranchAddress("FatJet_msoftdrop", FatJet_msoftdrop);
         
         _inputTree->SetBranchAddress("FatJet_particleNetLegacy_QCD", FatJet_particleNetLegacy_QCD);
         _inputTree->SetBranchAddress("FatJet_particleNetLegacy_Xbb", FatJet_particleNetLegacy_Xbb);
@@ -172,6 +173,7 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Muon_tightId", Muon_tightId);
         _inputTree->SetBranchAddress("Muon_softId", Muon_softId);
         _inputTree->SetBranchAddress("Muon_highPtId", Muon_highPtId);
+        _inputTree->SetBranchAddress("Muon_pfIsoId", Muon_pfIsoId);
         
         _inputTree->SetBranchAddress("PFMET_phi", &PFMET_phi);
         _inputTree->SetBranchAddress("PFMET_pt", &PFMET_pt);
