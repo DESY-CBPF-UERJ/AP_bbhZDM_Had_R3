@@ -101,6 +101,8 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Electron_mass", Electron_mass);
         _inputTree->SetBranchAddress("Electron_phi", Electron_phi);
         _inputTree->SetBranchAddress("Electron_pt", Electron_pt);
+        _inputTree->SetBranchAddress("Electron_deltaEtaSC", Electron_deltaEtaSC);
+        _inputTree->SetBranchAddress("Electron_eta", Electron_eta);
         
         _inputTree->SetBranchAddress("nFatJet", &nFatJet);
         _inputTree->SetBranchAddress("FatJet_eta", FatJet_eta);
@@ -167,6 +169,9 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Muon_phi", Muon_phi);
         _inputTree->SetBranchAddress("Muon_pt", Muon_pt);
         _inputTree->SetBranchAddress("Muon_promptMVA", Muon_promptMVA);
+        _inputTree->SetBranchAddress("Muon_tightId", Muon_tightId);
+        _inputTree->SetBranchAddress("Muon_softId", Muon_softId);
+        _inputTree->SetBranchAddress("Muon_highPtId", Muon_highPtId);
         
         _inputTree->SetBranchAddress("PFMET_phi", &PFMET_phi);
         _inputTree->SetBranchAddress("PFMET_pt", &PFMET_pt);
@@ -376,57 +381,7 @@ bool HEPHero::Init() {
         }
         
         
-        //-----------------------------------------------------------------------------------------
-
-        if( dataset_year == "22" ){
-            HLT_AK8PFJet500 = false;
-            HLT_AK8PFJet550 = false;
-            HLT_AK8PFJet420_TrimMass30 = false;
-            HLT_AK8PFHT800_TrimMass50 = false;
-            HLT_AK8PFHT850_TrimMass50 = false;
-            HLT_AK8PFHT900_TrimMass50 = false;
-            HLT_AK8PFJetFwd400 = false;
-            HLT_AK8PFJetFwd450 = false;
-            HLT_AK8PFJetFwd500 = false;
-            HLT_PFMET120_PFMHT120_IDTight = false;
-            HLT_MET105_IsoTrk50 = false;
-            HLT_BTagMu_AK8Jet170_DoubleMu5 = false;
-            HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35 = false;
-            HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35 = false;
-            HLT_AK8PFJet425_SoftDropMass40 = false;
-            HLT_AK8PFJet450_SoftDropMass40 = false;
-            HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
-            HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
-            HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30 = false;
-
-
-            _inputTree->SetBranchAddress("HLT_AK8PFJet500", &HLT_AK8PFJet500 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet550", &HLT_AK8PFJet550 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet420_TrimMass30", &HLT_AK8PFJet420_TrimMass30 );
-            _inputTree->SetBranchAddress("HLT_AK8PFHT800_TrimMass50", &HLT_AK8PFHT800_TrimMass50 );
-            _inputTree->SetBranchAddress("HLT_AK8PFHT850_TrimMass50", &HLT_AK8PFHT850_TrimMass50 );
-            _inputTree->SetBranchAddress("HLT_AK8PFHT900_TrimMass50", &HLT_AK8PFHT900_TrimMass50 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd400", &HLT_AK8PFJetFwd400 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd450", &HLT_AK8PFJetFwd450 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJetFwd500", &HLT_AK8PFJetFwd500 );
-            _inputTree->SetBranchAddress("HLT_PFMET120_PFMHT120_IDTight", &HLT_PFMET120_PFMHT120_IDTight );
-            _inputTree->SetBranchAddress("HLT_MET105_IsoTrk50", &HLT_MET105_IsoTrk50 );
-            _inputTree->SetBranchAddress("HLT_BTagMu_AK8Jet170_DoubleMu5", &HLT_BTagMu_AK8Jet170_DoubleMu5 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet425_SoftDropMass40", &HLT_AK8PFJet425_SoftDropMass40 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet450_SoftDropMass40", &HLT_AK8PFJet450_SoftDropMass40 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
-            _inputTree->SetBranchAddress("HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30", &HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30 );
-            _inputTree->SetBranchAddress("HLT_PFHT500_PFMET100_PFMHT100_IDTight", &HLT_PFHT500_PFMET100_PFMHT100_IDTight );
-            _inputTree->SetBranchAddress("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60", &HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60 );
-            _inputTree->SetBranchAddress("HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5", &HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5 );
-            _inputTree->SetBranchAddress("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight", &HLT_PFMETNoMu120_PFMHTNoMu120_IDTight );
-
-
-
-        }
+       
 
 
         //-----------------------------------------------------------------------------------------
@@ -459,16 +414,16 @@ bool HEPHero::Init() {
             _inputTree->SetBranchAddress("SubGenJetAK8_phi", &SubGenJetAK8_phi);
             _inputTree->SetBranchAddress("SubGenJetAK8_pt", &SubGenJetAK8_pt);
 
-            _inputTree->SetBranchAddress("genWeight", &genWeight);
-            _inputTree->SetBranchAddress("LHEWeight_originalXWGTUP", &LHEWeight_originalXWGTUP);
-            _inputTree->SetBranchAddress("nLHEPdfWeight", &nLHEPdfWeight);
-            _inputTree->SetBranchAddress("LHEPdfWeight", &LHEPdfWeight);
-            _inputTree->SetBranchAddress("nLHEReweightingWeight", &nLHEReweightingWeight);
-            _inputTree->SetBranchAddress("LHEReweightingWeight", &LHEReweightingWeight);
-            _inputTree->SetBranchAddress("nLHEScaleWeight", &nLHEScaleWeight);
-            _inputTree->SetBranchAddress("LHEScaleWeight", &LHEScaleWeight);
-            _inputTree->SetBranchAddress("nPSWeight", &nPSWeight);
-            _inputTree->SetBranchAddress("PSWeight", &PSWeight);
+           // _inputTree->SetBranchAddress("genWeight", &genWeight);
+           // _inputTree->SetBranchAddress("LHEWeight_originalXWGTUP", &LHEWeight_originalXWGTUP);
+           // _inputTree->SetBranchAddress("nLHEPdfWeight", &nLHEPdfWeight);
+            //_inputTree->SetBranchAddress("LHEPdfWeight", &LHEPdfWeight);
+           // _inputTree->SetBranchAddress("nLHEReweightingWeight", &nLHEReweightingWeight);
+            //_inputTree->SetBranchAddress("LHEReweightingWeight", &LHEReweightingWeight);
+            //_inputTree->SetBranchAddress("nLHEScaleWeight", &nLHEScaleWeight);
+            //_inputTree->SetBranchAddress("LHEScaleWeight", &LHEScaleWeight);
+            //_inputTree->SetBranchAddress("nPSWeight", &nPSWeight);
+            //_inputTree->SetBranchAddress("PSWeight", &PSWeight);
 
 
             _inputTree->SetBranchAddress("LHE_HT", &LHE_HT );
