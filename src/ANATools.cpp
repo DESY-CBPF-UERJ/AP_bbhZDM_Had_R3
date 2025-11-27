@@ -155,14 +155,14 @@ void HEPHero::JetSelection(){
     for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
         
         if( Jet_pt[ijet] <= JET_PT_CUT ) continue;
-        if( Jet_jetId[ijet] >= 2 ){
+        //if( Jet_jetId[ijet] >= 2 ){
             TLorentzVector Jet_trig;
             Jet_trig.SetPtEtaPhiE(Jet_pt[ijet], Jet_eta[ijet], Jet_phi[ijet], 0);
             HPx_trig += Jet_trig.Px();
             HPy_trig += Jet_trig.Py();
-        }
+        //}
         //if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
-        if( Jet_jetId[ijet] < JET_ID_WP ) continue;
+        //if( Jet_jetId[ijet] < JET_ID_WP ) continue;
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
@@ -216,7 +216,7 @@ void HEPHero::JetSelection(){
     MHT40 = sqrt(HPx40*HPx40 + HPy40*HPy40);
     MHT_trig = sqrt(HPx_trig*HPx_trig + HPy_trig*HPy_trig);
 
-    MDT = abs(MHT_trig - MET_pt);
+    MDT = abs(MHT_trig - PFMET_pt);
     
     LeadingJet_pt = 0;
     SubLeadingJet_pt = 0;
@@ -236,22 +236,22 @@ void HEPHero::JetSelection(){
 
     if( Njets >= 1 ) { 
         LeadingJet_pt = Jet_pt[selectedJet.at(0)];
-        LeadingJet_jetId = Jet_jetId[selectedJet.at(0)];
+        LeadingJet_jetId = 0;//Jet_jetId[selectedJet.at(0)];
         LeadingJet_mass = Jet_mass[selectedJet.at(0)];
     }
     if( Njets >= 2 ) { 
         SubLeadingJet_pt = Jet_pt[selectedJet.at(1)];
-        SubLeadingJet_jetId = Jet_jetId[selectedJet.at(1)];
+        SubLeadingJet_jetId = 0;//Jet_jetId[selectedJet.at(1)];
         SubLeadingJet_mass = Jet_mass[selectedJet.at(1)];
     }
     if( Njets >= 3 ) { 
         ThirdLeadingJet_pt = Jet_pt[selectedJet.at(2)];
-        ThirdLeadingJet_jetId = Jet_jetId[selectedJet.at(2)];
+        ThirdLeadingJet_jetId = 0;//Jet_jetId[selectedJet.at(2)];
         ThirdLeadingJet_mass = Jet_mass[selectedJet.at(2)];
     }
     if( Njets >= 4 ) {
         FourthLeadingJet_pt = Jet_pt[selectedJet.at(3)];
-        FourthLeadingJet_jetId = Jet_jetId[selectedJet.at(3)];
+        FourthLeadingJet_jetId = 0;//Jet_jetId[selectedJet.at(3)];
         FourthLeadingJet_mass = Jet_mass[selectedJet.at(3)];
     }
 
@@ -275,7 +275,7 @@ void HEPHero::FatjetSelection(){
 
         if( FatJet_pt[ijet] <= FAT_JET_PT_CUT ) continue;
         if( abs(FatJet_eta[ijet]) >= FAT_JET_ETA_CUT ) continue;
-        if( FatJet_jetId[ijet] < FAT_JET_ID_WP ) continue;
+        //if( FatJet_jetId[ijet] < FAT_JET_ID_WP ) continue;
 
         selectedFatJet.push_back(ijet);        
         NfatJets += 1;
@@ -284,9 +284,9 @@ void HEPHero::FatjetSelection(){
         //TLorentzVector FatJet;
         //FatJet.SetPtEtaPhiE(FatJet_pt[ijet], FatJet_eta[ijet], FatJet_phi[ijet], LeadingFatJet_mass[ijet]);
 //      float M_PI = 3.14159265358979323846264338327950288;
-        MET_FatJet_deltaPhi = abs( FatJet_phi[0] - MET_phi );
+        MET_FatJet_deltaPhi = abs( FatJet_phi[0] - PFMET_phi );
         if( MET_FatJet_deltaPhi > M_PI ) MET_FatJet_deltaPhi = 2*M_PI - MET_FatJet_deltaPhi;
-        MET_FatJet_Mt = sqrt( 2 * FatJet_pt[0] * MET_pt * ( 1 - cos( MET_FatJet_deltaPhi ) ) ) ;
+        MET_FatJet_Mt = sqrt( 2 * FatJet_pt[0] * PFMET_pt * ( 1 - cos( MET_FatJet_deltaPhi ) ) ) ;
 
     }
    
@@ -335,7 +335,7 @@ void HEPHero::FatjetSelection(){
 
 
     if( NfatJets >= 1 ) {
-        LeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(0)];
+        LeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(0)];
         LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
         LeadingFatJet_mass = FatJet_mass[selectedFatJet.at(0)];
         LeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(0)];
@@ -357,7 +357,7 @@ void HEPHero::FatjetSelection(){
         
     }
     if( NfatJets >= 2 ) {
-        SubLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(1)];
+        SubLeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(1)];
         SubLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(1)];
         SubLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(1)];
         SubLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(1)];
@@ -370,7 +370,7 @@ void HEPHero::FatjetSelection(){
         
     }
     if( NfatJets >= 3 ) {
-        ThirdLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(2)];
+        ThirdLeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(2)];
         ThirdLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(2)];
         ThirdLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(2)];
         ThirdLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(2)];
@@ -383,7 +383,7 @@ void HEPHero::FatjetSelection(){
         
     }
     if( NfatJets >= 4 ) {
-        FourthLeadingFatJet_jetId = FatJet_jetId[selectedFatJet.at(3)];
+        FourthLeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(3)];
         FourthLeadingFatJet_pt = FatJet_pt[selectedFatJet.at(3)];
         FourthLeadingFatJet_mass = FatJet_mass[selectedFatJet.at(3)];
         FourthLeadingFatJet_XbbVsQCD = FatJet_particleNet_XbbVsQCD[selectedFatJet.at(3)];
@@ -638,7 +638,7 @@ void HEPHero::Get_Signal_Taggers(){
     float fatjet_XqqVsQCD = FatJet_particleNet_XqqVsQCD[selectedFatJet.at(0)];
     float fatjet_XttVsQCD = FatJet_particleNet_XttVsQCD[selectedFatJet.at(0)];
 
-    vector<vector<float>> inputTensorValues = {{OmegaMin, Nbjets*floatC, HT, FMax, MHT, MET_pt, MDT, MET_FatJet_deltaPhi, MET_FatJet_Mt, RT_1, RT_3, tauT, fatjet_pt, fatjet_msoftdrop, fatjet_nConstituents*floatC, fatjet_WM_HbbvsQCD, fatjet_WM_HccvsQCD, fatjet_WM_QCD, fatjet_WM_TvsQCD, fatjet_WM_WvsQCD, fatjet_WM_ZvsQCD, fatjet_XbbVsQCD, fatjet_XccVsQCD, fatjet_XggVsQCD, fatjet_XqqVsQCD, fatjet_XttVsQCD}};
+    vector<vector<float>> inputTensorValues = {{OmegaMin, Nbjets*floatC, HT, FMax, MHT, PFMET_pt, MDT, MET_FatJet_deltaPhi, MET_FatJet_Mt, RT_1, RT_3, tauT, fatjet_pt, fatjet_msoftdrop, fatjet_nConstituents*floatC, fatjet_WM_HbbvsQCD, fatjet_WM_HccvsQCD, fatjet_WM_QCD, fatjet_WM_TvsQCD, fatjet_WM_WvsQCD, fatjet_WM_ZvsQCD, fatjet_XbbVsQCD, fatjet_XccVsQCD, fatjet_XggVsQCD, fatjet_XqqVsQCD, fatjet_XttVsQCD}};
     vector<vector<int64_t>> inputTensorDims = {{1, 26}};
     const char* inputNames[] = {"features"};
 
