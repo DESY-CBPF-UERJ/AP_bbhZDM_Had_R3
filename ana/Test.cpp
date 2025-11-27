@@ -54,7 +54,7 @@ void HEPHero::SetupTest() {
     HDF_insert("OmegaMin", &OmegaMin);
     HDF_insert("FMax", &FMax);
     HDF_insert("MHT", &MHT);
-    HDF_insert("MET_pt", &MET_pt);
+    HDF_insert("MET_pt", &PFMET_pt);
     HDF_insert("MDT", &MDT);
     HDF_insert("MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi);
     HDF_insert("MET_FatJet_Mt", &MET_FatJet_Mt);
@@ -86,7 +86,7 @@ bool HEPHero::TestRegion() {
     if ( !(Nbjets>0) ) return false;
     _cutFlow.at("01_NbJets_g_0") += evtWeight;
 
-    if (!(MET_pt > 200 && MHT > 200) ) return false;
+    if (!(PFMET_pt > 200 && MHT > 200) ) return false;
     _cutFlow.at("02_MET_MHT_g_200") += evtWeight;
 
     FatjetSelection();
