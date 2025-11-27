@@ -247,7 +247,7 @@ bool HEPHero::Study_GENRegion() {
 	_cutFlow.at("01_NbJets_g_0") += evtWeight;
 
 		        
-	if (!(MET_pt > 200 && MHT > 200) ) return false;
+	if (!(PFMET_pt > 200 && MHT > 200) ) return false;
 	_cutFlow.at("02_MET_MHT_g_200") += evtWeight;
 
 			        
@@ -914,7 +914,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
         // Menor DeltaPhi entre o MET e JetB
         if (dPhi_METJetb > temp_dPhi_METJetb){
             dPhi_METJetb = temp_dPhi_METJetb;
-            reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * MET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
+            reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
             Study_GEN::RECO_deltaPhi_MET_JetB_less_deltaphi = dPhi_METJetb;
         }
         // Maior DeltaPhi entre o MET e JetB
@@ -923,7 +923,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
             Study_GEN::RECO_deltaPhi_MET_JetB_more_deltaphi = temp_dPhi_METJetb_more;
         }
         
-        temp_reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * MET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
+        temp_reco_mass_tran_close_b = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - MET_phi)));
         if (reco_max_mass_tran_close_b < temp_reco_mass_tran_close_b){
             reco_max_mass_tran_close_b = temp_reco_mass_tran_close_b;
         } 
@@ -933,7 +933,7 @@ for(int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet){
         
         
         }
-        double temp_dPhi = acos(cos(FatJet_phi[selectedFatJet.at(0)] - atan2(Jet_pt[ijet]*sin(Jet_phi[ijet]) + MET_pt*sin(MET_phi), Jet_pt[ijet]*cos(Jet_phi[ijet]) + MET_pt*cos(MET_phi))));
+        double temp_dPhi = acos(cos(FatJet_phi[selectedFatJet.at(0)] - atan2(Jet_pt[ijet]*sin(Jet_phi[ijet]) + PFMET_pt*sin(MET_phi), Jet_pt[ijet]*cos(Jet_phi[ijet]) + PFMET_pt*cos(MET_phi))));
         if (dPhi>temp_dPhi){
             dPhi = temp_dPhi;
         }
