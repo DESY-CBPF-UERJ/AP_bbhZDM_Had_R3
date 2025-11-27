@@ -1,0 +1,16 @@
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/120000/7bf3cc1a-bf20-47ba-8426-2233abf268e3.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/2560000/cee3cd38-ed9d-4f37-b360-dd79705dd23a.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/5ebd7e2a-284c-48c0-b452-b9b6b47c5399.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/f9f9f19f-fe27-4366-afdf-c735eb5ea1db.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/2810000/5e83a04e-e821-4d8d-a076-4f4c2efb3026.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/2810000/dfd0cbf2-540f-4b0a-a1f5-585e781a1142.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/120000/5e770bf1-ba46-4f33-abaf-0fd3b9766b9e.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/9029abaa-7b73-4d4f-968a-1736feb34aa8.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/120000/40295e84-0daf-46ea-86be-fcd8bc93f50b.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/5037863a-8b9f-4140-8f98-dd4a547805d6.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/16c4ae64-8eb2-4065-b792-a8514b38c7a1.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/2810000/e9729949-53c5-4730-88ed-2db2f16e19af.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/2810000/3143028a-a3fd-4a69-ac21-5405ec06d195.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/954286f7-45e0-422d-a408-a30f4aad0f8c.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/1c932e04-be57-4a2b-94bb-461de3ed3531.root
+/store/mc/RunIII2024Summer24NanoAODv15/WplusH-WtoLNu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/f6e901c6-4301-4247-82a7-da3f9b157b9a.root
