@@ -574,6 +574,7 @@ class HEPHero : public HEPBase {
 		
 		*/
 		Float_t         genWeight;		
+		Float_t         LHEReweightingWeight[100];   //[nLHEReweightingWeight]
 		/*
 		Float_t         LHEWeight_originalXWGTUP;
 		Int_t           nLHEPdfWeight;
@@ -632,7 +633,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_btagDeepFlavCvB[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavCvL[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavQG[100];   //[nJet]
-//		Float_t         Jet_btagPNetB[100];   //[nJet]
+		Float_t         Jet_btagPNetB[100];   //[nJet]
 //		Float_t         Jet_btagPNetCvB[100];   //[nJet]
 //		Float_t         Jet_btagPNetCvL[100];   //[nJet]
 //		Float_t         Jet_btagPNetCvNotB[100];   //[nJet]
