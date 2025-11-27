@@ -188,7 +188,7 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
 
     if(      WP >= 0 and WP <=4 ) obj_selected = (Jet_btagDeepFlavB[iobj] > BTAG_CUT);    // DeepJet
     else if( WP >= 5 and WP <=9 ) obj_selected = (Jet_btagPNetB[iobj] > BTAG_CUT);        // particleNET
-    else if( WP >= 10 and WP <=14 ) obj_selected = (Jet_btagRobustParTAK4B[iobj] > BTAG_CUT);        // robustParticleTransformer
+    else if( WP >= 10 and WP <=14 ) obj_selected = false;//(Jet_btagRobustParTAK4B[iobj] > BTAG_CUT);        // robustParticleTransformer No longer exist in 2024
 
     }
  
