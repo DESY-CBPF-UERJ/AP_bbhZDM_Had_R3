@@ -1728,7 +1728,6 @@ class HEPHero : public HEPBase {
 	Bool_t HLT_PFJetFwd400;
 	Bool_t HLT_PFJetFwd450;
 	Bool_t HLT_PFJetFwd500;
-	Bool_t HLT_PFMET120_PFMHT120_IDTight;
 	Bool_t HLT_AK8PFJet250_SoftDropMass40_PNetBB0p06;
 	Bool_t HLT_AK8PFJet250_SoftDropMass40_PNetBB0p10;
 	Bool_t HLT_PFHT1050;
