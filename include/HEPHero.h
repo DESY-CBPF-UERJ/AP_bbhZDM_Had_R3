@@ -629,7 +629,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_UParTAK4V1RegPtRawCorrNeutrino[100];   //[nJet]
 //		Float_t         Jet_UParTAK4V1RegPtRawRes[100];   //[nJet]
 //		Float_t         Jet_area[100];   //[nJet]
-//		Float_t         Jet_btagDeepFlavB[100];   //[nJet]
+		Float_t         Jet_btagDeepFlavB[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavCvB[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavCvL[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavQG[100];   //[nJet]
