@@ -512,17 +512,17 @@ class HEPHero : public HEPBase {
 //		Float_t         FsrPhoton_pt[100];   //[nFsrPhoton]
 //		Float_t         FsrPhoton_relIso03[100];   //[nFsrPhoton]
 		
-//		Int_t           nGenJetAK8;
-//		Float_t         GenJetAK8_eta[100];   //[nGenJetAK8]
-//		Float_t         GenJetAK8_mass[100];   //[nGenJetAK8]
-//		Float_t         GenJetAK8_phi[100];   //[nGenJetAK8]
-//		Float_t         GenJetAK8_pt[100];   //[nGenJetAK8]
+		Int_t           nGenJetAK8;
+		Float_t         GenJetAK8_eta[100];   //[nGenJetAK8]
+		Float_t         GenJetAK8_mass[100];   //[nGenJetAK8]
+		Float_t         GenJetAK8_phi[100];   //[nGenJetAK8]
+		Float_t         GenJetAK8_pt[100];   //[nGenJetAK8]
 		
-//		Int_t           nGenJet;
-//		Float_t         GenJet_eta[100];   //[nGenJet]
-//		Float_t         GenJet_mass[100];   //[nGenJet]
-//		Float_t         GenJet_phi[100];   //[nGenJet]
-//		Float_t         GenJet_pt[100];   //[nGenJet]
+		Int_t           nGenJet;
+		Float_t         GenJet_eta[100];   //[nGenJet]
+		Float_t         GenJet_mass[100];   //[nGenJet]
+		Float_t         GenJet_phi[100];   //[nGenJet]
+		Float_t         GenJet_pt[100];   //[nGenJet]
 		
 		Int_t           nGenPart;
 		Short_t         GenPart_genPartIdxMother[100];   //[nGenPart]
@@ -541,13 +541,13 @@ class HEPHero : public HEPBase {
 //		Float_t         GenProton_py[100];   //[nGenProton]
 //		Float_t         GenProton_pz[100];   //[nGenProton]
 //		Float_t         GenProton_vz[100];   //[nGenProton]
-		/*
+		
 		Int_t           nSubGenJetAK8;
 		Float_t         SubGenJetAK8_eta[100];   //[nSubGenJetAK8]
 		Float_t         SubGenJetAK8_mass[100];   //[nSubGenJetAK8]
 		Float_t         SubGenJetAK8_phi[100];   //[nSubGenJetAK8]
 		Float_t         SubGenJetAK8_pt[100];   //[nSubGenJetAK8]
-		*/
+		
 		/*
 		Int_t           Generator_id1;
 		Int_t           Generator_id2;
@@ -669,7 +669,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_puIdDisc[100];   //[nJet]
 //		Float_t         Jet_rawFactor[100];   //[nJet]
 		
-//		UChar_t         LHE_Njets;
+		UChar_t         LHE_Njets;
 //		UChar_t         LHE_Nb;
 //		UChar_t         LHE_Nc;
 //		UChar_t         LHE_Nuds;
