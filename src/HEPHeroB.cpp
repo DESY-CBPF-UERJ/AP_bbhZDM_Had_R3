@@ -157,6 +157,7 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_phi", Jet_phi);
         _inputTree->SetBranchAddress("Jet_pt", Jet_pt);
         _inputTree->SetBranchAddress("Jet_btagPNetB", Jet_btagPNetB);
+        _inputTree->SetBranchAddress("Jet_btagDeepFlavB", Jet_btagDeepFlavB);
         
         
         _inputTree->SetBranchAddress("LHE_HT", &LHE_HT);
