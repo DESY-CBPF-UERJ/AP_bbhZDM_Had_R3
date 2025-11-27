@@ -378,7 +378,7 @@ class HEPHero : public HEPBase {
 //		Int_t           Electron_vidNestedWPBitmap[100];   //[nElectron]
 //		Int_t           Electron_vidNestedWPBitmapHEEP[100];   //[nElectron]
 //		Float_t         Electron_PreshowerEnergy[100];   //[nElectron]
-//		Float_t         Electron_deltaEtaSC[100];   //[nElectron]
+		Float_t         Electron_deltaEtaSC[100];   //[nElectron]
 //		Float_t         Electron_dr03EcalRecHitSumEt[100];   //[nElectron]
 //		Float_t         Electron_dr03HcalDepth1TowerSumEt[100];   //[nElectron]
 //		Float_t         Electron_dr03TkSumPt[100];   //[nElectron]
@@ -391,7 +391,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Electron_ecalEnergy[100];   //[nElectron]
 //		Float_t         Electron_ecalEnergyError[100];   //[nElectron]
 //		Float_t         Electron_energyErr[100];   //[nElectron]
-//		Float_t         Electron_eta[100];   //[nElectron]
+		Float_t         Electron_eta[100];   //[nElectron]
 //		Float_t         Electron_fbrem[100];   //[nElectron]
 //		Float_t         Electron_gsfTrketaMode[100];   //[nElectron]
 //		Float_t         Electron_gsfTrkpMode[100];   //[nElectron]
@@ -730,7 +730,7 @@ class HEPHero : public HEPBase {
 		
 		Int_t           nMuon;
 //		UChar_t         Muon_bestTrackType[100];   //[nMuon]
-//		UChar_t         Muon_highPtId[100];   //[nMuon]
+		UChar_t         Muon_highPtId[100];   //[nMuon]
 //		Bool_t          Muon_highPurity[100];   //[nMuon]
 //		Bool_t          Muon_inTimeMuon[100];   //[nMuon]
 //		Bool_t          Muon_isGlobal[100];   //[nMuon]
@@ -748,10 +748,10 @@ class HEPHero : public HEPBase {
 //		UChar_t         Muon_nTrackerLayers[100];   //[nMuon]
 //		UChar_t         Muon_pfIsoId[100];   //[nMuon]
 //		UChar_t         Muon_puppiIsoId[100];   //[nMuon]
-//		Bool_t          Muon_softId[100];   //[nMuon]
+		Bool_t          Muon_softId[100];   //[nMuon]
 //		Bool_t          Muon_softMvaId[100];   //[nMuon]
 //		UChar_t         Muon_tightCharge[100];   //[nMuon]
-//		Bool_t          Muon_tightId[100];   //[nMuon]
+		Bool_t          Muon_tightId[100];   //[nMuon]
 //		UChar_t         Muon_tkIsoId[100];   //[nMuon]
 //		Bool_t          Muon_triggerIdLoose[100];   //[nMuon]
 //		Short_t         Muon_jetIdx[100];   //[nMuon]
@@ -1737,7 +1737,6 @@ class HEPHero : public HEPBase {
 	Bool_t HLT_Mu12_DoublePFJets54MaxDeta1p6_PNet2BTag_0p11;
 	Bool_t HLT_DoublePFJets116MaxDeta1p6_PNet2BTag_0p11;
 	Bool_t HLT_DoublePFJets128MaxDeta1p6_PNet2BTag_0p11;
-
 
 
 
