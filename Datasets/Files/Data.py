@@ -13,7 +13,7 @@ campaigns = {}
 for era in set(sum(eras.values(), [])):
     campaigns["12_22_"+era] = "CMSSW_13_2_0-130X_dataRun3_v2_RelVal_2022"+era
     #campaigns["12_23_"+era] = "CMSSW_13_2_0-130X_dataRun3_v2_RelVal_2022"+era
-    campaigns["15_24_"+era] = "CMSSW_13_2_0-130X_dataRun3_v2_RelVal_2022"+era
+    campaigns["15_24_"+era] = "Run2024"+era+"-MINIv6NANOv15"
 
 
 #==================================================================================================
@@ -29,8 +29,13 @@ datasets = {}
 #["Data_SingleMu",      "/SingleMuon/"],
 #["Data_SingleEle",     "/SingleElectron/"],
 #]
-
+# https://cmsweb.cern.ch/das/request?view=list&limit=50&instance=prod%2Fglobal&input=dataset%3D%2F*%2FRun2024C*MINIv6NANOv15-v1*%2FNANOAOD
 datasets["24"] = [
-["Data_SingleMu",      "/SingleMuon/"],
-["Data_SingleEle",     "/SingleElectron/"],
+["Data_JetMET0",      "/JetMET0/"],
+["Data_JetMET1",      "/JetMET1/"],
+["Data_EGamma0",      "/EGamma0/"],
+["Data_EGamma1",      "/EGamma1/"],
+["Data_Muon0",        "/Muon0/"],
+["Data_Muon1",        "/Muon1/"],
+["Data_MuonEG",       "/MuonEG/"],
 ]
