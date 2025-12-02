@@ -41,8 +41,8 @@ d_ds_info["0_22"] = { # [DatasetName, Production ID]
 "Data_Lep": [
     ["Data_EGamma0",      '00'],
     ["Data_EGamma1",      '00'],
+    ["Data_Muon0",      '00'],
     ["Data_Muon1",      '00'],
-    ["Data_Muon2",      '00'],
     ["Data_MuonEG",       '00'],
 ],
 "Data_MET": [
