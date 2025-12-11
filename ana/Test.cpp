@@ -11,6 +11,8 @@ namespace Test{
 
     float FatJet_pt;
     float FatJet_msoftdrop;
+    float Muon_pt, Muon_eta;
+    float Jet_pt,BJet_pt;
 }
 
 
@@ -46,6 +48,9 @@ void HEPHero::SetupTest() {
     HDF_insert("Ntaus", &Ntaus);
     HDF_insert("Nleptons", &Nleptons);
 
+    HDF_insert("Muon_pt",&Test::Muon_pt);
+    HDF_insert("Muon_eta",&Test::Muon_eta);
+
     HDF_insert("NfatJets", &NfatJets);
     HDF_insert("FatJet_b_max_deltaEta",&FatJet_b_max_deltaEta);
     
@@ -65,7 +70,14 @@ void HEPHero::SetupTest() {
     HDF_insert("FatJet_pt", &Test::FatJet_pt);
     HDF_insert("FatJet_msoftdrop", &Test::FatJet_msoftdrop);
 
+    HDF_insert("Jet_pt", &Test::Jet_pt);
+//    HDF_insert("BJet_pt", &Test::BJet_pt);
+
     HDF_insert("signal_tag", &signal_tag);
+
+    HDF_insert("GenHT", &LHE_HT );
+    HDF_insert("GenVpt", &LHE_Vpt );
+
 
     return;
 }
@@ -77,11 +89,21 @@ void HEPHero::SetupTest() {
 bool HEPHero::TestRegion() {
 
     LeptonSelection();
-    
+    if (selectedMu.size()!=0){
+    Test::Muon_pt = Muon_pt[selectedMu.at(0)];
+    Test::Muon_eta = Muon_eta[selectedMu.at(0)];
+    }
+    else{
+    Test::Muon_pt = -10;
+    Test::Muon_eta = -10;
+    }
+
     if (!(Nleptons==0) ) return false;
     _cutFlow.at("00_NLeptons_g_0") += evtWeight;
 
     JetSelection();
+
+    Test::Jet_pt = LeadingJet_pt;
 
     if ( !(Nbjets>0) ) return false;
     _cutFlow.at("01_NbJets_g_0") += evtWeight;
@@ -105,8 +127,8 @@ bool HEPHero::TestRegion() {
     Get_Jet_Shape_Variables();
     Get_Signal_Taggers();
 
-    if ( !(signal_tag>0.8) ) return false;
-    _cutFlow.at("06_Signal_like") += evtWeight;
+//if ( !(signal_tag>0.8) ) return false;
+ //  _cutFlow.at("06_Signal_like") += evtWeight;
 
     Weight_corrections();
 

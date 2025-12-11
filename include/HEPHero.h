@@ -47,6 +47,11 @@ class HEPHero : public HEPBase {
         void TestSelection();
         void TestSystematic();
         void FinishTest();
+        void SetupStudy_GEN();
+        bool Study_GENRegion();
+        void Study_GENSelection();
+        void Study_GENSystematic();
+        void FinishStudy_GEN();
         // INSERT YOUR SELECTION HERE
         
 

@@ -453,6 +453,7 @@ bool HEPHero::Init() {
 void HEPHero::SetupAna(){
     if( false );
     else if( _SELECTION == "Test" ) SetupTest();
+    else if( _SELECTION == "Study_GEN" ) SetupStudy_GEN();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -463,6 +464,7 @@ void HEPHero::SetupAna(){
 bool HEPHero::AnaRegion(){
     bool Selected = true;
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
+    if( _SELECTION == "Study_GEN" && !Study_GENRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -470,16 +472,19 @@ bool HEPHero::AnaRegion(){
 
 void HEPHero::AnaSelection(){
     if( _SELECTION == "Test" ) TestSelection();
+    if( _SELECTION == "Study_GEN" ) Study_GENSelection();
     // CALL YOUR SELECTION HERE
 }
 
 void HEPHero::AnaSystematic(){
     if( _SELECTION == "Test" ) TestSystematic();
+    if( _SELECTION == "Study_GEN" ) Study_GENSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
 void HEPHero::FinishAna(){
     if( _SELECTION == "Test" ) FinishTest();
+    if( _SELECTION == "Study_GEN" ) FinishStudy_GEN();
     // FINISH YOUR SELECTION HERE
 }
    

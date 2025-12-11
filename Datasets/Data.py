@@ -38,13 +38,13 @@ lumis["0_24"] = [108950,      0,  0,  0] #source: https://twiki.cern.ch/twiki/bi
 
 d_ds_info = {}
 d_ds_info["0_22"] = { # [DatasetName, Production ID]
-"Data_Lep": [
-    ["Data_EGamma0",      '00'],
-    ["Data_EGamma1",      '00'],
-    ["Data_Muon0",      '00'],
-    ["Data_Muon1",      '00'],
-    ["Data_MuonEG",       '00'],
-],
+#"Data_Lep": [
+#    ["Data_EGamma0",      '00'],
+#    ["Data_EGamma1",      '00'],
+#    ["Data_Muon0",      '00'],
+#    ["Data_Muon1",      '00'],
+#    ["Data_MuonEG",       '00'],
+#],
 "Data_MET": [
     ["Data_JetMET0",            '01'],
     ["Data_JetMET1",            '01'],
