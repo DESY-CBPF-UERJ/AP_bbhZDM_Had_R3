@@ -1,5 +1,5 @@
 analysis = "AP_bbhZDM_Had_R3"
-nano_version = 'v12'
+nano_version = 'v15'
 
 #--------------------------------------------------------------------------------------------------
 # Production ID:
@@ -15,16 +15,17 @@ paths["0_22"] = analysis+'/Datasets/Files/signal_22/dti_0/'+nano_version+'/'
 paths["1_22"] = analysis+'/Datasets/Files/signal_22/dti_1/'+nano_version+'/'
 paths["0_23"] = analysis+'/Datasets/Files/signal_23/dti_0/'+nano_version+'/'
 paths["1_23"] = analysis+'/Datasets/Files/signal_23/dti_1/'+nano_version+'/'
+paths["0_24"] = analysis+'/Datasets/Files/signal_24/dti_0/'+nano_version+'/'
 
 
 s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
 "Signal": [
-    ["Signal_H400_a100",                '99',       0.01803526,          0.,                'unknown'],
-    ["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
+    #["Signal_H400_a100",                '99',       0.01803526,          0.,                'unknown'],
+    #["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
     ["Signal_H1000_a100",               '99',       0.000338307,         0.,                'unknown'],
-    ["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
-    ["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
-    ["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
+    #["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
+    #["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
+    #["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
 ],
 }
 
