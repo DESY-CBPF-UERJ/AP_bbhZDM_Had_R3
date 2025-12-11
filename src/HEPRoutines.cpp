@@ -52,11 +52,11 @@ bool HEPHero::RunRoutines() {
     //======START EVENT WEIGHT========================================================
     evtWeight = 1.;
     if( dataset_group != "Data" ){
-        if(dataset_group == "Signal"){
-            evtWeight = genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
-        }else{
-            evtWeight = genWeight;
-        }
+        //if(dataset_group == "Signal"){
+        //    evtWeight = genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
+        //}else{
+        evtWeight = genWeight;
+        //}
     }
 
     return true;
