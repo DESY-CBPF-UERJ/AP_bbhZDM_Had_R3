@@ -47,8 +47,9 @@ class LumiSections {
         }
     
         bool GoodLumiSection( string datasetName, int run, int lumiBlock ){
-            bool good_data_event = true;
-            if(datasetName.substr(0,4) == "Data"){
+            
+	    bool good_data_event = true;
+	    if(datasetName.substr(0,4) == "Data"){
                 good_data_event = false;
                 string srun = to_string(run);
                 if( certificate.HasMember(srun.c_str()) ){
@@ -56,7 +57,7 @@ class LumiSections {
     
                     assert(run_cert.IsArray());
                     for (int iblock = 0; iblock < run_cert.Size(); iblock++) {
-                        assert(run_cert[iblock].IsArray());
+		        assert(run_cert[iblock].IsArray());
                         int block_start = run_cert[iblock][0].GetInt();
                         int block_end = run_cert[iblock][1].GetInt();
                         if( (lumiBlock >= block_start) && (lumiBlock <= block_end) ){

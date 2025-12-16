@@ -253,6 +253,11 @@ class HEPHero : public HEPBase {
         // Metadata
         //-------------------------------------------------------------------------------
 
+	//----LUMI CERTIFICATE-----------------------------
+        string  certificate_file;
+        LumiSections lumi_certificate;
+
+
         //----PILEUP---------------------------------------
         //bool    apply_pileup_wgt;
         //double  pileup_wgt;

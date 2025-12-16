@@ -16,6 +16,10 @@ void HEPHero::PreRoutines() {
     //=============================================================================================
     // METADATA SETUP
     //=============================================================================================
+  
+    //----LUMI CERTIFICATE-------------------------------------------------------------------------
+    lumi_certificate.ReadFile(certificate_file);
+
 
     //----PILEUP-------------------------------------------------------------------------
     //if( apply_pileup_wgt ){
@@ -38,11 +42,11 @@ bool HEPHero::RunRoutines() {
     //======SUM THE GENERATOR WEIGHTS=================================================
     if( dataset_group != "Data" ){
         SumGenWeights_original += genWeight;
-        if(dataset_group == "Signal"){
-            SumGenWeights += genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
-        }else{
+//        if(dataset_group == "Signal"){
+//            SumGenWeights += genWeight*LHEReweightingWeight[15]; //parvar_tb10_sp0p7_l30p3
+//        }else{
             SumGenWeights += genWeight;
-        }
+//        }
     }
 
     //======MC SAMPLES PROCESSING=====================================================

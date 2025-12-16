@@ -127,14 +127,18 @@ bool HEPHero::TestRegion() {
     Get_Jet_Shape_Variables();
     Get_Signal_Taggers();
 
-//if ( !(signal_tag>0.8) ) return false;
- //  _cutFlow.at("06_Signal_like") += evtWeight;
+    
+    if ( !(signal_tag>0.8) ) return false;
+    _cutFlow.at("06_Signal_like") += evtWeight;
+
+    bool GoodEvent = lumi_certificate.GoodLumiSection( _datasetName, run, luminosityBlock );
+    if( !GoodEvent ) return false;
+
 
     Weight_corrections();
 
     Test::FatJet_pt = FatJet_pt[selectedFatJet.at(0)];
     Test::FatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
-
 
 
 

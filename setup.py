@@ -97,6 +97,8 @@ datasets = [
 #--------------------------------------------------------------------------------------------------
 metadata = {
 "NN_model_X_XX         ": analysis+"/Metadata/ML/model.onnx",
+"lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
+
 }
 
 

@@ -23,7 +23,7 @@ void HEPHero::FillControlVariables( string key, string value){
     // if( key == "MUON_ROC_CORR"              )   apply_muon_roc_corr = ( atoi(value.c_str()) == 1 );
 
     //----METADATA FILES---------------------------------------------------------------------------
-    // if( key == "lumi_certificate"           )   certificate_file = value;
+    if( key == "lumi_certificate"           )   certificate_file = value;
     // if( key == "pdf_type"                   )   PDF_file = value;
     // if( key == "pileup"                     )   pileup_file = value;
     // if( key == "electron"                   )   electron_file = value;
