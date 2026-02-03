@@ -47,7 +47,8 @@ analysis_parameters = {
 }
 
 corrections = {  # 0-don't apply, 1-apply
-}
+        "PILEUP_WGT            ":0,
+        }
 
 lateral_systematics = { 
 "CV":          [0,  1, [], []],   # [sys_source, sys_universe, processes_ID (empty -> all), subsources] 
@@ -96,9 +97,9 @@ datasets = [
 # Metadata
 #--------------------------------------------------------------------------------------------------
 metadata = {
-"NN_model_X_XX         ": analysis+"/Metadata/ML/model.onnx",
+"NN_model_X_XX              ": analysis+"/Metadata/ML/model.onnx",
 "lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
-
+"pileup_0_24                ": analysis+"/Metadata/POG/LUM/2024/puWeights.json.gz",
 }
 
 

@@ -7,7 +7,7 @@
 void HEPHero::FillControlVariables( string key, string value){
 
     //----CORRECTIONS------------------------------------------------------------------------------
-    // if( key == "PILEUP_WGT"                 )   apply_pileup_wgt = ( atoi(value.c_str()) == 1 );
+    if( key == "PILEUP_WGT"                 )   apply_pileup_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "ELECTRON_ID_WGT"            )   apply_electron_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "JET_PUID_WGT"               )   apply_jet_puid_wgt = ( atoi(value.c_str()) == 1 );
@@ -25,7 +25,7 @@ void HEPHero::FillControlVariables( string key, string value){
     //----METADATA FILES---------------------------------------------------------------------------
     if( key == "lumi_certificate"           )   certificate_file = value;
     // if( key == "pdf_type"                   )   PDF_file = value;
-    // if( key == "pileup"                     )   pileup_file = value;
+     if( key == "pileup"                     )   pileup_file = value;
     // if( key == "electron"                   )   electron_file = value;
     // if( key == "muon"                       )   muon_file = value;
     // if( key == "JES_MC"                     )   JES_MC_file = value;
@@ -454,6 +454,7 @@ void HEPHero::SetupAna(){
     if( false );
     else if( _SELECTION == "Test" ) SetupTest();
     else if( _SELECTION == "Study_GEN" ) SetupStudy_GEN();
+    else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -465,6 +466,7 @@ bool HEPHero::AnaRegion(){
     bool Selected = true;
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
     if( _SELECTION == "Study_GEN" && !Study_GENRegion() ) Selected = false;
+    if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -473,18 +475,21 @@ bool HEPHero::AnaRegion(){
 void HEPHero::AnaSelection(){
     if( _SELECTION == "Test" ) TestSelection();
     if( _SELECTION == "Study_GEN" ) Study_GENSelection();
+    if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
     // CALL YOUR SELECTION HERE
 }
 
 void HEPHero::AnaSystematic(){
     if( _SELECTION == "Test" ) TestSystematic();
     if( _SELECTION == "Study_GEN" ) Study_GENSystematic();
+    if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
 void HEPHero::FinishAna(){
     if( _SELECTION == "Test" ) FinishTest();
     if( _SELECTION == "Study_GEN" ) FinishStudy_GEN();
+    if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
     // FINISH YOUR SELECTION HERE
 }
    

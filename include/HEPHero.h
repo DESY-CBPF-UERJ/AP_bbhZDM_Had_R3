@@ -52,6 +52,11 @@ class HEPHero : public HEPBase {
         void Study_GENSelection();
         void Study_GENSystematic();
         void FinishStudy_GEN();
+        void SetupHEPWeights();
+        bool HEPWeightsRegion();
+        void HEPWeightsSelection();
+        void HEPWeightsSystematic();
+        void FinishHEPWeights();
         // INSERT YOUR SELECTION HERE
         
 
@@ -85,7 +90,7 @@ class HEPHero : public HEPBase {
         bool JetBTAG( int iobj, int WP );
 
         //----WEIGHTS------------------------------------------------
-        //float GetPileupWeight( float Pileup_nTrueInt, string sysType );
+        float GetPileupWeight( float Pileup_nTrueInt, string sysType );
 
 
         //-------------------------------------------------------------------------------
@@ -259,9 +264,9 @@ class HEPHero : public HEPBase {
 
 
         //----PILEUP---------------------------------------
-        //bool    apply_pileup_wgt;
-        //double  pileup_wgt;
-        //string  pileup_file;
+        bool    apply_pileup_wgt;
+        double  pileup_wgt;
+        string  pileup_file;
         shared_ptr<correction::Correction const> pileup_corr;
 
         //----MET XY-------------------------------------------------
