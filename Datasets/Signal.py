@@ -35,6 +35,15 @@ s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["Signal_H1000_a600",               '99',       0.000338307,         0.,                'unknown'],
     ["Signal_H1000_a800",               '99',       0.000338307,         0.,                'unknown'],
     
+    ["Signal_H1200_a100",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1200_a200",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1200_a300",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1200_a400",               '99',       0.000338307,         0.,                'unknown'],  
+    ["Signal_H1200_a500",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1200_a600",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1400_a100",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1400_a1000",               '99',       0.000338307,         0.,                'unknown'],
+    
     #["Signal_A400_a100",                '99',       0.1674263,           0.,                'unknown'],
     #["Signal_A800_a400",                '99',       0.02262806,          0.,                'unknown'],
     #["Signal_A1000_a100",               '99',       0.0101514,           0.,                'unknown'],
