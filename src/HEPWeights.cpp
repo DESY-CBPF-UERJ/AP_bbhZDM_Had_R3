@@ -8,7 +8,7 @@ void HEPHero::Weight_corrections(){
 
     pileup_wgt = 1.;
     electron_wgt = 1.;
-
+    muon_wgt = 1.;
 
 
 
@@ -23,7 +23,12 @@ void HEPHero::Weight_corrections(){
             electron_wgt = GetElectronWeight("cv");
             evtWeight *= electron_wgt;
         }
-        
+	if( apply_muon_wgt ){
+            muon_wgt = GetMuonWeight("cv");
+            evtWeight *= muon_wgt;
+        }
+
+
     }
 
 }
@@ -198,3 +203,75 @@ float HEPHero::GetElectronWeight( string sysID ){
     return LeptonID_wgt;
 }
 
+//---------------------------------------------------------------------------------------------
+// Muon ID Correction
+// Return weight associated to the identification of the muons
+//---------------------------------------------------------------------------------------------
+float HEPHero::GetMuonWeight( string sysID ){
+
+    float LeptonID_wgt = 1.;
+    if( dataset_group != "Data" ){
+
+        string year;
+        if( dataset_year == "16" ){
+            if( dataset_dti == 0 ){
+                year = "2016preVFP";
+            }else{
+                year = "2016postVFP";
+            }
+        }else if( dataset_year == "17" ){
+            year = "2017";
+        }else if( dataset_year == "18" ){
+            year = "2018";
+        }else if ( dataset_year == "24"){
+	    year = "2024";
+	}
+	
+
+        for( unsigned int imu = 0; imu < nMuon; ++imu ) {
+            if( Muon_pt[imu] <= 15 ) continue;
+            if( abs(Muon_eta[imu]) >= 2.4 ) continue;
+
+            float mu_pt = Muon_pt[imu];
+            float mu_eta = Muon_eta[imu];
+
+            float RECO_SF;
+            if( mu_pt < 200 ){
+                if( sysID == "cv" ){
+                    RECO_SF = muon_RECO_corr->evaluate({ mu_eta, mu_pt, "nominal"});
+                }else if( sysID == "down" ){
+                    RECO_SF = muon_RECO_corr->evaluate({ mu_eta, mu_pt, "systdown"});
+                }else if( sysID == "up" ){
+                    RECO_SF = muon_RECO_corr->evaluate({ mu_eta, mu_pt, "systup"});
+                }
+                LeptonID_wgt *= RECO_SF;
+            }
+
+            if( !MuonID( imu, MUON_ID_WP ) ) continue;
+
+            float ID_SF;
+            if( sysID == "cv" ){
+                ID_SF = muon_ID_corr->evaluate({mu_eta, mu_pt, "nominal"});
+            }else if( sysID == "down" ){
+                ID_SF = muon_ID_corr->evaluate({mu_eta, mu_pt, "systdown"});
+            }else if( sysID == "up" ){
+                ID_SF = muon_ID_corr->evaluate({mu_eta, mu_pt, "systup"});
+            }
+            LeptonID_wgt *= ID_SF;
+
+            if( !MuonISO( imu, MUON_ISO_WP ) ) continue;
+
+            float ISO_SF;
+            if( sysID == "cv" ){
+                ISO_SF = muon_ISO_corr->evaluate({mu_eta, mu_pt, "nominal"});
+            }else if( sysID == "down"){
+                ISO_SF = muon_ISO_corr->evaluate({mu_eta, mu_pt, "systdown"});
+            }else if( sysID == "up" ){
+                ISO_SF = muon_ISO_corr->evaluate({mu_eta, mu_pt, "systup"});
+            }
+            if( MUON_ISO_WP > 0 ) LeptonID_wgt *= ISO_SF;
+        }
+    }
+
+    return LeptonID_wgt;
+}

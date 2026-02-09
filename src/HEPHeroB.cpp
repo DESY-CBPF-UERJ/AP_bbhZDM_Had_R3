@@ -9,7 +9,7 @@ void HEPHero::FillControlVariables( string key, string value){
     //----CORRECTIONS------------------------------------------------------------------------------
     if( key == "PILEUP_WGT"                 )   apply_pileup_wgt = ( atoi(value.c_str()) == 1 );
     if( key == "ELECTRON_ID_WGT"            )   apply_electron_wgt = ( atoi(value.c_str()) == 1 );
-    // if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
+    if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "JET_PUID_WGT"               )   apply_jet_puid_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "BTAG_WGT"                   )   apply_btag_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "TRIGGER_WGT"                )   apply_trigger_wgt = ( atoi(value.c_str()) == 1 );
@@ -27,7 +27,7 @@ void HEPHero::FillControlVariables( string key, string value){
     // if( key == "pdf_type"                   )   PDF_file = value;
     if( key == "pileup"                     )   pileup_file = value;
     if( key == "electron"                   )   electron_file = value;
-    // if( key == "muon"                       )   muon_file = value;
+    if( key == "muon"                       )   muon_file = value;
     // if( key == "JES_MC"                     )   JES_MC_file = value;
     // if( key == "jet_puID"                   )   jet_puid_file = value;
     // if( key == "btag_SF"                    )   btag_SF_file = value;

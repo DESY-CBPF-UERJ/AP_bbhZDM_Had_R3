@@ -27,6 +27,36 @@ void HEPHero::PreRoutines() {
         electron_ID_corr = electron_set->at("Electron-ID-SF");
     }
 
+    //----MUON ID----------------------------------------------------------------------------------
+    if( apply_muon_wgt ){
+        auto muon_set = correction::CorrectionSet::from_file(muon_file.c_str());
+
+        muon_RECO_corr = muon_set->at("NUM_LooseID_DEN_TrackerMuons");
+
+        string MuID_WP;
+        if( MUON_ID_WP == 0 ){
+            MuID_WP = "NUM_LooseID_DEN_TrackerMuons"; // EXISTE E FUNCIONA
+        }else if( MUON_ID_WP == 1 ){
+            MuID_WP = "NUM_MediumID_DEN_TrackerMuons";
+        }else if( MUON_ID_WP == 2 ){
+            MuID_WP = "NUM_TightID_DEN_TrackerMuons";
+        }
+        muon_ID_corr = muon_set->at(MuID_WP);
+
+        string MuISO_WP;
+        if( MUON_ISO_WP == 0 ){
+            MuISO_WP = "NUM_LooseRelIso_DEN_LooseID"; // dumb value, not used
+        }else if( MUON_ISO_WP == 1 ){
+            MuISO_WP = "NUM_LooseRelIso_DEN_LooseID";
+        }else if( MUON_ISO_WP == 2 ){
+            MuISO_WP = "NUM_LoosePFIso_DEN_MediumID"; //MODIFICADO, FUNCIONANDO
+        }else if( MUON_ISO_WP == 3 ){
+            MuISO_WP = "NUM_TightRelIso_DEN_MediumID";
+        }
+        muon_ISO_corr = muon_set->at(MuISO_WP);
+    }
+
+
 
 
     //----PILEUP-------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------------------------------
 # Dataset files
 #--------------------------------------------------------------------------------------------------
-selection = "Test"
+selection = "HEPWeights"
 analysis = "AP_bbhZDM_Had_R3"
 treeName = "Events"
 LumiWeights = 1
@@ -49,6 +49,7 @@ analysis_parameters = {
 corrections = {  # 0-don't apply, 1-apply
         "PILEUP_WGT             ":0,
         "ELECTRON_ID_WGT        ":1,
+        "MUON_ID_WGT            ":1,
         }
 
 lateral_systematics = { 
@@ -102,7 +103,7 @@ metadata = {
 "lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
 "pileup_0_24                ": analysis+"/Metadata/POG/LUM/2024/puWeights.json.gz",
 "electron_0_24              ": analysis+"/Metadata/POG/EGM/2024_Summer24/electronID_v1.json.gz",
-
+"muon_0_24                  ": analysis+"/Metadata/POG/MUO/2024/muon_Z.json.gz",
 }
 
 
