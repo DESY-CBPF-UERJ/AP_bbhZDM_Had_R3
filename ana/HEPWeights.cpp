@@ -49,7 +49,7 @@ void HEPHero::SetupHEPWeights() {
 
 
     HDF_insert("pileup_wgt", &pileup_wgt );
-
+    HDF_insert("electron_wgt", &electron_wgt );
 
     return;
 }
@@ -67,7 +67,7 @@ bool HEPHero::HEPWeightsRegion() {
 LeptonSelection();
     
     
-	if (!(Nleptons==0) ) return false;
+//	if (!(Nleptons==0) ) return false;
         _cutFlow.at("00_NLeptons_g_0") += evtWeight;
 	   
 	JetSelection();

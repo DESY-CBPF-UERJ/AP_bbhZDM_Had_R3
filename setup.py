@@ -47,7 +47,8 @@ analysis_parameters = {
 }
 
 corrections = {  # 0-don't apply, 1-apply
-        "PILEUP_WGT            ":0,
+        "PILEUP_WGT             ":0,
+        "ELECTRON_ID_WGT        ":1,
         }
 
 lateral_systematics = { 
@@ -100,6 +101,8 @@ metadata = {
 "NN_model_X_XX              ": analysis+"/Metadata/ML/model.onnx",
 "lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
 "pileup_0_24                ": analysis+"/Metadata/POG/LUM/2024/puWeights.json.gz",
+"electron_0_24              ": analysis+"/Metadata/POG/EGM/2024_Summer24/electronID_v1.json.gz",
+
 }
 
 

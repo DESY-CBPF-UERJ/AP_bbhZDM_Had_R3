@@ -91,7 +91,7 @@ class HEPHero : public HEPBase {
 
         //----WEIGHTS------------------------------------------------
         float GetPileupWeight( float Pileup_nTrueInt, string sysType );
-
+	float GetElectronWeight( string sysID );
 
         //-------------------------------------------------------------------------------
         // Variables
@@ -269,7 +269,14 @@ class HEPHero : public HEPBase {
         string  pileup_file;
         shared_ptr<correction::Correction const> pileup_corr;
 
-        //----MET XY-------------------------------------------------
+        //----ELECTRON ID------------------------------------
+        bool    apply_electron_wgt;
+        double  electron_wgt;
+        string  electron_file;
+        shared_ptr<correction::Correction const> electron_ID_corr;
+	
+	
+	//----MET XY-------------------------------------------------
         //bool apply_met_xy_corr;
         //string  met_xy_file;
         //shared_ptr<correction::Correction const> met_xy_pt_corr;

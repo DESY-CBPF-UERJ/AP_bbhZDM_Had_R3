@@ -21,6 +21,14 @@ void HEPHero::PreRoutines() {
     lumi_certificate.ReadFile(certificate_file);
 
 
+   //----ELECTRON ID------------------------------------------------------------------------------
+    if( apply_electron_wgt ){
+        auto electron_set = correction::CorrectionSet::from_file(electron_file.c_str());
+        electron_ID_corr = electron_set->at("Electron-ID-SF");
+    }
+
+
+
     //----PILEUP-------------------------------------------------------------------------
     if( apply_pileup_wgt ){
         auto pileup_set = correction::CorrectionSet::from_file(pileup_file.c_str());
