@@ -50,6 +50,7 @@ corrections = {  # 0-don't apply, 1-apply
         "PILEUP_WGT             ":0,
         "ELECTRON_ID_WGT        ":1,
         "MUON_ID_WGT            ":1,
+        "JET_PUID_WGT           ":0, # NOT WORKING, MISSING FILE
         }
 
 lateral_systematics = { 
@@ -104,6 +105,7 @@ metadata = {
 "pileup_0_24                ": analysis+"/Metadata/POG/LUM/2024/puWeights.json.gz",
 "electron_0_24              ": analysis+"/Metadata/POG/EGM/2024_Summer24/electronID_v1.json.gz",
 "muon_0_24                  ": analysis+"/Metadata/POG/MUO/2024/muon_Z.json.gz",
+"jet_puID_24                ": analysis+"/Metadata/POG/JME/2024/",
 }
 
 

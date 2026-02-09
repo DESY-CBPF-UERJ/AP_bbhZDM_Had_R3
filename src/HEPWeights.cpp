@@ -9,7 +9,7 @@ void HEPHero::Weight_corrections(){
     pileup_wgt = 1.;
     electron_wgt = 1.;
     muon_wgt = 1.;
-
+    jet_puid_wgt= 1.;
 
 
     if(dataset_group != "Data"){
@@ -27,7 +27,10 @@ void HEPHero::Weight_corrections(){
             muon_wgt = GetMuonWeight("cv");
             evtWeight *= muon_wgt;
         }
-
+	if( apply_jet_puid_wgt ){
+            jet_puid_wgt = GetJetPUIDWeight("cv");
+            evtWeight *= jet_puid_wgt;
+        }
 
     }
 
@@ -275,3 +278,66 @@ float HEPHero::GetMuonWeight( string sysID ){
 
     return LeptonID_wgt;
 }
+
+
+
+//---------------------------------------------------------------------------------------------
+// Jet puID Correction
+// Return weight associated to the jet pileup ID selection
+// Jet pileup ID identify jets that are NOT pileup
+// https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetIDUL#Data_MC_Efficiency_Scale_Factors
+// https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID#Efficiencies_and_data_MC_scale_f
+//---------------------------------------------------------------------------------------------
+float HEPHero::GetJetPUIDWeight( string sysID ){
+
+    double puid_weight = 1.;
+    if( dataset_group != "Data" ){
+
+        string WP;
+        if( JET_PUID_WP == 1 ){
+            WP = "L";
+        }else if( JET_PUID_WP == 3 ){
+            WP = "M";
+        }else if( JET_PUID_WP == 7 ){
+            WP = "T";
+        }
+
+        //double P_MC = 1;
+        //double P_DATA = 1;
+        for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
+            if( abs(Jet_eta[ijet]) >= 5.0 ) continue;
+            if( Jet_pt[ijet] < 20 ) continue;
+            if( Jet_pt[ijet] >= 50 ) continue;
+            if( Jet_puId[ijet] < JET_PUID_WP ) continue;
+            //if( !Jet_GenJet_match(ijet, 0.4) ) continue;
+            if( Jet_genJetIdx[ijet] < 0 ) continue;
+
+            float jet_pt = Jet_pt[ijet];
+            float jet_eta = Jet_eta[ijet];
+
+            //double eff = jet_PUID_corr->evaluate({jet_eta, jet_pt, "MCEff", WP});
+
+            double SF;
+            if( sysID == "cv" ){
+                SF = jet_PUID_corr->evaluate({jet_eta, jet_pt, "nom", WP});
+            }else if( sysID == "down" ){
+                SF = jet_PUID_corr->evaluate({jet_eta, jet_pt, "down", WP});
+            }else if( sysID == "up" ){
+                SF = jet_PUID_corr->evaluate({jet_eta, jet_pt, "up", WP});
+            }
+            if( JET_PUID_WP > 0 ) puid_weight *= SF;
+            //if( JET_PUID_WP > 0 ){
+            //    P_MC *= eff;
+            //    P_DATA *= eff*SF;
+            //}
+        }
+        //if( P_MC > 0 ){
+        //    puid_weight = P_DATA/P_MC;
+        //}else{
+        //    puid_weight = 1.;
+        //}
+    }
+
+    return puid_weight;
+}
+

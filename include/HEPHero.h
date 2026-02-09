@@ -93,7 +93,9 @@ class HEPHero : public HEPBase {
         float GetPileupWeight( float Pileup_nTrueInt, string sysType );
 	float GetElectronWeight( string sysID );
 	float GetMuonWeight( string sysID );
-        //-------------------------------------------------------------------------------
+        float GetJetPUIDWeight( string sysID );
+	
+	//-------------------------------------------------------------------------------
         // Variables
         //-------------------------------------------------------------------------------
 
@@ -282,6 +284,13 @@ class HEPHero : public HEPBase {
         shared_ptr<correction::Correction const> muon_RECO_corr;
         shared_ptr<correction::Correction const> muon_ID_corr;
         shared_ptr<correction::Correction const> muon_ISO_corr;
+
+	//----JET PU ID------------------------------------
+        bool    apply_jet_puid_wgt;
+        double  jet_puid_wgt;
+        string  jet_puid_file;
+        shared_ptr<correction::Correction const> jet_PUID_corr;
+
 
 	//----MET XY-------------------------------------------------
         //bool apply_met_xy_corr;

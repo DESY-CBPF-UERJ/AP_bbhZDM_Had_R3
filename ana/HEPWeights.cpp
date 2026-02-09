@@ -51,6 +51,7 @@ void HEPHero::SetupHEPWeights() {
     HDF_insert("pileup_wgt", &pileup_wgt );
     HDF_insert("electron_wgt", &electron_wgt );
     HDF_insert("muon_wgt", &muon_wgt );
+    HDF_insert("jet_puid_wgt",&jet_puid_wgt)
 
     return;
 }

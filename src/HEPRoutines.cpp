@@ -56,7 +56,11 @@ void HEPHero::PreRoutines() {
         muon_ISO_corr = muon_set->at(MuISO_WP);
     }
 
-
+    //----JET PU ID--------------------------------------------------------------------------------
+    if( apply_jet_puid_wgt ){
+        auto jet_puid_set = correction::CorrectionSet::from_file(jet_puid_file.c_str());
+        jet_PUID_corr = jet_puid_set->at("PUJetID_eff");
+    }
 
 
     //----PILEUP-------------------------------------------------------------------------
