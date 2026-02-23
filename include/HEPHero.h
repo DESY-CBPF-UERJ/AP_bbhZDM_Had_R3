@@ -52,11 +52,11 @@ class HEPHero : public HEPBase {
         void Study_GENSelection();
         void Study_GENSystematic();
         void FinishStudy_GEN();
-        void SetupHEPWeights();
-        bool HEPWeightsRegion();
-        void HEPWeightsSelection();
-        void HEPWeightsSystematic();
-        void FinishHEPWeights();
+        void SetupML();
+        bool MLRegion();
+        void MLSelection();
+        void MLSystematic();
+        void FinishML();
         // INSERT YOUR SELECTION HERE
         
 

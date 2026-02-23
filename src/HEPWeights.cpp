@@ -308,9 +308,9 @@ float HEPHero::GetJetPUIDWeight( string sysID ){
             if( abs(Jet_eta[ijet]) >= 5.0 ) continue;
             if( Jet_pt[ijet] < 20 ) continue;
             if( Jet_pt[ijet] >= 50 ) continue;
-            if( Jet_puId[ijet] < JET_PUID_WP ) continue;
+            //if( Jet_puId[ijet] < JET_PUID_WP ) continue;
             //if( !Jet_GenJet_match(ijet, 0.4) ) continue;
-            if( Jet_genJetIdx[ijet] < 0 ) continue;
+            //if( Jet_genJetIdx[ijet] < 0 ) continue;
 
             float jet_pt = Jet_pt[ijet];
             float jet_eta = Jet_eta[ijet];
