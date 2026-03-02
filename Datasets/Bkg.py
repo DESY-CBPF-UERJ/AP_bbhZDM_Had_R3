@@ -84,19 +84,19 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 
 "Zto2Nu": [
     ["Zto2Nu_PTNuNu-40to100_1J",    '26',   885.7,     5.991,   'NLO'],   # amcatnloFXFX
-    ["Zto2Nu_PTNuNu-40to100_2J",    '26',   328.6,     3.458,   'NLO'],   # amcatnloFXFX
+    #["Zto2Nu_PTNuNu-40to100_2J",    '26',   328.6,     3.458,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-100to200_1J",   '26',   78.91,     0.4341,   'NLO'],   # amcatnloFXFX
-    ["Zto2Nu_PTNuNu-100to200_2J",   '26',   100.2,     0.931,   'NLO'],   # amcatnloFXFX
+    #["Zto2Nu_PTNuNu-100to200_2J",   '26',   100.2,     0.931,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-200to400_1J",   '26',   5.406,     0.02724,   'NLO'],   # amcatnloFXFX
-    ["Zto2Nu_PTNuNu-200to400_2J",   '26',   13.76,     0.1076,   'NLO'],   # amcatnloFXFX
+    #["Zto2Nu_PTNuNu-200to400_2J",   '26',   13.76,     0.1076,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-400to600_1J",   '26',   0.1693,     0.0007856,   'NLO'],   # amcatnloFXFX
-    ["Zto2Nu_PTNuNu-400to600_2J",   '26',   0.775,     0.005039,   'NLO'],   # amcatnloFXFX
+    #["Zto2Nu_PTNuNu-400to600_2J",   '26',   0.775,     0.005039,   'NLO'],   # amcatnloFXFX
     
     ["Zto2Nu_PTNuNu-600_1J",        '26',   0.01895,     0.00008347,   'NLO'],   # amcatnloFXFX
-    ["Zto2Nu_PTNuNu-600_2J",        '26',   0.1304,     0.0007222,   'NLO'],   # amcatnloFXFX
+    #["Zto2Nu_PTNuNu-600_2J",        '26',   0.1304,     0.0007222,   'NLO'],   # amcatnloFXFX
 
 
     
@@ -123,19 +123,19 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ##############################################################################
     
     ["WtoLNu_PTLNu-40to100_1J",     '27',   4211,     27.71,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-40to100_2J",     '27',   1581,     16.18	,   'NLO'],   # amcatnloFXFX
+    #["WtoLNu_PTLNu-40to100_2J",     '27',   1581,     16.18	,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-100to200_1J",    '27',   342.3,     1.842,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-100to200_2J",    '27',   411.1,     3.841,   'NLO'],   # amcatnloFXFX
+    #["WtoLNu_PTLNu-100to200_2J",    '27',   411.1,     3.841,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-200to400_1J",    '27',   21.84,     0.1076,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-200to400_2J",    '27',   53.59,     0.4098,   'NLO'],   # amcatnloFXFX
+    #["WtoLNu_PTLNu-200to400_2J",    '27',   53.59,     0.4098,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-400to600_1J",    '27',   0.6845,     0.003095,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-400to600_2J",    '27',   3.099,     0.01935,   'NLO'],   # amcatnloFXFX
+    #["WtoLNu_PTLNu-400to600_2J",    '27',   3.099,     0.01935,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-600_1J",         '27',   0.07753,     0.0003313,   'NLO'],   # amcatnloFXFX
-    ["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
+    #["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
 
     
   #  ["WtoLNu_PTLNu-40to100_1J",         '27',       4427,	            28.3,		        'LO'],
