@@ -62,11 +62,11 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ],
 
 "QCD": [
-
-    ["QCD_PT-15to20",        '25',   885700000.0,     1481000.0,   'LO'],
-    ["QCD_PT-20to30",        '25',   415700000.0,     689600.0,   'LO'],
-    ["QCD_PT-30to50",        '25',   112300000.0,     222000.0,   'LO'],
-    ["QCD_PT-50to80",        '25',   16730000.0,     27390.0,   'LO'],
+    # Zero or negligible contribution
+    #["QCD_PT-15to20",        '25',   885700000.0,     1481000.0,   'LO'],
+    #["QCD_PT-20to30",        '25',   415700000.0,     689600.0,   'LO'],
+    #["QCD_PT-30to50",        '25',   112300000.0,     222000.0,   'LO'],
+    #["QCD_PT-50to80",        '25',   16730000.0,     27390.0,   'LO'],
     ["QCD_PT-80to120",       '25',   2506000.0,     4165.0,   'LO'],
     ["QCD_PT-120to170",      '25',   439800.0,     689.5,   'LO'],
     ["QCD_PT-170to300",      '25',   113300.0,     175.7,   'LO'],
@@ -84,19 +84,19 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 
 "Zto2Nu": [
     ["Zto2Nu_PTNuNu-40to100_1J",    '26',   885.7,     5.991,   'NLO'],   # amcatnloFXFX
-    #["Zto2Nu_PTNuNu-40to100_2J",    '26',   328.6,     3.458,   'NLO'],   # amcatnloFXFX
+    ["Zto2Nu_PTNuNu-40to100_2J",    '26',   328.6,     3.458,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-100to200_1J",   '26',   78.91,     0.4341,   'NLO'],   # amcatnloFXFX
-    #["Zto2Nu_PTNuNu-100to200_2J",   '26',   100.2,     0.931,   'NLO'],   # amcatnloFXFX
+    ["Zto2Nu_PTNuNu-100to200_2J",   '26',   100.2,     0.931,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-200to400_1J",   '26',   5.406,     0.02724,   'NLO'],   # amcatnloFXFX
-    #["Zto2Nu_PTNuNu-200to400_2J",   '26',   13.76,     0.1076,   'NLO'],   # amcatnloFXFX
+    ["Zto2Nu_PTNuNu-200to400_2J",   '26',   13.76,     0.1076,   'NLO'],   # amcatnloFXFX
 
     ["Zto2Nu_PTNuNu-400to600_1J",   '26',   0.1693,     0.0007856,   'NLO'],   # amcatnloFXFX
-    #["Zto2Nu_PTNuNu-400to600_2J",   '26',   0.775,     0.005039,   'NLO'],   # amcatnloFXFX
+    ["Zto2Nu_PTNuNu-400to600_2J",   '26',   0.775,     0.005039,   'NLO'],   # amcatnloFXFX
     
     ["Zto2Nu_PTNuNu-600_1J",        '26',   0.01895,     0.00008347,   'NLO'],   # amcatnloFXFX
-    #["Zto2Nu_PTNuNu-600_2J",        '26',   0.1304,     0.0007222,   'NLO'],   # amcatnloFXFX
+    ["Zto2Nu_PTNuNu-600_2J",        '26',   0.1304,     0.0007222,   'NLO'],   # amcatnloFXFX
 
 
     
@@ -123,19 +123,19 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 ##############################################################################
     
     ["WtoLNu_PTLNu-40to100_1J",     '27',   4211,     27.71,   'NLO'],   # amcatnloFXFX
-    #["WtoLNu_PTLNu-40to100_2J",     '27',   1581,     16.18	,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-40to100_2J",     '27',   1581,     16.18	,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-100to200_1J",    '27',   342.3,     1.842,   'NLO'],   # amcatnloFXFX
-    #["WtoLNu_PTLNu-100to200_2J",    '27',   411.1,     3.841,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-100to200_2J",    '27',   411.1,     3.841,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-200to400_1J",    '27',   21.84,     0.1076,   'NLO'],   # amcatnloFXFX
-    #["WtoLNu_PTLNu-200to400_2J",    '27',   53.59,     0.4098,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-200to400_2J",    '27',   53.59,     0.4098,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-400to600_1J",    '27',   0.6845,     0.003095,   'NLO'],   # amcatnloFXFX
-    #["WtoLNu_PTLNu-400to600_2J",    '27',   3.099,     0.01935,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-400to600_2J",    '27',   3.099,     0.01935,   'NLO'],   # amcatnloFXFX
     
     ["WtoLNu_PTLNu-600_1J",         '27',   0.07753,     0.0003313,   'NLO'],   # amcatnloFXFX
-    #["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
+    ["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
 
     
   #  ["WtoLNu_PTLNu-40to100_1J",         '27',       4427,	            28.3,		        'LO'],
@@ -163,8 +163,6 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 "Vh": [
     ["ZH_Hto2B_Zto2Nu",      '29',   0.168,      0.0002559,   'NLO'],   # powheg MINLO
     ["ZH_Hto2C_Zto2Nu",      '29',   0.168,     0.0002559,   'NLO'],   # powheg MINLO
-    ["ZHto2Zto4Nu_Zto2Q",    '29',   0.5934	,     0.00004693,   'NLO'],   # powheg MINLO
-
     ["WplusH_Hto2B_WtoLNu",    '29',   0.3,   0.00000519,   'NLO'],   # powhegMINLO
     ["WplusH_Hto2C_WtoLNu",    '29',   0.3,   0.000004869,   'NLO'],   # powhegMINLO
     ["WminusH_Hto2B_WtoLNu",   '29',   0.1887,   0.000002892,   'NLO'],   # powhegMINLO
@@ -194,28 +192,18 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     #["Zto2Q_PTQQ-400to600_2J",          '30',       2.683,	            0.01553,		    'LO'], # SEM VERSÂO
     #["Zto2Q_PTQQ-600_1J",               '30',       0.08717,	        0.0003566,		    'LO'], # SEM VERSÂO
     #["Zto2Q_PTQQ-600_2J",               '30',       0.4459,	            0.002084,		    'LO'], # SEM VERSÂO
-    ["Zto2Q_PTQQ-100_2J",          '20',   0,   0,   'NLO'],  # amcatnloFXFX
-#    ["Zto2Q_HT-100to400_4J",       '20',   6328,   17.95,   'NLO'],  # madgraphMLM
-    ["Zto2Q_PTQQ-200_2J",          '20',   0	,   0,   'NLO'],  # amcatnloFXFX
-#    ["Zto2Q_HT-1500to2500_4J",     '20',   0,   0,   'NLO'],  # madgraphMLM
-    ["Zto2Q_PTQQ-400_2J",          '20',   0,   0,   'NLO'],  # amcatnloFXFX
-#    ["Zto2Q_HT-400to800_4J",       '20',   145.1,   0.4362,   'NLO'],  # madgraphMLM
-    ["Zto2Q_PTQQ-600_2J",          '20',   0,   0,   'NLO'],  # amcatnloFXFX
-#    ["Zto2Q_HT-800to1500_4J",      '20',   0,   0,   'NLO'],  # madgraphMLM
-
-
-    # --- 2 Jets, PTQQ bins (amcatnloFXFX) ---
-    ["Wto2Q-2Jets_Bin-PTQQ-100",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
-    ["Wto2Q-2Jets_Bin-PTQQ-200",        '30',   165.3,     1.226,   'NLO'],
-    ["Wto2Q-2Jets_Bin-PTQQ-400",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
-    ["Wto2Q-2Jets_Bin-PTQQ-600",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
     
-    # --- 3 Jets, HT bins (madgraphMLM → LO) ---
-  #  ["Wto2Q-3Jets_Bin-HT-100to400",     '30',   16120,     44.49,   'LO'],
-  #  ["Wto2Q-3Jets_Bin-HT-400to800",     '30',   0,     0,   'LO'], # Não existe no XSDB
-  #  ["Wto2Q-3Jets_Bin-HT-800to1500",    '30',   0,     0,   'LO'], # Não existe no XSDB
-  #  ["Wto2Q-3Jets_Bin-HT-1500to2500",   '30',   0,     0,   'LO'], # Não existe no XSDB
-  #  ["Wto2Q-3Jets_Bin-HT-2500",         '30',   0,     0,   'LO'], # Não existe no XSDB
+    # Add them only afer you get the xsec values
+    #["Zto2Q_PTQQ-100_2J",          '20',   0,   0,   'NLO'], 
+    #["Zto2Q_PTQQ-200_2J",          '20',   0	,   0,   'NLO'],
+    #["Zto2Q_PTQQ-400_2J",          '20',   0,   0,   'NLO'],  
+    #["Zto2Q_PTQQ-600_2J",          '20',   0,   0,   'NLO'],  
+
+    # Add them only afer you get the xsec values
+    #["Wto2Q-2Jets_Bin-PTQQ-100",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
+    #["Wto2Q-2Jets_Bin-PTQQ-200",        '30',   165.3,     1.226,   'NLO'],
+    #["Wto2Q-2Jets_Bin-PTQQ-400",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
+    #["Wto2Q-2Jets_Bin-PTQQ-600",        '30',   0,     0,   'NLO'], # Não existe no XSDB, peguei o valor do que parece ser ele lá
 
     #["Wto2Q_PTQQ-100to200_1J",          '30',       1517,	            7.518,		        'LO'],
     #["Wto2Q_PTQQ-100to200_2J",          '30',       1757,	            14.55,		        'LO'],
@@ -229,11 +217,8 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
 
     ["WminusH_Hto2B_Wto2Q",     '30',   0.3918,     0.000007285,   'NLO'],   # powheg MINLO
     ["WminusH_Hto2C_Wto2Q",     '30',   0.3918,     0.000007483,   'NLO'],   # powheg MINLO
-    
     ["WplusH_Hto2B_Wto2Q",      '30',   0.6226,     0.00001073,   'NLO'],   # powheg MINLO
     ["WplusH_Hto2C_Wto2Q",      '30',   0.6226,     0.00001092,   'NLO'],   # powheg MINLO
-
-
     ["ZH_Hto2B_Zto2L",   '30',   0.08545,   0.0001071,   'NLO'],   # powheg MINLO
     ["ZH_Hto2B_Zto2Q",   '30',   0.5958,   0.0004369,   'NLO'],   # powheg MINLO
     ["ZH_Hto2C_Zto2Q",   '30',   0.5958,   0.0004369,   'NLO'],   # powheg MINLO
@@ -260,18 +245,9 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["ttHto2C",   '30',   0.5742,   0.006401,   'NLO'],   # powheg
 
     # NOVAS AMOSTRAS
-    
     ["TBbarQto2Q-t-channel",              '30',   77.26,   0.2169,   'NLO'],   # powheg-madspin
-
     ["TbarBQto2Q-t-channel",              '30',   46.73,   0.1176,   'NLO'],   # powheg-madspin
-    
 
-    ["WminusHtoInv_Wto2Q",     '30', 0.3916, 0.00002025, 'NLO'],
-    ["WplusHtoInv_Wto2Q",     '30', 0.6194, 0.00002424, 'NLO'],
-    ["ZHtoInv_Zto2Q",    '30',    0.5934,0.00004693	,'NLO'],
-
-
-    
 ],
 }
 
