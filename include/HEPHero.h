@@ -93,6 +93,8 @@ class HEPHero : public HEPBase {
         bool ElectronID( int iobj, int WP );
         bool PileupJet(int iJet);
         bool JetBTAG( int iobj, int WP );
+	bool METFilters();
+
 
         //----WEIGHTS------------------------------------------------
         float GetPileupWeight( float Pileup_nTrueInt, string sysType );
@@ -1635,33 +1637,35 @@ class HEPHero : public HEPBase {
    Bool_t          L1_UnprefireableEvent_FirstBxInTrain;
    Bool_t          L1_FinalOR_BXmin1;
    Bool_t          L1_FinalOR_BXmin2;
-   Bool_t          Flag_HBHENoiseFilter;
-   Bool_t          Flag_HBHENoiseIsoFilter;
-   Bool_t          Flag_CSCTightHaloFilter;
-   Bool_t          Flag_CSCTightHaloTrkMuUnvetoFilter;
-   Bool_t          Flag_CSCTightHalo2015Filter;
-   Bool_t          Flag_globalTightHalo2016Filter;
-   Bool_t          Flag_globalSuperTightHalo2016Filter;
-   Bool_t          Flag_HcalStripHaloFilter;
-   Bool_t          Flag_hcalLaserEventFilter;
-   Bool_t          Flag_EcalDeadCellTriggerPrimitiveFilter;
-   Bool_t          Flag_EcalDeadCellBoundaryEnergyFilter;
-   Bool_t          Flag_ecalBadCalibFilter;
-   Bool_t          Flag_goodVertices;
-   Bool_t          Flag_eeBadScFilter;
-   Bool_t          Flag_ecalLaserCorrFilter;
-   Bool_t          Flag_trkPOGFilters;
-   Bool_t          Flag_chargedHadronTrackResolutionFilter;
-   Bool_t          Flag_muonBadTrackFilter;
-   Bool_t          Flag_BadChargedCandidateFilter;
-   Bool_t          Flag_BadPFMuonFilter;
-   Bool_t          Flag_BadPFMuonDzFilter;
-   Bool_t          Flag_hfNoisyHitsFilter;
-   Bool_t          Flag_BadChargedCandidateSummer16Filter;
-   Bool_t          Flag_BadPFMuonSummer16Filter;
-   Bool_t          Flag_trkPOG_manystripclus53X;
-   Bool_t          Flag_trkPOG_toomanystripclus53X;
-   Bool_t          Flag_trkPOG_logErrorTooManyClusters;
+   */
+  // Bool_t          Flag_HBHENoiseFilter;
+  // Bool_t          Flag_HBHENoiseIsoFilter;
+  // Bool_t          Flag_CSCTightHaloFilter;
+  // Bool_t          Flag_CSCTightHaloTrkMuUnvetoFilter;
+  // Bool_t          Flag_CSCTightHalo2015Filter;
+  // Bool_t          Flag_globalTightHalo2016Filter;
+  Bool_t          Flag_globalSuperTightHalo2016Filter;
+  // Bool_t          Flag_HcalStripHaloFilter;
+  // Bool_t          Flag_hcalLaserEventFilter;
+  Bool_t          Flag_EcalDeadCellTriggerPrimitiveFilter;
+  // Bool_t          Flag_EcalDeadCellBoundaryEnergyFilter;
+  Bool_t          Flag_ecalBadCalibFilter;
+  Bool_t          Flag_goodVertices;
+  Bool_t          Flag_eeBadScFilter;
+  // Bool_t          Flag_ecalLaserCorrFilter;
+  // Bool_t          Flag_trkPOGFilters;
+  // Bool_t          Flag_chargedHadronTrackResolutionFilter;
+  // Bool_t          Flag_muonBadTrackFilter;
+  // Bool_t          Flag_BadChargedCandidateFilter;
+  Bool_t          Flag_BadPFMuonFilter;
+  Bool_t          Flag_BadPFMuonDzFilter;
+  Bool_t          Flag_hfNoisyHitsFilter;
+  // Bool_t          Flag_BadChargedCandidateSummer16Filter;
+  // Bool_t          Flag_BadPFMuonSummer16Filter;
+  // Bool_t          Flag_trkPOG_manystripclus53X;
+  // Bool_t          Flag_trkPOG_toomanystripclus53X;
+  // Bool_t          Flag_trkPOG_logErrorTooManyClusters;
+   /*
    Bool_t          L1Reco_step;
    Bool_t          L1simulation_step;
    Bool_t          HLTriggerFirstPath;

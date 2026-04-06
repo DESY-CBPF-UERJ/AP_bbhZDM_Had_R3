@@ -205,6 +205,16 @@ bool HEPHero::Init() {
 
 
 
+	_inputTree->SetBranchAddress("Flag_goodVertices", &Flag_goodVertices );
+	_inputTree->SetBranchAddress("Flag_globalSuperTightHalo2016Filter", &Flag_globalSuperTightHalo2016Filter);
+	_inputTree->SetBranchAddress("Flag_EcalDeadCellTriggerPrimitiveFilter", &Flag_EcalDeadCellTriggerPrimitiveFilter);
+	_inputTree->SetBranchAddress("Flag_BadPFMuonFilter", &Flag_BadPFMuonFilter);
+	_inputTree->SetBranchAddress("Flag_BadPFMuonDzFilter", &Flag_BadPFMuonDzFilter);
+	_inputTree->SetBranchAddress("Flag_hfNoisyHitsFilter", &Flag_hfNoisyHitsFilter);
+	_inputTree->SetBranchAddress("Flag_eeBadScFilter", &Flag_eeBadScFilter);
+	_inputTree->SetBranchAddress("Flag_ecalBadCalibFilter", &Flag_ecalBadCalibFilter);
+
+
         if (dataset_year == "24"){
             HLT_AK8PFJet380_SoftDropMass30 = false;
             HLT_AK8PFJet400_SoftDropMass30 = false;

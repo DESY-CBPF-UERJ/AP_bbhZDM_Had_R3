@@ -214,4 +214,45 @@ bool HEPHero::JetBTAG( int iobj, int WP ){
 
 
 
+//-------------------------------------------------------------------------
+// MET  Filters
+// https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#UL_data
+//-------------------------------------------------------------------------
+bool HEPHero::METFilters(){
+
+    string dsName = _datasetName.substr(0,_datasetName.length()-5);
+    string dsNameSignal = dsName.substr(0,15);
+
+
+    bool filtered = false;
+    bool filters;
+
+   // std::cout<<"VALORES DAS BOOLIANAS"<<endl;
+   // std::cout<<Flag_BadPFMuonFilter<<endl;
+    //std::cout<<<<endl;
+
+
+    filters =   Flag_goodVertices &&
+                Flag_globalSuperTightHalo2016Filter &&
+                Flag_EcalDeadCellTriggerPrimitiveFilter &&
+                Flag_BadPFMuonFilter &&
+                Flag_BadPFMuonDzFilter &&
+                Flag_hfNoisyHitsFilter &&
+                Flag_eeBadScFilter &&
+                Flag_ecalBadCalibFilter;
+
+
+//   std::cout<<"dataset_year"<<dataset_year<<endl;
+
+    if( dataset_year == "24" ){
+    	if( filters ) filtered = true;
+    }else{
+        std::cout << "Something is Wrong !!!" << std::endl;
+        std::cout << "The dataset name does not have the year [16,17,18] or dataset is from another year" << std::endl;
+    }
+
+    return filtered ;
+}
+
+
 
