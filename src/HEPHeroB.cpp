@@ -455,6 +455,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "Test" ) SetupTest();
     else if( _SELECTION == "Study_GEN" ) SetupStudy_GEN();
     else if( _SELECTION == "ML" ) SetupML();
+    else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -467,6 +468,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "Test" && !TestRegion() ) Selected = false;
     if( _SELECTION == "Study_GEN" && !Study_GENRegion() ) Selected = false;
     if( _SELECTION == "ML" && !MLRegion() ) Selected = false;
+    if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -476,6 +478,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "Test" ) TestSelection();
     if( _SELECTION == "Study_GEN" ) Study_GENSelection();
     if( _SELECTION == "ML" ) MLSelection();
+    if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -483,6 +486,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "Test" ) TestSystematic();
     if( _SELECTION == "Study_GEN" ) Study_GENSystematic();
     if( _SELECTION == "ML" ) MLSystematic();
+    if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -490,6 +494,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "Test" ) FinishTest();
     if( _SELECTION == "Study_GEN" ) FinishStudy_GEN();
     if( _SELECTION == "ML" ) FinishML();
+    if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
     // FINISH YOUR SELECTION HERE
 }
    

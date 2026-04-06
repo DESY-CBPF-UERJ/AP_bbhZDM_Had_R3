@@ -486,7 +486,7 @@ bool HEPHero::Trigger(){
 
     //=====TRIGGERS FOR 2024=====================================================================
     if( dataset_year == "24" ){
-
+	triggered = HLT_PFMET120_PFMHT120_IDTight;
     }
 
 

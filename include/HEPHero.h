@@ -57,6 +57,11 @@ class HEPHero : public HEPBase {
         void MLSelection();
         void MLSystematic();
         void FinishML();
+        void SetupHEPWeights();
+        bool HEPWeightsRegion();
+        void HEPWeightsSelection();
+        void HEPWeightsSystematic();
+        void FinishHEPWeights();
         // INSERT YOUR SELECTION HERE
         
 

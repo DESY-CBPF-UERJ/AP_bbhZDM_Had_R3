@@ -21,13 +21,15 @@ namespace HEPWeights{
 void HEPHero::SetupHEPWeights() {
 
 //======SETUP CUTFLOW==========================================================================
-        _cutFlow.insert(pair<string,double>("00_NLeptons_g_0", 0) );
-	_cutFlow.insert(pair<string,double>("01_NbJets_g_0", 0) );
-	_cutFlow.insert(pair<string,double>("02_MET_MHT_g_200", 0) );
-	_cutFlow.insert(pair<string,double>("03_NFatJets_g_0", 0) );
-	_cutFlow.insert(pair<string,double>("04_FatJet_Pt_g_200", 0) );
-	_cutFlow.insert(pair<string,double>("05_Omega_g_0p3", 0) );
-	_cutFlow.insert(pair<string,double>("06_Signal_like", 0) );
+
+	_cutFlow.insert(pair<string,double>("00_trigger", 0) );
+	_cutFlow.insert(pair<string,double>("01_NLeptons_g_0", 0) );
+	_cutFlow.insert(pair<string,double>("02_NbJets_g_0", 0) );
+	_cutFlow.insert(pair<string,double>("03_MET_MHT_g_200", 0) );
+	_cutFlow.insert(pair<string,double>("04_NFatJets_g_0", 0) );
+	_cutFlow.insert(pair<string,double>("05_FatJet_Pt_g_200", 0) );
+	_cutFlow.insert(pair<string,double>("06_Omega_g_0p3", 0) );
+	_cutFlow.insert(pair<string,double>("07_Signal_like", 0) );
 
     //======SETUP CUTFLOW==========================================================================
     //_cutFlow.insert(pair<string,double>("CutName", 0) );   [example]
@@ -51,7 +53,19 @@ void HEPHero::SetupHEPWeights() {
     HDF_insert("pileup_wgt", &pileup_wgt );
     HDF_insert("electron_wgt", &electron_wgt );
     HDF_insert("muon_wgt", &muon_wgt );
-    HDF_insert("jet_puid_wgt",&jet_puid_wgt)
+    HDF_insert("jet_puid_wgt",&jet_puid_wgt);
+
+
+    HDF_insert("Nelectrons", &Nelectrons);
+    HDF_insert("Nmuons", &Nmuons);
+    HDF_insert("Ntaus", &Ntaus);
+    HDF_insert("Nleptons", &Nleptons);
+
+
+    HDF_insert("NfatJets", &NfatJets);
+
+
+    HDF_insert("MET_pt", &PFMET_pt);
 
     return;
 }
@@ -66,45 +80,49 @@ bool HEPHero::HEPWeightsRegion() {
     // Cut description
     //-------------------------------------------------------------------------
 
-LeptonSelection();
+	if( !Trigger() ) return false;                                              // Selected by triggers
+	_cutFlow.at("00_trigger") += evtWeight;
+	
+	
+	LeptonSelection();
     
     
-//	if (!(Nleptons==0) ) return false;
-        _cutFlow.at("00_NLeptons_g_0") += evtWeight;
+	if (!(Nleptons==0) ) return false;
+        _cutFlow.at("01_NLeptons_g_0") += evtWeight;
 	   
 	JetSelection();
 	        
 	if ( !(Nbjets>0) ) return false;	    
-	_cutFlow.at("01_NbJets_g_0") += evtWeight;
+	_cutFlow.at("02_NbJets_g_0") += evtWeight;
 
 		        
 	if (!(PFMET_pt > 200 && MHT > 200) ) return false;
-	_cutFlow.at("02_MET_MHT_g_200") += evtWeight;
+	_cutFlow.at("03_MET_MHT_g_200") += evtWeight;
 
 			        
 	FatjetSelection();
 
 				    
 	if ( !(NfatJets>0) ) return false;				        
-	_cutFlow.at("03_NFatJets_g_0") += evtWeight;
+	_cutFlow.at("04_NFatJets_g_0") += evtWeight;
 
 					  
 	if ( !(LeadingFatJet_pt>200) ) return false;					    
-	_cutFlow.at("04_FatJet_Pt_g_200") += evtWeight;
+	_cutFlow.at("05_FatJet_Pt_g_200") += evtWeight;
 
 						    
 	Get_Jet_Angular_Variables();
 
 						        
 	if ( !(OmegaMin>OMEGA_CUT) ) return false;						    
-	_cutFlow.at("05_Omega_g_0p3") += evtWeight;
+	_cutFlow.at("06_Omega_g_0p3") += evtWeight;
 
 							        
 	Get_Jet_Shape_Variables();								    
 	Get_Signal_Taggers();
 								       
 	if ( !(signal_tag>0.8) ) return false;								    
-	_cutFlow.at("06_Signal_like") += evtWeight;
+	_cutFlow.at("07_Signal_like") += evtWeight;
 								       
 	Weight_corrections();
 
