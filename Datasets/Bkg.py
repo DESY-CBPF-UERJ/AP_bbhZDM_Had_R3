@@ -21,21 +21,6 @@ paths["0_24"] = analysis+'/Datasets/Files/bkg_24/dti_0/'+nano_version+'/'
 # https://xsecdb-xsdb-official.app.cern.ch/
 # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/CERNYellowReportPageAt13TeV (Higgs)
 b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_Accuracy]
-"DY": [
-
-    ["DYto2L-2Jets_1J_PTLL-40to100",   '20',  475.3, 2.811,   'LO'],
-    ["DYto2L-2Jets_1J_PTLL-100to200",  '20', 45.42,	0.2314,   'LO'],
-    ["DYto2L-2Jets_1J_PTLL-200to400",  '20',  3.382, 0.01443,   'LO'],
-    ["DYto2L-2Jets_1J_PTLL-400to600",  '20',  0.1162, 0.0004367,   'LO'],
-    ["DYto2L-2Jets_1J_PTLL-600",       '20',  0.01392, 0.00005797,   'LO'],
-
-    ["DYto2L-2Jets_2J_PTLL-40to100",   '20',  179.3, 1.827,   'LO'],
-    ["DYto2L-2Jets_2J_PTLL-100to200",  '20',  51.68, 0.4864,   'LO'],
-    ["DYto2L-2Jets_2J_PTLL-200to400",  '20',  7.159, 0.05581,   'LO'],
-    ["DYto2L-2Jets_2J_PTLL-400to600",  '20',  0.4157, 0.002364,   'LO'],
-    ["DYto2L-2Jets_2J_PTLL-600",       '20',  0.07019, 0.0003334,   'LO'],
-    
-],
 
 "TT": [
     # Teoricamente a seção de choque de ttbar a 13.6 tev é algo em torno de 924 pb
@@ -98,18 +83,10 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["Zto2Nu_PTNuNu-600_1J",        '26',   0.01895,     0.00008347,   'NLO'],   # amcatnloFXFX
     ["Zto2Nu_PTNuNu-600_2J",        '26',   0.1304,     0.0007222,   'NLO'],   # amcatnloFXFX
 
-
-    
-    #["Zto2Nu_PTNuNu-40to100_1J",        '26',       929.8,	            5.481,		        'LO'],
-    #["Zto2Nu_PTNuNu-40to100_2J",        '26',       335.5,	            3.49,		        'LO'],
-    #["Zto2Nu_PTNuNu-100to200_1J",       '26',       86.38,	            0.441,		        'LO'],
-    #["Zto2Nu_PTNuNu-100to200_2J",       '26',       100.4,	            0.8555,		        'LO'],
-    #["Zto2Nu_PTNuNu-200to400_1J",       '26',       6.354,	            0.03067,		    'LO'],
-    #["Zto2Nu_PTNuNu-200to400_2J",       '26',       13.86,	            0.09802,		    'LO'],
-    #["Zto2Nu_PTNuNu-400to600_1J",       '26',       0.2188,	            0.0009573,		    'LO'],
-    #["Zto2Nu_PTNuNu-400to600_2J",       '26',       0.7816,	            0.005088,		    'LO'],
-    #["Zto2Nu_PTNuNu-600_1J",            '26',       0.02583,	        0.000108,		    'LO'],
-    #["Zto2Nu_PTNuNu-600_2J",            '26',       0.1311,	            0.0007098,		    'LO'],
+    ["Zto2Nu-2Jets_PTNuNu-100",       '41',  200.6,     0.5429,     "NLO"],
+    #["Zto2Nu-2Jets_PTNuNu-200",       '41',  20.41,     0.05284,    "NLO"],
+    #["Zto2Nu-2Jets_PTNuNu-400",       '41',  1.108,     0.002493,   "NLO"],
+    #["Zto2Nu-2Jets_PTNuNu-600",       '41',  0.1485,    0.0003123,  "NLO"],
 ],
 
 "WtoLNu": [
@@ -137,17 +114,10 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["WtoLNu_PTLNu-600_1J",         '27',   0.07753,     0.0003313,   'NLO'],   # amcatnloFXFX
     ["WtoLNu_PTLNu-600_2J",         '27',   0.5259,     0.002768,   'NLO'],   # amcatnloFXFX
 
-    
-  #  ["WtoLNu_PTLNu-40to100_1J",         '27',       4427,	            28.3,		        'LO'],
-  #  ["WtoLNu_PTLNu-40to100_2J",         '27',       1598,	            16.36,		        'LO'],
-  #  ["WtoLNu_PTLNu-100to200_1J",        '27',       368.2,	            1.926,		        'LO'],
-  #  ["WtoLNu_PTLNu-100to200_2J",        '27',       421.9,	            3.533,		        'LO'],
-  #  ["WtoLNu_PTLNu-200to400_1J",        '27',       25.6,	            0.1207,		        'LO'],
-  #  ["WtoLNu_PTLNu-200to400_2J",        '27',       54.77,	            0.3764,		        'LO'],
-  #  ["WtoLNu_PTLNu-400to600_1J",        '27',       0.8785,	            0.003223,		    'LO'],
-  #  ["WtoLNu_PTLNu-400to600_2J",        '27',       3.119,	            0.01749,		    'LO'],
-  #  ["WtoLNu_PTLNu-600_1J",             '27',       0.1053,	            0.0003437,		    'LO'],
-  #  ["WtoLNu_PTLNu-600_2J",             '27',       0.5261,	            0.002417,		    'LO'],
+    ["WtoLNu-2Jets_PTLNu-100",       '42',  863.6,	2.266,      "NLO"],
+    #["WtoLNu-2Jets_PTLNu-200",       '42',  81.81,      0.2658,     "NLO"],
+    #["WtoLNu-2Jets_PTLNu-400",       '42',  4.453,      0.009691,   "NLO"],
+    #["WtoLNu-2Jets_PTLNu-600",       '42',  0.6027,     0.001272,   "NLO"],
 ],
 
 "VV": [
@@ -178,11 +148,33 @@ b_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
    # ["ZHto2Zto4Nu_Zto2Q",               '29',       0.000553449,        0,                  '0.7612*0.026*0.2*0.2*0.69911'],
 ],
 
-"ResidualSM": [
+"Others": [
+    ["DYto2L-2Jets_1J_PTLL-40to100",   '20',  475.3, 2.811,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-100to200",  '20', 45.42,     0.2314,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-200to400",  '20',  3.382, 0.01443,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-400to600",  '20',  0.1162, 0.0004367,   'LO'],
+    ["DYto2L-2Jets_1J_PTLL-600",       '20',  0.01392, 0.00005797,   'LO'],
 
-    
+    ["DYto2L-2Jets_2J_PTLL-40to100",   '20',  179.3, 1.827,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-100to200",  '20',  51.68, 0.4864,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-200to400",  '20',  7.159, 0.05581,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-400to600",  '20',  0.4157, 0.002364,   'LO'],
+    ["DYto2L-2Jets_2J_PTLL-600",       '20',  0.07019, 0.0003334,   'LO'],    
 
-
+    ["GJ_PTG-100to200",     '40',  1391,    6.06,	"NLO"],
+    ["GJ_PTG-200to400",     '40',  88.24,   0.3225,	 "NLO"],
+    ["GJ_PTG-400to600",     '40',  3.77,    0.01213,    "NLO"],
+    ["GJ_PTG-600",          '40',  0.576,   0.001527,   "NLO"],
+    ["WGtoLNuG-1Jets_PTG-100",       '43',  2.556,	0.02189,        "NLO"],
+    #["WGtoLNuG-1Jets_PTG-200",       '43',  0.3179,     0.0005526,      "NLO"],
+    #["WGtoLNuG-1Jets_PTG-400",       '43',  0.02661,    0.00004619,     "NLO"],
+    #["WGtoLNuG-1Jets_PTG-600",       '43',  0.004734,   0.000007186,    "NLO"],
+    #["WGtoLNuG-1Jets",               '43',  671.5,      0.7548,         "NLO"],
+    ["ZGto2NuG-1Jets_PTG-100",       '44',  0.6499,     0.001213,	"NLO"],
+    #["ZGto2NuG-1Jets_PTG-200",       '44',  1,          0,              "NLO"],
+    #["ZGto2NuG-1Jets_PTG-400",       '44',  0.006625,   0.00001191,     "NLO"],
+    #["ZGto2NuG-1Jets_PTG-600",       '44',  0.001144,   0.000001951,    "NLO"],
+    #["ZGto2NuG-1Jets",               '44',  40.52,      0.05003,        "NLO"],
     
     #["Zto2Q_PTQQ-100to200_1J",          '30',       302,	            1.493,		        'LO'], # SEM VERSÂO
     #["Zto2Q_PTQQ-100to200_2J",          '30',       343.9,	            2.979,		        'LO'], # SEM VERSÂO

@@ -134,9 +134,20 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("FatJet_particleNet_XtmVsQCD", FatJet_particleNet_XtmVsQCD);
         _inputTree->SetBranchAddress("FatJet_particleNet_XttVsQCD", FatJet_particleNet_XttVsQCD);
         
+        _inputTree->SetBranchAddress("FatJet_globalParT3_QCD", FatJet_globalParT3_QCD);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_TopbWqq", FatJet_globalParT3_TopbWqq);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_Xbb", FatJet_globalParT3_Xbb);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_Xcc", FatJet_globalParT3_Xcc);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_Xcs", FatJet_globalParT3_Xcs);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_Xqq", FatJet_globalParT3_Xqq);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_massCorrGeneric", FatJet_globalParT3_massCorrGeneric);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_massCorrX2p", FatJet_globalParT3_massCorrX2p);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_withMassTopvsQCD", FatJet_globalParT3_withMassTopvsQCD);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_withMassWvsQCD", FatJet_globalParT3_withMassWvsQCD);
+        _inputTree->SetBranchAddress("FatJet_globalParT3_withMassZvsQCD", FatJet_globalParT3_withMassZvsQCD);
+
         _inputTree->SetBranchAddress("FatJet_phi", FatJet_phi);
         _inputTree->SetBranchAddress("FatJet_pt", FatJet_pt);
-
 
         _inputTree->SetBranchAddress("nGenPart", &nGenPart);
         _inputTree->SetBranchAddress("GenPart_genPartIdxMother", GenPart_genPartIdxMother);

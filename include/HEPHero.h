@@ -75,6 +75,7 @@ class HEPHero : public HEPBase {
 
         //----ANALYSIS-----------------------------------------------
         void Jet_lep_overlap(float deltaR_cut);
+        void GenJet_lep_overlap(float deltaR_cut);
         void LeptonSelection();
         void JetSelection();
         void FatjetSelection();
@@ -137,6 +138,7 @@ class HEPHero : public HEPBase {
         //----JETS---------------------------------------------------
         vector<int> selectedJet;
         vector<bool> Jet_LepOverlap;
+        vector<bool> GenJet_LepOverlap;
         int Nbjets;
         int Nbjets30;
         int Nbjets_LepIso04;
@@ -478,29 +480,29 @@ class HEPHero : public HEPBase {
 //		Float_t         FatJet_chEmEF[100];   //[nFatJet]
 //		Float_t         FatJet_chHEF[100];   //[nFatJet]
 		Float_t         FatJet_eta[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_QCD[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_QCD[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_TopbWev[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_TopbWmv[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_TopbWq[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_TopbWqq[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_TopbWqq[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_TopbWtauhv[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_WvsQCD[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_XWW3q[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_XWW4q[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_XWWqqev[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_XWWqqmv[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_Xbb[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_Xcc[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_Xcs[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_Xqq[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_Xbb[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_Xcc[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_Xcs[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_Xqq[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_Xtauhtaue[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_Xtauhtauh[100];   //[nFatJet]
 //		Float_t         FatJet_globalParT3_Xtauhtaum[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_massCorrGeneric[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_massCorrX2p[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_withMassTopvsQCD[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_withMassWvsQCD[100];   //[nFatJet]
-//		Float_t         FatJet_globalParT3_withMassZvsQCD[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_massCorrGeneric[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_massCorrX2p[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_withMassTopvsQCD[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_withMassWvsQCD[100];   //[nFatJet]
+		Float_t         FatJet_globalParT3_withMassZvsQCD[100];   //[nFatJet]
 //		Float_t         FatJet_hfEmEF[100];   //[nFatJet]
 //		Float_t         FatJet_hfHEF[100];   //[nFatJet]
 		Float_t         FatJet_mass[100];   //[nFatJet]

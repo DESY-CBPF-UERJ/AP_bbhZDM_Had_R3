@@ -12,6 +12,31 @@ campaigns["15_0_24"] = "RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_
 # Datasets setup
 #==================================================================================================
 datasets = [
+["GJ_PTG-100to200",                    "/GJ_Bin-PTG-100to200_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["GJ_PTG-200to400",                    "/GJ_Bin-PTG-200to400_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["GJ_PTG-400to600",                    "/GJ_Bin-PTG-400to600_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["GJ_PTG-600",                         "/GJ_Bin-PTG-600_TuneCP5_13p6TeV_amcatnlo-pythia8/"],
+["Zto2Nu-2Jets_PTNuNu-100",            "/Zto2Nu-2Jets_Bin-PTNuNu-100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu-2Jets_PTNuNu-200",            "/Zto2Nu-2Jets_Bin-PTNuNu-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu-2Jets_PTNuNu-400",            "/Zto2Nu-2Jets_Bin-PTNuNu-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["Zto2Nu-2Jets_PTNuNu-600",            "/Zto2Nu-2Jets_Bin-PTNuNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu-2Jets_PTLNu-100",             "/WtoLNu-2Jets_Bin-PTLNu-100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu-2Jets_PTLNu-200",             "/WtoLNu-2Jets_Bin-PTLNu-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu-2Jets_PTLNu-400",             "/WtoLNu-2Jets_Bin-PTLNu-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WtoLNu-2Jets_PTLNu-600",             "/WtoLNu-2Jets_Bin-PTLNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WGtoLNuG-1Jets_PTG-100",             "/WGtoLNuG-1Jets_Bin-PTG-100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WGtoLNuG-1Jets_PTG-200",             "/WGtoLNuG-1Jets_Bin-PTG-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WGtoLNuG-1Jets_PTG-400",             "/WGtoLNuG-1Jets_Bin-PTG-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WGtoLNuG-1Jets_PTG-600",             "/WGtoLNuG-1Jets_Bin-PTG-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["WGtoLNuG-1Jets",                     "/WGtoLNuG-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["ZGto2NuG-1Jets_PTG-100",             "/ZGto2NuG-1Jets_Bin-PTG-100_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["ZGto2NuG-1Jets_PTG-200",             "/ZGto2NuG-1Jets_Bin-PTG-200_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["ZGto2NuG-1Jets_PTG-400",             "/ZGto2NuG-1Jets_Bin-PTG-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["ZGto2NuG-1Jets_PTG-600",             "/ZGto2NuG-1Jets_Bin-PTG-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+["ZGto2NuG-1Jets",                     "/ZGto2NuG-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
+]
+
+"""
 ["ZH_Hto2B_Zto2Nu",             "/ZH-Zto2Nu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZH_Hto2C_Zto2Nu",             "/ZH-Zto2Nu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZHto2Zto4Nu_Zto2Q",           "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],   #NEW
@@ -181,7 +206,7 @@ datasets = [
 ["WtoLNu_PTLNu-600_1J",         "/WtoLNu-2Jets_Bin-1J-PTLNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
 ["WtoLNu_PTLNu-600_2J",         "/WtoLNu-2Jets_Bin-2J-PTLNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
 ]
-
+"""
 
 ## VERSÂO PARA O ANO DE 2022 e 2023 (VALEU CMS!)
 

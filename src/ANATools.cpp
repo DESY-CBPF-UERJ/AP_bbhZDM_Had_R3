@@ -650,3 +650,51 @@ void HEPHero::Get_Signal_Taggers(){
     signal_tag = signal_tag_vec.at(0);
 
 }
+
+
+//-------------------------------------------------------------------------------------------------
+// GenJet-lepton overlap
+//-------------------------------------------------------------------------------------------------
+void HEPHero::GenJet_lep_overlap( float deltaR_cut ){
+
+    vector<int> selectedLep;
+    for( unsigned int ipart = 0; ipart < nGenPart; ++ipart ) {
+        if( ((abs(GenPart_pdgId[ipart]) == 11) || (abs(GenPart_pdgId[ipart]) == 13) || (abs(GenPart_pdgId[ipart]) == 15)) && ((GenPart_pdgId[GenPart_genPartIdxMother[ipart]] == 22) || (GenPart_pdgId[GenPart_genPartIdxMother[ipart]] == 23) || (abs(GenPart_pdgId[GenPart_genPartIdxMother[ipart]]) == 24)) ){
+            selectedLep.push_back(ipart);
+        }
+        if(selectedLep.size() == 2) break;
+    }
+    if(selectedLep.size() == 0){
+        for( unsigned int ipart = 0; ipart < nGenPart; ++ipart ) {
+            if( ((abs(GenPart_pdgId[ipart]) == 11) || (abs(GenPart_pdgId[ipart]) == 13) || (abs(GenPart_pdgId[ipart]) == 15)) && ((GenPart_genPartIdxMother[ipart] == 0) || (GenPart_genPartIdxMother[ipart] == 1)) ){
+                selectedLep.push_back(ipart);
+            }
+            if(selectedLep.size() == 2) break;
+        }
+    }
+
+    GenJet_LepOverlap.clear();
+    for( unsigned int ijet = 0; ijet < nGenJet; ++ijet ) {
+        GenJet_LepOverlap.push_back(false);
+    }
+
+    for( unsigned int iselLep = 0; iselLep < selectedLep.size(); ++iselLep ) {
+        int ilep = selectedLep.at(iselLep);
+        float drMin = 99999.;
+        int JetID = -1;
+        for( unsigned int ijet = 0; ijet < nGenJet; ++ijet ) {
+            double deta = fabs(GenPart_eta[ilep] - GenJet_eta[ijet]);
+            double dphi = fabs(GenPart_phi[ilep] - GenJet_phi[ijet]);
+            if( dphi > M_PI ) dphi = 2*M_PI - dphi;
+            double dr = sqrt( deta*deta + dphi*dphi );
+            if( dr < drMin ){
+                drMin = dr;
+                JetID = ijet;
+            }
+        }
+        if( (drMin < deltaR_cut) && (JetID >= 0) ){
+            GenJet_LepOverlap[JetID] = true;
+        }
+    }
+
+}

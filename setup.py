@@ -85,14 +85,13 @@ datasets = [
 "Data_MET",
 "Signal",
 "QCD",
-"ResidualSM",
 "ST",
 "TT",
 "Zto2Nu",
 "WtoLNu",
 "VV",
 "Vh",
-"DY",
+"Others",
 ]
 
 
