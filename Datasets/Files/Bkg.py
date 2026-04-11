@@ -34,9 +34,7 @@ datasets = [
 ["ZGto2NuG-1Jets_PTG-400",             "/ZGto2NuG-1Jets_Bin-PTG-400_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["ZGto2NuG-1Jets_PTG-600",             "/ZGto2NuG-1Jets_Bin-PTG-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
 ["ZGto2NuG-1Jets",                     "/ZGto2NuG-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"],
-]
 
-"""
 ["ZH_Hto2B_Zto2Nu",             "/ZH-Zto2Nu-Hto2B_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZH_Hto2C_Zto2Nu",             "/ZH-Zto2Nu-Hto2C_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],       #NEW
 ["ZHto2Zto4Nu_Zto2Q",           "/ZH-Hto2Zto4Nu-Zto2Q_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-pythia8/"],   #NEW
@@ -206,7 +204,7 @@ datasets = [
 ["WtoLNu_PTLNu-600_1J",         "/WtoLNu-2Jets_Bin-1J-PTLNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
 ["WtoLNu_PTLNu-600_2J",         "/WtoLNu-2Jets_Bin-2J-PTLNu-600_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/"], #NEW
 ]
-"""
+
 
 ## VERSÂO PARA O ANO DE 2022 e 2023 (VALEU CMS!)
 
