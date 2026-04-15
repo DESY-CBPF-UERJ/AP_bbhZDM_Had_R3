@@ -62,6 +62,11 @@ class HEPHero : public HEPBase {
         void HEPWeightsSelection();
         void HEPWeightsSystematic();
         void FinishHEPWeights();
+        void SetupBTagEffMap();
+        bool BTagEffMapRegion();
+        void BTagEffMapSelection();
+        void BTagEffMapSystematic();
+        void FinishBTagEffMap();
         // INSERT YOUR SELECTION HERE
         
 
@@ -95,7 +100,7 @@ class HEPHero : public HEPBase {
         bool PileupJet(int iJet);
         bool JetBTAG( int iobj, int WP );
 	bool METFilters();
-
+	bool JetID(int ijet,int WP);
 
         //----WEIGHTS------------------------------------------------
         float GetPileupWeight( float Pileup_nTrueInt, string sysType );
@@ -133,7 +138,7 @@ class HEPHero : public HEPBase {
         int TAU_VS_ELE_ISO_WP;
         int TAU_VS_JET_ISO_WP;
         int TAU_VS_MU_ISO_WP;
-	    float OMEGA_CUT;
+	float OMEGA_CUT;
 
         //----JETS---------------------------------------------------
         vector<int> selectedJet;
@@ -652,12 +657,12 @@ class HEPHero : public HEPBase {
 //		Float_t         IsoTrack_miniPFRelIso_chg[100];   //[nIsoTrack]
 		
 		Int_t           nJet;
-//		UChar_t         Jet_chMultiplicity[100];   //[nJet]
+		UChar_t         Jet_chMultiplicity[100];   //[nJet]
 //		UChar_t         Jet_nConstituents[100];   //[nJet]
 //		UChar_t         Jet_nElectrons[100];   //[nJet]
 //		UChar_t         Jet_nMuons[100];   //[nJet]
 //		UChar_t         Jet_nSVs[100];   //[nJet]
-//		UChar_t         Jet_neMultiplicity[100];   //[nJet]
+		UChar_t         Jet_neMultiplicity[100];   //[nJet]
 //		Short_t         Jet_electronIdx1[100];   //[nJet]
 //		Short_t         Jet_electronIdx2[100];   //[nJet]
 //		Short_t         Jet_muonIdx1[100];   //[nJet]
@@ -699,20 +704,20 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_btagUParTAK4UDG[100];   //[nJet]
 //		Float_t         Jet_btagUParTAK4probb[100];   //[nJet]
 //		Float_t         Jet_btagUParTAK4probbb[100];   //[nJet]
-//		Float_t         Jet_chEmEF[100];   //[nJet]
-//		Float_t         Jet_chHEF[100];   //[nJet]
+		Float_t         Jet_chEmEF[100];   //[nJet]
+		Float_t         Jet_chHEF[100];   //[nJet]
 		Float_t         Jet_eta[100];   //[nJet]
 //		Float_t         Jet_hfEmEF[100];   //[nJet]
 //		Float_t         Jet_hfHEF[100];   //[nJet]
 //		Float_t         Jet_hfsigmaEtaEta[100];   //[nJet]
 //		Float_t         Jet_hfsigmaPhiPhi[100];   //[nJet]
 		Float_t         Jet_mass[100];   //[nJet]
-//		Float_t         Jet_muEF[100];   //[nJet]
+		Float_t         Jet_muEF[100];   //[nJet]
 //		Float_t         Jet_muonSubtrDeltaEta[100];   //[nJet]
 //		Float_t         Jet_muonSubtrDeltaPhi[100];   //[nJet]
 //		Float_t         Jet_muonSubtrFactor[100];   //[nJet]
-//		Float_t         Jet_neEmEF[100];   //[nJet]
-//		Float_t         Jet_neHEF[100];   //[nJet]
+		Float_t         Jet_neEmEF[100];   //[nJet]
+		Float_t         Jet_neHEF[100];   //[nJet]
 		Float_t         Jet_phi[100];   //[nJet]
 		Float_t         Jet_pt[100];   //[nJet]
 //		Float_t         Jet_puIdDisc[100];   //[nJet]
@@ -1167,6 +1172,7 @@ class HEPHero : public HEPBase {
 */
 /*
 		UChar_t         GenJet_hadronFlavour[100];   //[nGenJet]
+
 		UChar_t         GenJet_nBHadrons[100];   //[nGenJet]
 		UChar_t         GenJet_nCHadrons[100];   //[nGenJet]
 		Short_t         GenJet_partonFlavour[100];   //[nGenJet]
@@ -1174,7 +1180,7 @@ class HEPHero : public HEPBase {
 
 //		Float_t         GenVtx_t0;
 		
-//		UChar_t         Jet_hadronFlavour[100];   //[nJet]
+		UChar_t         Jet_hadronFlavour[100];   //[nJet]
 //		Short_t         Jet_genJetIdx[100];   //[nJet]
 //		Short_t         Jet_partonFlavour[100];   //[nJet]
 		

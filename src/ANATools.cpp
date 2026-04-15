@@ -110,6 +110,37 @@ void HEPHero::LeptonSelection(){
 }
 
 
+bool HEPHero::JetID(int ijet,int WP){
+	
+		
+	bool Jet_passJetIdTight = false;
+	if (abs(Jet_eta[ijet]) <= 2.6) 
+  		Jet_passJetIdTight = (Jet_neHEF[ijet] < 0.99) && (Jet_neEmEF[ijet] < 0.9) && (Jet_chMultiplicity[ijet]+Jet_neMultiplicity[ijet] > 1) && (Jet_chHEF[ijet] > 0.01) && (Jet_chMultiplicity[ijet] > 0);
+	else if (abs(Jet_eta[ijet]) > 2.6 && abs(Jet_eta[ijet]) <= 2.7)
+  		Jet_passJetIdTight = (Jet_neHEF[ijet] < 0.90) && (Jet_neEmEF[ijet] < 0.99);
+	else if (abs(Jet_eta[ijet]) > 2.7 && abs(Jet_eta[ijet]) <= 3.0)
+  		Jet_passJetIdTight = (Jet_neHEF[ijet] < 0.99);
+	else if (abs(Jet_eta[ijet]) > 3.0)
+  		Jet_passJetIdTight = (Jet_neMultiplicity[ijet] >= 2) && (Jet_neEmEF[ijet] < 0.4);
+
+	bool Jet_passJetIdTightLepVeto = false;
+	if (abs(Jet_eta[ijet]) <= 2.7) Jet_passJetIdTightLepVeto = Jet_passJetIdTight && (Jet_muEF[ijet] < 0.8) && (Jet_chEmEF[ijet] < 0.8);
+	else Jet_passJetIdTightLepVeto = Jet_passJetIdTight;
+
+
+	bool pass=false;
+	if (WP==0){
+		 pass = Jet_passJetIdTight;
+	}
+	if (WP==1){
+		pass = Jet_passJetIdTightLepVeto;
+	}
+	return pass;
+
+
+}
+
+
 void HEPHero::JetSelection(){
     // ------------------------
     // Recommendations for Run3 here: https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetMET#Run3_recommendations
@@ -162,7 +193,7 @@ void HEPHero::JetSelection(){
             HPy_trig += Jet_trig.Py();
         //}
         //if( (abs(Jet_eta[ijet]) < JET_ETA_CUT) and (Jet_jetId[ijet] >= 2) ) Njets_tight += 1;
-        //if( Jet_jetId[ijet] < JET_ID_WP ) continue;
+        if( !JetID(ijet,JET_ID_WP) ) continue;
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;

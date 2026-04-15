@@ -407,6 +407,19 @@ bool HEPHero::Init() {
             _inputTree->SetBranchAddress("HLT_DoublePFJets116MaxDeta1p6_PNet2BTag_0p11", &HLT_DoublePFJets116MaxDeta1p6_PNet2BTag_0p11);
             _inputTree->SetBranchAddress("HLT_DoublePFJets128MaxDeta1p6_PNet2BTag_0p11", &HLT_DoublePFJets128MaxDeta1p6_PNet2BTag_0p11);
 
+
+	    _inputTree->SetBranchAddress("Jet_hadronFlavour", &Jet_hadronFlavour );
+
+
+	    _inputTree->SetBranchAddress("Jet_neHEF", &Jet_neHEF );
+	    _inputTree->SetBranchAddress("Jet_neEmEF", &Jet_neEmEF );
+	    _inputTree->SetBranchAddress("Jet_chMultiplicity", &Jet_chMultiplicity );
+	    _inputTree->SetBranchAddress("Jet_neMultiplicity", &Jet_neMultiplicity );
+	    _inputTree->SetBranchAddress("Jet_chHEF", &Jet_chHEF );
+	    _inputTree->SetBranchAddress("Jet_muEF", &Jet_muEF );
+	    _inputTree->SetBranchAddress("Jet_chEmEF", &Jet_chEmEF );
+
+
         }
         
         
@@ -477,6 +490,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "Study_GEN" ) SetupStudy_GEN();
     else if( _SELECTION == "ML" ) SetupML();
     else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
+    else if( _SELECTION == "BTagEffMap" ) SetupBTagEffMap();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -490,6 +504,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "Study_GEN" && !Study_GENRegion() ) Selected = false;
     if( _SELECTION == "ML" && !MLRegion() ) Selected = false;
     if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
+    if( _SELECTION == "BTagEffMap" && !BTagEffMapRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -500,6 +515,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "Study_GEN" ) Study_GENSelection();
     if( _SELECTION == "ML" ) MLSelection();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
+    if( _SELECTION == "BTagEffMap" ) BTagEffMapSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -508,6 +524,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "Study_GEN" ) Study_GENSystematic();
     if( _SELECTION == "ML" ) MLSystematic();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
+    if( _SELECTION == "BTagEffMap" ) BTagEffMapSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -516,6 +533,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "Study_GEN" ) FinishStudy_GEN();
     if( _SELECTION == "ML" ) FinishML();
     if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
+    if( _SELECTION == "BTagEffMap" ) FinishBTagEffMap();
     // FINISH YOUR SELECTION HERE
 }
    
