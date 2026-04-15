@@ -111,7 +111,9 @@ void HEPHero::LeptonSelection(){
 
 
 bool HEPHero::JetID(int ijet,int WP){
-	
+	//---------------------------------------------
+	//https://twiki.cern.ch/twiki/bin/view/CMS/JetID13p6TeV
+	//---------------------------------------------	
 		
 	bool Jet_passJetIdTight = false;
 	if (abs(Jet_eta[ijet]) <= 2.6) 
@@ -184,7 +186,7 @@ void HEPHero::JetSelection(){
 
     // Main loop to process each jet
     for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
-        
+       
         if( Jet_pt[ijet] <= JET_PT_CUT ) continue;
         //if( Jet_jetId[ijet] >= 2 ){
             TLorentzVector Jet_trig;
@@ -306,7 +308,8 @@ void HEPHero::FatjetSelection(){
 
         if( FatJet_pt[ijet] <= FAT_JET_PT_CUT ) continue;
         if( abs(FatJet_eta[ijet]) >= FAT_JET_ETA_CUT ) continue;
-        //if( FatJet_jetId[ijet] < FAT_JET_ID_WP ) continue;
+        // We need to use the same of AK4 for AK8
+	if( !JetID(ijet,FAT_JET_ID_WP) ) continue;
 
         selectedFatJet.push_back(ijet);        
         NfatJets += 1;
