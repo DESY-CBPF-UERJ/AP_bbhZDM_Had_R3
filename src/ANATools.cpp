@@ -335,9 +335,18 @@ void HEPHero::JetSelection(){
     SubLeadingISRJet_pt = 0;
     LeadingISRJet_mass = 0;
     SubLeadingISRJet_mass = 0;
+    LeadingISRJet_MET_deltaPhi = 0;
+    LeadingISRJet_FatJet_deltaPhi = 0;
+
     if( NISRjets >= 1 ) {
         LeadingISRJet_pt = Jet_pt[selectedISRJet.at(0)];
         LeadingISRJet_mass = Jet_mass[selectedISRJet.at(0)];
+
+        LeadingISRJet_MET_deltaPhi = abs( Jet_phi[selectedISRJet.at(0)] - PFMET_phi );
+        if( LeadingISRJet_MET_deltaPhi > M_PI ) LeadingISRJet_MET_deltaPhi = 2*M_PI - LeadingISRJet_MET_deltaPhi;
+
+        LeadingISRJet_FatJet_deltaPhi = abs( Jet_phi[selectedISRJet.at(0)] - FatJet_phi[idxFatJet] );
+        if( LeadingISRJet_FatJet_deltaPhi > M_PI ) LeadingISRJet_FatJet_deltaPhi = 2*M_PI - LeadingISRJet_FatJet_deltaPhi;
     }
     if( NISRjets >= 2 ) {
         SubLeadingISRJet_pt = Jet_pt[selectedISRJet.at(1)];
@@ -371,14 +380,9 @@ void HEPHero::FatjetSelection(){
 
         if( FatJet_globalParT3_QCD[ijet] < FatJet_globalParT3_QCD_MIN ) idxFatJet = ijet;
 
-        //TLorentzVector FatJet;
-        //FatJet.SetPtEtaPhiE(FatJet_pt[ijet], FatJet_eta[ijet], FatJet_phi[ijet], LeadingFatJet_mass[ijet]);
-//      float M_PI = 3.14159265358979323846264338327950288;
-        MET_FatJet_deltaPhi = abs( FatJet_phi[0] - PFMET_phi );
-        if( MET_FatJet_deltaPhi > M_PI ) MET_FatJet_deltaPhi = 2*M_PI - MET_FatJet_deltaPhi;
-        MET_FatJet_Mt = sqrt( 2 * FatJet_pt[0] * PFMET_pt * ( 1 - cos( MET_FatJet_deltaPhi ) ) ) ;
-
     }
+
+
    
     LeadingFatJet_jetId = 0;
     SubLeadingFatJet_jetId = 0;
@@ -422,7 +426,8 @@ void HEPHero::FatjetSelection(){
     FourthLeadingFatJet_ZvsQCD = 0;
 
     FatJet_b_max_deltaEta = 0;
-
+    MET_FatJet_deltaPhi = 0;
+    MET_FatJet_Mt = 0;
 
     if( NfatJets >= 1 ) {
         LeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(0)];
@@ -443,6 +448,10 @@ void HEPHero::FatjetSelection(){
             float FatJet_b_deltaEta = abs( FatJet_eta[selectedFatJet.at(0)] - Jet_eta[ijet]);
             if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
         }
+
+        MET_FatJet_deltaPhi = abs( FatJet_phi[idxFatJet] - PFMET_phi );
+        if( MET_FatJet_deltaPhi > M_PI ) MET_FatJet_deltaPhi = 2*M_PI - MET_FatJet_deltaPhi;
+        MET_FatJet_Mt = sqrt( 2 * FatJet_pt[idxFatJet] * PFMET_pt * ( 1 - cos( MET_FatJet_deltaPhi ) ) ) ;
     }
         
     }

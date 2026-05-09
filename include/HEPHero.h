@@ -201,6 +201,8 @@ class HEPHero : public HEPBase {
         float SubLeadingISRJet_pt;
         float LeadingISRJet_mass;
         float SubLeadingISRJet_mass;
+        float LeadingISRJet_MET_deltaPhi;
+        float LeadingISRJet_FatJet_deltaPhi;
 
         //----FATJETS------------------------------------------------
         vector<int> selectedFatJet;
