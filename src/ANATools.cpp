@@ -197,6 +197,10 @@ void HEPHero::JetSelection(){
     Njets_tight = 0;
     Njets_ISR = 0;
     NPUjets = 0;
+    NISRbjets = 0;
+    NISRbjets30 = 0;
+    NISRjets = 0;
+    NISRjets30 = 0;
     Jet_abseta_max = 0;
     HT = 0;
     HT30 = 0;
@@ -225,7 +229,6 @@ void HEPHero::JetSelection(){
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
-        if( Jet_FatJetOverlap[ijet] ) continue;
         
         // TODO: Verify values for that implementation. This line was implemented for Run2, but we do not know if is the same for Run3. Try to check in https://twiki.cern.ch/twiki/bin/view/CMS/EgammaRunIIIRecommendations
         //if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
@@ -269,6 +272,15 @@ void HEPHero::JetSelection(){
             //}
         }
         if( Jet_pt[ijet] > 26 ) Njets_ISR += 1;
+
+        if( !Jet_FatJetOverlap[ijet] ){
+            if( JetBTAG( ijet, JET_BTAG_WP ) ){
+                NISRbjets += 1;
+                if( Jet_pt[ijet] > 30 ) NISRbjets30 += 1;
+            }
+            NISRjets += 1;
+            if( Jet_pt[ijet] > 30 ) NISRjets30 += 1;
+        }
         
     }
     MHT = sqrt(HPx*HPx + HPy*HPy);

@@ -161,6 +161,10 @@ class HEPHero : public HEPBase {
         int Njets_tight;
         int Njets_ISR;
         int NPUjets;
+        int NISRbjets;
+        int NISRbjets30;
+        int NISRjets;
+        int NISRjets30;
 
         float HT;
         float HT30;

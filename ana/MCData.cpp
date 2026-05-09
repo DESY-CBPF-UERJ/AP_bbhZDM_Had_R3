@@ -57,7 +57,6 @@ void HEPHero::SetupMCData() {
     //_outputTree->Branch("variable1NameInTheTree", &MCData::variable1Name );  [example]
 
     //======SETUP INFORMATION IN OUTPUT HDF5 FILE==================================================
-    HDF_insert( "Nbjets", &Nbjets );
     HDF_insert( "HT", &HT );
     HDF_insert( "OmegaMin", &OmegaMin );
     HDF_insert( "FMax", &FMax );
@@ -99,8 +98,15 @@ void HEPHero::SetupMCData() {
     HDF_insert( "FatJet_globalParT3_withMassWvsQCD", &MCData::FatJet_globalParT3_withMassWvsQCD );
     HDF_insert( "FatJet_globalParT3_withMassZvsQCD", &MCData::FatJet_globalParT3_withMassZvsQCD );
 
+    HDF_insert( "Nbjets", &Nbjets );
+    HDF_insert( "Nbjets30", &Nbjets30 );
     HDF_insert( "Njets", &Njets );
     HDF_insert( "Njets30", &Njets30 );
+
+    HDF_insert( "NISRbjets", &NISRbjets );
+    HDF_insert( "NISRbjets30", &NISRbjets30 );
+    HDF_insert( "NISRjets", &NISRjets );
+    HDF_insert( "NISRjets30", &NISRjets30 );
 
     return;
 }
