@@ -116,6 +116,7 @@ bool HEPHero::MCDataRegion() {
     if (!(Nleptons<=2) ) return false;
     _cutFlow.at("00_Leptons_equal_0") += evtWeight;
 
+    FatjetSelection();
     JetSelection();
 
     if ( !(Nbjets>=0) ) return false;
@@ -123,8 +124,6 @@ bool HEPHero::MCDataRegion() {
 
     if (!(PFMET_pt > 200 && MHT > 200) ) return false;
     _cutFlow.at("02_MET_PT_more_200_and_MHT_more_200") += evtWeight;
-
-    FatjetSelection();
 
     if ( !(NfatJets>0) ) return false;
     _cutFlow.at("03_NfatJets_more_0") += evtWeight;
@@ -140,25 +139,25 @@ bool HEPHero::MCDataRegion() {
     Get_Jet_Shape_Variables();
     Weight_corrections();
 
-    MCData::FatJet_msoftdrop = FatJet_msoftdrop[selectedFatJet.at(0)];
+    MCData::FatJet_msoftdrop = FatJet_msoftdrop[idxFatJet];
 
     if ( !(MCData::FatJet_msoftdrop>30) ) return false;
     _cutFlow.at("06_LeadingFatM_more_30") += evtWeight;
 
 
-    MCData::FatJet_pt = FatJet_pt[selectedFatJet.at(0)];
-    MCData::FatJet_nConstituents = FatJet_nConstituents[selectedFatJet.at(0)];
-    MCData::FatJet_particleNet_QCD = FatJet_particleNet_QCD[selectedFatJet.at(0)];
+    MCData::FatJet_pt = FatJet_pt[idxFatJet];
+    MCData::FatJet_nConstituents = FatJet_nConstituents[idxFatJet];
+    MCData::FatJet_particleNet_QCD = FatJet_particleNet_QCD[idxFatJet];
 
-    MCData::FatJet_globalParT3_QCD = FatJet_globalParT3_QCD[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_Xbb = FatJet_globalParT3_Xbb[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_Xcc = FatJet_globalParT3_Xcc[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_Xcs = FatJet_globalParT3_Xcs[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_Xqq = FatJet_globalParT3_Xqq[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_massCorr = FatJet_msoftdrop[selectedFatJet.at(0)]*FatJet_globalParT3_massCorrX2p[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_withMassTopvsQCD = FatJet_globalParT3_withMassTopvsQCD[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_withMassWvsQCD = FatJet_globalParT3_withMassWvsQCD[selectedFatJet.at(0)];
-    MCData::FatJet_globalParT3_withMassZvsQCD = FatJet_globalParT3_withMassZvsQCD[selectedFatJet.at(0)];
+    MCData::FatJet_globalParT3_QCD = FatJet_globalParT3_QCD[idxFatJet];
+    MCData::FatJet_globalParT3_Xbb = FatJet_globalParT3_Xbb[idxFatJet];
+    MCData::FatJet_globalParT3_Xcc = FatJet_globalParT3_Xcc[idxFatJet];
+    MCData::FatJet_globalParT3_Xcs = FatJet_globalParT3_Xcs[idxFatJet];
+    MCData::FatJet_globalParT3_Xqq = FatJet_globalParT3_Xqq[idxFatJet];
+    MCData::FatJet_globalParT3_massCorr = FatJet_msoftdrop[idxFatJet]*FatJet_globalParT3_massCorrX2p[idxFatJet];
+    MCData::FatJet_globalParT3_withMassTopvsQCD = FatJet_globalParT3_withMassTopvsQCD[idxFatJet];
+    MCData::FatJet_globalParT3_withMassWvsQCD = FatJet_globalParT3_withMassWvsQCD[idxFatJet];
+    MCData::FatJet_globalParT3_withMassZvsQCD = FatJet_globalParT3_withMassZvsQCD[idxFatJet];
     
     bool GoodEvent = lumi_certificate.GoodLumiSection( _datasetName, run, luminosityBlock );
     if( !GoodEvent ) return false;

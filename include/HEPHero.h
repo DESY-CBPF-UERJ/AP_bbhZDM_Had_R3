@@ -80,6 +80,7 @@ class HEPHero : public HEPBase {
 
         //----ANALYSIS-----------------------------------------------
         void Jet_lep_overlap(float deltaR_cut);
+        void Jet_fatjet_overlap(float deltaR_cut);
         void GenJet_lep_overlap(float deltaR_cut);
         void LeptonSelection();
         void JetSelection();
@@ -143,6 +144,7 @@ class HEPHero : public HEPBase {
         //----JETS---------------------------------------------------
         vector<int> selectedJet;
         vector<bool> Jet_LepOverlap;
+        vector<bool> Jet_FatJetOverlap;
         vector<bool> GenJet_LepOverlap;
         int Nbjets;
         int Nbjets30;
@@ -194,6 +196,7 @@ class HEPHero : public HEPBase {
         //----FATJETS------------------------------------------------
         vector<int> selectedFatJet;
         int NfatJets;
+        int idxFatJet;
         float LeadingFatJet_jetId;
         float SubLeadingFatJet_jetId;
         float ThirdLeadingFatJet_jetId;

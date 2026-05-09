@@ -1,5 +1,8 @@
 #include "HEPHero.h"
 
+//---------------------------------------------------------------------------------------------
+// Inform which jets overlap with leptons
+//---------------------------------------------------------------------------------------------
 void HEPHero::Jet_lep_overlap( float deltaR_cut ){
 
     Jet_LepOverlap.clear();
@@ -52,6 +55,28 @@ void HEPHero::Jet_lep_overlap( float deltaR_cut ){
     }
 
 }
+
+
+//---------------------------------------------------------------------------------------------
+// Inform which jets overlap with the FatJet
+//---------------------------------------------------------------------------------------------
+void HEPHero::Jet_fatjet_overlap( float deltaR_cut ){
+
+    Jet_FatJetOverlap.clear();
+    for( unsigned int ijet = 0; ijet < nJet; ++ijet ) {
+        double deta = fabs(FatJet_eta[idxFatJet] - Jet_eta[ijet]);
+        double dphi = fabs(FatJet_phi[idxFatJet] - Jet_phi[ijet]);
+        if( dphi > M_PI ) dphi = 2*M_PI - dphi;
+        double dr = sqrt( deta*deta + dphi*dphi );
+        if( dr < deltaR_cut ){
+            Jet_FatJetOverlap.push_back(true);
+        }else{
+            Jet_FatJetOverlap.push_back(false);
+        }
+    }
+
+}
+
 
 //---------------------------------------------------------------------------------------------
 // Lepton selection
@@ -156,6 +181,7 @@ void HEPHero::JetSelection(){
     // JERvariation();
 
     Jet_lep_overlap(JET_LEP_DR_ISO_CUT);
+    Jet_fatjet_overlap(0.8);
 
     Nbjets = 0;
     Nbjets30 = 0;
@@ -199,6 +225,7 @@ void HEPHero::JetSelection(){
         
         //if( Jet_lep_overlap( ijet, JET_LEP_DR_ISO_CUT ) ) continue;
         if( Jet_LepOverlap[ijet] ) continue;
+        if( Jet_FatJetOverlap[ijet] ) continue;
         
         // TODO: Verify values for that implementation. This line was implemented for Run2, but we do not know if is the same for Run3. Try to check in https://twiki.cern.ch/twiki/bin/view/CMS/EgammaRunIIIRecommendations
         //if( (Jet_pt[ijet] < 50) && (Jet_puId[ijet] < JET_PUID_WP) ) continue;
@@ -300,7 +327,8 @@ void HEPHero::FatjetSelection(){
     selectedFatJet.clear();
 
     NfatJets = 0;
-
+    idxFatJet = 0;
+    float FatJet_globalParT3_QCD_MIN = 99999999.;
     for( unsigned int ijet = 0; ijet < nFatJet; ++ijet ) {
 
         // std::cout << "FAT_JET_PT_CUT: " << FAT_JET_PT_CUT << "| FAT_JET_ETA_CUT: " << FAT_JET_ETA_CUT << std::endl;
@@ -308,12 +336,12 @@ void HEPHero::FatjetSelection(){
 
         if( FatJet_pt[ijet] <= FAT_JET_PT_CUT ) continue;
         if( abs(FatJet_eta[ijet]) >= FAT_JET_ETA_CUT ) continue;
-        // We need to use the same of AK4 for AK8
-	if( !JetID(ijet,FAT_JET_ID_WP) ) continue;
+        if( !JetID(ijet,FAT_JET_ID_WP) ) continue; // We need to use the same of AK4 for AK8
 
         selectedFatJet.push_back(ijet);        
         NfatJets += 1;
 
+        if( FatJet_globalParT3_QCD[ijet] < FatJet_globalParT3_QCD_MIN ) idxFatJet = ijet;
 
         //TLorentzVector FatJet;
         //FatJet.SetPtEtaPhiE(FatJet_pt[ijet], FatJet_eta[ijet], FatJet_phi[ijet], LeadingFatJet_mass[ijet]);
