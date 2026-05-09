@@ -174,6 +174,7 @@ void HEPHero::JetSelection(){
     // ------------------------
 
     selectedJet.clear();
+    selectedISRJet.clear();
     //jetMomenta.clear();
 
     // // TODO: TO BE IMPLEMENTED
@@ -274,6 +275,7 @@ void HEPHero::JetSelection(){
         if( Jet_pt[ijet] > 26 ) Njets_ISR += 1;
 
         if( !Jet_FatJetOverlap[ijet] ){
+            selectedISRJet.push_back(ijet);
             if( JetBTAG( ijet, JET_BTAG_WP ) ){
                 NISRbjets += 1;
                 if( Jet_pt[ijet] > 30 ) NISRbjets30 += 1;
@@ -327,6 +329,22 @@ void HEPHero::JetSelection(){
         FourthLeadingJet_mass = Jet_mass[selectedJet.at(3)];
     }
 
+
+
+    LeadingJet_pt = 0;
+    SubLeadingJet_pt = 0;
+    LeadingJet_mass = 0;
+    SubLeadingJet_mass = 0;
+
+
+    if( Njets >= 1 ) {
+        LeadingJet_pt = Jet_pt[selectedJet.at(0)];
+        LeadingJet_mass = Jet_mass[selectedJet.at(0)];
+    }
+    if( Njets >= 2 ) {
+        SubLeadingJet_pt = Jet_pt[selectedJet.at(1)];
+        SubLeadingJet_mass = Jet_mass[selectedJet.at(1)];
+    }
 
 }
 

@@ -62,7 +62,6 @@ void HEPHero::SetupMCData() {
     HDF_insert( "FMax", &FMax );
     HDF_insert( "MHT", &MHT );
     HDF_insert( "MET_pt", &PFMET_pt );
-    HDF_insert( "MDT", &MDT );
     HDF_insert( "MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi );
     HDF_insert( "MET_FatJet_Mt", &MET_FatJet_Mt );
     HDF_insert( "RT_1", &RT_1 );
@@ -71,29 +70,29 @@ void HEPHero::SetupMCData() {
 
     HDF_insert( "NfatJets", &NfatJets );
     HDF_insert( "Nleptons", &Nleptons );
-    HDF_insert( "Nelectrons", &Nelectrons );
-    HDF_insert( "Nmuons", &Nmuons );
+    //HDF_insert( "Nelectrons", &Nelectrons );
+    //HDF_insert( "Nmuons", &Nmuons );
 
     HDF_insert( "FatJet_pt", &MCData::FatJet_pt );
     HDF_insert( "FatJet_msoftdrop", &MCData::FatJet_msoftdrop );
     HDF_insert( "FatJet_nConstituents", &MCData::FatJet_nConstituents );
-    HDF_insert( "FatJet_particleNet_QCD", &MCData::FatJet_particleNet_QCD );
+    //HDF_insert( "FatJet_particleNet_QCD", &MCData::FatJet_particleNet_QCD );
 
     HDF_insert( "HLT_PFMET120_PFMHT120_IDTight", &HLT_PFMET120_PFMHT120_IDTight );
-    HDF_insert( "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight", &HLT_PFMETNoMu120_PFMHTNoMu120_IDTight );
-    HDF_insert( "HLT_PFMET130_PFMHT130_IDTight", &HLT_PFMET130_PFMHT130_IDTight );
+    //HDF_insert( "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight", &HLT_PFMETNoMu120_PFMHTNoMu120_IDTight );
+    //HDF_insert( "HLT_PFMET130_PFMHT130_IDTight", &HLT_PFMET130_PFMHT130_IDTight );
 
     HDF_insert( "LHE_Njets", &LHE_Njets );
-    HDF_insert( "nGenJet", &nGenJet );
-    HDF_insert( "NgenJets25", &MCData::NgenJets25 );
-    HDF_insert( "NgenJets30", &MCData::NgenJets30 );
+    //HDF_insert( "nGenJet", &nGenJet );
+    //HDF_insert( "NgenJets25", &MCData::NgenJets25 );
+    //HDF_insert( "NgenJets30", &MCData::NgenJets30 );
 
     HDF_insert( "FatJet_globalParT3_QCD", &MCData::FatJet_globalParT3_QCD );
     HDF_insert( "FatJet_globalParT3_Xbb", &MCData::FatJet_globalParT3_Xbb );
     HDF_insert( "FatJet_globalParT3_Xcc", &MCData::FatJet_globalParT3_Xcc );
     HDF_insert( "FatJet_globalParT3_Xcs", &MCData::FatJet_globalParT3_Xcs );
     HDF_insert( "FatJet_globalParT3_Xqq", &MCData::FatJet_globalParT3_Xqq );
-    HDF_insert( "FatJet_globalParT3_massCorr", &MCData::FatJet_globalParT3_massCorr );
+    //HDF_insert( "FatJet_globalParT3_massCorr", &MCData::FatJet_globalParT3_massCorr );
     HDF_insert( "FatJet_globalParT3_withMassTopvsQCD", &MCData::FatJet_globalParT3_withMassTopvsQCD );
     HDF_insert( "FatJet_globalParT3_withMassWvsQCD", &MCData::FatJet_globalParT3_withMassWvsQCD );
     HDF_insert( "FatJet_globalParT3_withMassZvsQCD", &MCData::FatJet_globalParT3_withMassZvsQCD );

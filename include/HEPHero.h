@@ -143,6 +143,7 @@ class HEPHero : public HEPBase {
 
         //----JETS---------------------------------------------------
         vector<int> selectedJet;
+        vector<int> selectedISRJet;
         vector<bool> Jet_LepOverlap;
         vector<bool> Jet_FatJetOverlap;
         vector<bool> GenJet_LepOverlap;
@@ -196,6 +197,10 @@ class HEPHero : public HEPBase {
         float SubLeadingJet_mass;
         float ThirdLeadingJet_mass;
         float FourthLeadingJet_mass;
+        float LeadingISRJet_pt;
+        float SubLeadingISRJet_pt;
+        float LeadingISRJet_mass;
+        float SubLeadingISRJet_mass;
 
         //----FATJETS------------------------------------------------
         vector<int> selectedFatJet;
