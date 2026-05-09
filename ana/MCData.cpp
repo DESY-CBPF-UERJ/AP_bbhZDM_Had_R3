@@ -97,6 +97,7 @@ void HEPHero::SetupMCData() {
     HDF_insert( "FatJet_globalParT3_withMassTopvsQCD", &MCData::FatJet_globalParT3_withMassTopvsQCD );
     HDF_insert( "FatJet_globalParT3_withMassWvsQCD", &MCData::FatJet_globalParT3_withMassWvsQCD );
     HDF_insert( "FatJet_globalParT3_withMassZvsQCD", &MCData::FatJet_globalParT3_withMassZvsQCD );
+    HDF_insert( "idxFatJet", &idxFatJet );
 
     HDF_insert( "Nbjets", &Nbjets );
     HDF_insert( "Nbjets30", &Nbjets30 );
