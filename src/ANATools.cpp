@@ -331,19 +331,17 @@ void HEPHero::JetSelection(){
 
 
 
-    LeadingJet_pt = 0;
-    SubLeadingJet_pt = 0;
-    LeadingJet_mass = 0;
-    SubLeadingJet_mass = 0;
-
-
-    if( Njets >= 1 ) {
-        LeadingJet_pt = Jet_pt[selectedJet.at(0)];
-        LeadingJet_mass = Jet_mass[selectedJet.at(0)];
+    LeadingISRJet_pt = 0;
+    SubLeadingISRJet_pt = 0;
+    LeadingISRJet_mass = 0;
+    SubLeadingISRJet_mass = 0;
+    if( NISRjets >= 1 ) {
+        LeadingISRJet_pt = Jet_pt[selectedISRJet.at(0)];
+        LeadingISRJet_mass = Jet_mass[selectedISRJet.at(0)];
     }
-    if( Njets >= 2 ) {
-        SubLeadingJet_pt = Jet_pt[selectedJet.at(1)];
-        SubLeadingJet_mass = Jet_mass[selectedJet.at(1)];
+    if( NISRjets >= 2 ) {
+        SubLeadingISRJet_pt = Jet_pt[selectedISRJet.at(1)];
+        SubLeadingISRJet_mass = Jet_mass[selectedISRJet.at(1)];
     }
 
 }
