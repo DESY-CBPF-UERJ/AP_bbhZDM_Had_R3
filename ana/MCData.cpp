@@ -110,6 +110,8 @@ void HEPHero::SetupMCData() {
     HDF_insert( "SubLeadingISRJet_pt", &SubLeadingISRJet_pt );
     HDF_insert( "LeadingISRJet_mass", &LeadingISRJet_mass );
     HDF_insert( "SubLeadingISRJet_mass", &SubLeadingISRJet_mass );
+    HDF_insert( "LeadingISRJet_MET_deltaPhi", &LeadingISRJet_MET_deltaPhi );
+    HDF_insert( "LeadingISRJet_FatJet_deltaPhi", &LeadingISRJet_FatJet_deltaPhi );
 
     return;
 }
