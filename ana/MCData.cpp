@@ -102,11 +102,14 @@ void HEPHero::SetupMCData() {
     HDF_insert( "Nbjets30", &Nbjets30 );
     HDF_insert( "Njets", &Njets );
     HDF_insert( "Njets30", &Njets30 );
-
     HDF_insert( "NISRbjets", &NISRbjets );
     HDF_insert( "NISRbjets30", &NISRbjets30 );
     HDF_insert( "NISRjets", &NISRjets );
     HDF_insert( "NISRjets30", &NISRjets30 );
+    HDF_insert( "LeadingISRJet_pt", &LeadingISRJet_pt );
+    HDF_insert( "SubLeadingISRJet_pt", &SubLeadingISRJet_pt );
+    HDF_insert( "LeadingISRJet_mass", &LeadingISRJet_mass );
+    HDF_insert( "SubLeadingISRJet_mass", &SubLeadingISRJet_mass );
 
     return;
 }
