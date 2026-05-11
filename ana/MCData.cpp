@@ -59,14 +59,14 @@ void HEPHero::SetupMCData() {
     //======SETUP INFORMATION IN OUTPUT HDF5 FILE==================================================
     HDF_insert( "HT", &HT );
     HDF_insert( "OmegaMin", &OmegaMin );
-    HDF_insert( "FMax", &FMax );
+    //HDF_insert( "FMax", &FMax );
     HDF_insert( "MHT", &MHT );
     HDF_insert( "MET_pt", &PFMET_pt );
     HDF_insert( "MET_FatJet_deltaPhi", &MET_FatJet_deltaPhi );
     HDF_insert( "MET_FatJet_Mt", &MET_FatJet_Mt );
-    HDF_insert( "RT_1", &RT_1 );
-    HDF_insert( "RT_3", &RT_3 );
-    HDF_insert( "tauT", &tauT );
+    //HDF_insert( "RT_1", &RT_1 );
+    //HDF_insert( "RT_3", &RT_3 );
+    //HDF_insert( "tauT", &tauT );
 
     HDF_insert( "NfatJets", &NfatJets );
     HDF_insert( "Nleptons", &Nleptons );
@@ -75,7 +75,7 @@ void HEPHero::SetupMCData() {
 
     HDF_insert( "FatJet_pt", &MCData::FatJet_pt );
     HDF_insert( "FatJet_msoftdrop", &MCData::FatJet_msoftdrop );
-    HDF_insert( "FatJet_nConstituents", &MCData::FatJet_nConstituents );
+    //HDF_insert( "FatJet_nConstituents", &MCData::FatJet_nConstituents );
     //HDF_insert( "FatJet_particleNet_QCD", &MCData::FatJet_particleNet_QCD );
 
     HDF_insert( "HLT_PFMET120_PFMHT120_IDTight", &HLT_PFMET120_PFMHT120_IDTight );

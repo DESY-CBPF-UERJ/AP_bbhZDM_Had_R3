@@ -491,6 +491,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "ML" ) SetupML();
     else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
     else if( _SELECTION == "BTagEffMap" ) SetupBTagEffMap();
+    else if( _SELECTION == "MCData" ) SetupMCData();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -505,6 +506,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "ML" && !MLRegion() ) Selected = false;
     if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
     if( _SELECTION == "BTagEffMap" && !BTagEffMapRegion() ) Selected = false;
+    if( _SELECTION == "MCData" && !MCDataRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -516,6 +518,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "ML" ) MLSelection();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSelection();
+    if( _SELECTION == "MCData" ) MCDataSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -525,6 +528,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "ML" ) MLSystematic();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSystematic();
+    if( _SELECTION == "MCData" ) MCDataSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -534,6 +538,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "ML" ) FinishML();
     if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
     if( _SELECTION == "BTagEffMap" ) FinishBTagEffMap();
+    if( _SELECTION == "MCData" ) FinishMCData();
     // FINISH YOUR SELECTION HERE
 }
    

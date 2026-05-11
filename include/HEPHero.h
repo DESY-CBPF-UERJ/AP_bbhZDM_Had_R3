@@ -67,6 +67,11 @@ class HEPHero : public HEPBase {
         void BTagEffMapSelection();
         void BTagEffMapSystematic();
         void FinishBTagEffMap();
+        void SetupMCData();
+        bool MCDataRegion();
+        void MCDataSelection();
+        void MCDataSystematic();
+        void FinishMCData();
         // INSERT YOUR SELECTION HERE
         
 
