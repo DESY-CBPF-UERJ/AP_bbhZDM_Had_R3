@@ -6,7 +6,7 @@ analysis = "AP_bbhZDM_Had_R3"
 treeName = "Events"
 LumiWeights = 1
 
-# Comented means not implemented
+# Commented means not implemented
 analysis_parameters = {
 "JET_ETA_CUT                ": 2.5,     # [DONE]
 "JET_PT_CUT                 ": 20,      # [DONE] GeV
