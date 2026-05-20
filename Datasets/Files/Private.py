@@ -17,5 +17,6 @@ datasets["0_24"] = [
 #["Signal_A400_a100",    "/eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22_bbA_ha_qqChiChi/H400_a100"],
 #["Signal_A800_a400",    "/eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22_bbA_ha_qqChiChi/H800_a400"],
 #["Signal_A1000_a100",   "/eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-Run3Summer22_bbA_ha_qqChiChi/H1000_a100"],
+["Signal_Hpm1000_a200_5F", "/eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-RunIII2024Summer/generation/gilsoni-gen_5f_1000_200_canal3"],
 ["Signal_H1000_a200_5F",   "/eos/user/m/mlopescr/Miguel_Project_2HDM/EXO-RunIII2024Summer/generation/gilsoni-gen_5f_1000_200_canal1"],
 ]
