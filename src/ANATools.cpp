@@ -365,7 +365,8 @@ void HEPHero::FatjetSelection(){
 
     NfatJets = 0;
     idxFatJet = 0;
-    float FatJet_globalParT3_QCD_MIN = 99999999.;
+    MET_FatJet_deltaPhi = 0;
+    MET_FatJet_Mt = 0;
     for( unsigned int ijet = 0; ijet < nFatJet; ++ijet ) {
 
         // std::cout << "FAT_JET_PT_CUT: " << FAT_JET_PT_CUT << "| FAT_JET_ETA_CUT: " << FAT_JET_ETA_CUT << std::endl;
@@ -374,11 +375,21 @@ void HEPHero::FatjetSelection(){
         if( FatJet_pt[ijet] <= FAT_JET_PT_CUT ) continue;
         if( abs(FatJet_eta[ijet]) >= FAT_JET_ETA_CUT ) continue;
         if( !JetID(ijet,FAT_JET_ID_WP) ) continue; // We need to use the same of AK4 for AK8
+        if( FatJet_msoftdrop[ijet] <= 30 ) continue;
+	if( FatJet_msoftdrop[ijet] >= 150 ) continue;
 
         selectedFatJet.push_back(ijet);        
         NfatJets += 1;
 
-        if( FatJet_globalParT3_QCD[ijet] < FatJet_globalParT3_QCD_MIN ) idxFatJet = ijet;
+	float MET_FatJet_deltaPhi_i = abs( FatJet_phi[ijet] - PFMET_phi );
+        if( MET_FatJet_deltaPhi_i > M_PI ) MET_FatJet_deltaPhi_i = 2*M_PI - MET_FatJet_deltaPhi_i;
+        float MET_FatJet_Mt_i = sqrt( 2 * FatJet_pt[ijet] * PFMET_pt * ( 1 - cos( MET_FatJet_deltaPhi_i ) ) ) ;
+
+        if( MET_FatJet_Mt_i > MET_FatJet_Mt ){ 
+	    idxFatJet = ijet;
+            MET_FatJet_deltaPhi = MET_FatJet_deltaPhi_i;
+            MET_FatJet_Mt = MET_FatJet_Mt_i;
+        }
 
     }
 
@@ -426,9 +437,6 @@ void HEPHero::FatjetSelection(){
     FourthLeadingFatJet_ZvsQCD = 0;
 
     FatJet_b_max_deltaEta = 0;
-    MET_FatJet_deltaPhi = 0;
-    MET_FatJet_Mt = 0;
-
     if( NfatJets >= 1 ) {
         LeadingFatJet_jetId = 0;//FatJet_jetId[selectedFatJet.at(0)];
         LeadingFatJet_pt = FatJet_pt[selectedFatJet.at(0)];
@@ -449,9 +457,6 @@ void HEPHero::FatjetSelection(){
             if( FatJet_b_deltaEta > FatJet_b_max_deltaEta ) FatJet_b_max_deltaEta = FatJet_b_deltaEta;
         }
 
-        MET_FatJet_deltaPhi = abs( FatJet_phi[idxFatJet] - PFMET_phi );
-        if( MET_FatJet_deltaPhi > M_PI ) MET_FatJet_deltaPhi = 2*M_PI - MET_FatJet_deltaPhi;
-        MET_FatJet_Mt = sqrt( 2 * FatJet_pt[idxFatJet] * PFMET_pt * ( 1 - cos( MET_FatJet_deltaPhi ) ) ) ;
     }
         
     }
