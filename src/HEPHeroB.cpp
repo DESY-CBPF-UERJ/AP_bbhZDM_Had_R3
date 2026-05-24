@@ -471,6 +471,7 @@ bool HEPHero::Init() {
             _inputTree->SetBranchAddress("LHE_HT", &LHE_HT );
             _inputTree->SetBranchAddress("LHE_Vpt", &LHE_Vpt );
             _inputTree->SetBranchAddress("LHE_Njets", &LHE_Njets );
+            _inputTree->SetBranchAddress("LHE_Nb", &LHE_Nb );
             
 
         }

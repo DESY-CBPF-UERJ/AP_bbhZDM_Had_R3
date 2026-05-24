@@ -14,7 +14,7 @@ analysis_parameters = {
 "JET_PUID_WP                ": 3,       # 0-fail, 1-loose, 3-medium, 7-tight (tight is the only correct WP in v9)
 "JET_BTAG_WP                ": 0,       # [DONE] DeepJet: 0-loose, 1-medium, 2-tight 3- Xtight 4-XXtight; particleNET: 5-loose, 6-medium, 7-tight 8- Xtight 9-XXtight; robustParticleTransformer: 10-loose, 11-medium, 12-tight 13- Xtight 14-XXtight; 
 "JET_LEP_DR_ISO_CUT         ": 0.4,
-"FAT_JET_PT_CUT             ": 170,     # Cut asked by Gilson
+"FAT_JET_PT_CUT             ": 200,     
 "FAT_JET_ETA_CUT            ": 3,
 "FAT_JET_ID_WP              ": 1,       # 0-AK4 PUPPI jets, 1- AK4 PUPPI jets and includes lepton veto
 "ELECTRON_GAP_LOWER_CUT     ": 1.444,   # Lower absolute limit of barrel-endcap gap

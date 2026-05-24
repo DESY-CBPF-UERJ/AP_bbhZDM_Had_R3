@@ -743,7 +743,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_rawFactor[100];   //[nJet]
 		
 		UChar_t         LHE_Njets;
-//		UChar_t         LHE_Nb;
+		UChar_t         LHE_Nb;
 //		UChar_t         LHE_Nc;
 //		UChar_t         LHE_Nuds;
 //		UChar_t         LHE_Nglu;
