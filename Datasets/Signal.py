@@ -25,10 +25,10 @@ s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["Signal_H800_a100",                '99',       0.0009888929,        0.,                'unknown'],
     ["Signal_H800_a200",                '99',       0.0009888929,        0.,                'unknown'],
     ["Signal_H800_a300",                '99',       0.0009888929,        0.,                'unknown'],
-    ["Signal_H800_a400",                '99',       0.0009888929,        0.,                'unknown'],
+    ["Signal_H800_a400",                '99',       0.000997824,         0.,                'unknown'],
     ["Signal_H800_a600",                '99',       0.0009888929,        0.,                'unknown'],
 
-    ["Signal_H1000_a100",               '99',       0.000338307,         0.,                'unknown'],
+    ["Signal_H1000_a100",               '99',       0.000339449,         0.,                'unknown'],
     ["Signal_H1000_a200",               '99',       0.000338307,         0.,                'unknown'],
     ["Signal_H1000_a300",               '99',       0.000338307,         0.,                'unknown'],
     ["Signal_H1000_a400",               '99',       0.000338307,         0.,                'unknown'],
@@ -77,4 +77,3 @@ for period in paths.keys():
             list_temp.append(ds[2])
             list_temp.append(ds[3])
             s_ds[key+"_"+period].append(list_temp)
-
