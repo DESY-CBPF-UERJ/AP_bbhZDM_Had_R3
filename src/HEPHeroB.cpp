@@ -493,6 +493,10 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
     else if( _SELECTION == "BTagEffMap" ) SetupBTagEffMap();
     else if( _SELECTION == "MCData" ) SetupMCData();
+    else if( _SELECTION == "Study_ExcludedRegion" ) SetupStudy_ExcludedRegion();
+    else if( _SELECTION == "SignalPoints" ) SetupSignalPoints();
+    else if( _SELECTION == "TestEfficiency" ) SetupTestEfficiency();
+    else if( _SELECTION == "Hist_for_Pileup_wgt" ) SetupHist_for_Pileup_wgt();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -508,6 +512,10 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
     if( _SELECTION == "BTagEffMap" && !BTagEffMapRegion() ) Selected = false;
     if( _SELECTION == "MCData" && !MCDataRegion() ) Selected = false;
+    if( _SELECTION == "Study_ExcludedRegion" && !Study_ExcludedRegionRegion() ) Selected = false;
+    if( _SELECTION == "SignalPoints" && !SignalPointsRegion() ) Selected = false;
+    if( _SELECTION == "TestEfficiency" && !TestEfficiencyRegion() ) Selected = false;
+    if( _SELECTION == "Hist_for_Pileup_wgt" && !Hist_for_Pileup_wgtRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -520,6 +528,10 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSelection();
     if( _SELECTION == "MCData" ) MCDataSelection();
+    if( _SELECTION == "Study_ExcludedRegion" ) Study_ExcludedRegionSelection();
+    if( _SELECTION == "SignalPoints" ) SignalPointsSelection();
+    if( _SELECTION == "TestEfficiency" ) TestEfficiencySelection();
+    if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -530,6 +542,10 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSystematic();
     if( _SELECTION == "MCData" ) MCDataSystematic();
+    if( _SELECTION == "Study_ExcludedRegion" ) Study_ExcludedRegionSystematic();
+    if( _SELECTION == "SignalPoints" ) SignalPointsSystematic();
+    if( _SELECTION == "TestEfficiency" ) TestEfficiencySystematic();
+    if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -540,6 +556,10 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
     if( _SELECTION == "BTagEffMap" ) FinishBTagEffMap();
     if( _SELECTION == "MCData" ) FinishMCData();
+    if( _SELECTION == "Study_ExcludedRegion" ) FinishStudy_ExcludedRegion();
+    if( _SELECTION == "SignalPoints" ) FinishSignalPoints();
+    if( _SELECTION == "TestEfficiency" ) FinishTestEfficiency();
+    if( _SELECTION == "Hist_for_Pileup_wgt" ) FinishHist_for_Pileup_wgt();
     // FINISH YOUR SELECTION HERE
 }
    

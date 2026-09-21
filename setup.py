@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------------------------------
 # Dataset files
 #--------------------------------------------------------------------------------------------------
-selection = "HEPWeights"
+selection = "Hist_for_Pileup_wgt"
 analysis = "AP_bbhZDM_Had_R3"
 treeName = "Events"
 LumiWeights = 1
@@ -48,8 +48,8 @@ analysis_parameters = {
 
 corrections = {  # 0-don't apply, 1-apply
         "PILEUP_WGT             ":0,
-        "ELECTRON_ID_WGT        ":1,
-        "MUON_ID_WGT            ":1,
+        "ELECTRON_ID_WGT        ":0,
+        "MUON_ID_WGT            ":0,
         "JET_PUID_WGT           ":0, # NOT WORKING, MISSING FILE
         }
 
@@ -64,7 +64,7 @@ vertical_systematics = {
 #--------------------------------------------------------------------------------------------------
 # Jobs setup
 #--------------------------------------------------------------------------------------------------
-NumMaxEvents = -1
+NumMaxEvents = 40000
 NumFilesPerJob_Data = 1   
 NumFilesPerJob_Signal = 50 
 NumFilesPerJob_Bkg = 5      
@@ -82,7 +82,7 @@ periods = [
 ]
 
 datasets = [
-"Data_MET",
+#"Data_MET",
 "Signal",
 "QCD",
 "ST",

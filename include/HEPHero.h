@@ -72,6 +72,26 @@ class HEPHero : public HEPBase {
         void MCDataSelection();
         void MCDataSystematic();
         void FinishMCData();
+        void SetupStudy_ExcludedRegion();
+        bool Study_ExcludedRegionRegion();
+        void Study_ExcludedRegionSelection();
+        void Study_ExcludedRegionSystematic();
+        void FinishStudy_ExcludedRegion();
+        void SetupSignalPoints();
+        bool SignalPointsRegion();
+        void SignalPointsSelection();
+        void SignalPointsSystematic();
+        void FinishSignalPoints();
+        void SetupTestEfficiency();
+        bool TestEfficiencyRegion();
+        void TestEfficiencySelection();
+        void TestEfficiencySystematic();
+        void FinishTestEfficiency();
+        void SetupHist_for_Pileup_wgt();
+        bool Hist_for_Pileup_wgtRegion();
+        void Hist_for_Pileup_wgtSelection();
+        void Hist_for_Pileup_wgtSystematic();
+        void FinishHist_for_Pileup_wgt();
         // INSERT YOUR SELECTION HERE
         
 
@@ -82,6 +102,8 @@ class HEPHero : public HEPBase {
         //-------------------------------------------------------------------------------
         // Functions
         //-------------------------------------------------------------------------------
+	void Regions();
+
 
         //----ANALYSIS-----------------------------------------------
         void Jet_lep_overlap(float deltaR_cut);
