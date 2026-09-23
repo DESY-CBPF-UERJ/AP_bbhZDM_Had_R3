@@ -64,7 +64,7 @@ void HEPHero::PreRoutines() {
 
 
     //----PILEUP-------------------------------------------------------------------------
-    if( apply_pileup_wgt ){
+    if( apply_pileup_wgt && dataset_group != "Data" ){
         auto pileup_set = correction::CorrectionSet::from_file(pileup_file.c_str());
         string SetName = "Collisions" + dataset_year +"_UltraLegacy_goldenJSON";
         pileup_corr = pileup_set->at(SetName.c_str());

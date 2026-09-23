@@ -47,7 +47,7 @@ analysis_parameters = {
 }
 
 corrections = {  # 0-don't apply, 1-apply
-        "PILEUP_WGT             ":0,
+        "PILEUP_WGT             ":1,
         "ELECTRON_ID_WGT        ":0,
         "MUON_ID_WGT            ":0,
         "JET_PUID_WGT           ":0, # NOT WORKING, MISSING FILE
