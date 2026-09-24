@@ -41,6 +41,7 @@ void HEPHero::FillControlVariables( string key, string value){
     // if( key == "NN_prep_keras"              )   preprocessing_keras_file = value;
     // if( key == "NN_model_keras"             )   model_keras_file = value;
     if( key == "NN_model"                      )   NN_model_file = value;
+    if( key == "NN_model_run3"                 )   NN_model_run3_file = value;
 
     //----SELECTION--------------------------------------------------------------------------------
     if( key == "JET_ETA_CUT"                )   JET_ETA_CUT = atof(value.c_str());

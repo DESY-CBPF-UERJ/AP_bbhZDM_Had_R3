@@ -74,6 +74,7 @@ void HEPHero::SetupTest() {
 //    HDF_insert("BJet_pt", &Test::BJet_pt);
 
     HDF_insert("signal_tag", &signal_tag);
+    HDF_insert("signal_tag_run3", &signal_tag_run3);
 
     HDF_insert("GenHT", &LHE_HT );
     HDF_insert("GenVpt", &LHE_Vpt );
@@ -126,6 +127,7 @@ bool HEPHero::TestRegion() {
 
     Get_Jet_Shape_Variables();
     Get_Signal_Taggers();
+    Get_Signal_Taggers_Run3();
 
     
     if ( !(signal_tag>0.8) ) return false;

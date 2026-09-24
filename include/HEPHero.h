@@ -117,6 +117,7 @@ class HEPHero : public HEPBase {
         void Get_Jet_Angular_Variables( int pt_cut = 20 );
         void Get_Jet_Shape_Variables();
         void Get_Signal_Taggers();
+        void Get_Signal_Taggers_Run3();
 
         //----EXPERIMENT---------------------------------------------
         bool TauVSEletronID( int iobj, int WP );
@@ -300,6 +301,9 @@ class HEPHero : public HEPBase {
         ONNX_MODEL signal_tagger;
         float signal_tag;
         string NN_model_file;
+        ONNX_MODEL signal_tagger_run3;
+        float signal_tag_run3 = -1.f;
+        string NN_model_run3_file;
 
         //----MET----------------------------------------------------
 

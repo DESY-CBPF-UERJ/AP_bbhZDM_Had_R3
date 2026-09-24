@@ -767,6 +767,63 @@ void HEPHero::Get_Signal_Taggers(){
 }
 
 
+
+//-------------------------------------------------------------------------------------------------
+// Run 3 tagger: ordered features supplied with model_run3.onnx.
+// The ONNX contains the normalization and sigmoid; keep its raw output.
+//-------------------------------------------------------------------------------------------------
+void HEPHero::Get_Signal_Taggers_Run3(){
+    signal_tag_run3 = -1.f;
+    if( NN_model_run3_file.empty() || selectedFatJet.empty() ) return;
+
+    float floatC = 1.;
+    int fatjet_idx = selectedFatJet.at(0);
+
+    // Match the column exported by Study_GEN, not the similarly named "true" column.
+    // Existing RECO_mass_tran_met_close_part_jetB is MT of the LAST selected b jet.
+    // Training-column provenance in Study_GEN was confirmed by the user.
+    float RECO_mass_tran_met_close_part_jetB = 0.;
+    for( unsigned int iSeljet = 0; iSeljet < selectedJet.size(); ++iSeljet ){
+        int ijet = selectedJet.at(iSeljet);
+        if( JetBTAG(ijet, JET_BTAG_WP) ){
+            RECO_mass_tran_met_close_part_jetB = sqrt(2 * Jet_pt[ijet] * PFMET_pt * (1 - cos(Jet_phi[ijet] - PFMET_phi)));
+        }
+    }
+
+    float fatjet_QCD = FatJet_globalParT3_QCD[fatjet_idx];
+    float fatjet_TopbWqq = FatJet_globalParT3_TopbWqq[fatjet_idx];
+    float fatjet_Xbb = FatJet_globalParT3_Xbb[fatjet_idx];
+    float fatjet_Xcc = FatJet_globalParT3_Xcc[fatjet_idx];
+    float fatjet_Xcs = FatJet_globalParT3_Xcs[fatjet_idx];
+    float fatjet_Xqq = FatJet_globalParT3_Xqq[fatjet_idx];
+    float fatjet_massCorrGeneric = FatJet_globalParT3_massCorrGeneric[fatjet_idx];
+    float fatjet_massCorrX2p = FatJet_globalParT3_massCorrX2p[fatjet_idx];
+    float fatjet_withMassTopvsQCD = FatJet_globalParT3_withMassTopvsQCD[fatjet_idx];
+    float fatjet_withMassWvsQCD = FatJet_globalParT3_withMassWvsQCD[fatjet_idx];
+    float fatjet_withMassZvsQCD = FatJet_globalParT3_withMassZvsQCD[fatjet_idx];
+    float fatjet_msoftdrop = FatJet_msoftdrop[fatjet_idx];
+    float fatjet_nConstituents = FatJet_nConstituents[fatjet_idx];
+    float fatjet_pt = FatJet_pt[fatjet_idx];
+
+    vector<vector<float>> inputTensorValues = {{
+        FMax, fatjet_QCD, fatjet_TopbWqq, fatjet_Xbb, fatjet_Xcc, fatjet_Xcs,
+        fatjet_Xqq, fatjet_massCorrGeneric, fatjet_massCorrX2p,
+        fatjet_withMassTopvsQCD, fatjet_withMassWvsQCD, fatjet_withMassZvsQCD,
+        fatjet_msoftdrop, fatjet_nConstituents*floatC, fatjet_pt, HT,
+        MET_FatJet_Mt, MET_FatJet_deltaPhi, PFMET_pt, MHT, Nbjets*floatC,
+        OmegaMin, RECO_mass_tran_met_close_part_jetB, RT_1, RT_3, tauT
+    }};
+    vector<vector<int64_t>> inputTensorDims = {{1, 26}};
+    const char* inputNames[] = {"features"};
+
+    vector<vector<float>> outputTensorValues = {{999.}};
+    vector<vector<int64_t>> outputTensorDims = {{1, 1}};
+    const char* outputNames[] = {"output"};
+
+    vector<float> signal_tag_vec = signal_tagger_run3.predict(inputNames, inputTensorValues, inputTensorDims, outputNames, outputTensorValues, outputTensorDims, false);
+    signal_tag_run3 = signal_tag_vec.at(0);
+}
+
 //-------------------------------------------------------------------------------------------------
 // GenJet-lepton overlap
 //-------------------------------------------------------------------------------------------------

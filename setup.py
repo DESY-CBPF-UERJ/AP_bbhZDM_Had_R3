@@ -100,6 +100,7 @@ datasets = [
 #--------------------------------------------------------------------------------------------------
 metadata = {
 "NN_model_X_XX              ": analysis+"/Metadata/ML/model.onnx",
+"NN_model_run3_X_XX         ": analysis+"/Metadata/ML/model_run3.onnx",
 "lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
 "pileup_0_24                ": analysis+"/Metadata/POG/LUM/2024/puWeights.json.gz",
 "electron_0_24              ": analysis+"/Metadata/POG/EGM/2024_Summer24/electronID_v1.json.gz",
