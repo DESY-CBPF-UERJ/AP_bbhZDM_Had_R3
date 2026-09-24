@@ -72,6 +72,9 @@ void HEPHero::PreRoutines() {
 
     //----MACHINE LEARNING---------------------------------------------------------------
     signal_tagger.readFile(NN_model_file);
+    if( !NN_model_run3_file.empty() ){
+        signal_tagger_run3.readFile(NN_model_run3_file);
+    }
 
 }
 

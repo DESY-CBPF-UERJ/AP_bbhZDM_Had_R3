@@ -35,6 +35,7 @@ void HEPHero::SetupStudy_ExcludedRegion() {
 	//======SETUP SYSTEMATIC HISTOGRAMS============================================================
 	sys_regions = {0};
 	makeSysHist("signal_tag", 100, 0., 1, "xlabel", "ylabel" );
+    makeSysHist("signal_tag_run3", 100, 0., 1, "xlabel", "ylabel" );
 
 
 
@@ -46,6 +47,7 @@ void HEPHero::SetupStudy_ExcludedRegion() {
 
     HDF_insert("MET_pt", &PFMET_pt);
     HDF_insert("signal_tag", &signal_tag);
+    HDF_insert("signal_tag_run3", &signal_tag_run3);
     HDF_insert("RegionID",&RegionID);
     return;
 }
@@ -94,6 +96,7 @@ bool HEPHero::Study_ExcludedRegionRegion() {
     Weight_corrections();
 
     Get_Signal_Taggers();
+    Get_Signal_Taggers_Run3();
 								       
 //    if ( !(signal_tag>0.8) ) return false;								    
     _cutFlow.at("08_Signal_like") += evtWeight;
@@ -143,6 +146,7 @@ void HEPHero::Study_ExcludedRegionSelection() {
 void HEPHero::Study_ExcludedRegionSystematic() {
 
     FillSystematic( "signal_tag",signal_tag, evtWeight );
+    if( !NN_model_run3_file.empty() ) FillSystematic("signal_tag_run3", signal_tag_run3, evtWeight);
     //FillSystematic( "histogram2DSysName", var1, var2, evtWeight );  [Example]
 }
 

@@ -37,6 +37,7 @@ using namespace std;
 //-------------------------------------------------------------------------
 class ONNX_MODEL {
     private:
+        Ort::Env env{OrtLoggingLevel::ORT_LOGGING_LEVEL_WARNING, "onnx_model"};
         Ort::Session session{nullptr};
         Ort::MemoryInfo memoryInfo = Ort::MemoryInfo::CreateCpu( OrtAllocatorType::OrtArenaAllocator, OrtMemType::OrtMemTypeDefault);
         size_t numInputNodes;
@@ -47,14 +48,13 @@ class ONNX_MODEL {
             Ort::SessionOptions sessionOptions;
             sessionOptions.SetIntraOpNumThreads(1);
             sessionOptions.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
-            Ort::Env env(OrtLoggingLevel::ORT_LOGGING_LEVEL_WARNING, "onnx_model");
             Ort::Session session_tmp(env, model_file.c_str(), sessionOptions);
             session = std::move(session_tmp);
             numInputNodes = session.GetInputCount();
             numOutputNodes = session.GetOutputCount();
         }
 
-        vector<float> predict( const char* const* inputNames, vector<vector<float>> inputTensorValues, vector<vector<int64_t>> inputTensorDims, const char* const* outputNames, vector<vector<float>> outputTensorValues, vector<vector<int64_t>> outputTensorDims ){
+        vector<float> predict( const char* const* inputNames, vector<vector<float>> inputTensorValues, vector<vector<int64_t>> inputTensorDims, const char* const* outputNames, vector<vector<float>> outputTensorValues, vector<vector<int64_t>> outputTensorDims, bool invertSingleOutput = true ){
 
             vector<Ort::Value> inputTensors;
             for (size_t i = 0; i < numInputNodes; i++){
@@ -71,7 +71,7 @@ class ONNX_MODEL {
 
             vector<float> prediction;
             if( outputTensorValues.at(0).size() == 1 ){
-                prediction.push_back(1-outputTensorValues.at(0).at(0));
+                prediction.push_back(invertSingleOutput ? 1-outputTensorValues.at(0).at(0) : outputTensorValues.at(0).at(0));
             }else{
                 for (size_t i = 0; i < numOutputNodes; i++){
                     prediction.push_back(outputTensorValues.at(0).at(i));

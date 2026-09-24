@@ -90,6 +90,7 @@ void HEPHero::SetupStudy_GEN() {
     HDF_insert("FatJet_pt", &Study_GEN::FatJet_pt);									        
     HDF_insert("FatJet_msoftdrop", &Study_GEN::FatJet_msoftdrop);										
     HDF_insert("signal_tag", &signal_tag);
+    HDF_insert("signal_tag_run3", &signal_tag_run3);
 
     HDF_insert("Tag_decay_GenZ",&Study_GEN::Tag_decay_GenZ);
 
@@ -271,6 +272,7 @@ bool HEPHero::Study_GENRegion() {
 							        
 	Get_Jet_Shape_Variables();								    
 	Get_Signal_Taggers();
+    Get_Signal_Taggers_Run3();
 
 								       
 	if ( !(signal_tag>0.8) ) return false;								    
