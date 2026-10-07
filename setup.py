@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------------------------------
 # Dataset files
 #--------------------------------------------------------------------------------------------------
-selection = "Hist_for_Pileup_wgt"
+selection = "Study_FatJetSubJets"
 analysis = "AP_bbhZDM_Had_R3"
 treeName = "Events"
 LumiWeights = 1

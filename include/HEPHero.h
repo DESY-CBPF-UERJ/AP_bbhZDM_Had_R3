@@ -92,6 +92,11 @@ class HEPHero : public HEPBase {
         void Hist_for_Pileup_wgtSelection();
         void Hist_for_Pileup_wgtSystematic();
         void FinishHist_for_Pileup_wgt();
+        void SetupStudy_FatJetSubJets();
+        bool Study_FatJetSubJetsRegion();
+        void Study_FatJetSubJetsSelection();
+        void Study_FatJetSubJetsSystematic();
+        void FinishStudy_FatJetSubJets();
         // INSERT YOUR SELECTION HERE
         
 
@@ -1049,7 +1054,6 @@ class HEPHero : public HEPBase {
 		Float_t         SoftActivityJetHT2;
 		Float_t         SoftActivityJetHT5;
 */
-/*
 		Int_t           nSubJet;
 		Float_t         SubJet_UParTAK4RegPtRawCorr[100];   //[nSubJet]
 		Float_t         SubJet_UParTAK4RegPtRawCorrNeutrino[100];   //[nSubJet]
@@ -1071,7 +1075,6 @@ class HEPHero : public HEPBase {
 		Float_t         SubJet_tau2[100];   //[nSubJet]
 		Float_t         SubJet_tau3[100];   //[nSubJet]
 		Float_t         SubJet_tau4[100];   //[nSubJet]
-*/
 /*
 		Int_t           nTauProd;
 		Short_t         TauProd_tauIdx[100];   //[nTauProd]
@@ -2545,8 +2548,6 @@ class HEPHero : public HEPBase {
 };
 
 #endif
-
-
 
 
 

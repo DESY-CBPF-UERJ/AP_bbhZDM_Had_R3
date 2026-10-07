@@ -150,6 +150,13 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("FatJet_phi", FatJet_phi);
         _inputTree->SetBranchAddress("FatJet_pt", FatJet_pt);
 
+        if (_SELECTION == "Study_FatJetSubJets") {
+            _inputTree->SetBranchAddress("nSubJet", &nSubJet);
+            _inputTree->SetBranchAddress("SubJet_eta", SubJet_eta);
+            _inputTree->SetBranchAddress("SubJet_phi", SubJet_phi);
+            _inputTree->SetBranchAddress("SubJet_pt", SubJet_pt);
+        }
+
         _inputTree->SetBranchAddress("nGenPart", &nGenPart);
         _inputTree->SetBranchAddress("GenPart_genPartIdxMother", GenPart_genPartIdxMother);
         _inputTree->SetBranchAddress("GenPart_statusFlags", GenPart_statusFlags);
@@ -498,6 +505,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "SignalPoints" ) SetupSignalPoints();
     else if( _SELECTION == "TestEfficiency" ) SetupTestEfficiency();
     else if( _SELECTION == "Hist_for_Pileup_wgt" ) SetupHist_for_Pileup_wgt();
+    else if( _SELECTION == "Study_FatJetSubJets" ) SetupStudy_FatJetSubJets();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -517,6 +525,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "SignalPoints" && !SignalPointsRegion() ) Selected = false;
     if( _SELECTION == "TestEfficiency" && !TestEfficiencyRegion() ) Selected = false;
     if( _SELECTION == "Hist_for_Pileup_wgt" && !Hist_for_Pileup_wgtRegion() ) Selected = false;
+    if( _SELECTION == "Study_FatJetSubJets" && !Study_FatJetSubJetsRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -533,6 +542,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "SignalPoints" ) SignalPointsSelection();
     if( _SELECTION == "TestEfficiency" ) TestEfficiencySelection();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSelection();
+    if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -547,6 +557,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "SignalPoints" ) SignalPointsSystematic();
     if( _SELECTION == "TestEfficiency" ) TestEfficiencySystematic();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSystematic();
+    if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -561,6 +572,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "SignalPoints" ) FinishSignalPoints();
     if( _SELECTION == "TestEfficiency" ) FinishTestEfficiency();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) FinishHist_for_Pileup_wgt();
+    if( _SELECTION == "Study_FatJetSubJets" ) FinishStudy_FatJetSubJets();
     // FINISH YOUR SELECTION HERE
 }
    
