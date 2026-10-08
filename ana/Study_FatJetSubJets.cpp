@@ -8,6 +8,8 @@ namespace Study_FatJetSubJets {
     int subJet1_idx;
     int subJet2_idx;
     float fatJet_pt;
+    float fatJet_msoftdrop;
+    float fatJet_deltaM_Z;
     float subJet1_pt;
     float subJet2_pt;
     float deltaR_subJets;
@@ -24,6 +26,8 @@ namespace Study_FatJetSubJets {
 }
 
 namespace {
+constexpr float Z_MASS_GEV = 91.1876f;
+
 float deltaR(float eta1, float phi1, float eta2, float phi2) {
     const float dEta = eta1 - eta2;
     const float dPhi = std::atan2(std::sin(phi1 - phi2), std::cos(phi1 - phi2));
@@ -34,6 +38,8 @@ float deltaR(float eta1, float phi1, float eta2, float phi2) {
 void HEPHero::SetupStudy_FatJetSubJets() {
     HDF_insert("fatJet_idx", &Study_FatJetSubJets::fatJet_idx);
     HDF_insert("fatJet_pt", &Study_FatJetSubJets::fatJet_pt);
+    HDF_insert("fatJet_msoftdrop", &Study_FatJetSubJets::fatJet_msoftdrop);
+    HDF_insert("fatJet_deltaM_Z", &Study_FatJetSubJets::fatJet_deltaM_Z);
     HDF_insert("nMatchedSubJets", &Study_FatJetSubJets::nMatchedSubJets);
     HDF_insert("subJet1_idx", &Study_FatJetSubJets::subJet1_idx);
     HDF_insert("subJet1_pt", &Study_FatJetSubJets::subJet1_pt);
@@ -85,6 +91,8 @@ bool HEPHero::Study_FatJetSubJetsRegion() {
 void HEPHero::Study_FatJetSubJetsSelection() {
     Study_FatJetSubJets::fatJet_idx = -1;
     Study_FatJetSubJets::fatJet_pt = -1.f;
+    Study_FatJetSubJets::fatJet_msoftdrop = -1.f;
+    Study_FatJetSubJets::fatJet_deltaM_Z = -1.f;
     Study_FatJetSubJets::nMatchedSubJets = 0;
     Study_FatJetSubJets::subJet1_idx = -1;
     Study_FatJetSubJets::subJet2_idx = -1;
@@ -93,8 +101,24 @@ void HEPHero::Study_FatJetSubJetsSelection() {
     Study_FatJetSubJets::deltaR_subJets = -1.f;
 
     if (!selectedFatJet.empty()) {
-        Study_FatJetSubJets::fatJet_idx = selectedFatJet.at(0);
+        int closestZFatJetIdx = selectedFatJet.at(0);
+        float smallestMassDistance =
+            std::abs(FatJet_msoftdrop[closestZFatJetIdx] - Z_MASS_GEV);
+
+        for (const int fatJetIdx : selectedFatJet) {
+            const float massDistance =
+                std::abs(FatJet_msoftdrop[fatJetIdx] - Z_MASS_GEV);
+            if (massDistance < smallestMassDistance) {
+                smallestMassDistance = massDistance;
+                closestZFatJetIdx = fatJetIdx;
+            }
+        }
+
+        Study_FatJetSubJets::fatJet_idx = closestZFatJetIdx;
         Study_FatJetSubJets::fatJet_pt = FatJet_pt[Study_FatJetSubJets::fatJet_idx];
+        Study_FatJetSubJets::fatJet_msoftdrop =
+            FatJet_msoftdrop[Study_FatJetSubJets::fatJet_idx];
+        Study_FatJetSubJets::fatJet_deltaM_Z = smallestMassDistance;
         const int subJet1Idx = FatJet_subJetIdx1[Study_FatJetSubJets::fatJet_idx];
         const int subJet2Idx = FatJet_subJetIdx2[Study_FatJetSubJets::fatJet_idx];
         const bool validSubJet1 = subJet1Idx >= 0 && subJet1Idx < nSubJet;
