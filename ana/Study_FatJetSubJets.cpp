@@ -1,8 +1,6 @@
 #include "HEPHero.h"
 
-#include <algorithm>
 #include <cmath>
-#include <vector>
 
 namespace Study_FatJetSubJets {
     int fatJet_idx;
@@ -94,33 +92,31 @@ void HEPHero::Study_FatJetSubJetsSelection() {
     Study_FatJetSubJets::subJet2_pt = -1.f;
     Study_FatJetSubJets::deltaR_subJets = -1.f;
 
-    std::vector<int> matchedSubJets;
     if (!selectedFatJet.empty()) {
         Study_FatJetSubJets::fatJet_idx = selectedFatJet.at(0);
         Study_FatJetSubJets::fatJet_pt = FatJet_pt[Study_FatJetSubJets::fatJet_idx];
-        for (int i = 0; i < nSubJet; ++i) {
-            if (deltaR(FatJet_eta[Study_FatJetSubJets::fatJet_idx],
-                       FatJet_phi[Study_FatJetSubJets::fatJet_idx],
-                       SubJet_eta[i], SubJet_phi[i]) < 0.8f) {
-                matchedSubJets.push_back(i);
-            }
-        }
-    }
-    std::sort(matchedSubJets.begin(), matchedSubJets.end(), [this](int a, int b) {
-        return SubJet_pt[a] > SubJet_pt[b];
-    });
+        const int subJet1Idx = FatJet_subJetIdx1[Study_FatJetSubJets::fatJet_idx];
+        const int subJet2Idx = FatJet_subJetIdx2[Study_FatJetSubJets::fatJet_idx];
+        const bool validSubJet1 = subJet1Idx >= 0 && subJet1Idx < nSubJet;
+        const bool validSubJet2 =
+            subJet2Idx >= 0 && subJet2Idx < nSubJet && subJet2Idx != subJet1Idx;
 
-    Study_FatJetSubJets::nMatchedSubJets = static_cast<int>(matchedSubJets.size());
-    if (!matchedSubJets.empty()) {
-        Study_FatJetSubJets::subJet1_idx = matchedSubJets[0];
-        Study_FatJetSubJets::subJet1_pt = SubJet_pt[matchedSubJets[0]];
-    }
-    if (matchedSubJets.size() >= 2) {
-        Study_FatJetSubJets::subJet2_idx = matchedSubJets[1];
-        Study_FatJetSubJets::subJet2_pt = SubJet_pt[matchedSubJets[1]];
-        Study_FatJetSubJets::deltaR_subJets = deltaR(
-            SubJet_eta[matchedSubJets[0]], SubJet_phi[matchedSubJets[0]],
-            SubJet_eta[matchedSubJets[1]], SubJet_phi[matchedSubJets[1]]);
+        Study_FatJetSubJets::nMatchedSubJets =
+            static_cast<int>(validSubJet1) + static_cast<int>(validSubJet2);
+
+        if (validSubJet1) {
+            Study_FatJetSubJets::subJet1_idx = subJet1Idx;
+            Study_FatJetSubJets::subJet1_pt = SubJet_pt[subJet1Idx];
+        }
+        if (validSubJet2) {
+            Study_FatJetSubJets::subJet2_idx = subJet2Idx;
+            Study_FatJetSubJets::subJet2_pt = SubJet_pt[subJet2Idx];
+        }
+        if (validSubJet1 && validSubJet2) {
+            Study_FatJetSubJets::deltaR_subJets = deltaR(
+                SubJet_eta[subJet1Idx], SubJet_phi[subJet1Idx],
+                SubJet_eta[subJet2Idx], SubJet_phi[subJet2Idx]);
+        }
     }
 
     Weight_corrections();
