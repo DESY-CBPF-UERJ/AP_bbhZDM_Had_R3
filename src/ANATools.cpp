@@ -876,7 +876,7 @@ void HEPHero::Get_Signal_Taggers_Run3(){
     const char* outputNames[] = {"output"};
 
     vector<float> signal_tag_vec = signal_tagger_run3.predict(inputNames, inputTensorValues, inputTensorDims, outputNames, outputTensorValues, outputTensorDims, false);
-    signal_tag_run3 = signal_tag_vec.at(0);
+    signal_tag_run3 = 1.f - signal_tag_vec.at(0);
 }
 
 //-------------------------------------------------------------------------------------------------
