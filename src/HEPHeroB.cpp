@@ -202,6 +202,8 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("PFMET_phi", &PFMET_phi);
         _inputTree->SetBranchAddress("PFMET_pt", &PFMET_pt);
         _inputTree->SetBranchAddress("PFMET_sumEt", &PFMET_sumEt);
+
+        _inputTree->SetBranchAddress("PV_npvs", &PV_npvs);
         
         _inputTree->SetBranchAddress("Pileup_nPU", &Pileup_nPU);
         _inputTree->SetBranchAddress("Pileup_nTrueInt", &Pileup_nTrueInt);

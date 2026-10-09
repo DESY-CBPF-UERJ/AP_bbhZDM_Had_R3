@@ -65,6 +65,7 @@ namespace Hist_for_Pileup_wgt{
 void HEPHero::SetupHist_for_Pileup_wgt() {
 
     HDF_insert( "Pileup_nTrueInt", &Pileup_nTrueInt );  
+    HDF_insert( "PV_npvs", &PV_npvs );
 
 
     return;

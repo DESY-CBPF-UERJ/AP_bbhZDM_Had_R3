@@ -988,6 +988,7 @@ class HEPHero : public HEPBase {
 //		Int_t           Pileup_sumEOOT;
 //		Int_t           Pileup_sumLOOT;
 		Float_t         Pileup_nTrueInt;
+		UChar_t         PV_npvs;
 //		Float_t         Pileup_pudensity;
 //		Float_t         Pileup_gpudensity;
 //		Float_t         Pileup_pthatmax;
