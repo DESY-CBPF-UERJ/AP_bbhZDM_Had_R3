@@ -378,6 +378,16 @@ void HEPHero::FatjetSelection(){
     idxFatJet = 0;
     MET_FatJet_deltaPhi = 0;
     MET_FatJet_Mt = 0;
+    idxFatJetClosestToZ = -1;
+    FatJetClosestToZ_pt = -1;
+    FatJetClosestToZ_msoftdrop = -1;
+    FatJetClosestToZ_deltaM_Z = -1;
+    nMatchedSubJets = 0;
+    subJet1_idx = -1;
+    subJet2_idx = -1;
+    subJet1_pt = -1;
+    subJet2_pt = -1;
+    deltaR_subJets = -1;
     for( unsigned int ijet = 0; ijet < nFatJet; ++ijet ) {
 
         // std::cout << "FAT_JET_PT_CUT: " << FAT_JET_PT_CUT << "| FAT_JET_ETA_CUT: " << FAT_JET_ETA_CUT << std::endl;
@@ -402,6 +412,51 @@ void HEPHero::FatjetSelection(){
             MET_FatJet_Mt = MET_FatJet_Mt_i;
         }
 
+    }
+
+    // Select the accepted FatJet whose soft-drop mass is closest to the Z mass,
+    // then resolve its NanoAOD SubJet indices and their angular separation.
+    if( !selectedFatJet.empty() ) {
+        constexpr float Z_MASS_GEV = 91.1876f;
+        idxFatJetClosestToZ = selectedFatJet.at(0);
+        FatJetClosestToZ_deltaM_Z =
+            std::abs(FatJet_msoftdrop[idxFatJetClosestToZ] - Z_MASS_GEV);
+
+        for( const int fatJetIdx : selectedFatJet ) {
+            const float deltaM = std::abs(FatJet_msoftdrop[fatJetIdx] - Z_MASS_GEV);
+            if( deltaM < FatJetClosestToZ_deltaM_Z ) {
+                FatJetClosestToZ_deltaM_Z = deltaM;
+                idxFatJetClosestToZ = fatJetIdx;
+            }
+        }
+
+        FatJetClosestToZ_pt = FatJet_pt[idxFatJetClosestToZ];
+        FatJetClosestToZ_msoftdrop = FatJet_msoftdrop[idxFatJetClosestToZ];
+
+        const int subjetIdx1 = FatJet_subJetIdx1[idxFatJetClosestToZ];
+        const int subjetIdx2 = FatJet_subJetIdx2[idxFatJetClosestToZ];
+        const bool validSubJet1 = subjetIdx1 >= 0 && subjetIdx1 < nSubJet;
+        const bool validSubJet2 =
+            subjetIdx2 >= 0 && subjetIdx2 < nSubJet && subjetIdx2 != subjetIdx1;
+
+        nMatchedSubJets = static_cast<int>(validSubJet1) + static_cast<int>(validSubJet2);
+
+        if( validSubJet1 ) {
+            subJet1_idx = subjetIdx1;
+            subJet1_pt = SubJet_pt[subjetIdx1];
+        }
+        if( validSubJet2 ) {
+            subJet2_idx = subjetIdx2;
+            subJet2_pt = SubJet_pt[subjetIdx2];
+        }
+        if( validSubJet1 && validSubJet2 ) {
+            const float deltaEta = SubJet_eta[subjetIdx1] - SubJet_eta[subjetIdx2];
+            const float deltaPhi = std::atan2(
+                std::sin(SubJet_phi[subjetIdx1] - SubJet_phi[subjetIdx2]),
+                std::cos(SubJet_phi[subjetIdx1] - SubJet_phi[subjetIdx2])
+            );
+            deltaR_subJets = std::sqrt(deltaEta*deltaEta + deltaPhi*deltaPhi);
+        }
     }
 
 

@@ -149,15 +149,12 @@ bool HEPHero::Init() {
 
         _inputTree->SetBranchAddress("FatJet_phi", FatJet_phi);
         _inputTree->SetBranchAddress("FatJet_pt", FatJet_pt);
-
-        if (_SELECTION == "Study_FatJetSubJets") {
-            _inputTree->SetBranchAddress("FatJet_subJetIdx1", FatJet_subJetIdx1);
-            _inputTree->SetBranchAddress("FatJet_subJetIdx2", FatJet_subJetIdx2);
-            _inputTree->SetBranchAddress("nSubJet", &nSubJet);
-            _inputTree->SetBranchAddress("SubJet_eta", SubJet_eta);
-            _inputTree->SetBranchAddress("SubJet_phi", SubJet_phi);
-            _inputTree->SetBranchAddress("SubJet_pt", SubJet_pt);
-        }
+        _inputTree->SetBranchAddress("FatJet_subJetIdx1", FatJet_subJetIdx1);
+        _inputTree->SetBranchAddress("FatJet_subJetIdx2", FatJet_subJetIdx2);
+        _inputTree->SetBranchAddress("nSubJet", &nSubJet);
+        _inputTree->SetBranchAddress("SubJet_eta", SubJet_eta);
+        _inputTree->SetBranchAddress("SubJet_phi", SubJet_phi);
+        _inputTree->SetBranchAddress("SubJet_pt", SubJet_pt);
 
         _inputTree->SetBranchAddress("nGenPart", &nGenPart);
         _inputTree->SetBranchAddress("GenPart_genPartIdxMother", GenPart_genPartIdxMother);

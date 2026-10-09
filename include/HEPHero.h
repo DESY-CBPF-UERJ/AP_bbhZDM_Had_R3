@@ -285,6 +285,16 @@ class HEPHero : public HEPBase {
         float FatJet_b_max_deltaEta;
         float MET_FatJet_Mt;
         float MET_FatJet_deltaPhi;
+        int idxFatJetClosestToZ;
+        float FatJetClosestToZ_pt;
+        float FatJetClosestToZ_msoftdrop;
+        float FatJetClosestToZ_deltaM_Z;
+        int nMatchedSubJets;
+        int subJet1_idx;
+        int subJet2_idx;
+        float subJet1_pt;
+        float subJet2_pt;
+        float deltaR_subJets;
 
         //----LEPTONS------------------------------------------------
         vector<int> selectedEle;
