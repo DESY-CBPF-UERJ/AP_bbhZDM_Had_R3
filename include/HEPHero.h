@@ -98,6 +98,11 @@ class HEPHero : public HEPBase {
         void Study_FatJetSubJetsSelection();
         void Study_FatJetSubJetsSystematic();
         void FinishStudy_FatJetSubJets();
+        void SetupTest_SF_btag();
+        bool Test_SF_btagRegion();
+        void Test_SF_btagSelection();
+        void Test_SF_btagSystematic();
+        void FinishTest_SF_btag();
         // INSERT YOUR SELECTION HERE
         
 

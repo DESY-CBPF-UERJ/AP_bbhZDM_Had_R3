@@ -500,6 +500,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "Study_GEN" ) SetupStudy_GEN();
     else if( _SELECTION == "ML" ) SetupML();
     else if( _SELECTION == "HEPWeights" ) SetupHEPWeights();
+    else if( _SELECTION == "Test_SF_btag" ) SetupTest_SF_btag();
     else if( _SELECTION == "BTagEffMap" ) SetupBTagEffMap();
     else if( _SELECTION == "MCData" ) SetupMCData();
     else if( _SELECTION == "Study_ExcludedRegion" ) SetupStudy_ExcludedRegion();
@@ -520,6 +521,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "Study_GEN" && !Study_GENRegion() ) Selected = false;
     if( _SELECTION == "ML" && !MLRegion() ) Selected = false;
     if( _SELECTION == "HEPWeights" && !HEPWeightsRegion() ) Selected = false;
+    if( _SELECTION == "Test_SF_btag" && !Test_SF_btagRegion() ) Selected = false;
     if( _SELECTION == "BTagEffMap" && !BTagEffMapRegion() ) Selected = false;
     if( _SELECTION == "MCData" && !MCDataRegion() ) Selected = false;
     if( _SELECTION == "Study_ExcludedRegion" && !Study_ExcludedRegionRegion() ) Selected = false;
@@ -537,6 +539,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "Study_GEN" ) Study_GENSelection();
     if( _SELECTION == "ML" ) MLSelection();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSelection();
+    if( _SELECTION == "Test_SF_btag" ) Test_SF_btagSelection();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSelection();
     if( _SELECTION == "MCData" ) MCDataSelection();
     if( _SELECTION == "Study_ExcludedRegion" ) Study_ExcludedRegionSelection();
@@ -552,6 +555,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "Study_GEN" ) Study_GENSystematic();
     if( _SELECTION == "ML" ) MLSystematic();
     if( _SELECTION == "HEPWeights" ) HEPWeightsSystematic();
+    if( _SELECTION == "Test_SF_btag" ) Test_SF_btagSystematic();
     if( _SELECTION == "BTagEffMap" ) BTagEffMapSystematic();
     if( _SELECTION == "MCData" ) MCDataSystematic();
     if( _SELECTION == "Study_ExcludedRegion" ) Study_ExcludedRegionSystematic();
@@ -567,6 +571,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "Study_GEN" ) FinishStudy_GEN();
     if( _SELECTION == "ML" ) FinishML();
     if( _SELECTION == "HEPWeights" ) FinishHEPWeights();
+    if( _SELECTION == "Test_SF_btag" ) FinishTest_SF_btag();
     if( _SELECTION == "BTagEffMap" ) FinishBTagEffMap();
     if( _SELECTION == "MCData" ) FinishMCData();
     if( _SELECTION == "Study_ExcludedRegion" ) FinishStudy_ExcludedRegion();
