@@ -8,6 +8,7 @@
 //#include "TLorentzVector.h"
 #include "onnxruntime_cxx_api.h"
 #include "correction.h"
+#include "btageffanalyzer.h"
 
 
 using namespace std;
@@ -97,6 +98,11 @@ class HEPHero : public HEPBase {
         void Study_FatJetSubJetsSelection();
         void Study_FatJetSubJetsSystematic();
         void FinishStudy_FatJetSubJets();
+        void SetupTest_SF_btag();
+        bool Test_SF_btagRegion();
+        void Test_SF_btagSelection();
+        void Test_SF_btagSystematic();
+        void FinishTest_SF_btag();
         // INSERT YOUR SELECTION HERE
         
 
@@ -141,6 +147,7 @@ class HEPHero : public HEPBase {
 	float GetElectronWeight( string sysID );
 	float GetMuonWeight( string sysID );
         float GetJetPUIDWeight( string sysID );
+	float GetBTagWeight();
 	
 	//-------------------------------------------------------------------------------
         // Variables
@@ -364,6 +371,15 @@ class HEPHero : public HEPBase {
         double  jet_puid_wgt;
         string  jet_puid_file;
         shared_ptr<correction::Correction const> jet_PUID_corr;
+
+        //----B TAGGING-------------------------------------
+        bool    apply_btag_wgt;
+        double  btag_wgt;
+        string  btag_eff_file;
+        string  btag_SF_file;
+        BTagEffAnalyzer btag_eff;
+        shared_ptr<correction::Correction const> btag_bc_corr;
+        shared_ptr<correction::Correction const> btag_udsg_corr;
 
 
 	//----MET XY-------------------------------------------------

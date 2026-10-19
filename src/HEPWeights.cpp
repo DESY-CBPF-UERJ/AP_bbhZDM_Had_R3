@@ -10,6 +10,7 @@ void HEPHero::Weight_corrections(){
     electron_wgt = 1.;
     muon_wgt = 1.;
     jet_puid_wgt= 1.;
+    btag_wgt = 1.;
 
 
     if(dataset_group != "Data"){
@@ -30,6 +31,10 @@ void HEPHero::Weight_corrections(){
 	if( apply_jet_puid_wgt ){
             jet_puid_wgt = GetJetPUIDWeight("cv");
             evtWeight *= jet_puid_wgt;
+        }
+	if( apply_btag_wgt ){
+            btag_wgt = GetBTagWeight();
+            evtWeight *= btag_wgt;
         }
 
     }
@@ -259,5 +264,46 @@ float HEPHero::GetJetPUIDWeight( string sysID ){
     }
 
     return puid_weight;
+}
+
+
+//---------------------------------------------------------------------------------------------
+// UParTAK4 fixed-working-point b-tagging correction for 2024
+//---------------------------------------------------------------------------------------------
+float HEPHero::GetBTagWeight(){
+
+    if( dataset_group == "Data" ) return 1.;
+
+    static const string workingPoints[] = {"L", "M", "T", "XT", "XXT"};
+    if( JET_BTAG_WP < 0 || JET_BTAG_WP > 4 ){
+        throw std::runtime_error("UParTAK4 b-tag weights require JET_BTAG_WP between 0 and 4");
+    }
+    const string& workingPoint = workingPoints[JET_BTAG_WP];
+
+    double probabilityMC = 1.;
+    double probabilityData = 1.;
+    for( const int jetIndex : selectedJet ){
+        const int flavour = Jet_hadronFlavour[jetIndex];
+        const bool heavyFlavour = (flavour == 4 || flavour == 5);
+        const string flavourName = flavour == 5 ? "b" : (flavour == 4 ? "c" : "udsg");
+        const double efficiency = btag_eff.getEfficiency(
+            flavourName, Jet_eta[jetIndex], Jet_pt[jetIndex]
+        );
+
+        const auto& correction = heavyFlavour ? btag_bc_corr : btag_udsg_corr;
+        const double scaleFactor = correction->evaluate({
+            "central", workingPoint, flavour, std::fabs(Jet_eta[jetIndex]), Jet_pt[jetIndex]
+        });
+
+        if( JetBTAG(jetIndex, JET_BTAG_WP) ){
+            probabilityMC *= efficiency;
+            probabilityData *= efficiency * scaleFactor;
+        }else{
+            probabilityMC *= 1. - efficiency;
+            probabilityData *= 1. - efficiency * scaleFactor;
+        }
+    }
+
+    return probabilityMC > 0. ? probabilityData / probabilityMC : 1.;
 }
 

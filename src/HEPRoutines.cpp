@@ -70,6 +70,17 @@ void HEPHero::PreRoutines() {
         pileup_corr = pileup_set->at(SetName.c_str());
     }
 
+    //----B TAGGING-----------------------------------------------------------------------
+    if( (apply_btag_wgt || _SELECTION == "Test_SF_btag") && dataset_group != "Data" ){
+        string datasetName = _datasetName.substr(0, _datasetName.length()-5);
+        btag_eff.readFile(btag_eff_file);
+        btag_eff.calib(datasetName, "TTto2L2Nu");
+
+        auto btag_set = correction::CorrectionSet::from_file(btag_SF_file.c_str());
+        btag_bc_corr = btag_set->at("UParTAK4_comb");
+        btag_udsg_corr = btag_set->at("UParTAK4_light");
+    }
+
     //----MACHINE LEARNING---------------------------------------------------------------
     signal_tagger.readFile(NN_model_file);
     if( !NN_model_run3_file.empty() ){
