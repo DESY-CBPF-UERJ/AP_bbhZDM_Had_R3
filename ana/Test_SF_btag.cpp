@@ -56,6 +56,9 @@ bool HEPHero::Test_SF_btagRegion() {
     if (!lumi_certificate.GoodLumiSection(_datasetName, run, luminosityBlock)) return false;
 
     Weight_corrections();
+    if (dataset_group != "Data" && !apply_btag_wgt) {
+        btag_wgt = GetBTagWeight();
+    }
     return true;
 }
 

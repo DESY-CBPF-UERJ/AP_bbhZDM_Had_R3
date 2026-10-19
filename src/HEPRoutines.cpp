@@ -71,7 +71,7 @@ void HEPHero::PreRoutines() {
     }
 
     //----B TAGGING-----------------------------------------------------------------------
-    if( apply_btag_wgt && dataset_group != "Data" ){
+    if( (apply_btag_wgt || _SELECTION == "Test_SF_btag") && dataset_group != "Data" ){
         string datasetName = _datasetName.substr(0, _datasetName.length()-5);
         btag_eff.readFile(btag_eff_file);
         btag_eff.calib(datasetName, "TTto2L2Nu");
