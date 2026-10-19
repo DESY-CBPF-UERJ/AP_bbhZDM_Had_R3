@@ -57,6 +57,7 @@ void HEPHero::SetupHEPWeights() {
     HDF_insert("electron_wgt", &electron_wgt );
     HDF_insert("muon_wgt", &muon_wgt );
     HDF_insert("jet_puid_wgt",&jet_puid_wgt);
+    HDF_insert("btag_wgt", &btag_wgt);
 
 
     HDF_insert("Nelectrons", &Nelectrons);

@@ -12,7 +12,7 @@ analysis_parameters = {
 "JET_PT_CUT                 ": 20,      # [DONE] GeV
 "JET_ID_WP                  ": 1,       # [DONE] 0-AK4 PUPPI jets, 1- AK4 PUPPI jets and includes lepton veto
 "JET_PUID_WP                ": 3,       # 0-fail, 1-loose, 3-medium, 7-tight (tight is the only correct WP in v9)
-"JET_BTAG_WP                ": 0,       # [DONE] DeepJet: 0-loose, 1-medium, 2-tight 3- Xtight 4-XXtight; particleNET: 5-loose, 6-medium, 7-tight 8- Xtight 9-XXtight; robustParticleTransformer: 10-loose, 11-medium, 12-tight 13- Xtight 14-XXtight; 
+"JET_BTAG_WP                ": 0,       # [DONE] UParTAK4: 0-loose, 1-medium, 2-tight, 3-Xtight, 4-XXtight
 "JET_LEP_DR_ISO_CUT         ": 0.4,
 "FAT_JET_PT_CUT             ": 200,     
 "FAT_JET_ETA_CUT            ": 3,
@@ -51,6 +51,7 @@ corrections = {  # 0-don't apply, 1-apply
         "ELECTRON_ID_WGT        ":0,
         "MUON_ID_WGT            ":0,
         "JET_PUID_WGT           ":0, # NOT WORKING, MISSING FILE
+        "BTAG_WGT               ":1,
         }
 
 lateral_systematics = { 
@@ -106,6 +107,8 @@ metadata = {
 "electron_0_24              ": analysis+"/Metadata/POG/EGM/2024_Summer24/electronID_v1.json.gz",
 "muon_0_24                  ": analysis+"/Metadata/POG/MUO/2024/muon_Z.json.gz",
 "jet_puID_24                ": analysis+"/Metadata/POG/JME/2024/",
+"btag_SF_0_24               ": analysis+"/Metadata/POG/BTV/2024_Summer24/btagging.json.gz",
+"btag_eff_0_24              ": analysis+"/Metadata/btag_eff/UParTAK4/2024/btageffmap-0_24.json",
 }
 
 

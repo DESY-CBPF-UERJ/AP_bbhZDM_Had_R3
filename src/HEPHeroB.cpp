@@ -11,7 +11,7 @@ void HEPHero::FillControlVariables( string key, string value){
     if( key == "ELECTRON_ID_WGT"            )   apply_electron_wgt = ( atoi(value.c_str()) == 1 );
     if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "JET_PUID_WGT"               )   apply_jet_puid_wgt = ( atoi(value.c_str()) == 1 );
-    // if( key == "BTAG_WGT"                   )   apply_btag_wgt = ( atoi(value.c_str()) == 1 );
+    if( key == "BTAG_WGT"                   )   apply_btag_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "TRIGGER_WGT"                )   apply_trigger_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "PREFIRING_WGT"              )   apply_prefiring_wgt = ( atoi(value.c_str()) == 1 );
     // if( key == "JER_CORR"                   )   apply_jer_corr = ( atoi(value.c_str()) == 1 );
@@ -30,8 +30,8 @@ void HEPHero::FillControlVariables( string key, string value){
     if( key == "muon"                       )   muon_file = value;
     // if( key == "JES_MC"                     )   JES_MC_file = value;
     // if( key == "jet_puID"                   )   jet_puid_file = value;
-    // if( key == "btag_SF"                    )   btag_SF_file = value;
-    // if( key == "btag_eff"                   )   btag_eff_file = value;
+    if( key == "btag_SF"                    )   btag_SF_file = value;
+    if( key == "btag_eff"                   )   btag_eff_file = value;
     // if( key == "trigger"                    )   trigger_SF_file = value;
     // //if( key == "JER_MC"                     )   JER_file = value;
     // //if( key == "JER_SF_MC"                  )   JER_SF_file = value;
