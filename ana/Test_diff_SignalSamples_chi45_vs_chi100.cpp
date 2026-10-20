@@ -39,6 +39,8 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     int GEN_A_found;
     int GEN_H_found;
     int GEN_a_found;
+    int GEN_Z_found;
+    int GEN_hSM_found;
     float GEN_A_pt;
     float GEN_A_eta;
     float GEN_A_phi;
@@ -48,6 +50,12 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     float GEN_a_pt;
     float GEN_a_eta;
     float GEN_a_phi;
+    float GEN_Z_pt;
+    float GEN_Z_eta;
+    float GEN_Z_phi;
+    float GEN_hSM_pt;
+    float GEN_hSM_eta;
+    float GEN_hSM_phi;
 }
 
 
@@ -86,6 +94,8 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("GEN_A_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_found);
     HDF_insert("GEN_H_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_H_found);
     HDF_insert("GEN_a_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_found);
+    HDF_insert("GEN_Z_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_found);
+    HDF_insert("GEN_hSM_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_found);
     HDF_insert("GEN_A_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_pt);
     HDF_insert("GEN_A_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_eta);
     HDF_insert("GEN_A_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_phi);
@@ -95,6 +105,12 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("GEN_a_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_pt);
     HDF_insert("GEN_a_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_eta);
     HDF_insert("GEN_a_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_phi);
+    HDF_insert("GEN_Z_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_pt);
+    HDF_insert("GEN_Z_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_eta);
+    HDF_insert("GEN_Z_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_phi);
+    HDF_insert("GEN_hSM_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_pt);
+    HDF_insert("GEN_hSM_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_eta);
+    HDF_insert("GEN_hSM_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_phi);
 }
 
 
@@ -180,6 +196,8 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     GEN_A_found = 0;
     GEN_H_found = 0;
     GEN_a_found = 0;
+    GEN_Z_found = 0;
+    GEN_hSM_found = 0;
     GEN_A_pt = missing;
     GEN_A_eta = missing;
     GEN_A_phi = missing;
@@ -189,10 +207,31 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     GEN_a_pt = missing;
     GEN_a_eta = missing;
     GEN_a_phi = missing;
+    GEN_Z_pt = missing;
+    GEN_Z_eta = missing;
+    GEN_Z_phi = missing;
+    GEN_hSM_pt = missing;
+    GEN_hSM_eta = missing;
+    GEN_hSM_phi = missing;
 
     bool gen_A_is_last_copy = false;
     bool gen_H_is_last_copy = false;
     bool gen_a_is_last_copy = false;
+    bool gen_Z_is_last_copy = false;
+    bool gen_hSM_is_last_copy = false;
+
+    const auto has_ancestor = [&](unsigned int particle_index, int ancestor_pdg_id) {
+        int mother_index = GenPart_genPartIdxMother[particle_index];
+        unsigned int depth = 0;
+        while (mother_index >= 0 && mother_index < static_cast<int>(nGenPart) && depth < nGenPart) {
+            if (std::abs(GenPart_pdgId[mother_index]) == ancestor_pdg_id) return true;
+            const int next_mother = GenPart_genPartIdxMother[mother_index];
+            if (next_mother == mother_index) break;
+            mother_index = next_mother;
+            ++depth;
+        }
+        return false;
+    };
 
     for (unsigned int index = 0; index < nGenPart; ++index) {
         const int abs_pdg_id = std::abs(GenPart_pdgId[index]);
@@ -226,6 +265,28 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_a_pt = GenPart_pt[index];
             GEN_a_eta = GenPart_eta[index];
             GEN_a_phi = GenPart_phi[index];
+        }
+
+        // H (PDG 35) -> Z + a. Follow the ancestry so the last Z copy is retained.
+        if (abs_pdg_id == 23 && has_ancestor(index, 35) &&
+            (!GEN_Z_found || (is_last_copy && !gen_Z_is_last_copy) ||
+             (is_last_copy == gen_Z_is_last_copy && GenPart_pt[index] > GEN_Z_pt))) {
+            GEN_Z_found = 1;
+            gen_Z_is_last_copy = is_last_copy;
+            GEN_Z_pt = GenPart_pt[index];
+            GEN_Z_eta = GenPart_eta[index];
+            GEN_Z_phi = GenPart_phi[index];
+        }
+
+        // A (PDG 36) -> h(SM, PDG 25) + a. Follow copies through the ancestry chain.
+        if (abs_pdg_id == 25 && has_ancestor(index, 36) &&
+            (!GEN_hSM_found || (is_last_copy && !gen_hSM_is_last_copy) ||
+             (is_last_copy == gen_hSM_is_last_copy && GenPart_pt[index] > GEN_hSM_pt))) {
+            GEN_hSM_found = 1;
+            gen_hSM_is_last_copy = is_last_copy;
+            GEN_hSM_pt = GenPart_pt[index];
+            GEN_hSM_eta = GenPart_eta[index];
+            GEN_hSM_phi = GenPart_phi[index];
         }
     }
 
