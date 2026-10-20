@@ -508,6 +508,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "TestEfficiency" ) SetupTestEfficiency();
     else if( _SELECTION == "Hist_for_Pileup_wgt" ) SetupHist_for_Pileup_wgt();
     else if( _SELECTION == "Study_FatJetSubJets" ) SetupStudy_FatJetSubJets();
+    else if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) SetupTest_diff_SignalSamples_chi45_vs_chi100();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -529,6 +530,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "TestEfficiency" && !TestEfficiencyRegion() ) Selected = false;
     if( _SELECTION == "Hist_for_Pileup_wgt" && !Hist_for_Pileup_wgtRegion() ) Selected = false;
     if( _SELECTION == "Study_FatJetSubJets" && !Study_FatJetSubJetsRegion() ) Selected = false;
+    if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" && !Test_diff_SignalSamples_chi45_vs_chi100Region() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -547,6 +549,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "TestEfficiency" ) TestEfficiencySelection();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSelection();
     if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSelection();
+    if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) Test_diff_SignalSamples_chi45_vs_chi100Selection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -563,6 +566,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "TestEfficiency" ) TestEfficiencySystematic();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSystematic();
     if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSystematic();
+    if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) Test_diff_SignalSamples_chi45_vs_chi100Systematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -579,6 +583,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "TestEfficiency" ) FinishTestEfficiency();
     if( _SELECTION == "Hist_for_Pileup_wgt" ) FinishHist_for_Pileup_wgt();
     if( _SELECTION == "Study_FatJetSubJets" ) FinishStudy_FatJetSubJets();
+    if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) FinishTest_diff_SignalSamples_chi45_vs_chi100();
     // FINISH YOUR SELECTION HERE
 }
    

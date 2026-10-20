@@ -103,6 +103,11 @@ class HEPHero : public HEPBase {
         void Test_SF_btagSelection();
         void Test_SF_btagSystematic();
         void FinishTest_SF_btag();
+        void SetupTest_diff_SignalSamples_chi45_vs_chi100();
+        bool Test_diff_SignalSamples_chi45_vs_chi100Region();
+        void Test_diff_SignalSamples_chi45_vs_chi100Selection();
+        void Test_diff_SignalSamples_chi45_vs_chi100Systematic();
+        void FinishTest_diff_SignalSamples_chi45_vs_chi100();
         // INSERT YOUR SELECTION HERE
         
 
