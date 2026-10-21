@@ -18,7 +18,7 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     float MET_pt;
     float MHT_value;
     float OmegaMin_value;
-    float LeadingFatJet_msoftdrop;
+    float LeadingFatJet_msoftdrop_value;
 
     float LeadingMuon_pt;
     float LeadingMuon_eta;
@@ -26,13 +26,13 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     float LeadingElectron_pt;
     float LeadingElectron_eta;
     float LeadingElectron_phi;
-    float LeadingJet_pt;
+    float LeadingJet_pt_value;
     float LeadingJet_eta;
     float LeadingJet_phi;
     float LeadingBJet_pt;
     float LeadingBJet_eta;
     float LeadingBJet_phi;
-    float LeadingFatJet_pt;
+    float LeadingFatJet_pt_value;
     float LeadingFatJet_eta;
     float LeadingFatJet_phi;
 
@@ -41,6 +41,8 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     int GEN_a_found;
     int GEN_Z_found;
     int GEN_hSM_found;
+    int GEN_chi_found;
+    int GEN_chibar_found;
     float GEN_A_pt;
     float GEN_A_eta;
     float GEN_A_phi;
@@ -56,6 +58,14 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     float GEN_hSM_pt;
     float GEN_hSM_eta;
     float GEN_hSM_phi;
+    float GEN_chi_pt;
+    float GEN_chi_eta;
+    float GEN_chi_phi;
+    float GEN_chi_mass;
+    float GEN_chibar_pt;
+    float GEN_chibar_eta;
+    float GEN_chibar_phi;
+    float GEN_chibar_mass;
 }
 
 
@@ -73,7 +83,7 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("MET_pt", &Test_diff_SignalSamples_chi45_vs_chi100::MET_pt);
     HDF_insert("MHT", &Test_diff_SignalSamples_chi45_vs_chi100::MHT_value);
     HDF_insert("OmegaMin", &Test_diff_SignalSamples_chi45_vs_chi100::OmegaMin_value);
-    HDF_insert("LeadingFatJet_msoftdrop", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_msoftdrop);
+    HDF_insert("LeadingFatJet_msoftdrop", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_msoftdrop_value);
 
     HDF_insert("LeadingMuon_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingMuon_pt);
     HDF_insert("LeadingMuon_eta", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingMuon_eta);
@@ -81,13 +91,13 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("LeadingElectron_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingElectron_pt);
     HDF_insert("LeadingElectron_eta", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingElectron_eta);
     HDF_insert("LeadingElectron_phi", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingElectron_phi);
-    HDF_insert("LeadingJet_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingJet_pt);
+    HDF_insert("LeadingJet_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingJet_pt_value);
     HDF_insert("LeadingJet_eta", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingJet_eta);
     HDF_insert("LeadingJet_phi", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingJet_phi);
     HDF_insert("LeadingBJet_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingBJet_pt);
     HDF_insert("LeadingBJet_eta", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingBJet_eta);
     HDF_insert("LeadingBJet_phi", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingBJet_phi);
-    HDF_insert("LeadingFatJet_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_pt);
+    HDF_insert("LeadingFatJet_pt", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_pt_value);
     HDF_insert("LeadingFatJet_eta", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_eta);
     HDF_insert("LeadingFatJet_phi", &Test_diff_SignalSamples_chi45_vs_chi100::LeadingFatJet_phi);
 
@@ -96,6 +106,8 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("GEN_a_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_found);
     HDF_insert("GEN_Z_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_found);
     HDF_insert("GEN_hSM_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_found);
+    HDF_insert("GEN_chi_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_found);
+    HDF_insert("GEN_chibar_found", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chibar_found);
     HDF_insert("GEN_A_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_pt);
     HDF_insert("GEN_A_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_eta);
     HDF_insert("GEN_A_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_phi);
@@ -111,6 +123,14 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("GEN_hSM_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_pt);
     HDF_insert("GEN_hSM_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_eta);
     HDF_insert("GEN_hSM_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_phi);
+    HDF_insert("GEN_chi_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_pt);
+    HDF_insert("GEN_chi_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_eta);
+    HDF_insert("GEN_chi_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_phi);
+    HDF_insert("GEN_chi_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_mass);
+    HDF_insert("GEN_chibar_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chibar_pt);
+    HDF_insert("GEN_chibar_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chibar_eta);
+    HDF_insert("GEN_chibar_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chibar_phi);
+    HDF_insert("GEN_chibar_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chibar_mass);
 }
 
 
@@ -142,16 +162,16 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     LeadingElectron_pt = missing;
     LeadingElectron_eta = missing;
     LeadingElectron_phi = missing;
-    LeadingJet_pt = missing;
+    LeadingJet_pt_value = missing;
     LeadingJet_eta = missing;
     LeadingJet_phi = missing;
     LeadingBJet_pt = missing;
     LeadingBJet_eta = missing;
     LeadingBJet_phi = missing;
-    LeadingFatJet_pt = missing;
+    LeadingFatJet_pt_value = missing;
     LeadingFatJet_eta = missing;
     LeadingFatJet_phi = missing;
-    LeadingFatJet_msoftdrop = missing;
+    LeadingFatJet_msoftdrop_value = missing;
 
     for (const int index : selectedMu) {
         if (LeadingMuon_pt == missing || Muon_pt[index] > LeadingMuon_pt) {
@@ -170,8 +190,8 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     }
 
     for (const int index : selectedJet) {
-        if (LeadingJet_pt == missing || Jet_pt[index] > LeadingJet_pt) {
-            LeadingJet_pt = Jet_pt[index];
+        if (LeadingJet_pt_value == missing || Jet_pt[index] > LeadingJet_pt_value) {
+            LeadingJet_pt_value = Jet_pt[index];
             LeadingJet_eta = Jet_eta[index];
             LeadingJet_phi = Jet_phi[index];
         }
@@ -185,11 +205,11 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     }
 
     for (const int index : selectedFatJet) {
-        if (LeadingFatJet_pt == missing || FatJet_pt[index] > LeadingFatJet_pt) {
-            LeadingFatJet_pt = FatJet_pt[index];
+        if (LeadingFatJet_pt_value == missing || FatJet_pt[index] > LeadingFatJet_pt_value) {
+            LeadingFatJet_pt_value = FatJet_pt[index];
             LeadingFatJet_eta = FatJet_eta[index];
             LeadingFatJet_phi = FatJet_phi[index];
-            LeadingFatJet_msoftdrop = FatJet_msoftdrop[index];
+            LeadingFatJet_msoftdrop_value = FatJet_msoftdrop[index];
         }
     }
 
@@ -198,6 +218,8 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     GEN_a_found = 0;
     GEN_Z_found = 0;
     GEN_hSM_found = 0;
+    GEN_chi_found = 0;
+    GEN_chibar_found = 0;
     GEN_A_pt = missing;
     GEN_A_eta = missing;
     GEN_A_phi = missing;
@@ -213,12 +235,22 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     GEN_hSM_pt = missing;
     GEN_hSM_eta = missing;
     GEN_hSM_phi = missing;
+    GEN_chi_pt = missing;
+    GEN_chi_eta = missing;
+    GEN_chi_phi = missing;
+    GEN_chi_mass = missing;
+    GEN_chibar_pt = missing;
+    GEN_chibar_eta = missing;
+    GEN_chibar_phi = missing;
+    GEN_chibar_mass = missing;
 
     bool gen_A_is_last_copy = false;
     bool gen_H_is_last_copy = false;
     bool gen_a_is_last_copy = false;
     bool gen_Z_is_last_copy = false;
     bool gen_hSM_is_last_copy = false;
+    bool gen_chi_is_last_copy = false;
+    bool gen_chibar_is_last_copy = false;
 
     const auto has_ancestor = [&](unsigned int particle_index, int ancestor_pdg_id) {
         int mother_index = GenPart_genPartIdxMother[particle_index];
@@ -287,6 +319,32 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_hSM_pt = GenPart_pt[index];
             GEN_hSM_eta = GenPart_eta[index];
             GEN_hSM_phi = GenPart_phi[index];
+        }
+
+        const bool from_pseudoscalar = has_ancestor(index, 54) || has_ancestor(index, 55);
+
+        // Dark matter particle chi (PDG +52), descending from the pseudoscalar a.
+        if (GenPart_pdgId[index] == 52 && from_pseudoscalar &&
+            (!GEN_chi_found || (is_last_copy && !gen_chi_is_last_copy) ||
+             (is_last_copy == gen_chi_is_last_copy && GenPart_pt[index] > GEN_chi_pt))) {
+            GEN_chi_found = 1;
+            gen_chi_is_last_copy = is_last_copy;
+            GEN_chi_pt = GenPart_pt[index];
+            GEN_chi_eta = GenPart_eta[index];
+            GEN_chi_phi = GenPart_phi[index];
+            GEN_chi_mass = GenPart_mass[index];
+        }
+
+        // Dark matter antiparticle chibar (PDG -52), descending from the pseudoscalar a.
+        if (GenPart_pdgId[index] == -52 && from_pseudoscalar &&
+            (!GEN_chibar_found || (is_last_copy && !gen_chibar_is_last_copy) ||
+             (is_last_copy == gen_chibar_is_last_copy && GenPart_pt[index] > GEN_chibar_pt))) {
+            GEN_chibar_found = 1;
+            gen_chibar_is_last_copy = is_last_copy;
+            GEN_chibar_pt = GenPart_pt[index];
+            GEN_chibar_eta = GenPart_eta[index];
+            GEN_chibar_phi = GenPart_phi[index];
+            GEN_chibar_mass = GenPart_mass[index];
         }
     }
 
