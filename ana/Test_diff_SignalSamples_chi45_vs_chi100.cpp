@@ -46,18 +46,23 @@ namespace Test_diff_SignalSamples_chi45_vs_chi100 {
     float GEN_A_pt;
     float GEN_A_eta;
     float GEN_A_phi;
+    float GEN_A_mass;
     float GEN_H_pt;
     float GEN_H_eta;
     float GEN_H_phi;
+    float GEN_H_mass;
     float GEN_a_pt;
     float GEN_a_eta;
     float GEN_a_phi;
+    float GEN_a_mass;
     float GEN_Z_pt;
     float GEN_Z_eta;
     float GEN_Z_phi;
+    float GEN_Z_mass;
     float GEN_hSM_pt;
     float GEN_hSM_eta;
     float GEN_hSM_phi;
+    float GEN_hSM_mass;
     float GEN_chi_pt;
     float GEN_chi_eta;
     float GEN_chi_phi;
@@ -111,18 +116,23 @@ void HEPHero::SetupTest_diff_SignalSamples_chi45_vs_chi100() {
     HDF_insert("GEN_A_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_pt);
     HDF_insert("GEN_A_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_eta);
     HDF_insert("GEN_A_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_phi);
+    HDF_insert("GEN_A_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_A_mass);
     HDF_insert("GEN_H_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_H_pt);
     HDF_insert("GEN_H_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_H_eta);
     HDF_insert("GEN_H_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_H_phi);
+    HDF_insert("GEN_H_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_H_mass);
     HDF_insert("GEN_a_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_pt);
     HDF_insert("GEN_a_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_eta);
     HDF_insert("GEN_a_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_phi);
+    HDF_insert("GEN_a_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_a_mass);
     HDF_insert("GEN_Z_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_pt);
     HDF_insert("GEN_Z_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_eta);
     HDF_insert("GEN_Z_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_phi);
+    HDF_insert("GEN_Z_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_Z_mass);
     HDF_insert("GEN_hSM_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_pt);
     HDF_insert("GEN_hSM_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_eta);
     HDF_insert("GEN_hSM_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_phi);
+    HDF_insert("GEN_hSM_mass", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_hSM_mass);
     HDF_insert("GEN_chi_pt", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_pt);
     HDF_insert("GEN_chi_eta", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_eta);
     HDF_insert("GEN_chi_phi", &Test_diff_SignalSamples_chi45_vs_chi100::GEN_chi_phi);
@@ -223,18 +233,23 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
     GEN_A_pt = missing;
     GEN_A_eta = missing;
     GEN_A_phi = missing;
+    GEN_A_mass = missing;
     GEN_H_pt = missing;
     GEN_H_eta = missing;
     GEN_H_phi = missing;
+    GEN_H_mass = missing;
     GEN_a_pt = missing;
     GEN_a_eta = missing;
     GEN_a_phi = missing;
+    GEN_a_mass = missing;
     GEN_Z_pt = missing;
     GEN_Z_eta = missing;
     GEN_Z_phi = missing;
+    GEN_Z_mass = missing;
     GEN_hSM_pt = missing;
     GEN_hSM_eta = missing;
     GEN_hSM_phi = missing;
+    GEN_hSM_mass = missing;
     GEN_chi_pt = missing;
     GEN_chi_eta = missing;
     GEN_chi_phi = missing;
@@ -277,6 +292,7 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_A_pt = GenPart_pt[index];
             GEN_A_eta = GenPart_eta[index];
             GEN_A_phi = GenPart_phi[index];
+            GEN_A_mass = GenPart_mass[index];
         }
 
         if (abs_pdg_id == 35 &&
@@ -287,6 +303,7 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_H_pt = GenPart_pt[index];
             GEN_H_eta = GenPart_eta[index];
             GEN_H_phi = GenPart_phi[index];
+            GEN_H_mass = GenPart_mass[index];
         }
 
         if ((abs_pdg_id == 54 || abs_pdg_id == 55) &&
@@ -297,6 +314,7 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_a_pt = GenPart_pt[index];
             GEN_a_eta = GenPart_eta[index];
             GEN_a_phi = GenPart_phi[index];
+            GEN_a_mass = GenPart_mass[index];
         }
 
         // H (PDG 35) -> Z + a. Follow the ancestry so the last Z copy is retained.
@@ -308,6 +326,7 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_Z_pt = GenPart_pt[index];
             GEN_Z_eta = GenPart_eta[index];
             GEN_Z_phi = GenPart_phi[index];
+            GEN_Z_mass = GenPart_mass[index];
         }
 
         // A (PDG 36) -> h(SM, PDG 25) + a. Follow copies through the ancestry chain.
@@ -319,6 +338,7 @@ bool HEPHero::Test_diff_SignalSamples_chi45_vs_chi100Region() {
             GEN_hSM_pt = GenPart_pt[index];
             GEN_hSM_eta = GenPart_eta[index];
             GEN_hSM_phi = GenPart_phi[index];
+            GEN_hSM_mass = GenPart_mass[index];
         }
 
         const bool from_pseudoscalar = has_ancestor(index, 54) || has_ancestor(index, 55);
