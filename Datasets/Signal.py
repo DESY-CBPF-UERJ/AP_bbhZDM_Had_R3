@@ -61,6 +61,13 @@ s_ds_info = { # [DatasetName, Production ID, PROC_XSEC[pb], XSEC_UNC[pb], XSEC_A
     ["Signal_H800_a400_chi100",          '99',       1.0,                 0.,                'unknown'],
     ["Signal_H1400_a400_chi100",         '99',       1.0,                 0.,                'unknown'],
     ["Signal_H2000_a1800_chi100",        '99',       1.0,                 0.,                'unknown'],
+
+    # fixed samples: temporary unit cross section for normalized shape comparisons
+    ["Signal_H800_a400_chi100_fixed",    '99',       1.0,                 0.,                'unknown'],
+    ["Signal_H1400_a400_chi100_fixed",   '99',       1.0,                 0.,                'unknown'],
+    ["Signal_H2000_a1800_chi100_fixed",  '99',       1.0,                 0.,                'unknown'],
+    ["Signal_H800_a400_chi45_fixed",     '99',       1.0,                 0.,                'unknown'],
+    ["Signal_H1400_a400_chi45_fixed",    '99',       1.0,                 0.,                'unknown'],
 ],
 }
 
