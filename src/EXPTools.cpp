@@ -1,4 +1,21 @@
 #include "HEPHero.h"
+#include <stdexcept>
+
+// Nominal AK4 energy correction only; no JER, AK8, JES variations or MET propagation here.
+void HEPHero::ApplyAK4JEC() {
+    if (!jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group)) return;
+    if (!ak4_jec) throw std::runtime_error("AK4 JEC evaluator was not initialized");
+    if (nJet > sizeof(Jet_pt) / sizeof(Jet_pt[0]))
+        throw std::runtime_error("AK4 JEC: nJet exceeds the framework jet-array capacity");
+    for (unsigned int ijet = 0; ijet < nJet; ++ijet) {
+        const auto corrected = ak4_jec->correct(
+            Jet_pt[ijet], Jet_mass[ijet], Jet_rawFactor[ijet], Jet_eta[ijet],
+            Jet_phi[ijet], Jet_area[ijet], ak4_jec_rho);
+        Jet_pt[ijet] = corrected.pt;
+        Jet_mass[ijet] = corrected.mass;
+    }
+}
+
 
 
 //---------------------------------------------------------------------------------------------

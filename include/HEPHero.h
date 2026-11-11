@@ -8,6 +8,7 @@
 //#include "TLorentzVector.h"
 #include "onnxruntime_cxx_api.h"
 #include "correction.h"
+#include "AK4JEC.h"
 #include "btageffanalyzer.h"
 
 
@@ -127,6 +128,7 @@ class HEPHero : public HEPBase {
         void GenJet_lep_overlap(float deltaR_cut);
         void LeptonSelection();
         void JetSelection();
+        void ApplyAK4JEC();
         void FatjetSelection();
         vector<float> SoftmaxHEP( vector<float> input_vec );
         bool Trigger();
@@ -350,6 +352,12 @@ class HEPHero : public HEPBase {
         string  certificate_file;
         LumiSections lumi_certificate;
 
+
+        //----AK4 NOMINAL JEC (2024 BACKGROUND MC ONLY)------
+        bool apply_ak4_jec = false;
+        string jet_jerc_file;
+        Float_t ak4_jec_rho = 0.0;
+        std::unique_ptr<jetmet::AK4JEC> ak4_jec;
 
         //----PILEUP---------------------------------------
         bool    apply_pileup_wgt;
@@ -761,7 +769,7 @@ class HEPHero : public HEPBase {
 //		Float_t         Jet_UParTAK4V1RegPtRawCorr[100];   //[nJet]
 //		Float_t         Jet_UParTAK4V1RegPtRawCorrNeutrino[100];   //[nJet]
 //		Float_t         Jet_UParTAK4V1RegPtRawRes[100];   //[nJet]
-//		Float_t         Jet_area[100];   //[nJet]
+		Float_t         Jet_area[100];   //[nJet]
 		Float_t         Jet_btagDeepFlavB[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavCvB[100];   //[nJet]
 //		Float_t         Jet_btagDeepFlavCvL[100];   //[nJet]
@@ -802,7 +810,7 @@ class HEPHero : public HEPBase {
 		Float_t         Jet_phi[100];   //[nJet]
 		Float_t         Jet_pt[100];   //[nJet]
 //		Float_t         Jet_puIdDisc[100];   //[nJet]
-//		Float_t         Jet_rawFactor[100];   //[nJet]
+		Float_t         Jet_rawFactor[100];   //[nJet]
 		
 		UChar_t         LHE_Njets;
 		UChar_t         LHE_Nb;

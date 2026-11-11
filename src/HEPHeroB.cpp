@@ -1,4 +1,5 @@
 #include "HEPHero.h"
+#include <stdexcept>
 
 
 //-------------------------------------------------------------------------------------------------
@@ -7,6 +8,7 @@
 void HEPHero::FillControlVariables( string key, string value){
 
     //----CORRECTIONS------------------------------------------------------------------------------
+    if( key == "AK4_JEC_CORR"               )   apply_ak4_jec = ( atoi(value.c_str()) == 1 );
     if( key == "PILEUP_WGT"                 )   apply_pileup_wgt = ( atoi(value.c_str()) == 1 );
     if( key == "ELECTRON_ID_WGT"            )   apply_electron_wgt = ( atoi(value.c_str()) == 1 );
     if( key == "MUON_ID_WGT"                )   apply_muon_wgt = ( atoi(value.c_str()) == 1 );
@@ -35,7 +37,7 @@ void HEPHero::FillControlVariables( string key, string value){
     // if( key == "trigger"                    )   trigger_SF_file = value;
     // //if( key == "JER_MC"                     )   JER_file = value;
     // //if( key == "JER_SF_MC"                  )   JER_SF_file = value;
-    // if( key == "JERC"                       )   jet_jerc_file = value;
+    if( key == "jet_jerc"                   )   jet_jerc_file = value;
     // if( key == "mu_RoccoR"                  )   muon_roc_file = value;
     // if( key == "Z_recoil"                   )   Z_recoil_file = value;
     // if( key == "NN_prep_keras"              )   preprocessing_keras_file = value;
@@ -174,6 +176,20 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_mass", Jet_mass);
         _inputTree->SetBranchAddress("Jet_phi", Jet_phi);
         _inputTree->SetBranchAddress("Jet_pt", Jet_pt);
+        if (jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group)) {
+            for (const char* branch : {"Jet_rawFactor", "Jet_area"}) {
+                if (!_inputTree->GetBranch(branch))
+                    throw std::runtime_error(string("AK4 JEC requires branch ") + branch);
+            }
+            if (_inputTree->SetBranchAddress("Jet_rawFactor", Jet_rawFactor) < 0 ||
+                _inputTree->SetBranchAddress("Jet_area", Jet_area) < 0)
+                throw std::runtime_error("AK4 JEC: incompatible rawFactor/area branch type");
+            const char* rhoBranch = _inputTree->GetBranch("Rho_fixedGridRhoFastjetAll")
+                ? "Rho_fixedGridRhoFastjetAll" : "fixedGridRhoFastjetAll";
+            if (!_inputTree->GetBranch(rhoBranch) ||
+                _inputTree->SetBranchAddress(rhoBranch, &ak4_jec_rho) < 0)
+                throw std::runtime_error("AK4 JEC requires a compatible Fastjet rho branch");
+        }
         _inputTree->SetBranchAddress("Jet_btagPNetB", Jet_btagPNetB);
         _inputTree->SetBranchAddress("Jet_btagDeepFlavB", Jet_btagDeepFlavB);
         
