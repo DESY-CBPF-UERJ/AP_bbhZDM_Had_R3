@@ -21,7 +21,16 @@ void HEPHero::PreRoutines() {
     lumi_certificate.ReadFile(certificate_file);
 
 
-   //----ELECTRON ID------------------------------------------------------------------------------
+    //----AK4 NOMINAL JEC--------------------------------------------------------------------------
+    if (jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group)) {
+        if (jet_jerc_file.empty())
+            throw std::runtime_error("AK4_JEC_CORR=1 requires jet_jerc metadata for 2024");
+        ak4_jec.reset(new jetmet::AK4JEC(jet_jerc_file));
+        cout << "AK4 nominal JEC: " << jetmet::AK4JEC::key()
+             << " from " << jet_jerc_file << endl;
+    }
+
+    //----ELECTRON ID------------------------------------------------------------------------------
     if( apply_electron_wgt ){
         auto electron_set = correction::CorrectionSet::from_file(electron_file.c_str());
         electron_ID_corr = electron_set->at("Electron-ID-SF");
@@ -104,6 +113,9 @@ bool HEPHero::RunRoutines() {
             SumGenWeights += genWeight;
 //        }
     }
+
+    // Recalibrate once after GetEntry and before any analysis region/object selection.
+    ApplyAK4JEC();
 
     //======MC SAMPLES PROCESSING=====================================================
     if( !MC_processing() ) return false;

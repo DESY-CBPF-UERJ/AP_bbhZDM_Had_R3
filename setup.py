@@ -47,6 +47,7 @@ analysis_parameters = {
 }
 
 corrections = {  # 0-don't apply, 1-apply
+        "AK4_JEC_CORR           ":0, # Opt-in for validation; Type-1 MET propagation is not implemented yet
         "PILEUP_WGT             ":1,
         "ELECTRON_ID_WGT        ":0,
         "MUON_ID_WGT            ":0,
@@ -100,6 +101,7 @@ datasets = [
 # Metadata
 #--------------------------------------------------------------------------------------------------
 metadata = {
+"jet_jerc_0_24              ": analysis+"/Metadata/POG/JME/2024/jet_jerc.json.gz",
 "NN_model_X_XX              ": analysis+"/Metadata/ML/model.onnx",
 "NN_model_run3_X_XX         ": analysis+"/Metadata/ML/model_run3.onnx",
 "lumi_certificate_X_24      ": analysis+"/Metadata/certificates/Cert_Collisions2024_378981_386951_Golden.json",
