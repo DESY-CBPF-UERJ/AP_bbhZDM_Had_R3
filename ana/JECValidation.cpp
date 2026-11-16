@@ -29,14 +29,14 @@ void HEPHero::SetupJECValidation() {
         throw std::runtime_error("JECValidation requires jet_jerc metadata");
 
     evaluator.reset(new jetmet::AK4JEC(jet_jerc_file));
-    _outputTree->Branch("Jet_pt_stored", &pt_stored);
-    _outputTree->Branch("Jet_pt_rejec", &pt_rejec);
-    _outputTree->Branch("Jet_mass_stored", &mass_stored);
-    _outputTree->Branch("Jet_mass_rejec", &mass_rejec);
-    _outputTree->Branch("Jet_eta", &eta);
-    _outputTree->Branch("Jet_phi", &phi);
-    _outputTree->Branch("Jet_pt_ratio_rejec_over_stored", &pt_ratio);
-    _outputTree->Branch("Jet_pt_delta_rejec_minus_stored", &pt_delta);
+    HDF_insert("Jet_pt_stored", &pt_stored);
+    HDF_insert("Jet_pt_rejec", &pt_rejec);
+    HDF_insert("Jet_mass_stored", &mass_stored);
+    HDF_insert("Jet_mass_rejec", &mass_rejec);
+    HDF_insert("Jet_eta", &eta);
+    HDF_insert("Jet_phi", &phi);
+    HDF_insert("Jet_pt_ratio_rejec_over_stored", &pt_ratio);
+    HDF_insert("Jet_pt_delta_rejec_minus_stored", &pt_delta);
 
     std::cout << "JECValidation: comparing stored jets with "
               << jetmet::AK4JEC::key() << std::endl;
@@ -72,7 +72,7 @@ void HEPHero::JECValidationSelection() {
     pt_ratio = corrected.pt / Jet_pt[leading];
     pt_delta = corrected.pt - Jet_pt[leading];
 
-    _outputTree->Fill();
+    HDF_fill();
 }
 
 void HEPHero::JECValidationSystematic() {
