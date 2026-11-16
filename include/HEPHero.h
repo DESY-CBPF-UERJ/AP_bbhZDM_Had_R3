@@ -109,6 +109,11 @@ class HEPHero : public HEPBase {
         void Test_diff_SignalSamples_chi45_vs_chi100Selection();
         void Test_diff_SignalSamples_chi45_vs_chi100Systematic();
         void FinishTest_diff_SignalSamples_chi45_vs_chi100();
+        void SetupJECValidation();
+        bool JECValidationRegion();
+        void JECValidationSelection();
+        void JECValidationSystematic();
+        void FinishJECValidation();
         // INSERT YOUR SELECTION HERE
         
 
@@ -409,7 +414,7 @@ class HEPHero : public HEPBase {
 
         UInt_t run;
         UInt_t luminosityBlock;
-        UInt_t event;
+        ULong64_t event;
         UInt_t bunchCrossing;
 
 

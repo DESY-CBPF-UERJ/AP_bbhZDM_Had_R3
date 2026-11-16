@@ -176,7 +176,8 @@ bool HEPHero::Init() {
         _inputTree->SetBranchAddress("Jet_mass", Jet_mass);
         _inputTree->SetBranchAddress("Jet_phi", Jet_phi);
         _inputTree->SetBranchAddress("Jet_pt", Jet_pt);
-        if (jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group)) {
+        if (jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group) ||
+            _SELECTION == "JECValidation") {
             for (const char* branch : {"Jet_rawFactor", "Jet_area"}) {
                 if (!_inputTree->GetBranch(branch))
                     throw std::runtime_error(string("AK4 JEC requires branch ") + branch);
@@ -525,6 +526,7 @@ void HEPHero::SetupAna(){
     else if( _SELECTION == "Hist_for_Pileup_wgt" ) SetupHist_for_Pileup_wgt();
     else if( _SELECTION == "Study_FatJetSubJets" ) SetupStudy_FatJetSubJets();
     else if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) SetupTest_diff_SignalSamples_chi45_vs_chi100();
+    else if( _SELECTION == "JECValidation" ) SetupJECValidation();
     // SETUP YOUR SELECTION HERE
     else {
       cout << "Unknown selection requested. Exiting. " << endl;
@@ -547,6 +549,7 @@ bool HEPHero::AnaRegion(){
     if( _SELECTION == "Hist_for_Pileup_wgt" && !Hist_for_Pileup_wgtRegion() ) Selected = false;
     if( _SELECTION == "Study_FatJetSubJets" && !Study_FatJetSubJetsRegion() ) Selected = false;
     if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" && !Test_diff_SignalSamples_chi45_vs_chi100Region() ) Selected = false;
+    if( _SELECTION == "JECValidation" && !JECValidationRegion() ) Selected = false;
     // SET THE REGION OF YOUR SELECTION HERE
 
     return Selected;
@@ -566,6 +569,7 @@ void HEPHero::AnaSelection(){
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSelection();
     if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSelection();
     if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) Test_diff_SignalSamples_chi45_vs_chi100Selection();
+    if( _SELECTION == "JECValidation" ) JECValidationSelection();
     // CALL YOUR SELECTION HERE
 }
 
@@ -583,6 +587,7 @@ void HEPHero::AnaSystematic(){
     if( _SELECTION == "Hist_for_Pileup_wgt" ) Hist_for_Pileup_wgtSystematic();
     if( _SELECTION == "Study_FatJetSubJets" ) Study_FatJetSubJetsSystematic();
     if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) Test_diff_SignalSamples_chi45_vs_chi100Systematic();
+    if( _SELECTION == "JECValidation" ) JECValidationSystematic();
     // PRODUCE THE SYSTEMATIC OF YOUR SELECTION HERE
 }
 
@@ -600,6 +605,7 @@ void HEPHero::FinishAna(){
     if( _SELECTION == "Hist_for_Pileup_wgt" ) FinishHist_for_Pileup_wgt();
     if( _SELECTION == "Study_FatJetSubJets" ) FinishStudy_FatJetSubJets();
     if( _SELECTION == "Test_diff_SignalSamples_chi45_vs_chi100" ) FinishTest_diff_SignalSamples_chi45_vs_chi100();
+    if( _SELECTION == "JECValidation" ) FinishJECValidation();
     // FINISH YOUR SELECTION HERE
 }
    
