@@ -8,10 +8,10 @@
 
 namespace jetmet {
 
-// This first implementation deliberately leaves data, private signals and other years unchanged.
+// This first implementation deliberately leaves data and other years unchanged.
 inline bool applyAK4JECTo(bool requested, const std::string& year,
                          const std::string& group) {
-    return requested && year == "24" && group != "Data" && group != "Signal";
+    return requested && year == "24" && group != "Data";
 }
 
 struct CorrectedJet {

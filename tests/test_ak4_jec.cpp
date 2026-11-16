@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     assert(applyAK4JECTo(true, "24", "QCD"));
     assert(!applyAK4JECTo(false, "24", "TT"));
     assert(!applyAK4JECTo(true, "24", "Data"));
-    assert(!applyAK4JECTo(true, "24", "Signal"));
+    assert(applyAK4JECTo(true, "24", "Signal"));
     assert(!applyAK4JECTo(true, "23", "TT"));
     assert(argc == 2 || argc == 3);
     jetmet::AK4JEC jec(argv[1]);
@@ -45,14 +45,16 @@ int main(int argc, char** argv) {
         assert(sample.good());
         double pt, mass, rawFactor, eta, phi, area, rho;
         int count = 0;
+        bool changed = false;
         while (sample >> pt >> mass >> rawFactor >> eta >> phi >> area >> rho) {
             const auto result = jec.correct(pt, mass, rawFactor, eta, phi, area, rho);
             const double direct = reference->evaluate({area, eta, pt * (1. - rawFactor), rho, phi});
             assert(std::abs(result.pt - pt * (1. - rawFactor) * direct) < 1e-7);
             assert(std::isfinite(result.mass));
+            if (std::abs(result.pt - pt) > 1e-6) changed = true;
             ++count;
         }
-        assert(sample.eof() && count > 0);
+        assert(sample.eof() && count > 0 && changed);
         std::cout << "Local ROOT sample: " << count << " jets passed\n";
     }
     std::cout << "AK4 JEC scope and nominal payload tests passed\n";

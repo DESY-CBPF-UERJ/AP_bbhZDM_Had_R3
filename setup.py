@@ -47,7 +47,7 @@ analysis_parameters = {
 }
 
 corrections = {  # 0-don't apply, 1-apply
-        "AK4_JEC_CORR           ":0, # Opt-in for validation; Type-1 MET propagation is not implemented yet
+        "AK4_JEC_CORR           ":0, # Opt-in 2024 MC jet validation; MET propagation is not implemented
         "PILEUP_WGT             ":1,
         "ELECTRON_ID_WGT        ":0,
         "MUON_ID_WGT            ":0,
