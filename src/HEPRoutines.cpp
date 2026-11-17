@@ -25,8 +25,9 @@ void HEPHero::PreRoutines() {
     if (jetmet::applyAK4JECTo(apply_ak4_jec, dataset_year, dataset_group)) {
         if (jet_jerc_file.empty())
             throw std::runtime_error("AK4_JEC_CORR=1 requires jet_jerc metadata for 2024");
-        ak4_jec.reset(new jetmet::AK4JEC(jet_jerc_file));
-        cout << "AK4 nominal JEC: " << jetmet::AK4JEC::key()
+        const bool isData = dataset_group == "Data";
+        ak4_jec.reset(new jetmet::AK4JEC(jet_jerc_file, isData));
+        cout << "AK4 nominal JEC: " << jetmet::AK4JEC::key(isData)
              << " from " << jet_jerc_file << endl;
     }
 

@@ -20,15 +20,16 @@ float pt_delta = 0.f;
 void HEPHero::SetupJECValidation() {
     using namespace JECValidation;
 
-    if (dataset_year != "24" || dataset_group == "Data")
-        throw std::runtime_error("JECValidation requires 2024 MC");
+    if (dataset_year != "24")
+        throw std::runtime_error("JECValidation requires a 2024 sample");
     if (apply_ak4_jec)
         throw std::runtime_error(
             "JECValidation requires AK4_JEC_CORR=0 to preserve stored NanoAOD jets");
     if (jet_jerc_file.empty())
         throw std::runtime_error("JECValidation requires jet_jerc metadata");
 
-    evaluator.reset(new jetmet::AK4JEC(jet_jerc_file));
+    const bool isData = dataset_group == "Data";
+    evaluator.reset(new jetmet::AK4JEC(jet_jerc_file, isData));
     HDF_insert("Jet_pt_stored", &pt_stored);
     HDF_insert("Jet_pt_rejec", &pt_rejec);
     HDF_insert("Jet_mass_stored", &mass_stored);
@@ -39,7 +40,7 @@ void HEPHero::SetupJECValidation() {
     HDF_insert("Jet_pt_delta_rejec_minus_stored", &pt_delta);
 
     std::cout << "JECValidation: comparing stored jets with "
-              << jetmet::AK4JEC::key() << std::endl;
+              << jetmet::AK4JEC::key(isData) << std::endl;
 }
 
 bool HEPHero::JECValidationRegion() {
@@ -61,7 +62,7 @@ void HEPHero::JECValidationSelection() {
 
     const auto corrected = evaluator->correct(
         Jet_pt[leading], Jet_mass[leading], Jet_rawFactor[leading],
-        Jet_eta[leading], Jet_phi[leading], Jet_area[leading], ak4_jec_rho);
+        Jet_eta[leading], Jet_phi[leading], Jet_area[leading], ak4_jec_rho, run);
 
     pt_stored = Jet_pt[leading];
     pt_rejec = corrected.pt;
